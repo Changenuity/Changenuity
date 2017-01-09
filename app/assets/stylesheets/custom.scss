@@ -1,0 +1,117 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* universal */
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+.jumbotron {
+  background-color: white;
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* header */
+
+.header-logo {
+  margin-left: 40px;
+  margin-top: 20px;
+  float: left;
+  width: 174px;
+  height: 100px;
+  img {
+    width: auto;
+    height: 100%
+  }
+}
+
+
+.navbar-default {
+  background-color: white;
+  border-color: white;
+}
+
+.navbar-nav li a {
+  line-height: 100px;
+  text-transform: uppercase;
+  font-size: 1em;
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $gray-lighter;
+  color: $gray-light;
+  a {
+    color: $gray-light;
+    &:hover {
+      color: black;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
+}
+
+/* home */
+
+#center-image {
+  position: relative;
+  background: url("windmill.jpg") no-repeat center center;
+  background-size: cover;
+  min-width: 100%;
+  height: 300px;
+  #background-overlay {
+    background: rgba(0,0,0,.4);
+    height: 100%;
+    #center-text {
+      position: absolute;
+      top: 40%;
+      left: 0px;
+      width: 100%;
+      h1, h2, h3, h4, h5, h6 {
+        text-align: center;
+        text-transform: uppercase;
+        color: white;
+      }
+    }
+  }
+}
