@@ -26,6 +26,18 @@ textarea {
   background-color: white;
 }
 
+.container {
+  max-width: 1024px;
+  float: none;
+  margin: 0 auto;
+}
+
+.container-fluid {
+  padding: 0px;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -42,28 +54,29 @@ h1 {
 /* header */
 
 .header-logo {
-  margin-left: 40px;
+  margin-left: 80px;
   margin-top: 20px;
   float: left;
   width: 174px;
   height: 100px;
   img {
     width: auto;
-    height: 100%
+    height: 100%;
   }
 }
-
 
 .navbar-default {
   background-color: white;
   border-color: white;
+  padding-right: 80px;
 }
 
-.navbar-nav li a {
+.navbar-default .navbar-nav li a {
+  color: $gray-dark;
   line-height: 100px;
   text-transform: uppercase;
-  font-size: 1em;
 }
+
 
 /* footer */
 
@@ -72,21 +85,25 @@ footer {
   padding-top: 5px;
   border-top: 1px solid $gray-lighter;
   color: $gray-light;
-  a {
-    color: $gray-light;
-    &:hover {
-      color: black;
-    }
-  }
   small {
     float: left;
+    padding-left: 80px;
   }
-  ul {
-    float: right;
-    list-style: none;
-    li {
-      float: left;
-      margin-left: 15px;
+  nav {
+    padding-right: 80px;
+    a {
+      color: $gray-light;
+      &:hover {
+        color: black;
+      }
+    }
+    ul {
+      float: right;
+      list-style: none;
+      li {
+        float: left;
+        margin-left: 15px;
+      }
     }
   }
 }
@@ -98,19 +115,21 @@ footer {
   background: url("windmill.jpg") no-repeat center center;
   background-size: cover;
   min-width: 100%;
-  height: 300px;
+  height: 380px;
   #background-overlay {
     background: rgba(0,0,0,.4);
     height: 100%;
     #center-text {
       position: absolute;
-      top: 40%;
+      top: 45%;
       left: 0px;
       width: 100%;
       h1, h2, h3, h4, h5, h6 {
         text-align: center;
         text-transform: uppercase;
         color: white;
+        font-weight: bold;
+        margin-bottom: -15px;
       }
     }
   }

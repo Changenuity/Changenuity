@@ -1,8 +1,85 @@
-<div id="center-image">
-  <div id="background-overlay">
-    <div id="center-text">
-      <h3>Discover your team, mentor, project, or cause.</h3>
-      <h2>Find your change.</h2>
+<section class="container-fluid col-xs-12">
+  <div id="center-image">
+    <div id="background-overlay">
+      <div id="center-text">
+        <h2>Discover your team, mentor, project, or cause.</h2>
+        <h1>Find your change.</h1>
+      </div>
     </div>
   </div>
-</div>
+</section>
+
+<section class="container col-xs-12">
+  <h3 class="center">What does our platform do?</h3>
+  <h2 class="center">Connects:</h2>
+
+  <section class="col-xs-4">
+    <h3 class="center">Individuals to Individuals</h3>
+    <%= image_tag("indiv_to_indiv.png", alt: "Individuals to individuals",
+                                        class: "center-block") %>
+    <p class="center">
+      A high school student passionate about biology can study genetic mutations with a researcher at a local university.
+    </p>
+  </section>
+
+  <section class="col-xs-4">
+    <h3 class="center">Individuals to Groups</h3>
+    <%= image_tag("indiv_to_group.png", alt: "Individuals to groups",
+                                        class: "center-block") %>
+    <p class="center">
+      An engineer can design and build sustainable chairs for a children's school in Zimbabwe.
+    </p>
+  </section>
+
+  <section class="col-xs-4">
+    <h3 class="center">Groups to Groups</h3>
+    <%= image_tag("group_to_group.png", alt: "Groups to groups",
+                                        class: "center-block") %>
+    <p class="center">
+      A city government in India can improve the health of its local produce by working with an organic pesticides startup company.
+    </p>
+  </section>
+
+  <h2 class="center">GET STARTED</h2>
+  <h4 class="center">Sign up for blog and milestone updates!</h4>
+
+  <form class="col-md-4 col-md-offset-4">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email">
+    </div>
+    <div class="form-group">
+      <label>What are you interested in?</label>
+      <div class="checkbox">
+        <label><input type="checkbox" name="global" />Global Development</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" name="tech" />Technology Development</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" name="research" />Research</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" name="club" />Volunteer/Club Opportunities</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" name="learn" />Learning Opportunities</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" name="job" />Job Openings</label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success center-block">Subscribe</button>
+  </form>
+
+  <section class="col-xs-6">
+    <button class="btn btn-default center-block">Post Opportunities</button>
+  </section>
+  <section class="col-xs-6">
+    <button class="btn btn-default center-block">Browse Opportunities</button>
+  </section>
+</section>
