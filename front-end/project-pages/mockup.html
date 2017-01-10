@@ -6,15 +6,79 @@
   <title>Project Page Mockup</title>
 
   <link rel="stylesheet" type="text/css" href="../common/css/bootstrap.min.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
 
-  <style>
+
+  <style> /* These styles are page specific */
+    #main-header {
+      background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7)),
+                    url("splash.jpg");
+    }
+  </style>
+
+  <style> /* These styles are generic */
+    body {
+      font-family: "Lato", sans-serif;
+    }
+
+    #main-header {
+      position: relative;
+      padding-top: 50px; /* 83.33% */
+      padding-bottom: 10px;
+
+    	background-position: center 60%;
+    	background-size: cover;
+    	background-repeat: no-repeat;
+    }
+
+    #project-name {
+      color: #FFFFFF;
+    }
+
+    .list-inline-header {
+      display: inline-block;
+    }
+
     #tags {
       margin-left: 0px;
+      display: inline-block
+    }
+
+    #tags li {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    #tags li + li {
+      margin-left: 16px;
     }
 
     .featured-img {
       width: 100%;
       height: auto;
+    }
+
+    .article-header {
+      font-weight: 200;
+      font-size: 35px;
+
+      padding: 20px 0 10px;
+
+      border-bottom: 1px solid black;
+    }
+
+    article p {
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    
+
+    @media (min-width: 768px) {
+      #main-header {
+        padding-top: 80px; /* 83.33% */
+        padding-bottom: 16px;
+      }
     }
   </style>
 </head>
@@ -28,20 +92,21 @@
     <main id="page-main">
       <header id="main-header" class="jumbotron splash">
         <div class="container">
-          <h1>Project Name</h1>
+          <h1 id="project-name">Project Name</h1>
         </div>
       </header>
+
       <div class="container">
         <div class="row">
-          <section id="main-section" class="col-md-8">
-            <h4 class="list-inline-header">Tags:</h4>
+          <section id="main-section" class="col-md-9">
+            <h4 class="list-inline-header sr-only">Tags:</h4>
             <ul id="tags" class="list-inline">
-              <li>Tag1</li>
-              <li>Tag2</li>
-              <li>Tag3</li>
+              <li class="btn btn-info">Tag 1</li>
+              <li class="btn btn-info">Tag 0010</li>
+              <li class="btn btn-info">Tag Three</li>
             </ul>
             <article id="project-description" class="">
-              <h2>Description</h2>
+              <h2 class="article-header">Description</h2>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
                 do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -55,7 +120,7 @@
               <img class="featured-img" src="featured.jpg" height="531" width="945"/>
             </article>
             <article id="project-team" class="">
-              <h2>Team(or Organization)</h2>
+              <h2 class="article-header">Team (Or Organization)</h2>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
                 do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -68,7 +133,8 @@
               </p>
             </article>
           </section> <!-- End of main-section -->
-          <section id="sidebar-section" class="col-md-4">
+
+          <section id="sidebar-section" class="col-md-3">
             <article id="project-contact">
               <h4>Want to get in touch?</h4>
               <a href="#">Contact</a>
@@ -81,6 +147,8 @@
             </article>
             <article id="project-gallery">
               <h3>Gallery</h3>
+              <img src="placeholder.jpg" height="220" width="220"/>
+              <img src="placeholder.jpg" height="220" width="220"/>
               <img src="placeholder.jpg" height="220" width="220"/>
             </article>
           </section> <!-- End of sidebar-section -->

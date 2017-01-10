@@ -201,7 +201,7 @@ section.container {
 }
 
 /* sm only */
-@media (min-width: 768px) and (max-width: 992px) 
+@media (min-width: 768px) and (max-width: 992px)
 {
 	.faux-col {
 		background-size: 33.33%;
