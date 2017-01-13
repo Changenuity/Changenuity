@@ -3,21 +3,27 @@
   <h1>Post Your Opportunity!</h1>
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <%= form_for(@project) do |f| %>
+      <%= form_for(@project, url: post_path) do |f| %>
+        <%= render "shared/error_messages" %>
+
         <%= f.label :name %>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, class: "form-control" %>
+
+        <%= f.label :date %>
+        <%= f.date_field :date, class: "form-control",
+                                value: Time.now.strftime('%Y-%m-%d') %>
 
         <%= f.label :location %>
-        <%= f.text_field :location %>
+        <%= f.text_field :location, class: "form-control" %>
 
         <%= f.label :description %>
-        <%= f.text_area :description %>
+        <%= f.text_area :description, class: "form-control" %>
 
         <%= f.label :parameters %>
-        <%= f.text_area :parameters %>
+        <%= f.text_area :parameters, class: "form-control" %>
 
         <%= f.label :references %>
-        <%= f.text_area :references %>
+        <%= f.text_area :references, class: "form-control" %>
 
         <%= f.submit "Post my opportunity", class: "btn btn-primary" %>
       <% end %>
