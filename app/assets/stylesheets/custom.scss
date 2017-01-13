@@ -1,0 +1,136 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* universal */
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+.jumbotron {
+  background-color: white;
+}
+
+.container {
+  max-width: 1024px;
+  float: none;
+  margin: 0 auto;
+}
+
+.container-fluid {
+  padding: 0px;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* header */
+
+.header-logo {
+  margin-left: 80px;
+  margin-top: 20px;
+  float: left;
+  width: 174px;
+  height: 100px;
+  img {
+    width: auto;
+    height: 100%;
+  }
+}
+
+.navbar-default {
+  background-color: white;
+  border-color: white;
+  padding-right: 80px;
+}
+
+.navbar-default .navbar-nav li a {
+  color: $gray-dark;
+  line-height: 100px;
+  text-transform: uppercase;
+}
+
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $gray-lighter;
+  color: $gray-light;
+  small {
+    float: left;
+    padding-left: 80px;
+  }
+  nav {
+    padding-right: 80px;
+    a {
+      color: $gray-light;
+      &:hover {
+        color: black;
+      }
+    }
+    ul {
+      float: right;
+      list-style: none;
+      li {
+        float: left;
+        margin-left: 15px;
+      }
+    }
+  }
+}
+
+/* home */
+
+#center-image {
+  position: relative;
+  background: url("windmill.jpg") no-repeat center center;
+  background-size: cover;
+  min-width: 100%;
+  height: 380px;
+  #background-overlay {
+    background: rgba(0,0,0,.4);
+    height: 100%;
+    #center-text {
+      position: absolute;
+      top: 45%;
+      left: 0px;
+      width: 100%;
+      h1, h2, h3, h4, h5, h6 {
+        text-align: center;
+        text-transform: uppercase;
+        color: white;
+        font-weight: bold;
+        margin-bottom: -15px;
+      }
+    }
+  }
+}
