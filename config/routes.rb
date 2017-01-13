@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   get  '/contact', to: 'static_pages#contact'
   get  '/post',    to: 'projects#new'
   post '/post',    to: 'projects#create'
+  get  '/browse',  to: 'projects#index'
   resources :projects
 end

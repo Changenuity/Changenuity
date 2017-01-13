@@ -4,7 +4,7 @@
 /* universal */
 
 body {
-  padding-top: 120px;
+  padding-top: 130px;
 }
 
 section {
@@ -13,6 +13,13 @@ section {
 
 textarea {
   resize: vertical;
+}
+
+table {
+  margin: 0 auto;
+  td {
+    padding-right: 20px;
+  }
 }
 
 .center {
@@ -137,7 +144,7 @@ footer {
 
 /* forms */
 
-input, textarea, select, .uneditable-input {
+input:not[type="checkbox"], textarea, select, .uneditable-input {
   width: 100%;
   margin-bottom: 15px;
 }

@@ -1,5 +1,9 @@
 class ProjectsController < ApplicationController
 
+  def index
+    @projects = Project.all
+  end
+
   def show
     @project = Project.find(params[:id])
   end
@@ -11,7 +15,8 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     if @project.save
-      # Handle a successful save.
+      flash[:success] = "Thank you for posting to Changenuity!"
+      redirect_to @project
     else
       render 'new'
     end
@@ -21,6 +26,6 @@ class ProjectsController < ApplicationController
 
     def project_params
       params.require(:project).permit(
-				:name, :date, :location, :description, :parameters, :references)
+        :name, :date, :location, :description, :parameters, :references)
     end
 end
