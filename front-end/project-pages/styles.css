@@ -1,0 +1,97 @@
+body {
+  font-family: "Lato", sans-serif;
+}
+
+#nav-header {
+  width: 33%;
+}
+
+#logo-image {
+  width: 100%;
+  height: auto;
+}
+
+#page-main-header {
+  padding-top: 120px; /* 83.33% */
+  padding-bottom: 24px;
+
+	background-position: center 60%;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+  color: #FFFFFF;
+}
+
+#page-main-header p {
+  float: left;
+  margin-bottom: 10px;
+}
+
+#project-team {
+  width: 100%;
+}
+
+#project-location {
+  position: relative;
+  z-index: 1;
+  padding-right: 30px; /* Line in-between location and date */
+}
+
+#project-location::before {
+  /* For generating that little line in-between location and date */
+  content: ""; /* Necessary for the pseudo-element to show */
+  position: absolute;
+  z-index: -1;
+  right: 15px;
+  top: 5px;
+  bottom: 5px;
+  border-right: 1px solid white;
+}
+
+.list-inline-header {
+  display: inline-block;
+}
+
+#tags {
+  margin-left: 0px;
+  display: inline-block
+}
+
+#tags li {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#tags li + li {
+  margin-left: 16px;
+}
+
+.featured-img {
+  width: 100%;
+  height: auto;
+}
+
+.article-header {
+  font-weight: 200;
+  font-size: 35px;
+
+  padding: 20px 0 10px;
+
+  border-bottom: 1px solid black;
+}
+
+article p {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.position-relative {
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  #main-header {
+    padding-top: 160px; /* 83.33% */
+    padding-bottom: 32px;
+  }
+}

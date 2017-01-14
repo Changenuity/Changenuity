@@ -1,5 +1,5 @@
 <html>
-<head>
+<head lang="en">
   <meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,156 +8,107 @@
   <link rel="stylesheet" type="text/css" href="../common/css/bootstrap.min.css"/>
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
 
-
   <style> /* These styles are page specific */
-    #main-header {
+    #page-main-header {
       background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7)),
                     url("splash.jpg");
     }
   </style>
-
-  <style> /* These styles are generic */
-    body {
-      font-family: "Lato", sans-serif;
-    }
-
-    #main-header {
-      position: relative;
-      padding-top: 50px; /* 83.33% */
-      padding-bottom: 10px;
-
-    	background-position: center 60%;
-    	background-size: cover;
-    	background-repeat: no-repeat;
-    }
-
-    #project-name {
-      color: #FFFFFF;
-    }
-
-    .list-inline-header {
-      display: inline-block;
-    }
-
-    #tags {
-      margin-left: 0px;
-      display: inline-block
-    }
-
-    #tags li {
-      padding-left: 10px;
-      padding-right: 10px;
-    }
-
-    #tags li + li {
-      margin-left: 16px;
-    }
-
-    .featured-img {
-      width: 100%;
-      height: auto;
-    }
-
-    .article-header {
-      font-weight: 200;
-      font-size: 35px;
-
-      padding: 20px 0 10px;
-
-      border-bottom: 1px solid black;
-    }
-
-    article p {
-      font-size: 16px;
-      line-height: 1.8;
-    }
-
-    
-
-    @media (min-width: 768px) {
-      #main-header {
-        padding-top: 80px; /* 83.33% */
-        padding-bottom: 16px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
 <body>
-    <header id="page-header" class="container">
-      <p>
-        Header
-      </p>
+  <nav class="container">
+    <div class="row">
+      <div class="col-xs-3">
+        <a href="#">
+          <header id="nav-header">
+            <h3 id="logo"><img id="logo-image" src="logo.png"/>Changenuity</h3>
+          </header>
+        </a>
+      </div>
+
+      <div class="col-xs-9">
+        <ul id="nav" class="list-inline">
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Solutions</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="page-main">
+    <header id="page-main-header" class="jumbotron splash">
+      <div class="container">
+        <h1 id="project-name">Project Name</h1>
+        <p id="project-team">Project Team</p>
+        <p id="project-location">Project Location</p>
+        <p id="project-date">Date</p>
+      </div>
     </header>
 
-    <main id="page-main">
-      <header id="main-header" class="jumbotron splash">
-        <div class="container">
-          <h1 id="project-name">Project Name</h1>
-        </div>
-      </header>
+    <div class="container">
+      <div class="row">
+        <section id="main-section" class="col-md-9">
+          <h4 class="list-inline-header sr-only">Tags:</h4>
+          <ul id="tags" class="list-inline">
+            <li class="btn btn-info">Tag 1</li>
+            <li class="btn btn-info">Tag 0010</li>
+            <li class="btn btn-info">Tag Three</li>
+          </ul>
+          <article id="project-description" class="">
+            <h2 class="article-header">Description</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+              do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco
+              laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+              irure dolor in reprehenderit in voluptate velit esse cillum
+              dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+              cupidatat non proident, sunt in culpa qui officia deserunt
+              mollit anim id est laborum.
+            </p>
+            <img class="featured-img" src="featured.jpg" height="531" width="945" alt="alt-text"/>
+          </article>
+          <article id="project-team" class="">
+            <h2 class="article-header">Team (Or Organization)</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+              do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco
+              laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+              irure dolor in reprehenderit in voluptate velit esse cillum
+              dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+              cupidatat non proident, sunt in culpa qui officia deserunt
+              mollit anim id est laborum.
+            </p>
+          </article>
+        </section> <!-- End of main-section -->
 
-      <div class="container">
-        <div class="row">
-          <section id="main-section" class="col-md-9">
-            <h4 class="list-inline-header sr-only">Tags:</h4>
-            <ul id="tags" class="list-inline">
-              <li class="btn btn-info">Tag 1</li>
-              <li class="btn btn-info">Tag 0010</li>
-              <li class="btn btn-info">Tag Three</li>
+        <section id="sidebar-section" class="col-md-3">
+          <article id="project-contact">
+            <h4>Want to get in touch?</h4>
+            <a href="#">Contact</a>
+            <h4 class="list-header">Links:</h4>
+            <ul class="list-group">
+              <li class="list-group-item"><a href="#">Website</a></li>
+              <li class="list-group-item"><a href="#">Facebook</a></li>
+              <li class="list-group-item"><a href="#">Twitter</a></li>
             </ul>
-            <article id="project-description" class="">
-              <h2 class="article-header">Description</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                irure dolor in reprehenderit in voluptate velit esse cillum
-                dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat non proident, sunt in culpa qui officia deserunt
-                mollit anim id est laborum.
-              </p>
-              <img class="featured-img" src="featured.jpg" height="531" width="945"/>
-            </article>
-            <article id="project-team" class="">
-              <h2 class="article-header">Team (Or Organization)</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                irure dolor in reprehenderit in voluptate velit esse cillum
-                dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat non proident, sunt in culpa qui officia deserunt
-                mollit anim id est laborum.
-              </p>
-            </article>
-          </section> <!-- End of main-section -->
-
-          <section id="sidebar-section" class="col-md-3">
-            <article id="project-contact">
-              <h4>Want to get in touch?</h4>
-              <a href="#">Contact</a>
-              <h4 class="list-header">Links:</h4>
-              <ul class="list-group">
-                <li class="list-group-item"><a href="#">Website</a></li>
-                <li class="list-group-item"><a href="#">Facebook</a></li>
-                <li class="list-group-item"><a href="#">Twitter</a></li>
-              </ul>
-            </article>
-            <article id="project-gallery">
-              <h3>Gallery</h3>
-              <img src="placeholder.jpg" height="220" width="220"/>
-              <img src="placeholder.jpg" height="220" width="220"/>
-              <img src="placeholder.jpg" height="220" width="220"/>
-            </article>
-          </section> <!-- End of sidebar-section -->
-        </div>
+          </article>
+          <article id="project-gallery">
+            <h3>Gallery</h3>
+            <img src="placeholder.jpg" height="220" width="220"/>
+            <img src="placeholder.jpg" height="220" width="220"/>
+            <img src="placeholder.jpg" height="220" width="220"/>
+          </article>
+        </section> <!-- End of sidebar-section -->
       </div>
-    </main>
+    </div>
+  </main>
 
-    <footer id="page-footer" class="container">
-      <p>Footer</p>
-    </footer>
+  <footer id="page-footer" class="container">
+    <p>Footer</p>
+  </footer>
 </body>
 </html>
