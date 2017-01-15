@@ -21,4 +21,8 @@
     <strong>References:</strong>
     <%= @project.references %>
   </p>
+  <p>
+    <strong>Images:</strong>
+    <%= image_tag @post.image.url(:medium) %>
+  </p>
 </div>
