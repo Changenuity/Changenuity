@@ -17,23 +17,23 @@
   <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
 <body>
-  <nav class="container">
+  <nav class="container bg-color-white">
     <div class="row">
-      <div class="col-xs-6">
-        <a href="#">
-          <header id="nav-header">
-            <!-- Temporary branding -->
-            <img id="brand-logo" src="logo.png"/>
-            <!-- <span id="brand-logo">Changenuity</span> -->
-          </header>
-        </a>
+      <div class="col-xs-12">
+        <header id="nav-header">
+          <a href="#">
+              <!-- Temporary branding -->
+              <img id="brand-logo" src="logo.png" alt="brand-logo"/>
+              <!-- <span id="brand-logo">Changenuity</span> -->
+          </a>
+          <span id="handle" class="glyphicon glyphicon-align-justify"></span>
+        </header>
       </div>
-
-      <div class="col-xs-6">
-        <ul id="nav" class="list-inline">
-          <li><a href="#">Projects</a></li>
-          <li><a href="#">Solutions</a></li>
-          <li><a href="#">Blog</a></li>
+      <div class="col-xs-12">
+        <ul id="nav-list" class="list-inline">
+          <li><a href="#" class="fading-bg-color">Projects</a></li>
+          <li><a href="#" class="fading-bg-color">Solutions</a></li>
+          <li><a href="#" class="fading-bg-color">Blog</a></li>
         </ul>
       </div>
     </div>
@@ -54,9 +54,9 @@
         <section id="main-section" class="col-md-9">
           <h4 class="list-inline-header sr-only">Tags:</h4>
           <ul id="tags" class="list-inline">
-            <li class="btn btn-info">Tag 1</li>
-            <li class="btn btn-info">Tag 0010</li>
-            <li class="btn btn-info">Tag Three</li>
+            <li class="btn fading-bg-color">Tag 1</li>
+            <li class="btn fading-bg-color">Tag 0010</li>
+            <li class="btn fading-bg-color">Tag Three</li>
           </ul>
           <article id="project-description" class="">
             <h2 class="article-header">Description</h2>
@@ -91,7 +91,7 @@
           <article id="project-contact">
             <div>
               <h4 class="text-center">Have a solution or want to get in touch?</h4>
-              <button id="contact-btn" class="btn btn-primary btn-lg center-block">
+              <button id="contact-btn" class="btn btn-primary btn-lg center-block fading-bg-color">
                 <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
                 Contact</button>
             </div>
@@ -116,5 +116,12 @@
   <footer id="page-footer" class="container">
     <p>Footer</p>
   </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script>
+    $('#handle').on('click', function() {
+      $('nav ul').toggleClass('showing');
+    });
+  </script>
 </body>
 </html>
