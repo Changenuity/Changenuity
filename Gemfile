@@ -38,6 +38,8 @@ gem 'jbuilder', '~> 2.5'
 
 # Paperclip for images
 gem "paperclip", "~> 5.0.0"
+# Acts as Taggable On for tags
+gem 'acts-as-taggable-on', '~> 4.0'
 
 group :development, :test do
   gem 'sqlite3'
