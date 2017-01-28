@@ -1,165 +1,218 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* universal */
+/* ============================================
+   Universal Styles
+============================================ */
 
 body {
-  padding-top: 130px;
+  font-family: "Lato", sans-serif;
 }
 
-section {
-  overflow: auto;
+.list-inline {
+  margin-left: 0;
 }
 
-textarea {
-  resize: vertical;
+.list-inline-header {
+  display: inline-block;
 }
 
-table {
-  margin: 0 auto;
-  td {
-    padding-right: 20px;
-  }
-}
-
-.center {
-  text-align: center;
-  h1 {
-    margin-bottom: 10px;
-  }
-}
-
-.jumbotron {
-  background-color: white;
-}
-
-.container {
-  max-width: 1024px;
-  float: none;
-  margin: 0 auto;
-}
-
-.container-fluid {
-  padding: 0px;
-  margin-right: -15px;
-  margin-left: -15px;
-}
-
-/* typography */
-
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
-}
-
-h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-/* header */
-
-.header-logo {
-  margin-left: 80px;
-  margin-top: 20px;
-  float: left;
-  width: 174px;
-  height: 100px;
-  img {
-    width: auto;
-    height: 100%;
-  }
-}
-
-.navbar-default {
-  background-color: white;
-  border-color: white;
-  padding-right: 80px;
-}
-
-.navbar-default .navbar-nav li a {
-  color: $gray-dark;
-  line-height: 100px;
-  text-transform: uppercase;
-}
-
-
-/* footer */
-
-footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid $gray-lighter;
-  color: $gray-light;
-  small {
-    float: left;
-    padding-left: 80px;
-  }
-  nav {
-    padding-right: 80px;
-    a {
-      color: $gray-light;
-      &:hover {
-        color: black;
-      }
-    }
-    ul {
-      float: right;
-      list-style: none;
-      li {
-        float: left;
-        margin-left: 15px;
-      }
-    }
-  }
-}
-
-/* home */
-
-#center-image {
+.position-relative {
   position: relative;
-  background: image-url("windmill.jpg") no-repeat center center;
-  background-size: cover;
-  min-width: 100%;
-  height: 380px;
-  #background-overlay {
-    background: rgba(0,0,0,.4);
-    height: 100%;
-    #center-text {
-      position: absolute;
-      top: 45%;
-      left: 0px;
-      width: 100%;
-      h1, h2, h3, h4, h5, h6 {
-        text-align: center;
-        text-transform: uppercase;
-        color: white;
-        font-weight: bold;
-        margin-bottom: -15px;
-      }
-    }
-  }
 }
 
-/* forms */
+.bg-color-orange {
+  background-color: #EC6433;
+}
 
-input:not[type="checkbox"], textarea, select, .uneditable-input {
+.bg-color-turquoise {
+  background-color: #8AB7A3;
+}
+
+.bg-color-white {
+  background-color: #FFFFFF;
+}
+
+.color-orange {
+  color: #EC6433;
+}
+
+.color-turquoise {
+  color: #8AB7A3;
+}
+
+.fading-color {
+  -webkit-transition: color 0.4s;
+  -ms-transition: color 0.4s;
+  -moz-transition: color 0.4s;
+  -o-transition: color 0.4s;
+  transition: color 0.4s;
+}
+
+.fading-bg-color {
+  -webkit-transition: background-color 0.4s;
+  -ms-transition: background-color 0.4s;
+  -moz-transition: background-color 0.4s;
+  -o-transition: background-color 0.4s;
+  transition: background-color 0.4s;
+}
+
+/* ============================================
+   Page-Main Styles
+============================================ */
+
+#page-main {
+  position: relative;
+  top: 80px;
+}
+
+/* ============================================
+   Splash Banner Styles
+============================================ */
+
+#page-main-header {
+  padding-top: 120px; /* 83.33% */
+  padding-bottom: 24px;
+
+  /*background-attachment: fixed;*/
+	background-position: center 60%;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+  color: #FFFFFF;
+}
+
+#page-main-header p {
+  float: left;
+  margin-bottom: 10px;
+}
+
+#project-team {
   width: 100%;
-  margin-bottom: 15px;
 }
 
-#error_explanation {
-  color: red;
-  ul {
-    color: red;
-    margin: 0 0 30px 0;
+#project-location {
+  position: relative;
+  z-index: 1;
+  padding-right: 30px; /* Line in-between location and date */
+}
+
+#project-location::before {
+  /* For generating that little line in-between location and date */
+  content: ""; /* Necessary for the pseudo-element to show */
+  position: absolute;
+  z-index: -1;
+  right: 15px;
+  top: 5px;
+  bottom: 5px;
+  border-right: 1px solid white;
+}
+
+/* ============================================
+   Tags Styles
+============================================ */
+
+#tags {
+  margin: 0;
+  font-size: 0;
+}
+
+#tags li {
+  padding: 10px 10px;
+  background-color: #EC6433;
+  color: #FFFFFF;
+}
+
+#tags li:hover {
+  background-color: #C14F26;
+}
+
+#tags li {
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+/* ============================================
+   Main Section Styles
+============================================ */
+
+article h1, article h2, article h3, article h4, article h5, article h6 {
+  /* Resets margins */
+  margin-top: 0;
+}
+
+article {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 40px;
+  margin-bottom: 20px;
+}
+
+article:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 40%;
+  right: 40%;
+
+  border-bottom: 1px solid #DDD;
+}
+
+.article-header {
+  font-weight: 200;
+  font-size: 40px;
+
+  padding: 20px 0 10px;
+  border-bottom: 2px solid #8AB7A3;
+}
+
+.article-header::first-letter {
+  color: #EC6433;
+}
+
+article p {
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+/* ============================================
+   Sidebar Styles
+============================================ */
+
+#sidebar-section h4 {
+  padding: 20px 0;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+#contact-btn {
+  letter-spacing: 1.4;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+#social-media-links {
+  font-size: 0;
+}
+
+.social-icon {
+  display: inline-block;
+  width: 30%;
+  height: auto;
+}
+
+/* ============================================
+   Media Queries Styles
+============================================ */
+
+@media (min-width: 768px) { /* Tablets and up */
+  #page-main {
+    top: 0; /* Shift the page back up to the top */
   }
-}
-
-.field_with_errors {
-  @extend .has-error;
-  .form-control {
-    color: $state-danger-text;
+  #page-main-header {
+    padding-top: 200px; /* Create more space for the nav */
   }
 }
