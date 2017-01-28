@@ -1,5 +1,46 @@
-<% provide(:title, "Post") %>
+<% provide(:title, "Post Project") %>
 <div class="container col-xs-12">
-  <h1>Post Opportunities</h1>
-  <p>Blah blah placeholder</p>
+  <h1>Post Your Project!</h1>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <%= form_for :project, url: post_path, html: { multipart: true } do |f| %>
+        <%= render "shared/error_messages" %>
+        <p>
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "form-control" %>
+        </p>
+        <p>
+          <%= f.label :date %>
+          <%= f.date_field :date, class: "form-control",
+                                  value: Time.now.strftime('%Y-%m-%d') %>
+        </p>
+        <p>
+          <%= f.label :location %>
+          <%= f.text_field :location, class: "form-control" %>
+        </p>
+        <p>
+          <%= f.label :description %>
+          <%= f.text_area :description, class: "form-control" %>
+        </p>
+        <p>
+          <%= f.label :parameters %>
+          <%= f.text_area :parameters, class: "form-control" %>
+        </p>
+        <p>
+          <%= f.label :references %>
+          <%= f.text_area :references, class: "form-control" %>
+        </p>
+        <p>
+          <%= f.label :image %>
+          <%= f.file_field :image, class: "form-control" %>
+        </p>
+          <%= f.submit "Post my project", class: "btn btn-primary" %>
+      <% end %>
+    <ol>
+      <li>It may take up to 3 days for your project's profile to appear on our website.</li>
+      <li>Please note that we retain the option of not posting projects that are unaligned with our company's goals. We will contact you if we make such a decision.</li>
+      <li>By sending images to us, you give us permission to use them on our website to help advertise your project.</li>
+    </ol>
+    </div>
+  </div>
 </div>

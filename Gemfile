@@ -36,6 +36,11 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Paperclip for images
+gem "paperclip", "~> 5.0.0"
+# Acts as Taggable On for tags
+gem 'acts-as-taggable-on', '~> 4.0'
+
 group :development, :test do
   gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -58,9 +63,9 @@ end
 #   gem 'guard-minitest'
 # end
 
-# group :production do
-#   gem 'pg'
-# end
+group :production do
+  gem 'pg'
+end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
