@@ -21,7 +21,8 @@ tmp/*
 .byebug_history
 
 # Ignore .DS_Store
-**/.DS_Store
+.DS_Store
+_DS_Store
 
 # Ignore Paperclip images.
 public/system/
