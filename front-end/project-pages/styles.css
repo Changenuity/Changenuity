@@ -125,7 +125,7 @@ body {
 }
 
 #tags li {
-  margin-right: 10px;
+  margin-right: 5px;
   margin-top: 10px;
 }
 
@@ -170,7 +170,7 @@ article:before {
 }
 
 article p {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.8;
   text-align: justify;
 }
@@ -180,24 +180,34 @@ article p {
 ============================================ */
 
 #sidebar-section h4 {
-  padding: 20px 0;
+  padding: 30px 0;
   font-size: 24px;
-  font-weight: 300;
+  /*font-weight: 300;*/
+  letter-spacing: 2;
+  margin-bottom: 30px;
 }
 
 #contact-btn {
   letter-spacing: 1.4;
-  font-size: 24px;
-  margin-bottom: 20px;
+  font-size: 30px;
+  margin-bottom: 30px;
+  width: 100%;
+  padding: 15px 0;
 }
 
 #social-media-links {
   font-size: 0;
+  text-align: justify;
 }
 
-.social-icon {
-  display: inline-block;
-  width: 30%;
+.connect-link {
+  width: 27%;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+.connnect-link img {
+  width: 100%;
   height: auto;
 }
 
