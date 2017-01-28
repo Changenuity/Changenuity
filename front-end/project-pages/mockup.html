@@ -15,25 +15,24 @@
     }
   </style>
   <link rel="stylesheet" type="text/css" href="styles.css" />
+  <link rel="stylesheet" type="text/css" href="navbar.css" />
 </head>
 <body>
   <nav class="container bg-color-white">
     <div class="row">
-      <div class="col-xs-12 col-md-6">
+      <div class="col-md-6">
         <header id="nav-header">
           <a href="#">
-              <!-- Temporary branding -->
               <img id="brand-logo" src="logo.png" alt="brand-logo"/>
-              <!-- <span id="brand-logo">Changenuity</span> -->
           </a>
           <span id="handle" class="glyphicon glyphicon-align-justify fading-color"></span>
         </header>
       </div>
-      <div class="col-xs-12 col-md-6">
-        <ul id="nav-list" class="list-inline">
-          <li><a href="#" class="fading-bg-color fading-color">Projects</a></li>
-          <li><a href="#" class="fading-bg-color fading-color">Solutions</a></li>
-          <li><a href="#" class="fading-bg-color fading-color">Blog</a></li>
+      <div class="col-md-6">
+        <ul id="nav-list">
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Solutions</a></li>
+          <li><a href="#">Blog</a></li>
         </ul>
       </div>
     </div>
@@ -52,12 +51,17 @@
     <div class="container">
       <div class="row">
         <section id="main-section" class="col-md-9">
-          <h4 class="list-inline-header sr-only">Tags:</h4>
-          <ul id="tags" class="list-inline">
-            <li class="btn fading-bg-color">Tag 1</li>
-            <li class="btn fading-bg-color">Tag 0010</li>
-            <li class="btn fading-bg-color">Tag Three</li>
-          </ul>
+          <article>
+            <h4 class="list-inline-header sr-only">Tags:</h4>
+            <ul id="tags" class="list-inline">
+              <li class="btn fading-bg-color">Tag 1</li>
+              <li class="btn fading-bg-color">Tag 2</li>
+              <li class="btn fading-bg-color">Tag 3</li>
+              <li class="btn fading-bg-color">Tag 4</li>
+              <li class="btn fading-bg-color">Tag 5</li>
+              <li class="btn fading-bg-color">Tag 6</li>
+            </ul>
+          </article>
           <article id="project-description" class="">
             <h2 class="article-header">Description</h2>
             <p>
@@ -70,7 +74,7 @@
               cupidatat non proident, sunt in culpa qui officia deserunt
               mollit anim id est laborum.
             </p>
-            <img class="featured-img" src="featured.jpg" height="531" width="945" alt="alt-text"/>
+            <img class="img-responsive img-rounded featured-img" src="featured.jpg" height="531" width="945" alt="alt-text"/>
           </article>
           <article id="project-team" class="">
             <h2 class="article-header">Team (Or Organization)</h2>
@@ -95,15 +99,24 @@
                 <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
                 Contact</button>
             </div>
-            <h4 class="list-header text-center">Links:</h4>
-            <ul class="list-group">
-              <li class="list-group-item"><a href="#">Website</a></li>
-              <li class="list-group-item"><a href="#">Facebook</a></li>
-              <li class="list-group-item"><a href="#">Twitter</a></li>
+            <h4 class="list-header text-center">There are also these:</h4>
+            <ul id="social-media-links" class="list-inline">
+              <li><a href="#">
+                <span class="sr-only">Website</span>
+                <img class="img-responsive social-icon" src="website.svg" />
+              </a></li>
+              <li><a href="#">
+                <span class="sr-only">Facebook</span>
+                <img class="img-responsive social-icon" src="facebook.svg" />
+              </a></li>
+              <li><a href="#">
+                <span class="sr-only">Twitter</span>
+                <img class="img-responsive social-icon" src="twitter.svg" />
+              </a></li>
             </ul>
           </article>
           <article id="project-gallery">
-            <h3>Gallery</h3>
+            <h3>Related Projects</h3>
             <img src="placeholder.jpg" height="220" width="220"/>
             <img src="placeholder.jpg" height="220" width="220"/>
             <img src="placeholder.jpg" height="220" width="220"/>
@@ -121,7 +134,7 @@
   <script>
     $('#handle').on('click', function() {
       $('nav ul').toggleClass('showing');
-      $('nav').toggleClass('showing');
+      // $('nav').toggleClass('showing');
     });
   </script>
 </body>
