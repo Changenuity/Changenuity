@@ -6,10 +6,16 @@
     <%= render "layouts/shim" %>
   </head>
   <body>
-    <div class="container-fluid">
-      <%= render "layouts/header" %>
-      <%= yield %>
-      <%= render "layouts/footer" %>
+    <%= render "layouts/header" %>
+    <div class="container">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+    </div>
+    <%= yield %>
+    <%= render "layouts/footer" %>
+    <div class="container">
+      <%= debug(params) if Rails.env.development? %>
     </div>
   </body>
 </html>

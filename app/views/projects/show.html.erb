@@ -1,0 +1,28 @@
+<% provide(:title, @project.name) %>
+<div class="container col-md-8 col-md-offset-2">
+  <h1><%= @project.name %></h1>
+  <p>
+    <strong>Date:</strong>
+    <time><%= @project.date %></time>
+  </p>
+  <p>
+    <strong>Location:</strong>
+    <%= @project.location %>
+  </p>
+  <p>
+    <strong>Description:</strong>
+    <%= @project.description %>
+  </p>
+  <p>
+    <strong>Parameters:</strong>
+    <%= @project.parameters %>
+  </p>
+  <p>
+    <strong>References:</strong>
+    <%= @project.references %>
+  </p>
+  <p>
+    <strong>Images:</strong>
+    <%= image_tag @project.image.url(:medium) %>
+  </p>
+</div>

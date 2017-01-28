@@ -1,0 +1,16 @@
+<% provide(:title, "Browse Projects") %>
+<div class="container col-xs-12">
+	<h1>Browse Projects</h1>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Link</th>
+		</tr>
+		<% @projects.each do |project| %>
+			<tr>
+				<td><%= project.name %></td>
+				<td><%= link_to "Show", project_path(project) %></td>
+			</tr>
+		<% end %>
+	</table>
+</div>
