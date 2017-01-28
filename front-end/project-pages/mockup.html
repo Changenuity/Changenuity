@@ -19,21 +19,21 @@
 <body>
   <nav class="container bg-color-white">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-12 col-md-6">
         <header id="nav-header">
           <a href="#">
               <!-- Temporary branding -->
               <img id="brand-logo" src="logo.png" alt="brand-logo"/>
               <!-- <span id="brand-logo">Changenuity</span> -->
           </a>
-          <span id="handle" class="glyphicon glyphicon-align-justify"></span>
+          <span id="handle" class="glyphicon glyphicon-align-justify fading-color"></span>
         </header>
       </div>
-      <div class="col-xs-12">
+      <div class="col-xs-12 col-md-6">
         <ul id="nav-list" class="list-inline">
-          <li><a href="#" class="fading-bg-color">Projects</a></li>
-          <li><a href="#" class="fading-bg-color">Solutions</a></li>
-          <li><a href="#" class="fading-bg-color">Blog</a></li>
+          <li><a href="#" class="fading-bg-color fading-color">Projects</a></li>
+          <li><a href="#" class="fading-bg-color fading-color">Solutions</a></li>
+          <li><a href="#" class="fading-bg-color fading-color">Blog</a></li>
         </ul>
       </div>
     </div>
@@ -121,6 +121,7 @@
   <script>
     $('#handle').on('click', function() {
       $('nav ul').toggleClass('showing');
+      $('nav').toggleClass('showing');
     });
   </script>
 </body>
