@@ -1,0 +1,141 @@
+<html>
+<head lang="en">
+  <meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project Page Mockup</title>
+
+  <link rel="stylesheet" type="text/css" href="../common/css/bootstrap.min.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+
+  <style> /* These styles are page specific */
+    #page-main-header {
+      background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7)),
+                    url("splash.jpg");
+    }
+  </style>
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <link rel="stylesheet" type="text/css" href="navbar.css" />
+</head>
+<body>
+  <nav class="container bg-color-white">
+    <div class="row">
+      <div class="col-md-6">
+        <header id="nav-header">
+          <a href="#">
+              <img id="brand-logo" src="logo.png" alt="brand-logo"/>
+          </a>
+          <span id="handle" class="glyphicon glyphicon-align-justify fading-color"></span>
+        </header>
+      </div>
+      <div class="col-md-6">
+        <ul id="nav-list">
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Solutions</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="page-main">
+    <header id="page-main-header" class="jumbotron splash">
+      <div class="container">
+        <h1 id="project-name">Project Name</h1>
+        <p id="project-team">Project Team</p>
+        <p id="project-location">Project Location</p>
+        <p id="project-date">Date</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <section id="main-section" class="col-md-9">
+          <article>
+            <h4 class="list-inline-header sr-only">Tags:</h4>
+            <ul id="tags" class="list-inline">
+              <li class="btn fading-bg-color">Tag 1</li>
+              <li class="btn fading-bg-color">Tag 2</li>
+              <li class="btn fading-bg-color">Tag 3</li>
+              <li class="btn fading-bg-color">Tag 4</li>
+              <li class="btn fading-bg-color">Tag 5</li>
+              <li class="btn fading-bg-color">Tag 6</li>
+            </ul>
+          </article>
+          <article id="project-description" class="">
+            <h2 class="article-header">Description</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+              do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco
+              laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+              irure dolor in reprehenderit in voluptate velit esse cillum
+              dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+              cupidatat non proident, sunt in culpa qui officia deserunt
+              mollit anim id est laborum.
+            </p>
+            <img class="img-responsive img-rounded featured-img" src="featured.jpg" height="531" width="945" alt="alt-text"/>
+          </article>
+          <article id="project-team" class="">
+            <h2 class="article-header">Team (Or Organization)</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+              do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco
+              laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+              irure dolor in reprehenderit in voluptate velit esse cillum
+              dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+              cupidatat non proident, sunt in culpa qui officia deserunt
+              mollit anim id est laborum.
+            </p>
+          </article>
+        </section> <!-- End of main-section -->
+
+        <section id="sidebar-section" class="col-md-3">
+          <article id="project-contact">
+            <div>
+              <h4 class="text-center">Have a solution or want to get in touch?</h4>
+              <button id="contact-btn" class="btn btn-primary btn-lg center-block fading-bg-color">
+                <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                Contact</button>
+            </div>
+            <h4 class="list-header text-center">There are also these:</h4>
+            <ul id="social-media-links" class="list-inline">
+              <li><a href="#">
+                <span class="sr-only">Website</span>
+                <img class="img-responsive social-icon" src="website.svg" />
+              </a></li>
+              <li><a href="#">
+                <span class="sr-only">Facebook</span>
+                <img class="img-responsive social-icon" src="facebook.svg" />
+              </a></li>
+              <li><a href="#">
+                <span class="sr-only">Twitter</span>
+                <img class="img-responsive social-icon" src="twitter.svg" />
+              </a></li>
+            </ul>
+          </article>
+          <article id="project-gallery">
+            <h3>Related Projects</h3>
+            <img src="placeholder.jpg" height="220" width="220"/>
+            <img src="placeholder.jpg" height="220" width="220"/>
+            <img src="placeholder.jpg" height="220" width="220"/>
+          </article>
+        </section> <!-- End of sidebar-section -->
+      </div>
+    </div>
+  </main>
+
+  <footer id="page-footer" class="container">
+    <p>Footer</p>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script>
+    $('#handle').on('click', function() {
+      $('nav ul').toggleClass('showing');
+      // $('nav').toggleClass('showing');
+    });
+  </script>
+</body>
+</html>

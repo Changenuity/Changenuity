@@ -1,0 +1,215 @@
+/* ============================================
+   Universal Styles
+============================================ */
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.list-inline {
+  margin-left: 0;
+}
+
+.list-inline-header {
+  display: inline-block;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.bg-color-orange {
+  background-color: #EC6433;
+}
+
+.bg-color-turquoise {
+  background-color: #8AB7A3;
+}
+
+.bg-color-white {
+  background-color: #FFFFFF;
+}
+
+.color-orange {
+  color: #EC6433;
+}
+
+.color-turquoise {
+  color: #8AB7A3;
+}
+
+.fading-color {
+  -webkit-transition: color 0.4s;
+  -ms-transition: color 0.4s;
+  -moz-transition: color 0.4s;
+  -o-transition: color 0.4s;
+  transition: color 0.4s;
+}
+
+.fading-bg-color {
+  -webkit-transition: background-color 0.4s;
+  -ms-transition: background-color 0.4s;
+  -moz-transition: background-color 0.4s;
+  -o-transition: background-color 0.4s;
+  transition: background-color 0.4s;
+}
+
+/* ============================================
+   Page-Main Styles
+============================================ */
+
+#page-main {
+  position: relative;
+  top: 80px;
+}
+
+/* ============================================
+   Splash Banner Styles
+============================================ */
+
+#page-main-header {
+  padding-top: 120px; /* 83.33% */
+  padding-bottom: 24px;
+
+  /*background-attachment: fixed;*/
+	background-position: center 60%;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+  color: #FFFFFF;
+}
+
+#page-main-header p {
+  float: left;
+  margin-bottom: 10px;
+}
+
+#project-team {
+  width: 100%;
+}
+
+#project-location {
+  position: relative;
+  z-index: 1;
+  padding-right: 30px; /* Line in-between location and date */
+}
+
+#project-location::before {
+  /* For generating that little line in-between location and date */
+  content: ""; /* Necessary for the pseudo-element to show */
+  position: absolute;
+  z-index: -1;
+  right: 15px;
+  top: 5px;
+  bottom: 5px;
+  border-right: 1px solid white;
+}
+
+/* ============================================
+   Tags Styles
+============================================ */
+
+#tags {
+  margin: 0;
+  font-size: 0;
+}
+
+#tags li {
+  padding: 10px 10px;
+  background-color: #EC6433;
+  color: #FFFFFF;
+}
+
+#tags li:hover {
+  background-color: #C14F26;
+}
+
+#tags li {
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+/* ============================================
+   Main Section Styles
+============================================ */
+
+article h1, article h2, article h3, article h4, article h5, article h6 {
+  /* Resets margins */
+  margin-top: 0;
+}
+
+article {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 40px;
+  margin-bottom: 20px;
+}
+
+article:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 40%;
+  right: 40%;
+
+  border-bottom: 1px solid #DDD;
+}
+
+.article-header {
+  font-weight: 200;
+  font-size: 40px;
+
+  padding: 20px 0 10px;
+  border-bottom: 2px solid #8AB7A3;
+}
+
+.article-header::first-letter {
+  color: #EC6433;
+}
+
+article p {
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+/* ============================================
+   Sidebar Styles
+============================================ */
+
+#sidebar-section h4 {
+  padding: 20px 0;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+#contact-btn {
+  letter-spacing: 1.4;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+#social-media-links {
+  font-size: 0;
+}
+
+.social-icon {
+  display: inline-block;
+  width: 30%;
+  height: auto;
+}
+
+/* ============================================
+   Media Queries Styles
+============================================ */
+
+@media (min-width: 768px) { /* Tablets and up */
+  #page-main {
+    top: 0; /* Shift the page back up to the top */
+  }
+  #page-main-header {
+    padding-top: 200px; /* Create more space for the nav */
+  }
+}
