@@ -18,6 +18,7 @@ Welcome to our team Github repo! Here you can find all of the resources for our 
 2. Clone the repo `git clone https://github.com/Changenuity/Changenuity.git`
 3. Go to directory `cd Changenuity` or just open command line in the folder
 4. Run rails server with `rails server` or `rails s`
-   - If you get any prompts to install gems, do it. Probably `bundle install` it will tell you
+   - If you get any prompts to install gems, probably run `bundle install --without production`
+   - if it says something about data migrations, probably run `rails db:migrate`
 5. Navigate to `localhost:3000` in your web browser
 6. *TADAA!!!* Oh yeah `ctrl-C` then`y` to stop the server
