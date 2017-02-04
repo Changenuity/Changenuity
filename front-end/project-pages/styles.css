@@ -38,29 +38,43 @@ body {
   color: #8AB7A3;
 }
 
-.fading-color {
-  -webkit-transition: color 0.4s;
-  -ms-transition: color 0.4s;
-  -moz-transition: color 0.4s;
-  -o-transition: color 0.4s;
-  transition: color 0.4s;
+.link-list {
+  list-style: none;
+  padding: 0;
 }
 
-.fading-bg-color {
-  -webkit-transition: background-color 0.4s;
-  -ms-transition: background-color 0.4s;
-  -moz-transition: background-color 0.4s;
-  -o-transition: background-color 0.4s;
-  transition: background-color 0.4s;
+.link-list a {
+  text-decoration: none;
+  color: #000000;
 }
 
-/* ============================================
-   Page-Main Styles
-============================================ */
+.btn {
+  -webkit-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+}
 
-#page-main {
-  position: relative;
-  top: 80px;
+.btn-primary {
+  background-color: #EC6433;
+  border-color: transparent;
+  color: #FFFFFF;
+}
+.btn-primary:hover {
+  border-color: transparent;
+  background-color: #C14F26;
+}
+
+.btn-primary-hollow {
+  color: #EC6433;
+  border-color: #EC6433;
+  background-color: transparent;
+}
+
+.btn-primary-hollow:hover {
+  color: #C14F26;
+  border-color: #C14F26;
 }
 
 /* ============================================
@@ -70,13 +84,26 @@ body {
 #page-main-header {
   padding-top: 120px; /* 83.33% */
   padding-bottom: 24px;
+  position: relative; /* necessary for applying the dark gradient */
+  z-index: 1; /* necessary for applying the dark gradient */
 
-  /*background-attachment: fixed;*/
 	background-position: center 60%;
 	background-size: cover;
 	background-repeat: no-repeat;
 
   color: #FFFFFF;
+}
+
+#page-main-header:before {
+  /* The following is so that a dark gradient can be applied */
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7));
 }
 
 #page-main-header p {
@@ -116,12 +143,6 @@ body {
 
 #tags li {
   padding: 10px 10px;
-  background-color: #EC6433;
-  color: #FFFFFF;
-}
-
-#tags li:hover {
-  background-color: #C14F26;
 }
 
 #tags li {
@@ -181,45 +202,145 @@ article p {
 
 #sidebar-section h4 {
   padding: 30px 0;
-  font-size: 24px;
-  /*font-weight: 300;*/
+  font-size: 26px;
   letter-spacing: 2;
   margin-bottom: 30px;
+  text-align: center;
 }
 
 #contact-btn {
-  letter-spacing: 1.4;
-  font-size: 30px;
+  display: block;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 30px;
-  width: 100%;
   padding: 15px 0;
+
+  letter-spacing: 1.4;
+  font-size: 20px;
 }
 
 #social-media-links {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
   font-size: 0;
-  text-align: justify;
 }
 
 .connect-link {
-  width: 27%;
-  margin-left: 3%;
-  margin-right: 3%;
+  width: 33.333%;
+  padding: 0 10px;
 }
 
-.connnect-link img {
+.connect-link:hover {
+  opacity: 0.8;
+}
+
+.connect-link img {
   width: 100%;
   height: auto;
+  max-width: 100px;
+  max-height: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+.connect-link span {
+  font-size: 18px;
+}
+
+.related-project {
+  position: relative; /* necessary for applying the dark gradient */
+  z-index: 1; /* necessary for applying the dark gradient */
+  background-position: center 60%;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  width: 90%;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+
+  border-radius: 5px;
+
+  -webkit-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.related-project:hover {
+  opacity: 0.8;
+}
+
+.related-project:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7));
+  border-radius: 5px;
+}
+
+.related-project a {
+  display: block;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+}
+
+.related-project h5 {
+  color: #FFFFFF;
+  font-size: 28px;
+}
+
+
+/* ============================================
+   Footer Styles
+============================================ */
+
 
 /* ============================================
    Media Queries Styles
 ============================================ */
 
 @media (min-width: 768px) { /* Tablets and up */
-  #page-main {
-    top: 0; /* Shift the page back up to the top */
+  #contact-btn {
+    width: 80%;
   }
-  #page-main-header {
-    padding-top: 200px; /* Create more space for the nav */
+  #social-media-links {
+    width: 80%;
+  }
+  .related-project {
+    width: 80%;
+  }
+}
+@media (min-width: 992px) { /* md and up */
+  #sidebar-section {
+    border-left: 1px solid #DDD;
+      border-right: 1px solid #DDD;
+  }
+  #sidebar-section h4 {
+    font-size: 20px;
+    padding: 15px 0;
+    margin-bottom: 15px;
+  }
+  #contact-btn {
+    width: 100%;
+  }
+  #social-media-links {
+    width: 100%;
+  }
+  .related-project {
+    width: 100%;
+  }
+  .related-project h5 {
+    font-size: 22px;
   }
 }

@@ -9,6 +9,12 @@ nav {
   -webkit-box-shadow: 0px 0px 18px 0px rgba(0,0,0,0.5);
   -moz-box-shadow: 0px 0px 18px 0px rgba(0,0,0,0.5);
   box-shadow: 0px 0px 18px 0px rgba(0,0,0,0.5);
+  background-color: #FFFFFF;
+}
+
+nav ~ * {
+  position: relative;
+  top: 80px;
 }
 
 #nav-header {
@@ -31,6 +37,12 @@ nav {
   right: 10px;
 
   cursor: pointer;
+
+  -webkit-transition: color 0.4s;
+  -ms-transition: color 0.4s;
+  -moz-transition: color 0.4s;
+  -o-transition: color 0.4s;
+  transition: color 0.4s;
 }
 
 #handle:hover {
@@ -41,7 +53,7 @@ nav {
   overflow: hidden;
   padding: 0;
   margin: 0 -15px;
-  text-align: center;
+  text-align: right;
   list-style: none;
   max-height: 0;
   z-index: -1;
@@ -99,6 +111,9 @@ nav {
 ============================================ */
 
 @media (min-width: 768px) { /* Tablets and up */
+  nav ~ * {
+    top: 0;
+  }
   nav {
     left: 0;
     right: 0;
@@ -109,15 +124,8 @@ nav {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
   }
-  #page-main {
-    top: 0;
-  }
   #page-main-header {
-    padding-top: 200px;
-  }
-  #main-header {
-    padding-top: 160px; /* 83.33% */
-    padding-bottom: 32px;
+    padding-top: 200px; /* Actually, should go and get #page-main-header's padding and add 80 */
   }
 }
 
@@ -132,6 +140,7 @@ nav {
     display: none;
   }
   #nav-list {
+    padding-right: 30px;
     max-height: 256px;
     font-size: 0; /* Gets rid of the space between inline-blocks */
   }
