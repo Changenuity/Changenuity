@@ -37,7 +37,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # Paperclip for images
-gem "paperclip", "~> 5.0.0"
+gem 'paperclip', '~> 5.0.0'
+# Amazon Web Services for image uploads
+gem 'aws-sdk', '~> 2.3'
 # Acts as Taggable On for tags
 gem 'acts-as-taggable-on', '~> 4.0'
 

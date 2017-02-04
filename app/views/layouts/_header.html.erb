@@ -1,15 +1,23 @@
-<header class="navbar navbar-fixed-top navbar-default">
-  <div class="container-fluid col-xs-12">
-    <span class="header-logo">
-      <%= link_to image_tag("logo.png", alt: "Changenuity logo"),
-                  root_path %>
-    </span>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
+<nav class="container bg-color-white">
+  <div class="row">
+    <div class="col-md-6">
+      <header id="nav-header">
+        <%= link_to image_tag("logo.png", alt: "Changenuity logo", id: "brand-logo"),
+                    root_path %>
+        <span id="handle" class="glyphicon glyphicon-align-justify fading-color"></span>
+      </header>
+    </div>
+    <div class="col-md-6">
+      <ul id="nav-list">
         <li><%= link_to "Home",   root_path %></li>
         <li><%= link_to "Post",   post_path %></li>
         <li><%= link_to "Browse", browse_path %></li>
       </ul>
-    </nav>
+    </div>
   </div>
-</header>
+  <script>
+    $('#handle').on('click', function() {
+      $('nav ul').toggleClass('showing');
+    });
+  </script>
+</nav>
