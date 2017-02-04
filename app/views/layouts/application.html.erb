@@ -18,5 +18,10 @@
     <div class="container">
       <%= debug(params) if Rails.env.development? %>
     </div>
+    <script>
+      $('#handle').on('click', function() {
+        $('nav ul').toggleClass('showing');
+      });
+    </script>
   </body>
 </html>
