@@ -1,7 +1,5 @@
-/* Universal styles */
-body {
-	font-family: "Lato", sans-serif;
-}
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 section {
 	margin-bottom: 20px;
@@ -99,7 +97,7 @@ a.link-post:hover {
 /* Media quarries and targeted styles */
 
 /* xs only */
-@media (max-width: 767px) 
+@media (max-width: 767px)
 {
 	.opt-section {
 		width: 75%;
