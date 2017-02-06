@@ -6,7 +6,6 @@ Welcome to our team Github repo! Here you can find all of the resources for our 
 2. Unless you're just updating a small thing, write descriptive commit statements!
 3. **Comment your code to make it understandable by everyone.**
 
-
 # Quick start: Ruby on Rails
 1. Install Ruby and Rails, maybe use [railsinstaller](http://railsinstaller.org/en) (I think I just manually installed ruby and then rails though)
    - Ruby 2.3.~ check with `ruby -v`
@@ -18,12 +17,19 @@ Welcome to our team Github repo! Here you can find all of the resources for our 
 2. Clone the repo `git clone https://github.com/Changenuity/Changenuity.git`
 3. Go to directory `cd Changenuity` or just open command line in the folder
 4. Run rails server with `rails server` or `rails s`
-   - If you get any prompts to install gems, probably run `bundle install --without production`
-   		- If a certification error arises, two options: 
-   			1. Open the gemfile (via windows explorer) and change Source from https://rubygems.org to http://rubygems.org (the difference is the s)
-   			2. In CLI 'gem sources -r https://rubygems.org'
-   			then type 'gem sources -a http://rubygems.org'
-   			To check your sources, type 'gem sources'
+   - If you get any prompts to install gems, probably run `bundle install --without production
+   - If a certification error arises, two options: 
+     1. Open the gemfile (via windows explorer) and change Source from https://rubygems.org to http://rubygems.org (the difference is the s)
+     2. In CLI 'gem sources -r https://rubygems.org'
+     then type 'gem sources -a http://rubygems.org'
+     To check your sources, type 'gem sources'
    - if it says something about data migrations, probably run `rails db:migrate`
 5. Navigate to `localhost:3000` in your web browser
 6. *TADAA!!!* Oh yeah `ctrl-C` then`y` to stop the server
+
+# Rails Application Guide
+Rails generates a bunch of files and configs you mostly don't need to concern yourself with. If you want to check out what everything is for, go [here](https://www.railstutorial.org/book/beginning#table-rails_directory_structure).
+- `app/assets` is where CSS, JS, and other assets like images should be
+- `app/views` is where HTML is stored, the .erb extension indicates embedded ruby which is used for dynamic features and database storage!
+
+Of course there are more things, but for now front-end is just this.
