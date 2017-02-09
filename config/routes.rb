@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   get  '/post',    to: 'projects#new'
   post '/post',    to: 'projects#create'
   get  '/browse',  to: 'projects#index'
+  get  '/signup',  to: 'users#new'
   resources :projects
 end
