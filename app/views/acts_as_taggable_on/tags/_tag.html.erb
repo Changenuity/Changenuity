@@ -1,1 +1,1 @@
-<%= link_to tag.name, tag_path(tag) %>
+<%= content_tag(:li, link_to(tag.name, tag_path(tag)), class: "btn btn-primary") %>
