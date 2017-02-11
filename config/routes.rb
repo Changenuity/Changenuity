@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   post '/post',    to: 'projects#create'
   get  '/browse',  to: 'projects#index'
   resources :projects
+  resources :tags, only: [:index, :show]
 end
