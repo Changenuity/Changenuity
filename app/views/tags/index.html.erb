@@ -1,5 +1,7 @@
 <% provide(:title, "Tags") %>
 <div class="container col-xs-12">
   <h1>Tags</h1>
-  <%= render @tags %>
+  <% tag_cloud(@tags, %w(tag_cloud_size_1 tag_cloud_size_2 tag_cloud_size_3 tag_cloud_size_4)) do |tag, css_class| %>
+    <%= content_tag(:li, link_to(tag.name, tag_path(tag)), class: "btn btn-primary #{css_class}") %>
+  <% end %>
 </div>

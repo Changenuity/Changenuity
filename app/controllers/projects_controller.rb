@@ -22,6 +22,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def tag_cloud
+    @tags = Project.tag_counts_on(:tags)
+  end
+
   private
 
   def project_params

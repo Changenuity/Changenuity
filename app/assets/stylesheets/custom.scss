@@ -1,6 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.tag_cloud_size_1 { font-size: 0.8em; }
+.tag_cloud_size_2 { font-size: 1.0em; }
+.tag_cloud_size_3 { font-size: 1.5em; }
+.tag_cloud_size_4 { font-size: 2.5em; }
+
 /* ============================================
    Universal Styles
 ============================================ */
@@ -94,9 +99,9 @@ body {
   position: relative; /* necessary for applying the dark gradient */
   z-index: 1; /* necessary for applying the dark gradient */
 
-	background-position: center 60%;
-	background-size: cover;
-	background-repeat: no-repeat;
+  background-position: center 60%;
+  background-size: cover;
+  background-repeat: no-repeat;
 
   color: #FFFFFF;
 }
