@@ -11,7 +11,7 @@
       <h1 id="project-name"><%= @project.name %></h1>
       <p id="project-team">Project Team</p>
       <p id="project-location"><%= @project.location %></p>
-      <time id="project-date"><%= @project.date %></time>
+      <p><time id="project-date"><%= @project.date %></time></p>
     </div>
   </header>
 
@@ -59,17 +59,17 @@
           </div>
           <h4>Connect with us:</h4>
           <ul id="social-media-links" class="list-inline link-list">
-						<li class="connect-link btn">
-							<%= link_to image_tag("website.svg", alt: "Website", class: "img-responsive"),
-													root_path %>
+            <li class="connect-link btn">
+              <%= link_to image_tag("website.svg", alt: "Website", class: "img-responsive"),
+                          root_path %>
             </li>
-						<li class="connect-link btn">
-							<%= link_to image_tag("facebook.svg", alt: "Facebook", class: "img-responsive"),
-													root_path %>
+            <li class="connect-link btn">
+              <%= link_to image_tag("facebook.svg", alt: "Facebook", class: "img-responsive"),
+                          root_path %>
             </li>
-						<li class="connect-link btn">
-							<%= link_to image_tag("twitter.svg", alt: "Twitter", class: "img-responsive"),
-													root_path %>
+            <li class="connect-link btn">
+              <%= link_to image_tag("twitter.svg", alt: "Twitter", class: "img-responsive"),
+                          root_path %>
             </li>
           </ul>
         </article>
