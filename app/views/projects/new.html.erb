@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <%= form_for :project, url: post_path, html: { multipart: true } do |f| %>
-        <%= render "shared/error_messages" %>
+        <%= render "shared/error_messages", object: @project %>
         <p>
           <%= f.label :name %>
           <%= f.text_field :name, class: "form-control" %>
