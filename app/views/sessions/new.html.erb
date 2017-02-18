@@ -1,0 +1,33 @@
+<% provide(:title, "Log in") %>
+<main id="page-main">
+    <style> /* These styles are page specific */
+    #page-main-header {
+      background-image: url("http://placehold.it/350x65");
+    }
+  </style>
+
+  <header id="page-main-header" class="jumbotron splash">
+    <div class="container">
+      <h1>Log in</h1>
+      <p>Blah blah blah subtitle bar thingy</p>
+    </div>
+  </header>
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <%= form_for(:session, url: login_path) do |f| %>
+        <p>
+          <%= f.label :email %>
+          <%= f.email_field :email, class: "form-control" %>
+        </p>
+        <p>
+          <%= f.label :password %>
+          <%= f.password_field :password, class: "form-control" %>
+        </p>
+        <%= f.submit "Log in", class: "btn btn-primary" %>
+      <% end %>
+
+      <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+    </div>
+  </div>
+</main>
