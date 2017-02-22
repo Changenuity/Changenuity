@@ -76,17 +76,11 @@
         <article id="projects-gallery">
           <h4>Related Projects</h4>
           <ul class="link-list">
-            <li id="rp-1" class="related-project">
-              <%= link_to image_tag(@project.image.url(:medium)),
-                          root_path %>
+            <li id="rp-1" style="background-image: url(<%= "#{@project.image.url(:medium)}" %>)" class="related-project">
             </li>
-            <li id="rp-2" class="related-project">
-              <%= link_to image_tag(@project.image.url(:medium)),
-                          root_path %>
+            <li id="rp-2" style="background-image: url(<%= "#{@project.image.url(:medium)}" %>)" class="related-project">
             </li>
-            <li id="rp-3" class="related-project">
-              <%= link_to image_tag(@project.image.url(:medium)),
-                          root_path %>
+            <li id="rp-3" style="background-image: url(<%= "#{@project.image.url(:medium)}" %>)" class="related-project">
             </li>
           </ul>
         </article>
