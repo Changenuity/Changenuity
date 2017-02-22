@@ -43,6 +43,8 @@ gem 'paperclip', '~> 5.0.0'
 gem 'aws-sdk', '~> 2.3'
 # Acts as Taggable On for tags
 gem 'acts-as-taggable-on', '~> 4.0'
+# OmniAuth Google OAuth2 for Google authentication
+gem "omniauth-google-oauth2", "~> 0.4"
 
 group :development, :test do
   gem 'sqlite3'
