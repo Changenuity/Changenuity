@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
     redirect_to root_url
   end
 
-  def google
+  def oauth
     user = User.from_omniauth(request.env["omniauth.auth"])
     enter(user)
   end
