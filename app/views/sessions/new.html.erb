@@ -15,7 +15,27 @@
 
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <%= link_to "Sign in with Google", "/auth/google_oauth2" %>
+      <p>
+				<strong>Don't use these services?</strong>
+				<%= link_to "Create an account", new_identity_path %> or login below.
+			</p>
+
+      <%= link_to "Google", "/auth/google_oauth2" %>
+      <%= link_to "Facebook", "/auth/facebook" %>
+      <%= link_to "Twitter", "/auth/twitter" %>
+      <%= link_to "LinkedIn", "/auth/linkedin" %>
+      <%= form_tag "/auth/identity/callback" do %>
+        <div class="field">
+          <%= label_tag :auth_key, "Email" %>
+          <%= text_field_tag :auth_key %>
+        </div>
+        <div class="field">
+          <%= label_tag :password %>
+          <%= password_field_tag :password %>
+        </div>
+        <div class="actions"><%= submit_tag "Login" %></div>
+      <% end %>
+
       <%= form_for(:session, url: login_path) do |f| %>
         <p>
           <%= f.label :email %>
