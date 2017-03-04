@@ -1,6 +1,4 @@
 class Project < ApplicationRecord
-  belongs_to :category
-  belongs_to :type
 
   has_attached_file :image, styles: { medium: '300x300>', thumb: '100x100>' }
   validates_attachment_content_type :image,
