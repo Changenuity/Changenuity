@@ -1,6 +1,6 @@
 @import "global";
 
-$nav-bar-height: 70px;
+$nav-bar-height: 65px;
 
 /* ============================================
    Navbar Styles - WIP
@@ -36,9 +36,9 @@ nav {
   color: $color-orange;
   font-size: 28px;
   float: right;
-  position: relative;
-  top: 30px;
-  right: 10px;
+  padding-top: ($nav-bar-height - 28px)/2; /* Math in CSS? BLASPHEMY */
+  padding-right: 5px;
+  height: $nav-bar-height;
 
   cursor: pointer;
 
@@ -69,7 +69,7 @@ nav {
 }
 
 #nav-list.showing {
-  max-height: 256px;
+  max-height: 1000px;
 }
 
 #nav-list li {
@@ -146,6 +146,17 @@ nav {
     padding-right: 30px;
     max-height: 256px;
     font-size: 0; /* Gets rid of the space between inline-blocks */
+    li {
+      width: auto;
+    }
+    a {
+      padding: 20px 30px;
+      font-size: 20px;
+      height: 100%;
+      width: auto;
+      color: $color-orange;
+      background-color: white;
+    }
   }
   #nav-list li {
     width: auto;
