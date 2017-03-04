@@ -3,8 +3,9 @@
   <h1>Post Your Project!</h1>
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <%= form_for :project, url: post_path, html: { multipart: true } do |f| %>
-        <%= render "shared/error_messages" %>
+      <%= form_for :project, url: post_path,
+                             html: { multipart: true } do |f| %>
+        <%= render "shared/error_messages", object: @project %>
         <p>
           <%= f.label :name %>
           <%= f.text_field :name, class: "form-control" %>
@@ -41,6 +42,5 @@
       <li>Please note that we retain the option of not posting projects that are unaligned with our company's goals. We will contact you if we make such a decision.</li>
       <li>By sending images to us, you give us permission to use them on our website to help advertise your project.</li>
     </ol>
-    </div>
   </div>
 </main>
