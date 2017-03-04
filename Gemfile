@@ -42,6 +42,9 @@ gem 'paperclip', '~> 5.0.0'
 gem 'aws-sdk', '~> 2.3'
 # Acts as Taggable On for tags
 gem 'acts-as-taggable-on', '~> 4.0'
+# Devise for authentication
+gem 'devise'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'sqlite3'
