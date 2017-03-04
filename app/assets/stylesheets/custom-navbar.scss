@@ -1,8 +1,4 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
-$bgDefault: white;
-$bgHighlight: #ec6433;
+@import "global";
 
 .navbar-custom {
   background-color: $bgDefault;

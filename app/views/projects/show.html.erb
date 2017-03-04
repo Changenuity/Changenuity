@@ -1,12 +1,8 @@
 <% provide(:title, @project.name) %>
-<main id="page-main">
-    <style> /* These styles are page specific */
-    #page-main-header {
-      background-image: url(<%= @project.image.url(:medium) %>);
-    }
-  </style>
-
-  <header id="page-main-header" class="jumbotron splash">
+<main id="page-main" class="projects projects-show">
+  <header id="page-main-header"
+          style="background-image: url(<%= "#{@project.image.url(:medium)}" %>)"
+          class="jumbotron splash">
     <div class="container">
       <h1 id="project-name"><%= @project.name %></h1>
       <p id="project-team">Project Team</p>
@@ -51,36 +47,64 @@
 
       <section id="sidebar-section" class="col-md-3">
         <article id="project-contact">
-          <div>
-            <h4>Have a solution or want to get in touch?</h4>
-            <button id="contact-btn" class="btn btn-primary-hollow btn-lg">
-              <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
-              Contact</button>
-          </div>
+          <h4>Have a solution or want to get in touch?</h4>
+          <button id="contact-btn" class="btn btn-primary-hollow btn-lg">
+            <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+            Contact</button>
           <h4>Connect with us:</h4>
-          <ul id="social-media-links" class="list-inline link-list">
+          <ul id="social-media-links" class="list-inline links-list">
 						<li class="connect-link btn">
-							<%= link_to image_tag("website.svg", alt: "Website", class: "img-responsive"),
+							<%= link_to image_tag("website.svg", alt: "Website",
+                          class: "img-responsive"),
 													root_path %>
             </li>
 						<li class="connect-link btn">
-							<%= link_to image_tag("facebook.svg", alt: "Facebook", class: "img-responsive"),
+							<%= link_to image_tag("facebook.svg", alt: "Facebook",
+                          class: "img-responsive"),
 													root_path %>
             </li>
 						<li class="connect-link btn">
-							<%= link_to image_tag("twitter.svg", alt: "Twitter", class: "img-responsive"),
+							<%= link_to image_tag("twitter.svg", alt: "Twitter",
+                          class: "img-responsive"),
 													root_path %>
             </li>
           </ul>
         </article>
         <article id="projects-gallery">
           <h4>Related Projects</h4>
-          <ul class="link-list">
-            <li id="rp-1" style="background-image: url(<%= "#{@project.image.url(:medium)}" %>)" class="related-project">
+          <ul class="links-list row">
+            <li class="opp-card col-sm-6 col-md-12">
+              <%= link_to root_path do %>
+                <div class="img-wrapper">
+                    <div class="opp-card-image" style="background-image: url(<%= "#{@project.image.url(:medium)}" %>)"></div>
+                </div>
+                <div class="content-wrapper">
+                  <h4 class="opp-card-header">Opportunity Header</h4>
+                  <p class="opp-card-desc">Opportunity Description</p>
+                </div>
+              <% end %>
             </li>
-            <li id="rp-2" style="background-image: url(<%= "#{@project.image.url(:medium)}" %>)" class="related-project">
+            <li class="opp-card col-sm-6 col-md-12">
+              <%= link_to root_path do %>
+                <div class="img-wrapper">
+                  <div class="opp-card-image" style="background-image: url(<%= "#{@project.image.url(:medium)}" %>)"></div>
+                </div>
+                <div class="content-wrapper">
+                  <h4 class="opp-card-header">Opportunity Header</h4>
+                  <p class="opp-card-desc">Opportunity Description</p>
+                </div>
+              <% end %>
             </li>
-            <li id="rp-3" style="background-image: url(<%= "#{@project.image.url(:medium)}" %>)" class="related-project">
+            <li class="opp-card col-sm-6 col-md-12">
+              <%= link_to root_path do %>
+                <div class="img-wrapper">
+                  <div class="opp-card-image" style="background-image: url(<%= "#{@project.image.url(:medium)}" %>)"></div>
+                </div>
+                <div class="content-wrapper">
+                  <h4 class="opp-card-header">Opportunity Header</h4>
+                  <p class="opp-card-desc">Opportunity Description</p>
+                </div>
+              <% end %>
             </li>
           </ul>
         </article>

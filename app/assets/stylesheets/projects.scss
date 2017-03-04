@@ -1,3 +1,158 @@
 // Place all the styles related to the Projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "global";
+
+// The following are styles which apply to all views related to the Projects
+// controller.
+
+.projects {
+
+  article h1, article h2, article h3, article h4, article h5, article h6 {
+    /* Resets margins */
+    margin-top: 0;
+  }
+
+  /* ============================================
+     Splash Banner Styles
+  ============================================ */
+
+  #page-main-header {
+    padding-top: 120px; /* 83.33% */
+    padding-bottom: 24px;
+    position: relative; /* necessary for applying the dark gradient */
+    z-index: 1; /* necessary for applying the dark gradient */
+    background-position: center 60%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    &:before {
+      /* The following is so that a dark gradient can be applied */
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7));
+    }
+  }
+
+  /* ============================================
+     Main Section Styles
+  ============================================ */
+
+  #main-section {
+    article {
+      position: relative;
+      z-index: 1;
+      padding-bottom: 40px;
+      margin-bottom: 20px;
+
+      p {
+        font-size: 18px;
+        line-height: 1.8;
+        text-align: justify;
+      }
+
+      &:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        bottom: 0;
+        left: 40%;
+        right: 40%;
+
+        border-bottom: 1px solid $color-light-turquoise;
+      }
+    }
+
+    .article-header {
+      font-weight: 200;
+      font-size: 40px;
+
+      padding: 20px 0 10px;
+      border-bottom: 2px solid $color-turquoise;
+      &::first-letter {
+        color: $color-orange;
+      }
+    }
+  }
+
+  .opp-card {
+    margin-bottom: 30px;
+    position: relative;
+
+    a {
+      -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+      -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+      box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+      display: block;
+      border-radius: 6px;
+      overflow: hidden;
+
+      &:hover .opp-card-image,
+      &:focus .opp-card-image {
+        transform: scale(1.2);
+      }
+    }
+    .img-wrapper {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+    }
+    .opp-card-image {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      background-color: $color-light-turquoise;
+      background-position: center;
+      background-size: cover;
+      transition: all .5s;
+      &::before {
+        content: "";
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6));
+      }
+    }
+    .content-wrapper {
+      position: absolute;
+      bottom: 0;
+      color: white;
+      padding: 10px;
+    }
+  }
+}
+
+/* ============================================
+   Media Queries Styles
+============================================ */
+
+@media(min-width: 768px) { /* sm and up */
+  .projects {
+    .opp-card {
+      .img-wrapper {
+        height: 150px;
+      }
+      .content-wrapper {
+        position: static;
+        color: black;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) { /* md and up */
+  .projects {
+    .op-card {
+      margin-bottom: 15px;
+    }
+  }
+}
