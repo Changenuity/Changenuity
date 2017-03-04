@@ -19,10 +19,27 @@
             <%= link_to project_path(project) do %>
               <div class="img-wrapper">
                 <div class="opp-card-image" style="background-image: url(<%= project.image.url(:medium) %>)"></div>
-                <!-- <%= image_tag(project.image.url(:medium), alt: project.name, class: "img-responsive") %> -->
               </div>
               <div class="content-wrapper">
-                <h4 class="opp-card-header"><%= project.name %></h4>
+                <h5 class="opp-card-header"><%= project.name %></h4>
+                <p class="opp-card-desc"><%= project.description %></p>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </article>
+    <article>
+      <h2 class="article-header">Opportunities of another section</h2>
+      <ul class="links-list row">
+        <% @projects.each do |project| %>
+          <li class="opp-card col-sm-6 col-md-4 col-lg-3">
+            <%= link_to project_path(project) do %>
+              <div class="img-wrapper">
+                <div class="opp-card-image" style="background-image: url(<%= project.image.url(:medium) %>)"></div>
+              </div>
+              <div class="content-wrapper">
+                <h5 class="opp-card-header"><%= project.name %></h4>
                 <p class="opp-card-desc"><%= project.description %></p>
               </div>
             <% end %>

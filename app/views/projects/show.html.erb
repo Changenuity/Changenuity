@@ -54,19 +54,13 @@
           <h4>Connect with us:</h4>
           <ul id="social-media-links" class="list-inline links-list">
 						<li class="connect-link btn">
-							<%= link_to image_tag("website.svg", alt: "Website",
-                          class: "img-responsive"),
-													root_path %>
+							<%= link_to image_tag("website.svg", alt: "Website", class: "img-responsive"), root_path %>
             </li>
 						<li class="connect-link btn">
-							<%= link_to image_tag("facebook.svg", alt: "Facebook",
-                          class: "img-responsive"),
-													root_path %>
+							<%= link_to image_tag("facebook.svg", alt: "Facebook", class: "img-responsive"), root_path %>
             </li>
 						<li class="connect-link btn">
-							<%= link_to image_tag("twitter.svg", alt: "Twitter",
-                          class: "img-responsive"),
-													root_path %>
+							<%= link_to image_tag("twitter.svg", alt: "Twitter", class: "img-responsive"), root_path %>
             </li>
           </ul>
         </article>
@@ -79,7 +73,7 @@
                     <div class="opp-card-image" style="background-image: url(<%= "#{@project.image.url(:medium)}" %>)"></div>
                 </div>
                 <div class="content-wrapper">
-                  <h4 class="opp-card-header">Opportunity Header</h4>
+                  <h5 class="opp-card-header">Opportunity Header</h4>
                   <p class="opp-card-desc">Opportunity Description</p>
                 </div>
               <% end %>
@@ -90,7 +84,7 @@
                   <div class="opp-card-image" style="background-image: url(<%= "#{@project.image.url(:medium)}" %>)"></div>
                 </div>
                 <div class="content-wrapper">
-                  <h4 class="opp-card-header">Opportunity Header</h4>
+                  <h5 class="opp-card-header">Opportunity Header</h4>
                   <p class="opp-card-desc">Opportunity Description</p>
                 </div>
               <% end %>
@@ -101,7 +95,7 @@
                   <div class="opp-card-image" style="background-image: url(<%= "#{@project.image.url(:medium)}" %>)"></div>
                 </div>
                 <div class="content-wrapper">
-                  <h4 class="opp-card-header">Opportunity Header</h4>
+                  <h5 class="opp-card-header">Opportunity Header</h4>
                   <p class="opp-card-desc">Opportunity Description</p>
                 </div>
               <% end %>
