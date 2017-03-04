@@ -10,6 +10,8 @@ $color-orange: #EC6433;
 $color-light-orange: #C14F26;
 $color-turquoise: #8AB7A3;
 $color-light-turquoise: #DDDDDD;
+$color-mystery1: #7AA391;
+$color-mystery2: #625F5E;
 $bgDefault: white;
 $bgHighlight: #ec6433;
 
@@ -51,12 +53,6 @@ body {
 .links-list {
   list-style: none;
   padding: 0;
-  a {
-    color: black;
-    &:hover {
-      color: black;
-    }
-  }
 }
 
 .btn {
