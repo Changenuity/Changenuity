@@ -14,29 +14,9 @@
     <article>
       <h2 class="article-header">Opportunities of a certain section</h2>
       <ul class="links-list row">
-        <% @projects.each_slice(4) do |slice| %>
-          <% slice.each do |project| %>
-            <li class="opp-card col-sm-6 col-md-4 col-lg-3">
-              <%= link_to project_path(project) do %>
-                <div class="img-wrapper">
-                  <div class="opp-card-image" style="background-image: url(<%= project.image.url(:medium) %>)"></div>
-                </div>
-                <div class="content-wrapper">
-                  <h5 class="opp-card-header"><%= project.name %></h4>
-                  <p class="opp-card-desc"><%= project.description %></p>
-                </div>
-              <% end %>
-            </li>
-          <% end %>
-          <div class="clearfix"></div>
-        <% end %>
-      </ul>
-    </article>
-    <article>
-      <h2 class="article-header">Opportunities of another section</h2>
-      <ul class="links-list row">
         <% @projects.each do |project| %>
-          <li class="opp-card col-sm-6 col-md-4 col-lg-3">
+          <!-- need all classes to add clear:left media queries -->
+          <li class="opp-card col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">
             <%= link_to project_path(project) do %>
               <div class="img-wrapper">
                 <div class="opp-card-image" style="background-image: url(<%= project.image.url(:medium) %>)"></div>
@@ -48,7 +28,26 @@
             <% end %>
           </li>
         <% end %>
-      </ul> <!-- End of row -->
+      </ul>
+    </article>
+    <article>
+      <h2 class="article-header">Opportunities of another section</h2>
+      <ul class="links-list row">
+        <% @projects.each do |project| %>
+          <!-- need all classes to add clear:left media queries -->
+          <li class="opp-card col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">
+            <%= link_to project_path(project) do %>
+              <div class="img-wrapper">
+                <div class="opp-card-image" style="background-image: url(<%= project.image.url(:medium) %>)"></div>
+              </div>
+              <div class="content-wrapper">
+                <h5 class="opp-card-header"><%= project.name %></h4>
+                <p class="opp-card-desc"><%= project.description %></p>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
     </article> <!-- End of container -->
   </section id="main-section">
 </main><!-- End of page-main -->
