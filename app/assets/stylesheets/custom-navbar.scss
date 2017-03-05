@@ -10,29 +10,24 @@ $navbar-height: 65px;
 
 .navbar-custom {
   background-color: $color-white;
-  padding: 0 15px;
-  border: 0;
+  height: $navbar-height;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   -webkit-box-shadow: 0 0 18px 0 rgba(0,0,0,0.5);
   -moz-box-shadow: 0 0 18px 0 rgba(0,0,0,0.5);
   box-shadow: 0 0 18px 0 rgba(0,0,0,0.5);
   .navbar-brand {
-    padding: 0;
-    top: 50%;
-    transform: translateY(-65%);
-    position: absolute;
     img {
       height: $logo-height;
       width: auto;
     }
   }
-  .navbar-nav li a {
+  .nav-item .nav-link {
     color: $color-dark-grey;
     background-color: $color-white;
-    padding: 0 30px;
     height: $navbar-height;
     line-height: $navbar-height;
+    padding: 0 30px;
     font-size: 20px;
     -webkit-transition: all 0.4s;
     -ms-transition: all 0.4s;
@@ -45,23 +40,6 @@ $navbar-height: 65px;
     &:hover {
       color: $color-white;
       background-color: $color-orange;
-    }
-  }
-  .navbar-toggle {
-    border-color: $color-orange;
-    -webkit-transition: all 0.4s;
-    -ms-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    transition: all 0.4s;
-    .icon-bar {
-      background-color: $color-orange;
-    }
-    &:hover {
-      background-color: $color-orange;
-      .icon-bar {
-        background-color: $color-white;
-      }
     }
   }
 }
