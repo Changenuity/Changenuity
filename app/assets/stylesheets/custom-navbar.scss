@@ -5,18 +5,22 @@ $color-turquoise: #8ab7a3;
 $color-dark-turquoise: #7aa391;
 $color-grey: #ddd;
 $color-dark-grey: #666;
-$logo-height: 65px;
+$logo-height: 60px;
 $navbar-height: 65px;
 
 .navbar-custom {
   background-color: $color-white;
   height: $navbar-height;
+  padding: 0 15px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   -webkit-box-shadow: 0 0 18px 0 rgba(0,0,0,0.5);
   -moz-box-shadow: 0 0 18px 0 rgba(0,0,0,0.5);
   box-shadow: 0 0 18px 0 rgba(0,0,0,0.5);
   .navbar-brand {
+    padding: 0;
+    height: $navbar-height;
+    line-height: $navbar-height;
     img {
       height: $logo-height;
       width: auto;
