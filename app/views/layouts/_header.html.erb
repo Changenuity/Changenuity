@@ -1,8 +1,5 @@
 <div class="container">
   <nav class="navbar navbar-toggleable-md navbar-custom">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
     <%= link_to image_tag("logo.png", alt: "Changenuity logo"), root_path, class: "navbar-brand" %>
     <div class="collapse navbar-collapse" id="main-navbar">
       <ul class="navbar-nav ml-auto">
@@ -16,7 +13,7 @@
           <%= link_to "Post", post_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="http://example.com" id="main-navbar-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="main-navbar-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Account
           </a>
           <ul class="dropdown-menu" aria-labelledby="main-navbar-dropdown">
@@ -35,5 +32,8 @@
         </li>
       </ul>
     </div>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
   </nav>
 </div>
