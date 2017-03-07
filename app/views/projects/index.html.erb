@@ -1,14 +1,11 @@
 <% provide(:title, "Browse Projects") %>
 <main id="page-main" class="projects projects-index">
-  <header id="page-main-header"
-          style="background-image: url('http://placehold.it/350x65')"
-          class="jumbotron splash">
+  <header id="page-main-header" class="jumbotron splash" style="background-image: url('http://placehold.it/350x65')">
     <div class="container">
       <h1>Browse Projects</h1>
       <p>Your change is right around the corner.</p>
     </div>
   </header>
-
   <section id="main-section" class="container opt-section">
     <p class="text-center">Want to see your project on this page? <%= link_to "Post your project today!", post_path %></p>
     <article>
@@ -49,5 +46,5 @@
         <% end %>
       </ul>
     </article> <!-- End of container -->
-  </section id="main-section">
+  </section>
 </main><!-- End of page-main -->

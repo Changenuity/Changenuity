@@ -1,19 +1,12 @@
 <% provide(:title, @user.name) %>
 <main id="page-main">
-    <style> /* These styles are page specific */
-    #page-main-header {
-      background-image: url("http://placehold.it/350x65");
-    }
-  </style>
-
-  <header id="page-main-header" class="jumbotron splash">
+  <header id="page-main-header" class="jumbotron splash" style="background-image: url('http://placehold.it/350x65')">
     <div class="container">
       <h1><%= @user.name %></h1>
-      <p id="project-location"><%= @user.email %></p>
+      <p class="project-location"><%= @user.email %></p>
       <p><time><%= @user.created_at %></time></p>
     </div>
   </header>
-
   <aside class="col-md-4">
     <section class="user_info">
       <h1>

@@ -8,11 +8,11 @@
       margin-bottom: 10px;
     }
 
-    #project-team {
+    .project-team {
       width: 100%;
     }
 
-    #project-location {
+    .project-location {
       position: relative;
       z-index: 1;
       padding-right: 30px; /* Line in-between location and date */
@@ -34,7 +34,7 @@
      Tags Styles
   ============================================ */
 
-  #tags {
+  .tags {
     margin: 0;
     font-size: 0;
 
@@ -65,20 +65,14 @@
     }
   }
 
-  #project-contact {
+  .project-contact {
     > * {
       margin-bottom: 30px;
     }
   }
 
-  #contact-btn {
+  .contact-btn {
     width: 100%;
-  }
-  #social-media-links {
-    width: 100%;
-  }
-
-  #contact-btn {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -88,7 +82,8 @@
     font-size: 20px;
   }
 
-  #social-media-links {
+  .social-media-links {
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     font-size: 0;
@@ -135,12 +130,12 @@
         padding: 15px 0;
       }
     }
-    #project-contact {
+    .project-contact {
       > * {
         margin-bottom: 30px;
       }
     }
-    #contact-btn {
+    .contact-btn {
       letter-spacing: 3px;
     }
   }
