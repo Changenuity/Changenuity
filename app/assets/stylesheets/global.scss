@@ -1,0 +1,82 @@
+/* ============================================
+   Global Variables
+============================================ */
+
+$color-orange: #EC6433;
+$color-light-orange: #C14F26;
+$color-turquoise: #8AB7A3;
+$color-light-turquoise: #DDDDDD;
+$color-mystery1: #7AA391;
+$color-mystery2: #625F5E;
+$bgDefault: white;
+$bgHighlight: #ec6433;
+
+/* ============================================
+   General Styles
+============================================ */
+
+a {
+  color: $color-orange;
+  text-decoration: none;
+
+  -webkit-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+  &:hover {
+    color: $color-light-orange;
+    text-decoration: none;
+  }
+}
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.list-inline {
+  margin-left: 0;
+}
+
+.list-inline-header {
+  display: inline-block;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.links-list {
+  list-style: none;
+  padding: 0;
+}
+
+.btn {
+  -webkit-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.btn-primary {
+  background-color: $color-orange;
+  border-color: transparent;
+  color: white;
+}
+
+.btn-primary:hover {
+  border-color: transparent;
+  background-color: $color-light-orange;
+}
+
+.btn-primary-hollow {
+  color: $color-orange;
+  border-color: $color-orange;
+  background-color: transparent;
+}
+
+.btn-primary-hollow:hover {
+  color: $color-light-orange;
+  border-color: $color-light-orange;
+}

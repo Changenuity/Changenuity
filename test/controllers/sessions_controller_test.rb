@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class ProjectsControllerTest < ActionDispatch::IntegrationTest
+class SessionsControllerTest < ActionDispatch::IntegrationTest
   test "should get new" do
-    get post_path
+    get login_path
     assert_response :success
   end
 

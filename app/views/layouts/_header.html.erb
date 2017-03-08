@@ -12,24 +12,33 @@
         <li class="nav-item">
           <%= link_to "Post", post_path, class: "nav-link" %>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="main-navbar-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Account
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="main-navbar-dropdown">
-            <li>
-              <%= link_to "Profile", root_path, class: "dropdown-item" %>
-            </li>
-            <li>
-              <%= link_to "Settings", root_path, class: "dropdown-item" %>
-            </li>
-            <li class="dropdown-divider" role="separator">
-            </li>
-            <li>
-              <%= link_to "Log out", root_path, class: "dropdown-item" %>
-            </li>
-          </ul>
-        </li>
+        <% if logged_in? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="main-navbar-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Account
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="main-navbar-dropdown">
+              <li>
+                <%= link_to "Profile", root_path, class: "dropdown-item" %>
+              </li>
+              <li>
+                <%= link_to "Settings", root_path, class: "dropdown-item" %>
+              </li>
+              <li class="dropdown-divider" role="separator">
+              </li>
+              <li>
+                <%= link_to "Log out", root_path, class: "dropdown-item" %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Log in", login_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign up", signup_path, class: "nav-link" %>
+          </li>
+        <% end %>
       </ul>
     </div>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">

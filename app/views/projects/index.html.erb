@@ -1,37 +1,50 @@
 <% provide(:title, "Browse Projects") %>
-<main id="page-main">
-    <style> /* These styles are page specific */
-    #page-main-header {
-      background-image: url("http://placehold.it/350x65");
-    }
-  </style>
-
-  <header id="page-main-header" class="jumbotron splash">
+<main id="page-main" class="projects projects-index">
+  <header id="page-main-header" class="jumbotron splash" style="background-image: url('http://placehold.it/350x65')">
     <div class="container">
       <h1>Browse Projects</h1>
       <p>Your change is right around the corner.</p>
     </div>
   </header>
-
-  <div class="container">
-    <p class="h3 text-center">Want to see your project on this page? <%= link_to "Post your project today!", post_path %></p>
-    <div class="bg-primary opt-section-header">
-      <div class="container">
-        <h2 class="text-capitalize">UBC Engineering Design Teams</h2>
-      </div>
-    </div>
-    <section class="container opt-section">
-      <div class="row">
+  <section id="main-section" class="container opt-section">
+    <p class="text-center">Want to see your project on this page? <%= link_to "Post your project today!", post_path %></p>
+    <article>
+      <h2 class="article-header">Opportunities of a certain section</h2>
+      <ul class="links-list row">
         <% @projects.each do |project| %>
-          <div class="col-sm-6 col-md-3">
-            <div class="content-wrapper">
-              <%= link_to image_tag(project.image.url(:medium), alt: project.name, class: "img-responsive center-block icon"), project_path(project) %>
-              <h4 class="bg-primary"><%= link_to project.name, project_path(project) %></h4>
-              <p><%= project.description %></p>
-            </div>
-          </div>
+          <!-- need all classes to add clear:left media queries -->
+          <li class="opp-card col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">
+            <%= link_to project_path(project) do %>
+              <div class="img-wrapper">
+                <div class="opp-card-image" style="background-image: url(<%= project.image.url(:medium) %>)"></div>
+              </div>
+              <div class="content-wrapper">
+                <h5 class="opp-card-header"><%= project.name %></h4>
+                <p class="opp-card-desc"><%= project.description %></p>
+              </div>
+            <% end %>
+          </li>
         <% end %>
-      </div> <!-- End of row -->
-    </section> <!-- End of container -->
-  </div>
-</main>
+      </ul>
+    </article>
+    <article>
+      <h2 class="article-header">Opportunities of another section</h2>
+      <ul class="links-list row">
+        <% @projects.each do |project| %>
+          <!-- need all classes to add clear:left media queries -->
+          <li class="opp-card col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">
+            <%= link_to project_path(project) do %>
+              <div class="img-wrapper">
+                <div class="opp-card-image" style="background-image: url(<%= project.image.url(:medium) %>)"></div>
+              </div>
+              <div class="content-wrapper">
+                <h5 class="opp-card-header"><%= project.name %></h4>
+                <p class="opp-card-desc"><%= project.description %></p>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </article> <!-- End of container -->
+  </section>
+</main><!-- End of page-main -->

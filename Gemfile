@@ -10,6 +10,7 @@ end
 gem 'rails', '~> 5.0.1'
 gem 'sprockets-rails', require: 'sprockets/railtie'
 gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bcrypt', '3.1.11', :require => 'bcrypt'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 # Use Puma as the app server
@@ -43,6 +44,12 @@ gem 'paperclip', '~> 5.0.0'
 gem 'aws-sdk', '~> 2.3'
 # Acts as Taggable On for tags
 gem 'acts-as-taggable-on', '~> 4.0'
+# OmniAuth for identity authentication
+gem 'omniauth-identity'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-linkedin-oauth2'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 
 group :development, :test do
   gem 'sqlite3'

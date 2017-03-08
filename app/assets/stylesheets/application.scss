@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  */
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
 @import "bootstrap";
-@import "custom";
+@import "global";
 @import "custom-navbar";
