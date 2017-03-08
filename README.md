@@ -18,7 +18,7 @@ Welcome to our team Github repo! Here you can find all of the resources for our 
 3. Go to directory `cd Changenuity` or just open command line in the folder
 4. Run rails server with `rails server` or `rails s`
    - If you get any prompts to install gems, probably run `bundle install --without production`
-   - If a certification error arises, two options: 
+   - If a certification error arises, two options:
      1. Open the gemfile (via windows explorer) and change Source from https://rubygems.org to http://rubygems.org (the difference is the s)
      2. In CLI `gem sources -r https://rubygems.org`
         then type `gem sources -a http://rubygems.org`

@@ -1,152 +1,102 @@
-@import "global";
+$color-white: white;
+$color-orange: #ec6433;
+$color-dark-orange: #c14f26;
+$color-turquoise: #8ab7a3;
+$color-dark-turquoise: #7aa391;
+$color-grey: #ddd;
+$color-dark-grey: #666;
+$logo-height: 60px;
+$navbar-height: 65px;
 
-$nav-bar-height: 65px;
-
-/* ============================================
-   Navbar Styles - WIP
-============================================ */
-
-nav {
-  position: fixed;
-  overflow: hidden;
-  width: 100%;
+.navbar-custom {
   z-index: 2;
-  -webkit-box-shadow: 0px 0px 18px 0px rgba(0,0,0,0.5);
-  -moz-box-shadow: 0px 0px 18px 0px rgba(0,0,0,0.5);
-  box-shadow: 0px 0px 18px 0px rgba(0,0,0,0.5);
-  background-color: #FFFFFF;
-}
-
-#page-main {
-  position: relative;
-  top: $nav-bar-height;
-}
-
-#nav-header {
-  display: block;
-  height: $nav-bar-height;
-  width: 100%;
-}
-
-#brand-logo {
-  width: auto; /* Maintains aspect ratio */
-  height: 100%;
-}
-
-#handle {
-  color: $color-orange;
-  font-size: 28px;
-  float: right;
-  padding-top: ($nav-bar-height - 28px)/2; /* Math in CSS? BLASPHEMY */
-  padding-right: 5px;
-  height: $nav-bar-height;
-
-  cursor: pointer;
-
-  -webkit-transition: color 0.4s;
-  -ms-transition: color 0.4s;
-  -moz-transition: color 0.4s;
-  -o-transition: color 0.4s;
-  transition: color 0.4s;
-  &:hover {
-    color: $color-light-orange;
-  }
-}
-
-#nav-list {
-  overflow: hidden;
+  background-color: $color-white;
+  height: $navbar-height;
   padding: 0;
-  margin: 0 -15px;
-  text-align: right;
-  max-height: 0;
-  z-index: -1;
-
-  -webkit-transition: max-height 0.4s;
-  -ms-transition: max-height 0.4s;
-  -moz-transition: max-height 0.4s;
-  -o-transition: max-height 0.4s;
-  transition: max-height 0.4s;
-
-  li {
-    display: inline-block;
-    width: 100%;
-    padding: 0;
+  -webkit-box-shadow: 0 0 18px 0 rgba(0,0,0,0.5);
+  -moz-box-shadow: 0 0 18px 0 rgba(0,0,0,0.5);
+  box-shadow: 0 0 18px 0 rgba(0,0,0,0.5);
+  .navbar-brand {
+    padding: 0 0 0 5px;
+    height: $navbar-height;
+    line-height: $navbar-height;
+    img {
+      height: $logo-height;
+      width: auto;
+    }
   }
-  a {
-    display: inline-block;
-    padding: 20px 30px;
-    width: 100%;
-
+  .navbar-toggler {
+    outline: none;
+    height: $navbar-height;
+    line-height: $navbar-height;
     cursor: pointer;
-    color: white;
-    background-color: $color-turquoise;
-
-    text-align: left;
-    font-size: 18px;
-
-    -webkit-transition: all 0.4s;
-    -ms-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    transition: all 0.4s;
-    &:hover {
-      background-color: $color-mystery1;
-    }
-  }
-}
-
-#nav-list.showing {
-  max-height: 1000px; /* Excessive, but accomodates for future links */
-}
-
-/* ============================================
-   Media Queries Styles
-============================================ */
-
-@media (min-width: 768px) { /* Tablets and up */
-  #page-main {
-    top: 0;
-  }
-  nav {
-    left: 0;
-    right: 0;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-  }
-  #page-main-header {
-    padding-top: 200px; /* Should provide adequate space for navbar, adjust as per needed */
-  }
-}
-
-@media (min-width: 992px) { /* Small computers and up */
-  nav {
-    height: $nav-bar-height;
-  }
-  #nav-header {
-    height: $nav-bar-height;
-  }
-  #handle {
-    display: none;
-  }
-  #nav-list {
-    margin: 0;
-    max-height: 256px;
-    font-size: 0; /* Gets rid of the space between inline-blocks */
-    li {
-      width: auto; /* Shrink wrap */
-    }
-    a {
-      height: $nav-bar-height;
-      padding-left: 30px;
-      padding-right: 30px;
-
-      font-size: 20px;
-      color: $color-mystery2;
-      background-color: white;
+    // Change rgba(236, 100, 51, 1) to match $color-orange
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(236, 100, 51, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+      -webkit-transition: all 0.4s;
+      -ms-transition: all 0.4s;
+      -moz-transition: all 0.4s;
+      -o-transition: all 0.4s;
+      transition: all 0.4s;
       &:hover {
-        color: white;
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(193, 79, 38, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+      }
+    }
+  }
+  .nav-item {
+    .nav-link {
+      height: $navbar-height;
+      line-height: $navbar-height;
+      padding: 0 30px;
+      font-size: 20px;
+    }
+    .nav-link, .dropdown-item {
+      color: $color-dark-grey;
+      background-color: $color-white;
+      -webkit-transition: all 0.4s;
+      -ms-transition: all 0.4s;
+      -moz-transition: all 0.4s;
+      -o-transition: all 0.4s;
+      transition: all 0.4s;
+      &:focus {
+        background-color: $color-grey;
+      }
+      &:hover {
+        color: $color-white;
         background-color: $color-orange;
       }
     }
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar-custom .nav-item {
+    .dropdown-menu {
+      background-color: $color-turquoise;
+    }
+    // Round corners of last element in collapsed navbar,
+    // which happens to be the only .dropbdown-toggle element
+    .dropdown-toggle {
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+    .nav-link, .dropdown-item {
+      width: 100%;
+      color: $color-white;
+      background-color: $color-turquoise;
+      &:focus {
+        background-color: $color-dark-grey;
+      }
+      &:hover {
+        background-color: $color-dark-turquoise;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-custom {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
 }
