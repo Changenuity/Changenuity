@@ -1,6 +1,6 @@
 <% provide(:title, @project.name) %>
 <main id="page-main" class="projects projects-show">
-  <header id="page-main-header" class="jumbotron splash" style="background-image: url(<%= "#{@project.image.url(:medium)} %>)">
+  <header id="page-main-header" class="jumbotron splash" style="background-image: url(<%= @project.image.url(:medium) %>)">
     <div class="container">
       <h1 class="project-name"><%= @project.name %></h1>
       <p class="project-team">Project Team</p>
