@@ -8,9 +8,5 @@ Rails.application.routes.draw do
   get  '/browse',  to: 'projects#index'
   resources  :projects
   resources  :tags, only: [:index, :show]
-  devise_for :users
-  devise_scope :user do
-    get '/users/auth/facebook/callback',
-      to: 'users/omniauth_callbacks#facebook'
-  end
+  devise_for :users, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
 end

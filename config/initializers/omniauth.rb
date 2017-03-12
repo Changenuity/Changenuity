@@ -1,7 +1,4 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_SECRET_ID'],
-           scope: 'email', info_fields: 'email', auth_type: 'rerequest'
-
   configure do |config|
     config.path_prefix = '/users/auth'
   end

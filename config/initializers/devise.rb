@@ -247,8 +247,13 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  # config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_SECRET_KEY'],
-  #                  scope: 'email', info_fields: 'email'
+  config.omniauth :google_oauth2, ENV['GOOGLE_APP_ID'], ENV['GOOGLE_SECRET_KEY'],
+                  scope: 'email', prompt: 'consent'
+  config.omniauth :linkedin, ENV['LINKEDIN_APP_ID'], ENV['LINKEDIN_SECRET_KEY']
+  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_SECRET_KEY'],
+                  scope: 'email', info_fields: 'email',
+                  callback_url: 'https://www.changenuity.com/users/auth/facebook'
+  config.omniauth :twitter, ENV['TWITTER_APP_ID'], ENV['TWITTER_SECRET_KEY']
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

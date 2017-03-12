@@ -44,7 +44,10 @@ gem 'aws-sdk', '~> 2.3'
 gem 'acts-as-taggable-on', '~> 4.0'
 # Devise for authentication
 gem 'devise'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-linkedin'
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 
 group :development, :test do
   gem 'sqlite3'
