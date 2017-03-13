@@ -62,6 +62,9 @@
               <%= link_to image_tag("twitter.svg", alt: "Twitter", class: "img-responsive"),
                           root_path %>
             </li>
+            <li class="btn">
+              <%= link_to "Edit", edit_project_path(@project) %>
+            </li>
           </ul>
         </article>
         <article class="projects-gallery">
