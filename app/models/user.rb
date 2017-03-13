@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :identities
+  has_many :authentications
 
   TEMP_EMAIL_PREFIX = 'changeme@changenuity'
   TEMP_EMAIL_REGEX = /\Achangeme@changenuity/
@@ -12,14 +12,14 @@ class User < ApplicationRecord
   validates_format_of :email, without: TEMP_EMAIL_REGEX, on: :update
 
   def User.from_omniauth(auth, signed_in_resource = nil)
-    # Get the identity and user if they exist
-    identity = Identity.from_omniauth(auth)
+    # Get the authentication and user if they exist
+    authentication = Authentication.from_omniauth(auth)
 
     # If a signed_in_resource is provided it always overrides the existing user
-    # to prevent the identity being locked with accidentally created accounts.
-    # Note that this may leave zombie accounts (with no associated identity) which
+    # to prevent the authentication being locked with accidentally created accounts.
+    # Note that this may leave zombie accounts (with no associated authentication) which
     # can be cleaned up at a later date.
-    user = signed_in_resource ? signed_in_resource : identity.user
+    user = signed_in_resource ? signed_in_resource : authentication.user
 
     # Create the user if needed
     if user.blank?
@@ -43,10 +43,10 @@ class User < ApplicationRecord
       end
     end
 
-    # Associate the identity with the user if needed
-    if identity.user != user
-      identity.user = user
-      identity.save
+    # Associate the authentication with the user if needed
+    if authentication.user != user
+      authentication.user = user
+      authentication.save
     end
     user
   end
