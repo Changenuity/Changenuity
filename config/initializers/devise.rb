@@ -251,8 +251,7 @@ Devise.setup do |config|
                   scope: 'email', prompt: 'consent'
   config.omniauth :linkedin, ENV['LINKEDIN_APP_ID'], ENV['LINKEDIN_SECRET_KEY']
   config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_SECRET_KEY'],
-                  scope: 'email', info_fields: 'email',
-                  callback_url: 'https://www.changenuity.com/users/auth/facebook'
+                  scope: 'email', info_fields: 'email'
   config.omniauth :twitter, ENV['TWITTER_APP_ID'], ENV['TWITTER_SECRET_KEY']
 
   # ==> Warden configuration

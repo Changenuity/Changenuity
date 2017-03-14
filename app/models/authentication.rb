@@ -4,9 +4,6 @@ class Authentication < ApplicationRecord
   validates_uniqueness_of :uid, scope: :provider
 
   def Authentication.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |authentication|
-      authentication.provider = auth.provider
-      authentication.uid = auth.uid
-    end
+    find_or_create_by(uid: auth.uid, provider: auth.provider)
   end
 end

@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
   validates_format_of :email, without: TEMP_EMAIL_REGEX, on: :update
 
-  def User.from_omniauth(auth, signed_in_resource = nil)
+  def User.find_for_omniauth(auth, signed_in_resource = nil)
     # Get the authentication and user if they exist
     authentication = Authentication.from_omniauth(auth)
 
@@ -29,24 +29,24 @@ class User < ApplicationRecord
       # user to verify it on the next step via UsersController.finish_signup
       email_is_verified = auth.info.email && (auth.info.verified || auth.info.verified_email)
       email = auth.info.email if email_is_verified
-      user = User.where(:email => email).first if email
+      user = User.where(email: email).first if email
 
       # Create the user if it's a new registration
       if user.blank?
         user = User.new(
-          name: auth.extra.raw_info.name,
+          name: auth.extra.raw_info.name || auth.info.nickname || auth.uid,
           email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
           password: Devise.friendly_token[0,20]
         )
         user.skip_confirmation!
-        user.save
+        user.save!
       end
     end
 
     # Associate the authentication with the user if needed
     if authentication.user != user
       authentication.user = user
-      authentication.save
+      authentication.save!
     end
     user
   end
