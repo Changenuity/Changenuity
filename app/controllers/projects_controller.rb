@@ -1,11 +1,7 @@
 class ProjectsController < ApplicationController
 
   def index
-    @projects = if params[:term]
-      Project.where('name LIKE ?', "%#{params[:term]}%")
-    else
-      Project.all
-    end
+    @projects = Project.search(params[:term])
   end
 
   def show

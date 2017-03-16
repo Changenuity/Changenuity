@@ -10,4 +10,13 @@ class Project < ApplicationRecord
   validates :description,           length: { maximum: 65535 }
   validates :parameters,            length: { maximum: 65535 }
   validates :references,            length: { maximum: 65535 }
+
+  def self.search(term)
+    if term
+      where('name LIKE ?', "%#{term}%")
+    else
+      order('id DESC')
+      # all
+    end
+  end
 end
