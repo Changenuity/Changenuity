@@ -1,7 +1,11 @@
 class ProjectsController < ApplicationController
 
   def index
-    @projects = Project.all
+    @projects = if params[:term]
+      Project.where('name LIKE ?', "%#{params[:term]}%")
+    else
+      Project.all
+    end
   end
 
   def show
@@ -41,6 +45,6 @@ class ProjectsController < ApplicationController
 
     def project_params
       params.require(:project).permit(
-        :name, :date, :location, :description, :parameters, :references, :image)
+        :name, :date, :location, :description, :parameters, :references, :image, :term)
     end
 end
