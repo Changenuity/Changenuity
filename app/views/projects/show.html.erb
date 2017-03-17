@@ -13,13 +13,8 @@
       <section id="main-section" class="col-md-9">
         <article>
           <h4 class="list-inline-header sr-only">Tags:</h4>
-          <ul class="tags" class="list-inline">
-            <li class="btn btn-primary">Tag 1</li>
-            <li class="btn btn-primary">Tag 2</li>
-            <li class="btn btn-primary">Tag 3</li>
-            <li class="btn btn-primary">Tag 4</li>
-            <li class="btn btn-primary">Tag 5</li>
-            <li class="btn btn-primary">Tag 6</li>
+          <ul id="tags" class="list-inline">
+            <%= render @project.tags %>
           </ul>
         </article>
         <article class="project-description">

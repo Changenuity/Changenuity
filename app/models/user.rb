@@ -1,50 +1,57 @@
 class User < ApplicationRecord
-  attr_accessor :remember_token
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+  has_many :authentications
 
-  before_save {email.downcase!}
+  TEMP_EMAIL_PREFIX = 'changeme@changenuity'
+  TEMP_EMAIL_REGEX = /\Achangeme@changenuity/
 
-  validates :name, presence: true, length: {maximum: 50}
-  validates :email, presence: true,
-                    length: {maximum: 255},
-                    format: {with: VALID_EMAIL_REGEX},
-                    uniqueness: { case_sensitive: false }
+  # Include default devise modules. Others available are:
+  # :lockable, :timeoutable
+  devise :database_authenticatable, :registerable, :confirmable,
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
-  has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+  validates_format_of :email, without: TEMP_EMAIL_REGEX, on: :update
 
-  def User.digest(string)
-    cost = ActiveModel::SecurePassword.min_cost ?
-      BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
-    BCrypt::Password.create(string, cost: cost)
-  end
+  def User.find_for_omniauth(auth, signed_in_resource = nil)
+    # Get the authentication and user if they exist
+    authentication = Authentication.from_omniauth(auth)
 
-  def User.new_token
-    SecureRandom.urlsafe_base64
-  end
+    # If a signed_in_resource is provided it always overrides the existing user
+    # to prevent the authentication being locked with accidentally created accounts.
+    # Note that this may leave zombie accounts (with no associated authentication) which
+    # can be cleaned up at a later date.
+    user = signed_in_resource ? signed_in_resource : authentication.user
 
-  def User.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user.name = auth.info.name
-      user.oauth_token = auth.credentials.token
-      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-      user.save!
+    # Create the user if needed
+    if user.blank?
+
+      # Get the existing user by email if the provider gives us a verified email.
+      # If no verified email was provided we assign a temporary email and ask the
+      # user to verify it on the next step via UsersController.finish_signup
+      email_is_verified = auth.info.email && (auth.info.verified || auth.info.verified_email)
+      email = auth.info.email if email_is_verified
+      user = User.where(email: email).first if email
+
+      # Create the user if it's a new registration
+      if user.blank?
+        user = User.new(
+          name: auth.extra.raw_info.name || auth.info.nickname || auth.uid,
+          email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
+          password: Devise.friendly_token[0,20]
+        )
+        user.skip_confirmation!
+        user.save!
+      end
     end
+
+    # Associate the authentication with the user if needed
+    if authentication.user != user
+      authentication.user = user
+      authentication.save!
+    end
+    user
   end
 
-  def remember
-    self.remember_token = User.new_token
-    update_attribute(:remember_digest, User.digest(remember_token))
-  end
-
-  def authenticated?(remember_token)
-    return false if remember_digest.nil?
-    BCrypt::Password.new(remember_digest).is_password?(remember_token)
-  end
-
-  def forget
-    update_attribute(:remember_digest, nil)
+  def email_verified?
+    self.email && self.email !~ TEMP_EMAIL_REGEX
   end
 end

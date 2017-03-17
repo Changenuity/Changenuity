@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_action :ensure_signup_complete, only: [:new, :create, :update, :destroy]
 
   def index
     @projects = Project.search(params[:term])
@@ -39,8 +40,8 @@ class ProjectsController < ApplicationController
 
   private
 
-    def project_params
-      params.require(:project).permit(
-        :name, :date, :location, :description, :parameters, :references, :image, :term)
-    end
+  def project_params
+    params.require(:project).permit(:name, :date, :location,
+      :description, :parameters, :references, :image, :tag_list, :term)
+  end
 end

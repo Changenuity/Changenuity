@@ -44,8 +44,8 @@ gem 'paperclip', '~> 5.0.0'
 gem 'aws-sdk', '~> 2.3'
 # Acts as Taggable On for tags
 gem 'acts-as-taggable-on', '~> 4.0'
-# OmniAuth for identity authentication
-gem 'omniauth-identity'
+# Devise for authentication
+gem 'devise'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-linkedin-oauth2'
 gem 'omniauth-facebook'

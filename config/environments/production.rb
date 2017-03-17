@@ -94,4 +94,7 @@ Rails.application.configure do
       s3_region: ENV.fetch('AWS_REGION'),
     }
   }
+
+  # For Devise default URL options
+  config.action_mailer.default_url_options = { host: 'changenuity.com' }
 end
