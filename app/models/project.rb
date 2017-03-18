@@ -14,7 +14,7 @@ class Project < ApplicationRecord
 
   def self.search(term)
     if term
-      where('name LIKE ?', "%#{term}%")
+      where('name ILIKE ?', "%#{term}%")
     else
       order('id DESC')
       # all
