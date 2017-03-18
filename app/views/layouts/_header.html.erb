@@ -1,18 +1,48 @@
-<nav class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <header id="nav-header">
-        <%= link_to image_tag("logo.png", alt: "Changenuity logo", id: "brand-logo"),
-                    root_path %>
-        <span id="handle" class="glyphicon glyphicon-align-justify"></span>
-      </header>
-    </div>
-    <div class="col-md-6">
-      <ul id="nav-list">
-        <li><%= link_to "Home",   root_path %></li>
-        <li><%= link_to "Post",   post_path %></li>
-        <li><%= link_to "Browse", browse_path %></li>
+<div class="container">
+  <nav class="navbar navbar-toggleable-md navbar-custom">
+    <%= link_to image_tag("logo.png", alt: "Changenuity logo"), root_path, class: "navbar-brand" %>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <%= link_to "Home", root_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Browse", browse_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Post", post_path, class: "nav-link" %>
+        </li>
+        <% if logged_in? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="main-navbar-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Account
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="main-navbar-dropdown">
+              <li>
+                <%= link_to "Profile", root_path, class: "dropdown-item" %>
+              </li>
+              <li>
+                <%= link_to "Settings", root_path, class: "dropdown-item" %>
+              </li>
+              <li class="dropdown-divider" role="separator">
+              </li>
+              <li>
+                <%= link_to "Log out", root_path, class: "dropdown-item" %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Log in", login_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign up", signup_path, class: "nav-link" %>
+          </li>
+        <% end %>
       </ul>
     </div>
-  </div>
-</nav>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+</div>

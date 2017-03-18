@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   before_action :ensure_signup_complete, only: [:new, :create, :update, :destroy]
 
   def index
-    @projects = Project.all
+    @projects = Project.search(params[:term])
   end
 
   def show
@@ -23,10 +23,25 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def edit
+    @project = Project.find(params[:id])
+  end
+
+  def update
+    @project = Project.find(params[:id])
+    if @project.update_attributes(project_params)
+      # Handle successful update
+      flash[:success] = "Project changed"
+      redirect_to @project
+    else
+      render 'edit'
+    end
+  end
+
   private
 
   def project_params
     params.require(:project).permit(:name, :date, :location,
-      :description, :parameters, :references, :image, :tag_list)
+      :description, :parameters, :references, :image, :tag_list, :term)
   end
 end

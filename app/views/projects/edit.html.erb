@@ -1,10 +1,9 @@
-<% provide(:title, "Post Project") %>
+<% provide(:title, "Edit Project") %>
 <main id="page-main" class="projects projects-new">
-  <h1>Post Your Project!</h1>
+  <h1>Edit Your Project</h1>
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <%= form_for :project, url: post_path,
-                             html: { multipart: true } do |f| %>
+      <%= form_for(@project) do |f| %>
         <%= render "shared/error_messages", object: @project %>
         <p>
           <%= f.label :name %>
@@ -18,10 +17,6 @@
         <p>
           <%= f.label :location %>
           <%= f.text_field :location, class: "form-control" %>
-        </p>
-        <p>
-          <%= f.label :tags %>
-          <%= f.text_field :tag_list %>
         </p>
         <p>
           <%= f.label :description %>
@@ -39,7 +34,7 @@
           <%= f.label :image %>
           <%= f.file_field :image, class: "form-control" %>
         </p>
-          <%= f.submit "Post my project", class: "btn btn-primary" %>
+          <%= f.submit "Save changes", class: "btn btn-primary" %>
       <% end %>
       <ol>
         <li>It may take up to 3 days for your project's profile to appear on our website.</li>

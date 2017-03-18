@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head lang="en">
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
-    <title><%= full_title yield :title %></title>
     <%= render "layouts/rails_default" %>
     <%= render "layouts/shim" %>
+    <title><%= full_title yield :title %></title>
   </head>
   <body>
     <%= render "layouts/header" %>
@@ -22,10 +18,5 @@
     <div class="container">
       <%= debug(params) if Rails.env.development? %>
     </div>
-    <script>
-      $('#handle').on('click', function() {
-        $('nav ul').toggleClass('showing');
-      });
-    </script>
   </body>
 </html>
