@@ -13,7 +13,7 @@
   <section id="main-section" class="container opt-section">
     <p class="text-center">Want to see your project on this page? <%= link_to "Post your project today!", post_path %></p>
     <article>
-      <h2 class="article-header">Opportunities of a certain section</h2>
+      <h2 class="article-header">Opportunities</h2>
       <ul class="opp-card-grid links-list">
         <% @projects.each do |project| %>
           <li class="opp-card">
@@ -30,23 +30,5 @@
         <% end %>
       </ul>
     </article>
-    <article>
-      <h2 class="article-header">Opportunities of another section</h2>
-      <ul class="links-list row">
-        <% @projects.each do |project| %>
-          <ul class="opp-card-grid links-list">
-            <%= link_to project_path(project) do %>
-              <div class="img-wrapper">
-                <div class="opp-card-image" style="background-image: url(<%= project.image.url(:medium) %>)"></div>
-              </div>
-              <div class="content-wrapper">
-                <h5 class="opp-card-header"><%= project.name %></h4>
-                <p class="opp-card-desc"><%= project.description %></p>
-              </div>
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
-    </article> <!-- End of container -->
   </section>
 </main><!-- End of page-main -->

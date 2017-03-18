@@ -249,7 +249,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   config.omniauth :google_oauth2, ENV['GOOGLE_APP_ID'], ENV['GOOGLE_SECRET_KEY'],
                   scope: 'email', prompt: 'consent'
-  config.omniauth :linkedin_oauth2, ENV['LINKEDIN_APP_ID'], ENV['LINKEDIN_SECRET_KEY']
+  config.omniauth :linkedin, ENV['LINKEDIN_APP_ID'], ENV['LINKEDIN_SECRET_KEY']
   config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_SECRET_KEY'],
                   scope: 'email', info_fields: 'email'
   config.omniauth :twitter, ENV['TWITTER_APP_ID'], ENV['TWITTER_SECRET_KEY']
