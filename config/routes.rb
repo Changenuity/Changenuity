@@ -6,8 +6,7 @@ Rails.application.routes.draw do
   get   '/post',    to: 'projects#new'
   post  '/post',    to: 'projects#create'
   get   '/browse',  to: 'projects#index'
-  get   '/users/:id/finish_signup', to: 'users#finish_signup'
-  patch '/users/:id/finish_signup', to: 'users#finish_signup'
+  match '/users/:id/finish_signup', to: 'users#finish_signup', via: [:get, :patch], as: :finish_signup
   resources  :projects
   resources  :tags, only: [:index, :show]
   devise_for :users, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
