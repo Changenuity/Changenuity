@@ -10,14 +10,29 @@
     display: flex;
     align-items: center; /* Easy vertical alignment, easy life */
     color: #FFFFFF;
-    height: 40rem;
+    height: 24rem;
+
     background-image: url("clouds-windmill-crops.jpg");
+    position: relative; /* necessary for applying the dark gradient */
+    z-index: 1; /* necessary for applying the dark gradient */
+    background-position: center 60%;
     background-size: cover;
     background-repeat: no-repeat;
+    color: white;
+    &:before {
+      /* The following is so that a dark gradient can be applied */
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7));
+    }
   }
 
   #page-main-header h2 {
-    font-size: 2.6rem;
     color: #FFFFFF;
     padding-bottom: 1rem;
   }
@@ -37,10 +52,10 @@
     flex-flow: row wrap;
     align-items: center;
     background-color: lightgrey;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
 
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 
   #main-section article > section {
@@ -48,12 +63,12 @@
   }
 
   #main-section article p {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
   }
 
   #main-section article h2 {
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.25rem;
   }
 
   /********************************
@@ -91,7 +106,7 @@
   }
 
   #main-section #article-2 p {
-    font-size: 2rem;
+    font-size: 1rem;
   }
 
   #main-section #article-2 section {
@@ -101,9 +116,6 @@
 
   #main-section #article-2 section > *:nth-child(1) {
     width: 100%;
-  }
-
-  #main-section #article-2 button {
   }
 
   #main-section #article-2 .signup-btn {
@@ -120,7 +132,7 @@
   border: none;
   border-radius: 2px;
   box-shadow: 3px 3px #056b49;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.75rem;
 }
 
 /********************************
@@ -132,13 +144,13 @@
     Media Queries Styles
 ********************************/
 
-@media (max-width: 767px) { /* Mobile only */
+@media (max-width: 767px) { /* Up to md */
   .static_pages_home {
     #main-section #article-2 section > *:nth-child(1) {
       width: 50%;
       margin-bottom: 0;
-      padding-top: 1.5rem;
-      padding-bottom: 1.5rem;
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
     }
     #main-section #article-2 section {
       align-items: center;
@@ -149,18 +161,18 @@
     }
     #main-section #article-2 section .btn {
       width: 40%;
-      padding-top: 1.5rem;
-      padding-bottom: 1.5rem;
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
       margin-bottom: 0;
     }
     #main-section #article-3 section:nth-child(2) {
-      height: 25rem;
+      height: 12.5rem;
       overflow: hidden;
     }
   }
 }
 
-@media (min-width: 768px) { /* sm and up */
+@media (min-width: 768px) { /* md and up */
   .static_pages_home {
     #main-section #article-2 .special-btn {
       order: -1;
@@ -176,7 +188,7 @@
   }
 }
 
-@media (min-width: 992px) { /* md and up */
+@media (min-width: 768px) { /* md and up */
   .static_pages_home {
     #sdg-list li {
       width: 24%;
