@@ -3,15 +3,12 @@ class UsersController < ApplicationController
   before_action :ensure_signup_complete, only: [:new, :create, :update, :destroy]
 
   def show
-    authorize! :read, @user
   end
 
   def edit
-    authorize! :update, @user
   end
 
   def update
-    authorize! :update, @user
     respond_to do |format|
       if @user.update(user_params)
         sign_in(@user == current_user ? @user : current_user, bypass: true)
@@ -25,7 +22,6 @@ class UsersController < ApplicationController
   end
 
   def finish_signup
-    authorize! :update, @user
     if request.patch? && params[:user] && params[:user][:email]
       if @user.update(user_params)
         sign_in(@user, bypass: true)

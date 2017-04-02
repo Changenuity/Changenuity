@@ -1,7 +1,8 @@
 class Project < ApplicationRecord
 
   acts_as_taggable_on :tags
-  has_attached_file :image, styles: { medium: '300x300>', thumb: '100x100>' }
+  has_attached_file :image, styles: { medium: '300x300>', thumb: '100x100>' },
+                            s3_protocol: :https
   validates_attachment_content_type :image,
     content_type: ['image/jpeg', 'image/png'],
     message: 'file type is not allowed (only jpeg/png images)'

@@ -58,25 +58,3 @@ body {
   -o-transition: all 0.4s;
   transition: all 0.4s;
 }
-
-.btn-primary {
-  background-color: $color-orange;
-  border-color: transparent;
-  color: white;
-}
-
-.btn-primary:hover {
-  border-color: transparent;
-  background-color: $color-light-orange;
-}
-
-.btn-primary-hollow {
-  color: $color-orange;
-  border-color: $color-orange;
-  background-color: transparent;
-}
-
-.btn-primary-hollow:hover {
-  color: $color-light-orange;
-  border-color: $color-light-orange;
-}
