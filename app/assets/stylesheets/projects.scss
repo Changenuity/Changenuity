@@ -41,23 +41,6 @@
   #page-main-header {
     padding-top: 120px; /* 83.33% */
     padding-bottom: 24px;
-    position: relative; /* necessary for applying the dark gradient */
-    z-index: 1; /* necessary for applying the dark gradient */
-    background-position: center 60%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: white;
-    &:before {
-      /* The following is so that a dark gradient can be applied */
-      content: "";
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7));
-    }
   }
 
   /* ============================================

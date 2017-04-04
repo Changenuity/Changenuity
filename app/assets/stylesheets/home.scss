@@ -2,39 +2,22 @@
   /* TODO: Change container settings so that a 10rem padding is applied across
            the homepage */
 
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 200;
+  }
   /********************************
       Header Styles
   ********************************/
 
   #page-main-header {
     display: flex;
-    align-items: center; /* Easy vertical alignment, easy life */
+    align-items: flex-end; /* Easy vertical alignment, easy life */
     color: #FFFFFF;
-    height: 24rem;
-
+    height: 90vh; /* 90vh = 90% of viewport height */
     background-image: url("clouds-windmill-crops.jpg");
-    position: relative; /* necessary for applying the dark gradient */
-    z-index: 1; /* necessary for applying the dark gradient */
-    background-position: center 60%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: white;
-    &:before {
-      /* The following is so that a dark gradient can be applied */
-      content: "";
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7));
+    h1 {
+      color: #FFFFFF;
     }
-  }
-
-  #page-main-header h2 {
-    color: #FFFFFF;
-    padding-bottom: 1rem;
   }
 
   /********************************
@@ -42,97 +25,82 @@
   ********************************/
 
   #main-section {
-    /*padding: 100px;*/
-    /*padding-top: 20px;
-    padding-bottom: 100px;*/
+    article {
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+      // background-color: lightgrey;
+      margin-bottom: 1.5rem;
+
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+
+      p {
+        font-size: 1.3rem;
+        line-height: 2.0;
+        color: #596362;
+        margin-bottom: 0.5rem;
+      }
+      h2 {
+        font-size: 3rem;
+        width: 50%;
+        margin-bottom: 1.25rem;
+      }
+    }
+    article:nth-child(2n) {
+      color: white;
+      background-color: #04895C;
+      p { color: white; }
+    }
+
+    /********************************
+        Article 1 Styles
+    ********************************/
+
+    #sdg-list {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: space-between;
+
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      li {
+        width: 22%;
+        img {
+          display: block;
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+
+    #article-2 {
+      align-items: baseline;
+      section {
+        display: flex;
+        flex-flow: row wrap;
+        > *:nth-child(1) {
+          width: 100%;
+        }
+      }
+    }
+
+
   }
 
-  #main-section article {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    background-color: lightgrey;
-    margin-bottom: 1.5rem;
 
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
-
-  #main-section article > section {
-    /*margin-bottom: 1.8rem;*/
-  }
-
-  #main-section article p {
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-  }
-
-  #main-section article h2 {
-    margin-bottom: 1.25rem;
-  }
-
-  /********************************
-      Article 1 Styles
-  ********************************/
-
-  #sdg-list {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: space-between;
-
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-  }
-
-  #sdg-list li {
-    width: 22%;
-  }
-
-  #sdg-list li img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
 
   /********************************
       Article 2 Styles
   ********************************/
 
-  #main-section #article-2 {
-    align-items: baseline;
-  }
-
-  #main-section #article-2 p {
-    font-size: 1rem;
-  }
-
   #main-section #article-2 section {
     display: flex;
     flex-flow: row wrap;
   }
-
-  #main-section #article-2 section > *:nth-child(1) {
-    width: 100%;
-  }
-
-  #main-section #article-2 .signup-btn {
-    color: #ffffff;
-    background-color: #9e2727;
-    border: none;
-    border-radius: 3px;
-    box-shadow: 3px 3px #4f1616;
-  }
-}
-
-#main-section #article-2 .special-btn {
-  color: #056b49;
-  border: none;
-  border-radius: 2px;
-  box-shadow: 3px 3px #056b49;
-  margin-bottom: 0.75rem;
 }
 
 /********************************
@@ -147,7 +115,6 @@
 @media (max-width: 767px) { /* Up to md */
   .static_pages_home {
     #main-section #article-2 section > *:nth-child(1) {
-      width: 50%;
       margin-bottom: 0;
       padding-top: 0.75rem;
       padding-bottom: 0.75rem;
@@ -174,7 +141,10 @@
 
 @media (min-width: 768px) { /* md and up */
   .static_pages_home {
-    #main-section #article-2 .special-btn {
+    #main-section article h2 {
+      width: 100%;
+    }
+    #main-section #article-2 .btn {
       order: -1;
     }
     #main-section #article-3 {
@@ -185,13 +155,11 @@
       width: 100%;
       height: auto;
     }
-  }
-}
-
-@media (min-width: 768px) { /* md and up */
-  .static_pages_home {
     #sdg-list li {
       width: 24%;
     }
   }
+}
+
+@media (min-width: 768px) { /* md and up */
 }
