@@ -7,15 +7,15 @@
         <%= link_to "Browse Projects", browse_path, class: "btn btn-outline-success btn-lg" %> -->
       </div>
     </header>
-    <div class="container">
-      <div class="row">
-        <section id="main-section" class="col-12">
-          <article id="article-1" class="row">
-            <section class="col-12 col-md-6 col-lg-6">
+    <section id="main-section">
+      <article id="article-1">
+        <div class="container">
+          <div class="row">
+            <header class="col-12 col-lg-6">
               <h2>Changing the world is hard.</h2>
               <p>That's why we're building a sleek web-app to help changemakers, NGOs, and social enterprises work together on the global challenges.<p>
-            </section>
-            <section class="col-12 col-md-6 col-lg-6">
+            </header>
+            <section class="col-12 col-lg-6">
               <ol id="sdg-list">
                 <li>
                   <span class="sr-only">No poverty</span>
@@ -35,13 +35,17 @@
                 </li>
               </ol>
             </section>
-          </article>
-          <article id="article-2" class="row">
-            <section class="col-12 col-xl-3">
+          </div>
+        </div>
+      </article>
+      <article id="article-2">
+        <div class="container">
+          <div class="row">
+            <header class="col-12 col-xl-3">
                 <h2>Multiple ways to engage.</h2>
                 <p>Choose what suits you.</p>
-            </section>
-            <section class="col-12 col-md-4 col-xl-2 offset-xl-1">
+            </header>
+            <section class="col-12 col-md-4 col-xl-3"> <!-- WARNING: Do not make the text below too long -->
               <p>Become a user to post or join projects.</p>
               <%= link_to "Sign up", new_user_registration_path, class: "btn btn-danger btn-lg" %>
             </section>
@@ -53,21 +57,29 @@
               <p>Contribute Solutions &amp; join existing projects.</p>
               <%= link_to "Browse Projects", root_path, class: "btn btn-secondary btn-lg" %>
             </section>
-          </article>
-          <article id="article-3" class="row">
-            <section class="col-12 col-md-8">
+          </div>
+        </div>
+      </article>
+      <article id="article-3">
+        <div class="container">
+          <div class="row">
+            <header class="col-12 col-md-8">
               <h2>We invite you to join us.</h2>
               <p>Together, let's build a sustainable future for humanity.</p>
-            </section>
+            </header>
             <section class="col-12 col-md-4">
               <%= image_tag("planet earth.png", alt: "Earth_icon", class: "") %>
             </section>
-          </article>
-          <article id="article-4" class="row">
-            <section class="col-12 col-lg-7">
+          </div>
+        </div>
+      </article>
+      <article id="article-4">
+        <div class="container">
+          <div class="row">
+            <header class="col-12 col-lg-7">
               <h2>Sign up for our newsletter</h2>
               <p>Lots of new features to come: community bulletins, reputation systems, prizes, and more!</p>
-            </section>
+            </header>
             <section class="col-12 col-lg-5">
               <h3>Subscribe to be notified when our features launch.</h3>
               <form method="get">
@@ -78,8 +90,8 @@
               </form>
               <button type="submit" id="submit-btn" class="btn btn-danger btn-lg">SUBMIT</button>
             </section>
-          </article>
-        </section>
-      </div>
-    </div>
+          </div>
+        </div>
+      </article>
+    </section>
   </main>
