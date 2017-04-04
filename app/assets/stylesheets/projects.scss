@@ -41,6 +41,7 @@
   #page-main-header {
     padding-top: 120px; /* 83.33% */
     padding-bottom: 24px;
+    background-image: image-url("lost-boy.jpg");
   }
 
   /* ============================================
@@ -275,6 +276,10 @@
       font-size: 18px;
     }
   }
+}
+
+.projects-new #page-main-header {
+  background-image: image-url("mac-addicts.jpg");
 }
 
 /* ============================================

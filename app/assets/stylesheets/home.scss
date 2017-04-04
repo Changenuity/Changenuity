@@ -14,7 +14,7 @@
     align-items: flex-end; /* Easy vertical alignment, easy life */
     color: #FFFFFF;
     height: 90vh; /* 90vh = 90% of viewport height */
-    background-image: url("clouds-windmill-crops.jpg");
+    background-image: image-url("clouds-windmill-crops.jpg");
     background-attachment: fixed;
     h1 {
       color: #FFFFFF;
@@ -98,7 +98,7 @@
         Article 2 Styles
     ********************************/
     #article-2 {
-      background-image: url("aerial-turbines.jpg");
+      background-image: image-url("aerial-turbines.jpg");
       section {
         display: flex;
         flex-flow: row wrap;
@@ -114,7 +114,7 @@
         Article 4 Styles
     ********************************/
     #article-4 {
-      background-image: url("earth-urban.jpg");
+      background-image: image-url("earth-urban.jpg");
     }
   }
 }
