@@ -15,20 +15,35 @@
     <article>
       <h2 class="article-header">Opportunities</h2>
       <ul class="opp-card-grid links-list">
+      <!-- <div> -->
         <% @projects.each do |project| %>
-          <li class="opp-card">
-            <%= link_to project_path(project) do %>
-              <div class="img-wrapper">
-                <div class="opp-card-image" style="background-image: url(<%= project.image.url(:medium) %>)"></div>
+          <div class="card-body">
+          <%= link_to project_path(project) do %>
+            <div>
+              <img class="card-img" src="http://newstorycharity.org/assets/img/locals/locals-construction-wide.jpg">
+              <!--<p class="btn-recruiting">$</p>-->
+            </div>
+            <div class="card-content">
+              <a class="card-title"><%= project.name %></a>
+              <h2 class="card-subtitle"><%= project.location %></h2>
+              <h2 class="card-org">by <a>newstory</a> </h2>
+            </div>
+            <div class="bottom-bar">
+              <div class="btn-fav">
+                <div class="btn-box">
+                  <span id="heart-icon" class="glyphicon glyphicon-heart"></span>
+                </div>
+                <p class="num-fav">0</p>
               </div>
-              <div class="content-wrapper">
-                <h5 class="opp-card-header"><%= project.name %></h4>
-                <p class="opp-card-desc"><%= project.description %></p>
+              <div class="main-category category-infrastructure">
+                <p>Infrastructure</p>
               </div>
+            </div>
             <% end %>
-          </li>
+          </div>
         <% end %>
       </ul>
+      <!-- </div> -->
     </article>
   </section>
 </main><!-- End of page-main -->
