@@ -15,6 +15,10 @@ $bgHighlight: #ec6433;
    General Styles
 ============================================ */
 
+body {
+  font-family: "Lato", sans-serif;
+}
+
 a {
   color: $color-orange;
   text-decoration: none;
@@ -28,10 +32,6 @@ a {
     color: $color-light-orange;
     text-decoration: none;
   }
-}
-
-body {
-  font-family: "Lato", sans-serif;
 }
 
 .list-inline {
@@ -57,4 +57,58 @@ body {
   -moz-transition: all 0.4s;
   -o-transition: all 0.4s;
   transition: all 0.4s;
+}
+
+.btn-outline-success {
+}
+
+.btn-danger {
+  // TODO: Please name the following colors
+  color: white;
+  background-color: #9E2727;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 3px 3px #4F1616;
+  margin: 0 3px 3px 0;
+}
+
+.btn-secondary {
+  // TODO: Please name the following colors
+  color: #056B49;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 3px 3px #056B49;
+  margin: 0 3px 3px 0;
+}
+
+#page-main-header {
+  position: relative; /* necessary for applying the dark gradient */
+  z-index: 1; /* necessary for applying the dark gradient */
+  background-position: center 60%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  &:before {
+    /* The following is so that a dark gradient can be applied */
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7));
+  }
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: 0.11rem;
+    font-weight: lighter;
+    margin-bottom: 0.8rem;
+  }
+  span.emp {
+    font-weight: bold;
+  }
+  p {
+    font-size: 1.3rem;
+    word-spacing: 0.2rem;
+  }
 }

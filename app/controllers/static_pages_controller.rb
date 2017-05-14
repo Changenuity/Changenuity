@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
-  def weebly
-    redirect_to "http://changenuity.weebly.com/"
+  def landing
+    render layout: "landing"
   end
 
   def home
@@ -10,5 +10,11 @@ class StaticPagesController < ApplicationController
   end
 
   def contact
+  end
+
+  def privacy
+  end
+
+  def tos
   end
 end
