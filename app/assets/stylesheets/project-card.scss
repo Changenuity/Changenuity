@@ -1,211 +1,87 @@
-/*Note: SCSS (which we have) will allow us to define constants, 
+/*Note: SCSS (which we have) will allow us to define constants,
 such as for transition times and common colours*/
-/*I have defined them here, but for demo purposes have not 
+/*I have defined them here, but for demo purposes have not
 added them to the main css code yet*/
-@quick-transition-time = 0.2s;
-@light-grey = #f4f4f4;
+$quick-transition-time: 0.2s;
+$light-grey: #f4f4f4;
+$border-radius: 4px;
 
-.body {
-	background-color: #f4f4f4;
-}
-
-.card-body {
-	/*Card Formatting*/
-	/*margin: auto;*/
-	position: static;
-
-	/*
-	margin-left: 20px;
-	margin-top: 10%;
-	*/
-	margin-left: 20px;
-	width: 270px;
-	height: 330px;
-
-	/*Border*/
-	border-width: 1px;
-	border-style: solid;
-	border-color: rgba(256,256,256,1); 
-	border-radius: 10px;
-
-	/*Shadow Styling*/
-	box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
-	transition-duration: 0.2s;
-
-	/*Additional Styling */
-	background-color: rgba(256,256,256,1);
+.pcard {
 	overflow: hidden;
-
-	float:left;
-}
-
-.card-body:hover {
-	box-shadow: 0px 0px 15px rgba(0,0,0,0.4);
-}
-
-.card-img {
-	width: 100%;
-	z-index: 2;
-}
-
-.btn-recruiting {
-	position: absolute;
-	top: 167px;
-	left: 535px;
-	width: 30px;
-	height: 30px;
-	
-	background-color: #ed6904;
-	border-width: 2px;
-	border-style: solid;
-	border-color: #f4c097;
-	border-radius: 200px;
-
-	text-align: center;
-	color: #f4c097;
-	font-size: 16px;
-	padding-top: 2px;
-	font-weight: 600;
-}
-
-.card-content {
-	text-align: left;
-	font-family: 'Open Sans';
-
-	/*Margins*/
-	margin-top: 17px;
-	margin-left: 15px;
-	margin-right: 5px;
-
-	/*background-color: yellow;*/
-}
-
-.card-title {
-	color: #01665d;
-	font-size: 25px;
-	line-height: 15px;
-	font-weight: 550;
-
 	transition-duration: 0.2s;
-}
-
-.card-title:hover {
-	color: #ec6433;
-	text-decoration: none;
-}
-
-
-.card-subtitle {
-	font-family: 'Open Sans';
-	color: #9aa8a7;
-	font-size: 15px;
-
-	line-height: 5px;
-}
-
-.card-org {
-	font-family: 'Open Sans';
-	color: #9aa8a7;
-	font-size: 15px;
-
-	line-height: 5px;
-}
-
-/* not currently applying*/
-.card-org a {
-	color: #01665d;
-	transition-duration: 0.2s;
-}
-
-.card-org a:hover {
-	color: #ec6433;
-	text-decoration: none;
-}
-
-.bottom-bar {
-	margin-left: 13px;
-}
-
-.btn-fav {
-	/*display: inline-block;*/
-	margin-top: 15px;
-	float: left;
-}
-
-.btn-box {
-	width: 30px;
-	height: 30px;
-
-	/*
-	border-width: 1px;
-	border-style: solid;
-	border-color: grey;
-	border-radius: 2px;
-	*/
-	float: left;
-}
-
-#heart-icon {
-	display: block;
-	padding-top: 1px;
-	padding-left: 1px;
-
-	font-size: 25px;
-	color: rgba(149, 168, 166, 0.8);
-	transition-duration: 0.2s;
-}
-
-#heart-icon:hover {
-	color: rgba(221, 77, 77, 0.9);
-
-}
-
-.num-fav {
-	margin-top: 2px;
-	margin-left: 4px;
-	float: left;
-
-	font-size: 18px;
-	color: #9aa8a7;
-}
-
-.main-category {
-	position: absolute;
-	float: left;
-	width: 140px;
-	height: 35px;
-	margin-top: 10px;
-	margin-left: 105px;
-
-	border-width: 1px;
-	border-style: solid;
-	border-radius: 4px;
-
-	text-align: center;
-	text-transform: uppercase;
-	font-size: 13px;
-	color: white;
-	font-weight: 599;
-
-	padding-top: 7px;
-}
-
-.category-infrastructure {
-	background-color: rgb(137, 99, 57);
-	border-color: rgb(137, 99, 57);
-}
-
-.category-waste {
-	background-color: #4c891c;
-	border-color: #4c891c;
-}
-
-.category-climate-change {
-	background-color: #2573a8;
-	border-color: #2573a8;
-}
-
-.category-education {
-	background-color: #eab700;
-	border-color: #eab700;
+	width: 270px;
+	// height: 330px;
+	padding-bottom: 17px;
+	font-family: 'Open Sans', serif;
+	border-radius: $border-radius;
+	box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+	&:hover {
+		box-shadow: 0px 0px 15px rgba(0,0,0,0.4);
+		cursor: pointer;
+	}
+	.pcard-img, .pcard-content, .pcard-footer {
+		width: 100%;
+	}
+	.pcard-content, .pcard-footer {
+		padding: 0 1rem;
+	}
+	.pcard-footer {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.pcard-img {
+		margin-bottom: 17px;
+	}
+	.pcard-maintitle {
+		font-size: 1.5rem;
+		color: $color-blue-stone;
+	}
+	.pcard-subtitle a {
+		font-size: 1.1em;
+		color: $color-blue-stone;
+		&:hover {
+			color: $color-orange;
+		}
+	}
+	p, .pcard-subtitle {
+		font-size: 1rem;
+		color: $color-edward;
+	}
+	.btn-fav-wrapper {
+		display: inline-flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		font-size: 2rem;
+		color: $color-edward;
+		&:hover {
+			cursor: default;
+		}
+		.btn-fav {
+			display: block;
+			font-size: inherit;
+			transition-duration: 0.2s;
+			&:hover {
+				color: rgba(221, 77, 77, 0.9);
+				cursor: pointer;
+			}
+		}
+		.fav-count {
+			font-size: 0.6em;
+		}
+	}
+	.main-category {
+		margin: 0;
+		padding: 10px 15px;
+		text-transform: uppercase;
+		color: white;
+		font-size: 0.75em;
+		text-align: center;
+		border-radius: 4px;
+		display: inline-block;
+		font-family: 'Lato';
+		background-color: $color-orange;
+		border-color: $color-orange;
+	}
 }

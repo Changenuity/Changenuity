@@ -15,33 +15,41 @@
     <article>
       <h2 class="article-header">Opportunities</h2>
       <ul class="opp-card-grid links-list">
+        <div class="pcard" data-project-url="http://reddit.com"> <!-- This data attribute is used by javascript to allow the user to navigate to the right page if clicked -->
+          <img class="pcard-img" src="http://newstorycharity.org/assets/img/locals/locals-construction-wide.jpg" />
+          <div class="pcard-content">
+            <h2 class="pcard-maintitle">Project Name</h2>
+            <h3 class="pcard-subtitle">Project Location</h2>
+            <h3 class="pcard-subtitle">By <a href="#0">OVOXO</a></h3>
+          </div>
+          <div class="pcard-footer">
+            <div class="btn-fav-wrapper">
+              <i class="btn-fav material-icons">favorite</i>
+              <span class="fav-count">132</span>
+            </div>
+            <span class="main-category" data-category-value="Infrastructure">Infrastructure</span> <!-- Data-category is used so that JS can better recognize the category value -->
+          </div>
+        </div>
       <!-- <div> -->
-        <% @projects.each do |project| %>
+        <!-- <% @projects.each do |project| %>
           <div class="card-body">
-          <%= link_to project_path(project) do %>
-            <div>
-              <img class="card-img" src="http://newstorycharity.org/assets/img/locals/locals-construction-wide.jpg">
-              <!--<p class="btn-recruiting">$</p>-->
-            </div>
-            <div class="card-content">
-              <a class="card-title"><%= project.name %></a>
-              <h2 class="card-subtitle"><%= project.location %></h2>
-              <h2 class="card-org">by <a>newstory</a> </h2>
-            </div>
-            <div class="bottom-bar">
-              <div class="btn-fav">
-                <div class="btn-box">
-                  <span id="heart-icon" class="glyphicon glyphicon-heart"></span>
-                </div>
+            <%= link_to project_path(project) do %>
+              <img src="http://newstorycharity.org/assets/img/locals/locals-construction-wide.jpg" />
+              <div class="card-content">
+                <h2><%= project.name %></h2>
+                <h2 class="card-subtitle"><%= project.location %></h2>
+                <h2 class="card-org">by <a>newstory</a> </h2>
+              </div>
+              <div class="bottom-bar">
+                <button class="btn-fav">
+                    <span id="heart-icon" class="glyphicon glyphicon-heart"></span>
+                </button>
                 <p class="num-fav">0</p>
+                <p class="main-category" data-category="Infrastructure">Infrastructure</p>
               </div>
-              <div class="main-category category-infrastructure">
-                <p>Infrastructure</p>
-              </div>
-            </div>
             <% end %>
           </div>
-        <% end %>
+        <% end %> -->
       </ul>
       <!-- </div> -->
     </article>
