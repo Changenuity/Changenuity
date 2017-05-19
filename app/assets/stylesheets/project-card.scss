@@ -66,6 +66,9 @@ $border-radius: 4px;
 				color: rgba(221, 77, 77, 0.9);
 				cursor: pointer;
 			}
+			&.active {
+				color: rgba(221, 77, 77, 0.9);
+			}
 		}
 		.fav-count {
 			font-size: 0.6em;
@@ -83,5 +86,18 @@ $border-radius: 4px;
 		font-family: 'Lato';
 		background-color: $color-orange;
 		border-color: $color-orange;
+	}
+	a[data-category-value] {
+		text-transform: uppercase;
+		font-size: 0.75em;
+		font-family: 'Lato';
+	}
+	a[data-category-value="Infrastructure"] {
+		background-color: $color-orange;
+		border-color: $color-orange;
+		&:hover {
+			background-color: darken($color-orange, 10);
+			border-color: darken($color-orange, 10);
+		}
 	}
 }

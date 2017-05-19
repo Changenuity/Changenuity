@@ -10,20 +10,40 @@ $(function() {
   // STYLING
 
 
-  // BINDINGS
-  // Adds bindings for when user clicks on a pcard (aka Project cards)
-  $.each($('.pcard'), function(index, pcard) {
-    pcard.addEventListener('click', function(event) {
-      if( $(event.target).hasClass('btn-fav') ) {
-        event.stopPropagation(); // Prevents redirection to project's page
-        alert('You hav just favorited a project!');
-      } else if( event.target.tagName === 'A' ) {
-        event.stopPropagation(); // Prevents redirection to project's page
+  // Disabling event propagation when certain elements are clicked
+  $.each($('a, .fav-count, .btn-fav'), function() {
+    this.addEventListener('click', function(event) {
+      event.stopPropagation();
+    })
+  });
+
+  $.each($('.btn-fav'), function() {
+    $(this).on('click', function(event) {
+      if( $(this).hasClass('active') ) {
+        $(this).siblings('.fav-count').html(function(){
+          return parseInt($(this).html()) - 1;
+        });
       } else {
-        window.location.href = $(this).attr('data-project-url');
+        $(this).siblings('.fav-count').html(function(){
+          return parseInt($(this).html()) + 1;
+        });
       }
+      $(this).toggleClass('active');
+    })
+  });
+
+
+  // BINDINGS
+
+  // Adds bindings for when user clicks on a pcard (aka Project cards)
+  $.each($('.pcard'), function() {
+    this.addEventListener('click', function(event) {
+      window.location.href = $(this).attr('data-project-url');
     }, false);
   });
-  // Bindings for when user clicks on the heart
+
+  // Pseudo-effect of increasing number of favourites
+
+
 
 });
