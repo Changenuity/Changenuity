@@ -1,46 +1,15 @@
-<nav class="navbar navbar-toggleable-md navbar-custom fixed-top">
-  <%= link_to image_tag("logo.png", alt: "Changenuity logo"), home_path, class: "navbar-brand" %>
-  <div class="collapse navbar-collapse" id="main-navbar">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <%= link_to "Home", home_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Browse", browse_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Post", post_path, class: "nav-link" %>
-      </li>
-      <% if user_signed_in? %>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="main-navbar-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Account
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="main-navbar-dropdown">
-            <li>
-              <%= link_to "Profile", root_path, class: "dropdown-item" %>
-            </li>
-            <li>
-              <%= link_to "Settings", root_path, class: "dropdown-item" %>
-            </li>
-            <li class="dropdown-divider" role="separator">
-            </li>
-            <li>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            </li>
-          </ul>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
-        </li>
-      <% end %>
-    </ul>
+<nav id="navbar" class="">
+  <%= link_to home_path do %>
+    <div id="navbar-brand">
+      <%= image_tag("logo-notext-white.png", alt: "Changenuity Logo", class: "brand-img") %>
+      <span class="brand-text">Changenuity</span>
+    </div>
+  <% end %>
+  <ul id="navbar-primary" class="links-list">
+    <li class="navbar-primary-link"><a href="http://google.ca">Discover</a></li>
+    <li class="navbar-primary-link"><a href="http://google.ca">Discuss</a></li>
+    <li class="navbar-primary-link"><a href="http://google.ca">About</a></li><!-- Should the "About" page really be up here? -->
+  </ul>
+  <div id="navbar-secondary">
   </div>
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 </nav>

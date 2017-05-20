@@ -6,13 +6,19 @@ $color-orange: #EC6433;
 $color-light-orange: #C14F26;
 $color-turquoise: #8AB7A3;
 $color-light-turquoise: #DDDDDD;
+$color-grey: #63C1C0;
 $color-light-grey: #F4F4F4;
 $color-blue-stone: #01665D;
+$color-blue-diane: #1C5453;
 $color-edward: #9AA8A7;
 $color-mystery1: #7AA391;
 $color-mystery2: #625F5E;
 $bgDefault: white;
 $bgHighlight: #EC6433;
+
+
+$quick-transition-time: 0.2s;
+$border-radius: 4px;
 
 /* ============================================
    General Styles
@@ -23,7 +29,6 @@ body {
 }
 
 a {
-  color: $color-orange;
   text-decoration: none;
 
   -webkit-transition: all 0.4s;
@@ -32,7 +37,6 @@ a {
   -o-transition: all 0.4s;
   transition: all 0.4s;
   &:hover {
-    color: $color-light-orange;
     text-decoration: none;
   }
 }
