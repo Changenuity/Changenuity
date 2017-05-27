@@ -15,7 +15,7 @@
     color: #FFFFFF;
     height: 90vh; /* 90vh = 90% of viewport height */
     background-image: image-url("clouds-windmill-crops.jpg");
-    background-attachment: fixed;
+    // background-attachment: fixed;
     h1 {
       color: #FFFFFF;
     }
@@ -52,16 +52,14 @@
       p { color: white; }
 
       position: relative;
-      z-index: 1;
       background-color: #04895C;
       background-position: center 60%;
       background-size: cover;
       background-repeat: no-repeat;
-      background-attachment: fixed;
+      // background-attachment: fixed;
       &:before {
         content: "";
         position: absolute;
-        z-index: -1;
         top: 0;
         bottom: 0;
         left: 0;

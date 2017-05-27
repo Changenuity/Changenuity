@@ -1,63 +1,214 @@
-#navbar {
-  display: flex;
-  flex-flow: row nowrap;
-  height: 65px;
-
-
-  #navbar-brand, #navbar-primary, #navbar-secondary {
-    height: 100%;
+#navbar-wrapper {
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  background-color: white;
+  @include light-shadow;
+  #navbar {
     display: flex;
     flex-flow: row nowrap;
-    flex: 0 0 auto;
-    align-items: center;
-    justify-content: center;
-  }
-  #navbar-brand {
-    padding: 0 15px;
-    color: white;
-    background-color: $color-grey;
-    transition-duration: $quick-transition-time;
-    &:hover {
-      background-color: darken($color-grey, 15);
-    }
-    .brand-img {
-      width: 20px;
-      height: auto;
-      margin-right: 5px;
-    }
-    .brand-text {
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 0.02rem;
-    }
-  }
-  #navbar-primary {
-    margin: 0 10px;
-    .navbar-primary-link:nth-child(1n+2) {
-      border-left: 1px solid $color-grey;
-    }
-    .navbar-primary-link {
-      position: relative;
-      z-index: 1;
-      font-size: 1rem;
-      padding: 0 25px;
-      &::after {
-        z-index: -1;
-        cursor: pointer;
-        content: "";
-        position: absolute;
-        margin: 0 auto;
-        top: 10px;
-        left: 25%;
+    width: 100%;
+    height: 4rem;
+    background-color: white;
+    justify-content: space-between;
+    #navbar-brand {
+      a {
         height: 100%;
-        width: 0;
-        border-bottom: 2px solid $color-light-orange;
+        display: flex;
+        flex-flow: row nowrap;
+        flex: 0 0 auto;
+        align-items: center;
+        justify-content: center;
+        color: black;
         transition-duration: $quick-transition-time;
+        .brand-img {
+          width: 1.6rem;
+          height: auto;
+          margin-right: 0.3rem;
+          // TODO: Make this more elegant
+          &.type-dark {
+            display: inline-block;
+          }
+          &.type-light {
+            display: none;
+          }
+        }
+        .brand-text {
+          font-size: 1.2rem;
+          font-weight: 700;
+          letter-spacing: 0.02rem;
+        }
       }
-      &.active::after {
-        width: 50%;
+    }
+    #navbar-primary, #navbar-secondary {
+      height: 100%;
+      display: flex;
+      flex: 0 0 auto;
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  #navbar-wrapper {
+    #navbar {
+      .navbar-handle {
+        font-size: 2.2rem;
+        align-self: center;
+        transition-duration: $quick-transition-time;
+        cursor: pointer;
+        &:hover { color: $color-orange; }
       }
-      a { color: $color-blue-diane; }
+      #navbar-links-toggle {
+        order: 1;
+      }
+      #navbar-account-toggle {
+        order: 3;
+      }
+      #navbar-brand {
+        order: 2;
+      }
+      #navbar-primary, #navbar-secondary {
+        position: fixed;
+        flex-flow: column nowrap;
+        align-items: stretch;
+        justify-content: center;
+      }
+      #navbar-primary {
+        left: 0;
+        background-color: $color-mystery1;
+        overflow: hidden;
+        align-items: stretch;
+        justify-content: center;
+        min-width: 15rem;
+        transition-duration: $medium-transition-time;
+        transform: translateX(-100%);
+        &.active {
+          transform: translateX(0);
+        }
+        .navbar-primary-link {
+          border-bottom: 0.01rem solid rgba(255,255,255,0.4);
+          &:nth-child(1) {
+            border-top: 0.01rem solid rgba(255,255,255,0.4);
+          }
+          a {
+            display: inline-block;
+            padding: 2rem 0;
+            padding-left: 1rem;
+            width: 100%;
+            color: white;
+            font-size: 2rem;
+            font-weight: 300;
+            &:hover {
+            }
+          }
+        }
+      }
+      #navbar-secondary {
+        // TODO: Finish styling the other one lmao
+        right: 0;
+        background-color: #34677d;
+        overflow: hidden;
+        display: none;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  #navbar-wrapper {
+    #navbar {
+      height: 4.5rem;
+      .navbar-handle {
+        display: none;
+      }
+      #navbar-brand {
+        a {
+          padding: 0 1rem;
+          color: white;
+          background-color: $color-grey;
+          &:hover {
+            background-color: darken($color-grey, 15);
+          }
+          .brand-text {
+            font-size: 1rem;
+          }
+          .brand-img {
+            width: 1.3rem;
+            // TODO: Make this more elegant
+            &.type-dark {
+              display: none;
+            }
+            &.type-light {
+              display: inline-block;
+            }
+          }
+        }
+      }
+      #navbar-primary, #navbar-secondary {
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+      }
+      #navbar-primary {
+        margin: 0 0.6rem;
+        .navbar-primary-link {
+          position: relative;
+          font-size: 1rem;
+          border-left: 0.01rem solid $color-grey;
+          &:nth-child(1) {
+            border-left: 0;
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            margin: 0 auto;
+            top: 2rem;
+            left: 25%;
+            height: 0;
+            width: 0;
+            border-bottom: 0.15rem solid $color-orange;
+            transition-duration: $quick-transition-time;
+          }
+          &:hover::before {
+            width: 50%;
+          }
+          a {
+            color: $color-blue-diane;
+            padding: 0 1.5rem;
+          }
+        }
+      }
+      #navbar-secondary {
+        margin: 0;
+        margin-left: auto; // Moves the secondary to the right
+        .navbar-secondary-link {
+          height: 100%;
+          border-right: 0.01rem solid $color-grey;
+          &:nth-child(1) {
+            border-left: 0.01rem solid $color-grey;
+          }
+          .link-icon {
+            font-size: 2.5rem;
+            transition-duration: $quick-transition-time;
+          }
+          &:hover .link-icon {
+            cursor: pointer;
+            color: $color-orange;
+          }
+          a {
+            font-size: 0.5rem;
+            height: 100%;
+            display: flex;
+            flex-flow: column nowrap;
+            flex: 0 0 auto;
+            align-items: center;
+            justify-content: center;
+            text-transform: uppercase;
+            width: 5.4rem;
+            color: $color-blue-diane;
+          }
+        }
+      }
     }
   }
 }

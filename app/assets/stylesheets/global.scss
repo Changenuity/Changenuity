@@ -18,14 +18,43 @@ $bgHighlight: #EC6433;
 
 
 $quick-transition-time: 0.2s;
-$border-radius: 4px;
+$medium-transition-time: 0.4s;
+$border-radius: 0.3rem;
+
+/* ============================================
+   Mixins
+============================================ */
+
+@mixin light-shadow {
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+}
 
 /* ============================================
    General Styles
 ============================================ */
 
+html {
+  // min-height: 100%;
+  font-size: 16px; // This is to ensure consistent sizing across different platforms
+}
+
 body {
+  // min-height: 100%;
+  width: 100%;
+  position: relative;
   font-family: "Lato", sans-serif;
+}
+
+.disabling-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 a {
@@ -90,16 +119,14 @@ a {
 
 #page-main-header {
   position: relative; /* necessary for applying the dark gradient */
-  z-index: 1; /* necessary for applying the dark gradient */
   background-position: center 60%;
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
   &:before {
-    /* The following is so that a dark gradient can be applied */
+    /* Dark gradient */
     content: "";
     position: absolute;
-    z-index: -1;
     top: 0;
     bottom: 0;
     left: 0;

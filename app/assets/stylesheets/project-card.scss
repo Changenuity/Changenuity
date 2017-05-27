@@ -7,7 +7,6 @@ added them to the main css code yet*/
 	overflow: hidden;
 	transition-duration: 0.2s;
 	width: 270px;
-	// height: 330px;
 	padding-bottom: 17px;
 	font-family: 'Open Sans', serif;
 	border-radius: $border-radius;
@@ -47,7 +46,7 @@ added them to the main css code yet*/
 		color: $color-edward;
 	}
 	.btn-fav-wrapper {
-		display: inline-flex;
+		display: flex;
 		flex-flow: row nowrap;
 		align-items: center;
 		font-size: 2rem;

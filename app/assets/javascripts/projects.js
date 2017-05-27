@@ -17,6 +17,8 @@ $(function() {
     })
   });
 
+
+  // Pseudo-effect of increasing number of favourites
   $.each($('.btn-fav'), function() {
     $(this).on('click', function(event) {
       if( $(this).hasClass('active') ) {
@@ -41,9 +43,4 @@ $(function() {
       window.location.href = $(this).attr('data-project-url');
     }, false);
   });
-
-  // Pseudo-effect of increasing number of favourites
-
-
-
 });
