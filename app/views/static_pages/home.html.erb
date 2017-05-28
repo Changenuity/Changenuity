@@ -1,97 +1,98 @@
-<main id="page-main" class="static_pages_home">
-    <header id="page-main-header" class="jumbotron splash">
+
+<div id="static-pages-home">
+  <header class="jumbotron main-header">
+    <div class="container">
+      <h1>Welcome to <span class="emp">Changenuity</span></h1>
+      <p>An online platform for global impact collaboration</p>
+      <!-- <%= link_to "Sign Me Up", new_user_registration_path, class: "btn btn-outline-success btn-lg" %>
+      <%= link_to "Browse Projects", browse_path, class: "btn btn-outline-success btn-lg" %> -->
+    </div>
+  </header>
+  <main>
+    <article class="article-1">
       <div class="container">
-        <h1>Welcome to <span class="emp">Changenuity</span></h1>
-        <p>An online platform for global impact collaboration</p>
-        <!-- <%= link_to "Sign Me Up", new_user_registration_path, class: "btn btn-outline-success btn-lg" %>
-        <%= link_to "Browse Projects", browse_path, class: "btn btn-outline-success btn-lg" %> -->
+        <div class="row">
+          <header class="col-12 col-lg-6">
+            <h2>Changing the world is hard.</h2>
+            <p>That's why we're building a sleek web-app to help changemakers, NGOs, and social enterprises work together on the global challenges.<p>
+          </header>
+          <section class="col-12 col-lg-6">
+            <ol class="sdg-list">
+              <li>
+                <span class="sr-only">No poverty</span>
+                <%= image_tag("Square_RGB/E_SDG goals_icons-individual-rgb-01.png", alt: "SDG_icon1", class: "img-responsive") %>
+              </li>
+              <li>
+                <span class="sr-only">Zero hunger</span>
+                <%= image_tag("Square_RGB/E_SDG goals_icons-individual-rgb-02.png", alt: "SDG_icon2", class: "img-responsive") %>
+              </li>
+              <li>
+                <span class="sr-only">Good health and well-being</span>
+                <%= image_tag("Square_RGB/E_SDG goals_icons-individual-rgb-03.png", alt: "SDG_icon3", class: "img-responsive") %>
+              </li>
+              <li>
+                <span class="sr-only">Quality education</span>
+                <%= image_tag("Square_RGB/E_SDG goals_icons-individual-rgb-04.png", alt: "SDG_icon4", class: "img-responsive") %>
+              </li>
+            </ol>
+          </section>
+        </div>
       </div>
-    </header>
-    <section id="main-section">
-      <article id="article-1">
-        <div class="container">
-          <div class="row">
-            <header class="col-12 col-lg-6">
-              <h2>Changing the world is hard.</h2>
-              <p>That's why we're building a sleek web-app to help changemakers, NGOs, and social enterprises work together on the global challenges.<p>
-            </header>
-            <section class="col-12 col-lg-6">
-              <ol id="sdg-list">
-                <li>
-                  <span class="sr-only">No poverty</span>
-                  <%= image_tag("Square_RGB/E_SDG goals_icons-individual-rgb-01.png", alt: "SDG_icon1", class: "img-responsive") %>
-                </li>
-                <li>
-                  <span class="sr-only">Zero hunger</span>
-                  <%= image_tag("Square_RGB/E_SDG goals_icons-individual-rgb-02.png", alt: "SDG_icon2", class: "img-responsive") %>
-                </li>
-                <li>
-                  <span class="sr-only">Good health and well-being</span>
-                  <%= image_tag("Square_RGB/E_SDG goals_icons-individual-rgb-03.png", alt: "SDG_icon3", class: "img-responsive") %>
-                </li>
-                <li>
-                  <span class="sr-only">Quality education</span>
-                  <%= image_tag("Square_RGB/E_SDG goals_icons-individual-rgb-04.png", alt: "SDG_icon4", class: "img-responsive") %>
-                </li>
-              </ol>
-            </section>
-          </div>
+    </article>
+    <article class="article-2">
+      <div class="container">
+        <div class="row">
+          <header class="col-12 col-xl-3">
+              <h2>Multiple ways to engage.</h2>
+              <p>Choose what suits you.</p>
+          </header>
+          <section class="col-12 col-md-4 col-xl-3"> <!-- WARNING: Do not make the text below too long -->
+            <p>Become a user to post or join projects.</p>
+            <%= link_to "Sign up", new_user_registration_path, class: "btn btn-danger btn-lg" %>
+          </section>
+          <section class="col-12 col-md-4 col-xl-3">
+            <p>Post projects &amp; recruit new team members.</p>
+            <%= link_to "Post Projects", post_path, class: "btn btn-secondary btn-lg" %>
+          </section>
+          <section class="col-12 col-md-4 col-xl-3">
+            <p>Contribute Solutions &amp; join existing projects.</p>
+            <%= link_to "Browse Projects", root_path, class: "btn btn-secondary btn-lg" %>
+          </section>
         </div>
-      </article>
-      <article id="article-2">
-        <div class="container">
-          <div class="row">
-            <header class="col-12 col-xl-3">
-                <h2>Multiple ways to engage.</h2>
-                <p>Choose what suits you.</p>
-            </header>
-            <section class="col-12 col-md-4 col-xl-3"> <!-- WARNING: Do not make the text below too long -->
-              <p>Become a user to post or join projects.</p>
-              <%= link_to "Sign up", new_user_registration_path, class: "btn btn-danger btn-lg" %>
-            </section>
-            <section class="col-12 col-md-4 col-xl-3">
-              <p>Post projects &amp; recruit new team members.</p>
-              <%= link_to "Post Projects", post_path, class: "btn btn-secondary btn-lg" %>
-            </section>
-            <section class="col-12 col-md-4 col-xl-3">
-              <p>Contribute Solutions &amp; join existing projects.</p>
-              <%= link_to "Browse Projects", root_path, class: "btn btn-secondary btn-lg" %>
-            </section>
-          </div>
+      </div>
+    </article>
+    <article class="article-3">
+      <div class="container">
+        <div class="row">
+          <header class="col-12 col-md-8">
+            <h2>We invite you to join us.</h2>
+            <p>Together, let's build a sustainable future for humanity.</p>
+          </header>
+          <section class="col-12 col-md-4">
+            <%= image_tag("planet earth.png", alt: "Earth_icon", class: "") %>
+          </section>
         </div>
-      </article>
-      <article id="article-3">
-        <div class="container">
-          <div class="row">
-            <header class="col-12 col-md-8">
-              <h2>We invite you to join us.</h2>
-              <p>Together, let's build a sustainable future for humanity.</p>
-            </header>
-            <section class="col-12 col-md-4">
-              <%= image_tag("planet earth.png", alt: "Earth_icon", class: "") %>
-            </section>
-          </div>
+      </div>
+    </article>
+    <article class="article-4">
+      <div class="container">
+        <div class="row">
+          <header class="col-12 col-lg-7">
+            <h2>Sign up for our newsletter</h2>
+            <p>Lots of new features to come: community bulletins, reputation systems, prizes, and more!</p>
+          </header>
+          <section class="col-12 col-lg-5">
+            <h3>Subscribe to be notified when our features launch.</h3>
+            <form method="get">
+              <h4>Name:</h4>
+              <input type="text" class="well well-sm">
+              <h4>Email:</h4>
+              <input type="text" class="well well-sm">
+            </form>
+            <button type="submit" class="btn btn-danger btn-lg">SUBMIT</button>
+          </section>
         </div>
-      </article>
-      <article id="article-4">
-        <div class="container">
-          <div class="row">
-            <header class="col-12 col-lg-7">
-              <h2>Sign up for our newsletter</h2>
-              <p>Lots of new features to come: community bulletins, reputation systems, prizes, and more!</p>
-            </header>
-            <section class="col-12 col-lg-5">
-              <h3>Subscribe to be notified when our features launch.</h3>
-              <form method="get">
-                <h4>Name:</h4>
-                <input type="text" class="well well-sm">
-                <h4>Email:</h4>
-                <input type="text" class="well well-sm">
-              </form>
-              <button type="submit" id="submit-btn" class="btn btn-danger btn-lg">SUBMIT</button>
-            </section>
-          </div>
-        </div>
-      </article>
-    </section>
+      </div>
+    </article>
   </main>
+</div>

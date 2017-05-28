@@ -25,10 +25,40 @@ $border-radius: 0.3rem;
    Mixins
 ============================================ */
 
+// Creates a light shadow around the element
 @mixin light-shadow {
   -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
   -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
   box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+}
+
+// Creates a vertically-linear darkened background, lighter at the top, darker
+// at the bottom
+// WARNING: The element will be given 'position: relative', make sure that this
+// does not break formatting
+// $text-color      -   The desired text color
+// $fallback-color  -   The base color of the background, used as a fallback if
+//                      a background image is provided
+// $background-url  -   OPTIONAL: The url of the background image, provide ""
+//                      if you don't have one
+@mixin darkened-background($text-color, $base-color, $background-url) {
+  position: relative;
+  background-position: center 60%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: $text-color;
+  background-color: $base-color;
+  background-image: url($background-url);
+  &:before {
+    /* Dark gradient */
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7));
+  }
 }
 
 /* ============================================
@@ -117,22 +147,7 @@ a {
   margin: 0 3px 3px 0;
 }
 
-#page-main-header {
-  position: relative; /* necessary for applying the dark gradient */
-  background-position: center 60%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: white;
-  &:before {
-    /* Dark gradient */
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7));
-  }
+.main-header {
   h1, h2, h3, h4, h5, h6 {
     letter-spacing: 0.11rem;
     font-weight: lighter;
