@@ -58,4 +58,10 @@ class User < ApplicationRecord
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
   end
+
+  protected # FIXME: bypass email confirmation
+  def confirmation_required?
+   false
+  end
+
 end
