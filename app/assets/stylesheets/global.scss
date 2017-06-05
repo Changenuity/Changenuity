@@ -32,8 +32,8 @@ $border-radius: 0.3rem;
   box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
 }
 
-// Creates a vertically-linear darkened background, lighter at the top, darker
-// at the bottom
+// Creates a linear gradient overlay on top of the background.
+//
 // WARNING: The element will be given 'position: relative', make sure that this
 // does not break formatting
 // $text-color      -   The desired text color
@@ -41,7 +41,7 @@ $border-radius: 0.3rem;
 //                      a background image is provided
 // $background-url  -   OPTIONAL: The url of the background image, provide ""
 //                      if you don't have one
-@mixin darkened-background($text-color, $base-color, $background-url) {
+@mixin gradient-background($color-to, $color-from, $text-color, $base-color, $background-url) {
   position: relative;
   background-position: center 60%;
   background-size: cover;
@@ -57,7 +57,7 @@ $border-radius: 0.3rem;
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7));
+    background: linear-gradient($color-to, $color-from);
   }
 }
 
@@ -66,12 +66,12 @@ $border-radius: 0.3rem;
 ============================================ */
 
 html {
-  // min-height: 100%;
+  min-height: 100%;
   font-size: 16px; // This is to ensure consistent sizing across different platforms
 }
 
 body {
-  // min-height: 100%;
+  min-height: 100%;
   width: 100%;
   position: relative;
   font-family: "Lato", sans-serif;
@@ -89,12 +89,11 @@ body {
 
 a {
   text-decoration: none;
-
-  -webkit-transition: all 0.4s;
-  -ms-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  transition: all 0.4s;
+  -webkit-transition: all $quick-transition-time;
+  -ms-transition: all $quick-transition-time;
+  -moz-transition: all $quick-transition-time;
+  -o-transition: all $quick-transition-time;
+  transition: all $quick-transition-time;
   &:hover {
     text-decoration: none;
   }
@@ -108,56 +107,44 @@ a {
   display: inline-block;
 }
 
-.position-relative {
-  position: relative;
-}
-
 .links-list {
   list-style: none;
   padding: 0;
 }
 
 .btn {
-  -webkit-transition: all 0.4s;
-  -ms-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  transition: all 0.4s;
-}
-
-.btn-outline-success {
+  -webkit-transition: all $quick-transition-time;
+  -ms-transition: all $quick-transition-time;
+  -moz-transition: all $quick-transition-time;
+  -o-transition: all $quick-transition-time;
+  transition: all $quick-transition-time;
+  border: none;
+  border-radius: $border-radius;
 }
 
 .btn-danger {
   // TODO: Please name the following colors
   color: white;
   background-color: #9E2727;
-  border: none;
-  border-radius: 3px;
-  box-shadow: 3px 3px #4F1616;
-  margin: 0 3px 3px 0;
 }
 
 .btn-secondary {
   // TODO: Please name the following colors
+  color: white;
   color: #056B49;
-  border: none;
-  border-radius: 3px;
-  box-shadow: 3px 3px #056B49;
-  margin: 0 3px 3px 0;
 }
 
 .main-header {
   h1, h2, h3, h4, h5, h6 {
     letter-spacing: 0.11rem;
-    font-weight: lighter;
     margin-bottom: 0.8rem;
-  }
-  span.emp {
-    font-weight: bold;
   }
   p {
     font-size: 1.3rem;
     word-spacing: 0.2rem;
+  }
+  em {
+    font-style: normal;
+    font-weight: 700;
   }
 }

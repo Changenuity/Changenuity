@@ -16,7 +16,7 @@
         height: 100%;
         display: flex;
         flex-flow: row nowrap;
-        flex: 0 0 auto;
+        flex: none;
         align-items: center;
         justify-content: center;
         color: black;
@@ -43,7 +43,7 @@
     #navbar-primary, #navbar-secondary {
       height: 100%;
       display: flex;
-      flex: 0 0 auto;
+      flex: none;
     }
   }
 }
@@ -142,7 +142,7 @@
           a {
             display: flex;
             flex-flow: row-reverse nowrap;
-            flex: 0 0 auto;
+            flex: none;
             padding-left: 1rem;
             padding-right: 1rem;
             justify-content: space-between;
@@ -242,7 +242,7 @@
             height: 100%;
             display: flex;
             flex-flow: column nowrap;
-            flex: 0 0 auto;
+            flex: none;
             align-items: center;
             justify-content: center;
             text-transform: uppercase;

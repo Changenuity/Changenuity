@@ -1,15 +1,22 @@
 #static-pages-home {
+  $overlay-start: rgba(0, 0, 0, 0.6);
+  $overlay-end: rgba(0, 0, 0, 0.8);
   /* TODO: Change container settings so that a 10rem padding is applied across
            the homepage */
-  h1, h2, h3, h4, h5, h6 {
-    font-weight: 200;
-  }
 
   .main-header {
-    @include darkened-background(white, $color-mystery1, "clouds-windmill-crops.jpg");
-    display: flex;
-    align-items: flex-end;
+    @include gradient-background($overlay-start, $overlay-end, white, $color-mystery1, "clouds-windmill-crops.jpg");
     height: 90vh;
+    .container {
+      height: 100%;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-end;
+      h1 em {
+        font-size: 3rem;
+        color: burlywood;
+      }
+    }
   }
 
   main {
@@ -18,25 +25,23 @@
       padding-top: 3rem;
       padding-bottom: 3rem;
       &:nth-child(2n) {
-        @include darkened-background(white, $color-mystery1, "");
+        @include gradient-background($overlay-start, $overlay-end, white, $color-mystery1, "");
         p { color: white; }
       }
       &.article-1 {
         .sdg-list {
-          display: flex;
-          flex-flow: row nowrap;
-          align-items: center;
-          justify-content: space-between;
           list-style: none;
-          margin: 0;
           padding: 0;
-          width: 100%;
           li {
-            width: 22%;
-            img {
-              display: block;
-              width: 100%;
-              height: auto;
+            padding: 0.5rem 0;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            .sdg-img {
+              border-radius: $border-radius;
+            }
+            p {
+              margin: 0;
             }
           }
         }
@@ -79,26 +84,40 @@
 @include media-breakpoint-down(sm) {
   #static-pages-home {
     main {
-      .article-2 {
-        section {
-          // align-items: center;
-          justify-content: flex-start;
-          margin-bottom: 2rem;
-          p {
-            margin-bottom: 1.25rem;
-          }
-          .btn {
-            width: 40%;
-            padding-top: 0.75rem;
-            padding-bottom: 0.75rem;
-            margin-bottom: 0;
-            min-width: 13rem;
+      article {
+        &.article-1 {
+          .sdg-list {
+            li {
+              height: 10rem;
+              .sdg-img {
+                display: block;
+                width: auto;
+                height: 100%;
+              }
+            }
           }
         }
-      }
-      .article-3 section:nth-child(2) {
-        height: 12.5rem;
-        overflow: hidden;
+        &.article-2 {
+          section {
+            // align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 2rem;
+            p {
+              margin-bottom: 1.25rem;
+            }
+            .btn {
+              width: 40%;
+              padding-top: 0.75rem;
+              padding-bottom: 0.75rem;
+              margin-bottom: 0;
+              min-width: 13rem;
+            }
+          }
+        }
+        &.article-3 section:nth-child(2) {
+          height: 12.5rem;
+          overflow: hidden;
+        }
       }
     }
   }
@@ -106,13 +125,16 @@
 
 @include media-breakpoint-up(md) {
   #static-pages-home {
-    header {
+    .main-header {
+      height: 100vh;
       background-attachment: fixed;
+      .container {
+        h1 em {
+          font-size: 5rem;
+        }
+      }
     }
     main {
-      article:nth-child(2n) {
-        background-attachment: fixed;
-      }
       .article-1 .sdg-list li {
         width: 24%;
       }
