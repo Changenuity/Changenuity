@@ -39,7 +39,7 @@ To push the latest commit from develop into production, run `git push heroku dev
 
 Whenever pushing anything to Heroku that requires migrations, remember to run `heroku rake db:migrate`
 
-To browse the current state of the database, first download [PostgreSQL][https://www.postgresql.org/download/]
+To browse the current state of the database, first download [PostgreSQL](https://www.postgresql.org/download/)
 - run `heroku pg:backups:capture` to create a backup
 - run `heroku pg:backups:download` to download it
 - open the newly saved `latest.dump` from your current folder using PostgreSQL
