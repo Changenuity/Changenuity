@@ -1,0 +1,9 @@
+<% provide(:title, @tag.name) %>
+<div class="container col-xs-12">
+  <h1><%= @tag.name %></h1>
+  <section class="container opt-section">
+    <div class="row">
+      <%= render @projects %>
+    </div>
+  </section>
+</div>

@@ -14,8 +14,8 @@ db/*.sqlite3-journal
 # Ignore all logfiles and tempfiles.
 log/*
 tmp/*
-!log/.keep
-!tmp/.keep
+!log/.gitkeep
+!tmp/.gitkeep
 
 # Ignore Byebug command history file.
 .byebug_history

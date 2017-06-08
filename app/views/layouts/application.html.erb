@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= full_title yield :title %></title>
+  <head lang="en">
     <%= render "layouts/rails_default" %>
     <%= render "layouts/shim" %>
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <title><%= full_title yield :title %></title>
   </head>
   <body>
     <%= render "layouts/header" %>
     <div class="container">
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <div class="notice"><%= message %></div>
       <% end %>
     </div>
     <%= yield %>
@@ -18,10 +18,5 @@
     <div class="container">
       <%= debug(params) if Rails.env.development? %>
     </div>
-    <script>
-      $('#handle').on('click', function() {
-        $('nav ul').toggleClass('showing');
-      });
-    </script>
   </body>
 </html>
