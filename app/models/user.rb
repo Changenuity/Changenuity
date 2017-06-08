@@ -1,7 +1,4 @@
 class User < ApplicationRecord
-  # Temporarily override default Devise confirmation mailer
-  def send_on_create_confirmation_instructions
-  end
 
   has_many :authentications
 
@@ -58,10 +55,4 @@ class User < ApplicationRecord
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
   end
-
-  protected # FIXME: bypass email confirmation
-  def confirmation_required?
-   false
-  end
-
 end
