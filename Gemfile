@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '~> 5.0.1'
 gem 'sprockets-rails', require: 'sprockets/railtie'
 gem 'bootstrap', '~> 4.0.0.alpha6'
-gem 'bcrypt', '3.1.11', :require => 'bcrypt'
+gem 'bcrypt', '3.1.11', :require => 'bcrypt',
+  git: 'https://github.com/codahale/bcrypt-ruby.git'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 # Use Puma as the app server
@@ -73,3 +74,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# Windows does not monitor directories for changes, so bundle the wdm gem
+gem 'wdm', '>= 0.1.0', platforms: :x64_mingw
