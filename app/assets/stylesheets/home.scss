@@ -1,155 +1,59 @@
-#static-pages-home {
-  $overlay-start: rgba(0, 0, 0, 0.6);
-  $overlay-end: rgba(0, 0, 0, 0.8);
-  /* TODO: Change container settings so that a 10rem padding is applied across
-           the homepage */
-
-  .main-header {
-    @include gradient-background($overlay-start, $overlay-end, white, $color-mystery1, "clouds-windmill-crops.jpg");
-    height: 90vh;
-    .container {
-      height: 100%;
-      display: flex;
-      flex-flow: column nowrap;
-      justify-content: flex-end;
-      h1 em {
-        font-size: 3rem;
-        color: burlywood;
-      }
-    }
-  }
-
-  main {
-    article {
-      margin-bottom: 1.5rem;
-      padding-top: 3rem;
-      padding-bottom: 3rem;
-      &:nth-child(2n) {
-        @include gradient-background($overlay-start, $overlay-end, white, $color-mystery1, "");
-        p { color: white; }
-      }
-      &.article-1 {
-        .sdg-list {
-          list-style: none;
-          padding: 0;
-          li {
-            padding: 0.5rem 0;
-            display: flex;
-            flex-flow: column nowrap;
-            align-items: center;
-            .sdg-img {
-              border-radius: $border-radius;
-            }
-            p {
-              margin: 0;
-            }
-          }
-        }
-      }
-      &.article-2 {
-        background-image: image-url("aerial-turbines.jpg");
-        section {
-          display: flex;
-          flex-flow: row wrap;
-        }
-      }
-      &.article-3 {}
-      &.article-4 {
-        background-image: image-url("earth-urban.jpg");
-      }
-      .row {
-        display: flex;
-        flex-flow: row wrap;
-        align-items: center;
-      }
-      p {
-        font-size: 1.3rem;
-        line-height: 2.0;
-        color: #596362;
-        margin-bottom: 2rem;
-      }
-      h2 {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-      }
-    }
-  }
-}
-
-
-/********************************
-    Media Queries Styles
-********************************/
-
-@include media-breakpoint-down(sm) {
+@include media-breakpoint-up(lg) {
   #static-pages-home {
-    main {
-      article {
-        &.article-1 {
-          .sdg-list {
-            li {
-              height: 10rem;
-              .sdg-img {
-                display: block;
-                width: auto;
-                height: 100%;
-              }
-            }
-          }
-        }
-        &.article-2 {
-          section {
-            // align-items: center;
-            justify-content: flex-start;
-            margin-bottom: 2rem;
-            p {
-              margin-bottom: 1.25rem;
-            }
-            .btn {
-              width: 40%;
-              padding-top: 0.75rem;
-              padding-bottom: 0.75rem;
-              margin-bottom: 0;
-              min-width: 13rem;
-            }
-          }
-        }
-        &.article-3 section:nth-child(2) {
-          height: 12.5rem;
-          overflow: hidden;
-        }
-      }
-    }
-  }
-}
-
-@include media-breakpoint-up(md) {
-  #static-pages-home {
-    .main-header {
+    .splash-container {
+      position: relative;
       height: 100vh;
-      background-attachment: fixed;
-      .container {
-        h1 em {
-          font-size: 5rem;
+      overflow: hidden;
+      display: flex;
+      flex: none;
+      align-items: center;
+      justify-content: center;
+      #homepage-background-video {
+        position: absolute;
+        z-index: -100;
+      }
+      #homepage-splash {
+        align-items: center;
+        .jumbotron {
+          margin: 0;
+          background: #eacda3;  /* fallback for old browsers */
+          background: linear-gradient(to bottom, rgba(214, 174, 123, 0.85), rgba(234, 205, 163, 0.80));
+        }
+        header {
+          h1 {
+            font-size: 3.5rem;
+            color: white;
+          }
+          p {
+            font-size: 1.5rem;
+          }
+          text-align: center;
+          margin-bottom: 3rem;
+        }
+        .splash-body {
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: center;
+          width: 90%;
+          margin: 0 auto;
+          section {
+            text-align: center;
+            padding: 0 1.4rem;
+            i {
+              cursor: default;
+              font-size: 4rem;
+              background-color: white;
+              padding: 1.4rem;
+              border-radius: 100%;
+              color: #2196F3;
+              text-shadow: antiquewhite;
+              text-shadow: 3px 3px 0px #00BCD4;
+              margin-bottom: 1rem;
+            }
+          }
         }
       }
     }
-    main {
-      .article-1 .sdg-list li {
-        width: 24%;
-      }
-      .article-2 .btn {
-        order: -1;
-        width: 100%;
-      }
-      .article-3 {
-        overflow: hidden;
-        img {
-          display: block;
-          width: 100%;
-          height: auto;
-        }
-      }
-    }
+
   }
 }

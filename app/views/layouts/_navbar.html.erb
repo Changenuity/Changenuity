@@ -1,4 +1,4 @@
-<div id="navbar-wrapper">
+<div style="display:none;" id="navbar-wrapper">
   <div class="container">
     <nav id="navbar">
       <div id="navbar-brand">
@@ -17,17 +17,21 @@
       <ul id="navbar-secondary" class="links-list">
         <li class="navbar-secondary-link">
           <%= link_to post_path do %>
-            <i class="link-icon material-icons">add</i>Add Project
+            <i class="link-icon material-icons">add</i>
+            Add Project
           <% end %>
         </li>
-        <li class="navbar-secondary-link">
+        <!-- Shawn - I commented out the code below. I got a better solution: lightboxes -->
+        <!-- <li class="navbar-secondary-link">
           <%= link_to new_user_registration_path do %>
-            <i class="link-icon material-icons">account_box</i>Sign Up
+            <i class="link-icon material-icons">account_box</i>
+            Sign Up
           <% end %>
-        </li>
+        </li> -->
         <li class="navbar-secondary-link">
           <%= link_to '#' do %>
-            <i class="link-icon material-icons">account_box</i>Profile
+            <i class="link-icon material-icons">account_box</i>
+            Login
           <% end %>
         </li>
       </ul>
