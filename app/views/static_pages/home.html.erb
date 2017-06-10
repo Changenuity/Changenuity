@@ -1,50 +1,51 @@
 
 <div id="static-pages-home">
-  <div class="splash-container">
-    <article id="homepage-splash" class="container">
-      <div class="jumbotron">
-        <header>
-          <h1>
-            Lorem ipsum dolor sit amet
-          </h1>
-          <p>
-            Voluptatibus minus itaque nulla repellendus suscipit rerum magni delectus eaque
-          </p>
-        </header>
-        <div class="splash-body">
-          <section>
-            <i class="material-icons navbar-handle open-nav">search</i>
-            <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-              ab illo inventore veritatis et quasi architecto beatae vitae dicta
-              sunt explicabo.
-            </p>
-          </section>
-          <section>
-            <i class="material-icons navbar-handle open-nav">forum</i>
-            <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-              ab illo inventore veritatis et quasi architecto beatae vitae dicta
-              sunt explicabo.
-            </p>
-          </section>
-          <section>
-            <i class="material-icons navbar-handle open-nav">people</i>
-            <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-              ab illo inventore veritatis et quasi architecto beatae vitae dicta
-              sunt explicabo.
-            </p>
-          </section>
+  <div class="header-container">
+    <header class="jumbotron">
+      <div class="content-wrapper">
+        <h1>
+          Welcome to<br/><strong>Changenuity</strong>
+        </h1>
+        <p>
+          What impact will you have on the world today?
+        </p>
+        <div class="button-group">
+          <a href="#0" class="btn btn-primary">Take A Tour</a>
+          <a href="#0" class="btn btn-primary">Sign Up</a>
         </div>
       </div>
-    </article>
-    <%= video_tag('people.mp4',id:'homepage-background-video',size:'1280x720',autoplay:true,muted:true,loop:true,poster:'earth-urban.jpg') %>
+    </header>
+    <%= video_tag('working.webm',id:'homepage-video',class:'background-video',size:'1280x720',autoplay:true,muted:true,loop:true,poster:'earth-urban.jpg') %>
   </div>
-
-
-
+  <main id="homepage-main" class="container">
+    <article class="splash-body">
+      <section>
+        <i class="material-icons navbar-handle open-nav">search</i>
+        <p>
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
+          ab illo inventore veritatis et quasi architecto beatae vitae dicta
+          sunt explicabo.
+        </p>
+      </section>
+      <section>
+        <i class="material-icons navbar-handle open-nav">forum</i>
+        <p>
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
+          ab illo inventore veritatis et quasi architecto beatae vitae dicta
+          sunt explicabo.
+        </p>
+      </section>
+      <section>
+        <i class="material-icons navbar-handle open-nav">people</i>
+        <p>
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
+          ab illo inventore veritatis et quasi architecto beatae vitae dicta
+          sunt explicabo.
+        </p>
+      </section>
+    </article>
+  </main>
 </div>

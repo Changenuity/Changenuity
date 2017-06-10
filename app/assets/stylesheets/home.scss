@@ -1,59 +1,66 @@
-@include media-breakpoint-up(lg) {
+@include media-breakpoint-up(md) {
   #static-pages-home {
-    .splash-container {
+    .header-container {
       position: relative;
       height: 100vh;
+      width: 100%;
       overflow: hidden;
       display: flex;
+      flex-flow: column nowrap;
       flex: none;
       align-items: center;
-      justify-content: center;
-      #homepage-background-video {
+      header {
+        height: 100%;
+        width: 40%;
+        align-self: flex-end;
+        margin: 0;
+        border-left: 1px solid white;
+        border-radius: 0;
+        display: flex;
+        flex: none;
+        align-items: flex-end;
+        background-color: rgba(236, 238, 239, 0.85);
+        h1 {
+          font-size: 3.5rem;
+          color: $color-orange;
+        }
+        p {
+          font-size: 1.5rem;
+        }
+      }
+      .background-video {
         position: absolute;
         z-index: -100;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
       }
-      #homepage-splash {
-        align-items: center;
-        .jumbotron {
-          margin: 0;
-          background: #eacda3;  /* fallback for old browsers */
-          background: linear-gradient(to bottom, rgba(214, 174, 123, 0.85), rgba(234, 205, 163, 0.80));
-        }
-        header {
-          h1 {
-            font-size: 3.5rem;
-            color: white;
-          }
-          p {
-            font-size: 1.5rem;
-          }
+    }
+    #homepage-main {
+      align-items: center;
+      .splash-body {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        width: 90%;
+        margin: 0 auto;
+        section {
           text-align: center;
-          margin-bottom: 3rem;
-        }
-        .splash-body {
-          display: flex;
-          flex-flow: row nowrap;
-          justify-content: center;
-          width: 90%;
-          margin: 0 auto;
-          section {
-            text-align: center;
-            padding: 0 1.4rem;
-            i {
-              cursor: default;
-              font-size: 4rem;
-              background-color: white;
-              padding: 1.4rem;
-              border-radius: 100%;
-              color: #2196F3;
-              text-shadow: antiquewhite;
-              text-shadow: 3px 3px 0px #00BCD4;
-              margin-bottom: 1rem;
-            }
+          padding: 0 1.4rem;
+          i {
+            cursor: default;
+            font-size: 4rem;
+            background-color: white;
+            padding: 1.4rem;
+            border-radius: 100%;
+            color: #2196F3;
+            text-shadow: antiquewhite;
+            text-shadow: 3px 3px 0px #00BCD4;
+            margin-bottom: 1rem;
           }
         }
       }
     }
-
   }
 }
