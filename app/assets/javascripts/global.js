@@ -1,10 +1,14 @@
 // This file contains global defintions for variables and functions used
 // throughout the application.
 
-// VARIABLE DEFINITIONS
+// CONSTANT DEFINITIONS
 var quick_transition_time = 200;
 var medium_transition_time = 400;
 
+
+// GLOBAL VARIABLES
+var scrollY;
+var scrollX;
 
 /**
  *  Creates a disabling overlay.
@@ -33,3 +37,8 @@ function createDisableOverlay($parentElement, transitionTime, zIndex) {
   overlay.fadeIn(transitionTime);
   return overlay;
 }
+
+$(window).on('scroll', function(){
+  scrollY = window.scrollY;
+  scrollX = window.scrollX;
+}, false);

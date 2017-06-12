@@ -1,8 +1,8 @@
 
 <div id="static-pages-home">
-  <div class="header-container">
+  <div class="header-wrapper">
     <header class="jumbotron">
-      <div class="content-wrapper">
+      <div>
         <h1>
           Welcome to<br/><strong>Changenuity</strong>
         </h1>
@@ -15,7 +15,7 @@
         </div>
       </div>
     </header>
-    <%= video_tag('working.webm',id:'homepage-video',class:'background-video',size:'1280x720',autoplay:true,muted:true,loop:true,poster:'earth-urban.jpg') %>
+    <%= video_tag('/videos/homepage-background-video.webm',id:'homepage-video',class:'background-video',size:'1280x720',autoplay:true,muted:true,loop:true) %>
   </div>
   <main id="homepage-main" class="container">
     <article class="splash-body">

@@ -158,6 +158,11 @@
 
 @include media-breakpoint-up(md) {
   #navbar-wrapper {
+    transition-duration: $quick-transition-time;
+    transform: translateY(-100%);
+    &.active {
+      transform: translateY(0);
+    }
     #navbar {
       height: 4.5rem;
       .navbar-handle {

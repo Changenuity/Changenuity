@@ -1,6 +1,6 @@
 @include media-breakpoint-up(md) {
   #static-pages-home {
-    .header-container {
+    .header-wrapper {
       position: relative;
       height: 100vh;
       width: 100%;
@@ -37,6 +37,9 @@
         height: auto;
       }
     }
+
+
+
     #homepage-main {
       align-items: center;
       .splash-body {
