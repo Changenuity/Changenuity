@@ -148,3 +148,8 @@ a {
     font-weight: 700;
   }
 }
+
+// Style Devise alert-notice the same way as Bootstrap alert-success
+.alert-notice {
+  @extend .alert-success;
+}
