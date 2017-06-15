@@ -1,45 +1,72 @@
 @include media-breakpoint-up(md) {
   #static-pages-home {
-    .header-wrapper {
+    header {
       position: relative;
       height: 100vh;
       width: 100%;
+      border-radius: 0;
       overflow: hidden;
       display: flex;
       flex-flow: column nowrap;
       flex: none;
       align-items: center;
-      header {
-        height: 100%;
-        width: 40%;
-        align-self: flex-end;
-        margin: 0;
-        border-left: 1px solid white;
-        border-radius: 0;
+      padding: 0;
+      transform: scale(1); // To create a stacking context
+      .container {
         display: flex;
-        flex: none;
-        align-items: flex-end;
-        background-color: rgba(236, 238, 239, 0.85);
-        h1 {
-          font-size: 3.5rem;
-          color: $color-orange;
-        }
-        p {
-          font-size: 1.5rem;
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+        align-items: stretch;
+        height: 100%;
+        .header-wrapper {
+          width: 40%;
+          margin: 0;
+          display: flex;
+          flex-flow: column nowrap;
+          flex: none;
+          justify-content: flex-end;
+          align-items: flex-begin;
+          > * {
+            margin-bottom: 1rem;
+          }
+          h1 {
+            font-size: 3rem;
+            color: $color-orange;
+            strong {
+              font-size: 1.2em;
+            }
+          }
+          p {
+            font-size: 1.5rem;
+          }
+          .button-group {
+            margin-bottom: 3rem;
+          }
         }
       }
-      .background-video {
+      .video-wrapper {
         position: absolute;
-        z-index: -100;
-        min-width: 100%;
-        min-height: 100%;
-        width: auto;
-        height: auto;
+        z-index: -200;
+        width: 100%;
+        height: 100%;
+        &::after {
+          content:"";
+          position: absolute;
+          width: 45%;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          border-left: 1px solid white;
+          background-color: rgba(236, 238, 239, 0.85);
+        }
+        .background-video {
+          min-width: 100%;
+          min-height: 100%;
+          width: auto;
+          height: auto;
+        }
       }
     }
-
-
-
     #homepage-main {
       align-items: center;
       .splash-body {
@@ -63,6 +90,24 @@
             margin-bottom: 1rem;
           }
         }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  #static-pages-home {
+    header {
+      .container .header-wrapper {
+        width: 50%;
+        padding-left: 2.5rem;
+        padding-right: 10rem;
+        border-left: 1px solid white;
+        border-right: 1px solid white;
+        background-color: rgba(236, 238, 239, 0.85);
+      }
+      .video-wrapper::after {
+        display: none;
       }
     }
   }
