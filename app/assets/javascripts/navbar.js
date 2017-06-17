@@ -1,8 +1,23 @@
 
-// GLOBAL VARAIBLES
 
 $(function(){
-  // Set up global variables
+  var toggleNavBar = (function() {
+    var navbarWrapper = $('#navbar-wrapper');
+    var firstKnownY = scrollY;
+    var throttle = 50; // px
+    return function() {
+      var currentY = scrollY;
+      if( Math.abs(currentY-firstKnownY) > throttle ) {
+        if( !navbarWrapper.hasClass('active') ) {
+          navbarWrapper.addClass('active');
+        }
+      } else {
+        requestAnimationFrame(toggleNavBar);
+      }
+    }
+  })();
+  requestAnimationFrame(toggleNavBar);
+  /*
   var toggleNavBar = (function(){
     var navbarWrapper = $('#navbar-wrapper');
     var lastKnownY = scrollY;
@@ -25,6 +40,7 @@ $(function(){
   })();
 
   requestAnimationFrame(toggleNavBar);
+  */
 
   // Bindings
   $(document.body).on('click', '.open-nav', function(e) {

@@ -2,7 +2,7 @@
   width: 100%;
   position: fixed;
   z-index: 100;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.94);
   @include light-shadow;
   #navbar {
     display: flex;
@@ -73,7 +73,7 @@
         align-items: stretch;
         justify-content: center;
         overflow: hidden;
-        background-color: $color-mystery2;
+        background-color: $color-tundora;
         transition-duration: $medium-transition-time;
         min-width: 15rem;
         .navbar-primary-link, .navbar-secondary-link {
@@ -164,7 +164,7 @@
       transform: translateY(0);
     }
     #navbar {
-      height: 4.5rem;
+      height: 4rem;
       .navbar-handle {
         display: none;
       }
