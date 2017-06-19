@@ -1,7 +1,4 @@
 class User < ApplicationRecord
-  # Temporarily override default Devise confirmation mailer
-  def send_on_create_confirmation_instructions
-  end
 
   has_many :authentications
 

@@ -6,32 +6,99 @@ $color-orange: #EC6433;
 $color-light-orange: #C14F26;
 $color-turquoise: #8AB7A3;
 $color-light-turquoise: #DDDDDD;
-$color-mystery1: #7AA391;
-$color-mystery2: #625F5E;
+$color-grey: #63C1C0;
+$color-light-grey: #F4F4F4;
+$color-blue-stone: #01665D;
+$color-blue-diane: #1C5453;
+$color-edward: #9AA8A7;
+$color-pastel-green: #7AA391;
+$color-tundora: #625F5E;
+$color-prussian-blue: #2196F3;
+$color-bad-glass: rgba(236, 238, 239, 0.9);
 $bgDefault: white;
-$bgHighlight: #ec6433;
+$bgHighlight: #EC6433;
+
+
+$quick-transition-time: 0.2s;
+$medium-transition-time: 0.4s;
+$border-radius: 0.3rem;
+
+/* ============================================
+   Mixins
+============================================ */
+
+// Creates a light shadow around the element
+@mixin light-shadow {
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+}
+
+// Creates a linear gradient overlay on top of the background.
+//
+// WARNING: The element will be given 'position: relative', make sure that this
+// does not break formatting
+// $text-color      -   The desired text color
+// $fallback-color  -   The base color of the background, used as a fallback if
+//                      a background image is provided
+// $background-url  -   OPTIONAL: The url of the background image, provide ""
+//                      if you don't have one
+@mixin gradient-background($color-to, $color-from, $text-color, $base-color, $background-url) {
+  position: relative;
+  background-position: center 60%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: $text-color;
+  background-color: $base-color;
+  background-image: url($background-url);
+  &:before {
+    /* Dark gradient */
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient($color-to, $color-from);
+  }
+}
 
 /* ============================================
    General Styles
 ============================================ */
 
-a {
-  color: $color-orange;
-  text-decoration: none;
-
-  -webkit-transition: all 0.4s;
-  -ms-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  transition: all 0.4s;
-  &:hover {
-    color: $color-light-orange;
-    text-decoration: none;
-  }
+html {
+  min-height: 100%;
+  font-size: 16px; // This is to ensure consistent sizing across different platforms
 }
 
 body {
+  min-height: 100%;
+  width: 100%;
+  position: relative;
   font-family: "Lato", sans-serif;
+}
+
+.disabling-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+a {
+  text-decoration: none;
+  -webkit-transition: all $quick-transition-time;
+  -ms-transition: all $quick-transition-time;
+  -moz-transition: all $quick-transition-time;
+  -o-transition: all $quick-transition-time;
+  transition: all $quick-transition-time;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .list-inline {
@@ -42,19 +109,44 @@ body {
   display: inline-block;
 }
 
-.position-relative {
-  position: relative;
-}
-
 .links-list {
   list-style: none;
   padding: 0;
 }
 
 .btn {
-  -webkit-transition: all 0.4s;
-  -ms-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  transition: all 0.4s;
+  -webkit-transition: all $quick-transition-time;
+  -ms-transition: all $quick-transition-time;
+  -moz-transition: all $quick-transition-time;
+  -o-transition: all $quick-transition-time;
+  transition: all $quick-transition-time;
+  border: none;
+  border-radius: $border-radius;
+}
+
+.btn-danger {
+  // TODO: Please name the following colors
+  color: white;
+  background-color: #9E2727;
+}
+
+.btn-secondary {
+  // TODO: Please name the following colors
+  color: white;
+  color: #056B49;
+}
+
+.main-header {
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: 0.11rem;
+    margin-bottom: 0.8rem;
+  }
+  p {
+    font-size: 1.3rem;
+    word-spacing: 0.2rem;
+  }
+  em {
+    font-style: normal;
+    font-weight: 700;
+  }
 }

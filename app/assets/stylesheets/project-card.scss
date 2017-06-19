@@ -1,0 +1,99 @@
+/*Note: SCSS (which we have) will allow us to define constants,
+such as for transition times and common colours*/
+/*I have defined them here, but for demo purposes have not
+added them to the main css code yet*/
+
+.pcard {
+	overflow: hidden;
+	transition-duration: 0.2s;
+	width: 270px;
+	padding-bottom: 17px;
+	font-family: 'Open Sans', serif;
+	border-radius: $border-radius;
+	box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+	&:hover {
+		box-shadow: 0px 0px 15px rgba(0,0,0,0.4);
+		cursor: pointer;
+	}
+	.pcard-img, .pcard-content, .pcard-footer {
+		width: 100%;
+	}
+	.pcard-content, .pcard-footer {
+		padding: 0 1rem;
+	}
+	.pcard-footer {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.pcard-img {
+		margin-bottom: 17px;
+	}
+	.pcard-maintitle {
+		font-size: 1.5rem;
+		color: $color-blue-stone;
+	}
+	.pcard-subtitle a {
+		font-size: 1.1em;
+		color: $color-blue-stone;
+		&:hover {
+			color: $color-orange;
+		}
+	}
+	p, .pcard-subtitle {
+		font-size: 1rem;
+		color: $color-edward;
+	}
+	.btn-fav-wrapper {
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		font-size: 2rem;
+		color: $color-edward;
+		&:hover {
+			cursor: default;
+		}
+		.btn-fav {
+			display: block;
+			font-size: inherit;
+			transition-duration: 0.2s;
+			&:hover {
+				color: rgba(221, 77, 77, 0.9);
+				cursor: pointer;
+			}
+			&.active {
+				color: rgba(221, 77, 77, 0.9);
+			}
+		}
+		.fav-count {
+			font-size: 0.6em;
+		}
+	}
+	.main-category {
+		margin: 0;
+		padding: 10px 15px;
+		text-transform: uppercase;
+		color: white;
+		font-size: 0.75em;
+		text-align: center;
+		border-radius: 4px;
+		display: inline-block;
+		font-family: 'Lato';
+		background-color: $color-orange;
+		border-color: $color-orange;
+	}
+	a[data-category-value] {
+		text-transform: uppercase;
+		font-size: 0.75em;
+		font-family: 'Lato';
+	}
+	a[data-category-value="Infrastructure"] {
+		background-color: $color-orange;
+		border-color: $color-orange;
+		&:hover {
+			background-color: darken($color-orange, 10);
+			border-color: darken($color-orange, 10);
+		}
+	}
+}

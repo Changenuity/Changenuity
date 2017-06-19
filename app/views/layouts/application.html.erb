@@ -6,7 +6,7 @@
     <title><%= full_title yield :title %></title>
   </head>
   <body>
-    <%= render "layouts/header" %>
+    <%= render "layouts/navbar" %>
     <div class="container">
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>

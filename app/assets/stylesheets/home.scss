@@ -1,197 +1,128 @@
-.static_pages_home {
-  /* TODO: Change container settings so that a 10rem padding is applied across
-           the homepage */
-
-  /********************************
-      Header Styles
-  ********************************/
-
-  #page-main-header {
-    display: flex;
-    align-items: center; /* Easy vertical alignment, easy life */
-    color: #FFFFFF;
-    height: 24rem;
-
-    background-image: url("clouds-windmill-crops.jpg");
-    position: relative; /* necessary for applying the dark gradient */
-    z-index: 1; /* necessary for applying the dark gradient */
-    background-position: center 60%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: white;
-    &:before {
-      /* The following is so that a dark gradient can be applied */
-      content: "";
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7));
-    }
-  }
-
-  #page-main-header h2 {
-    color: #FFFFFF;
-    padding-bottom: 1rem;
-  }
-
-  /********************************
-      Main Section Styles
-  ********************************/
-
-  #main-section {
-    /*padding: 100px;*/
-    /*padding-top: 20px;
-    padding-bottom: 100px;*/
-  }
-
-  #main-section article {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    background-color: lightgrey;
-    margin-bottom: 1.5rem;
-
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
-
-  #main-section article > section {
-    /*margin-bottom: 1.8rem;*/
-  }
-
-  #main-section article p {
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-  }
-
-  #main-section article h2 {
-    margin-bottom: 1.25rem;
-  }
-
-  /********************************
-      Article 1 Styles
-  ********************************/
-
-  #sdg-list {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: space-between;
-
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-  }
-
-  #sdg-list li {
-    width: 22%;
-  }
-
-  #sdg-list li img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
-  /********************************
-      Article 2 Styles
-  ********************************/
-
-  #main-section #article-2 {
-    align-items: baseline;
-  }
-
-  #main-section #article-2 p {
-    font-size: 1rem;
-  }
-
-  #main-section #article-2 section {
-    display: flex;
-    flex-flow: row wrap;
-  }
-
-  #main-section #article-2 section > *:nth-child(1) {
-    width: 100%;
-  }
-
-  #main-section #article-2 .signup-btn {
-    color: #ffffff;
-    background-color: #9e2727;
-    border: none;
-    border-radius: 3px;
-    box-shadow: 3px 3px #4f1616;
-  }
-}
-
-#main-section #article-2 .special-btn {
-  color: #056b49;
-  border: none;
-  border-radius: 2px;
-  box-shadow: 3px 3px #056b49;
-  margin-bottom: 0.75rem;
-}
-
-/********************************
-    Article 3 Styles
-********************************/
-
-
-/********************************
-    Media Queries Styles
-********************************/
-
-@media (max-width: 767px) { /* Up to md */
-  .static_pages_home {
-    #main-section #article-2 section > *:nth-child(1) {
-      width: 50%;
-      margin-bottom: 0;
-      padding-top: 0.75rem;
-      padding-bottom: 0.75rem;
-    }
-    #main-section #article-2 section {
+@include media-breakpoint-up(md) {
+  #static-pages-home {
+    .homepage-button {
+      display: flex;
+      flex-flow: row nowrap;
       align-items: center;
-      justify-content: space-between;
+      padding: 0.7rem 2rem;
+      border-radius: 4rem;
+      color: darken($color-prussian-blue, 10);
+      background: linear-gradient(to bottom right, rgba(236, 232, 249, 0.9), rgba(239, 235, 234, 0.90));
+      transition-duration: $quick-transition-time;
+      font-size: 1.5rem;
+      .button-icon {
+        font-size: 2rem;
+        margin-right: 0.7rem;
+      }
+      &:hover {
+        color: $color-prussian-blue;
+      }
     }
-    #main-section #article-2 section:nth-child(1) {
-      align-items: center;
-    }
-    #main-section #article-2 section .btn {
-      width: 40%;
-      padding-top: 0.75rem;
-      padding-bottom: 0.75rem;
-      margin-bottom: 0;
-    }
-    #main-section #article-3 section:nth-child(2) {
-      height: 12.5rem;
-      overflow: hidden;
-    }
-  }
-}
-
-@media (min-width: 768px) { /* md and up */
-  .static_pages_home {
-    #main-section #article-2 .special-btn {
-      order: -1;
-    }
-    #main-section #article-3 {
-      overflow: hidden;
-    }
-    #main-section #article-3 img {
-      display: block;
+    header {
+      position: relative;
+      height: 100vh;
       width: 100%;
-      height: auto;
+      border-radius: 0;
+      overflow: hidden;
+      display: flex;
+      flex-flow: column nowrap;
+      flex: none;
+      align-items: center;
+      padding: 0;
+      transform: scale(1); // To create a stacking context
+      .container {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+        align-items: stretch;
+        height: 100%;
+        .header-wrapper {
+          width: 40%;
+          margin: 0;
+          display: flex;
+          flex-flow: column nowrap;
+          flex: none;
+          justify-content: flex-end;
+          align-items: stretch;
+          border-left: 0.1rem solid white;
+          border-right: 0.1rem solid white;
+          > * {
+            margin-bottom: 1rem;
+          }
+          h1 {
+            font-size: 3rem;
+            color: white;
+            strong {
+              font-size: 1.4em;
+              color: #93EC9B;
+            }
+          }
+          .button-group {
+            .homepage-button {
+              margin-bottom: 0.65rem;
+            }
+            margin-bottom: 1.5rem;
+          }
+        }
+      }
+      .video-wrapper {
+        position: absolute;
+        z-index: -200;
+        width: 100%;
+        height: 100%;
+        &::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          background: linear-gradient(to bottom right, rgba(156, 39, 176, 0.5), rgba(139, 195, 74, 0.5));
+        }
+        .background-video {
+          min-width: 100%;
+          min-height: 100%;
+          width: auto;
+          height: auto;
+        }
+      }
+    }
+    #homepage-main {
+      align-items: center;
+      .splash-body {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        width: 90%;
+        margin: 0 auto;
+        section {
+          text-align: center;
+          padding: 0 1.4rem;
+          i {
+            cursor: default;
+            font-size: 4rem;
+            background-color: white;
+            padding: 1.4rem;
+            border-radius: 100%;
+            color: $color-prussian-blue;
+            text-shadow: antiquewhite;
+            text-shadow: 3px 3px 0px #00BCD4;
+            margin-bottom: 1rem;
+          }
+        }
+      }
     }
   }
 }
 
-@media (min-width: 768px) { /* md and up */
-  .static_pages_home {
-    #sdg-list li {
-      width: 24%;
+@include media-breakpoint-up(xl) {
+  #static-pages-home {
+    header {
+      .container .header-wrapper {
+        width: 50%;
+        padding-left: 2.5rem;
+        padding-right: 10rem;
+      }
     }
   }
 }

@@ -1,94 +1,260 @@
-$color-white: white;
-$color-orange: #ec6433;
-$color-dark-orange: #c14f26;
-$color-turquoise: #8ab7a3;
-$color-dark-turquoise: #7aa391;
-$color-grey: #ddd;
-$color-dark-grey: #666;
-$logo-height: 60px;
-$navbar-height: 65px;
+#navbar-wrapper {
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.94);
+  @include light-shadow;
+  #navbar {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    height: 4rem;
+    // background-color: white;
+    justify-content: space-between;
+    #navbar-brand {
+      a {
+        height: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        flex: none;
+        align-items: center;
+        justify-content: center;
+        color: black;
+        transition-duration: $quick-transition-time;
+        .brand-img {
+          width: 1.6rem;
+          height: auto;
+          margin-right: 0.3rem;
+          // TODO: Make this more elegant
+          &.type-dark {
+            display: inline-block;
+          }
+          &.type-light {
+            display: none;
+          }
+        }
+        .brand-text {
+          font-size: 1.2rem;
+          font-weight: 700;
+          letter-spacing: 0.02rem;
+        }
+      }
+    }
+    #navbar-primary, #navbar-secondary {
+      height: 100%;
+      display: flex;
+      flex: none;
+    }
+  }
+}
 
-.navbar-custom {
-  z-index: 2;
-  background-color: $color-white;
-  height: $navbar-height;
-  padding: 0;
-  -webkit-box-shadow: 0 0 18px 0 rgba(0,0,0,0.5);
-  -moz-box-shadow: 0 0 18px 0 rgba(0,0,0,0.5);
-  box-shadow: 0 0 18px 0 rgba(0,0,0,0.5);
-  .navbar-brand {
-    padding: 0 0 0 5px;
-    height: $navbar-height;
-    line-height: $navbar-height;
-    img {
-      height: $logo-height;
-      width: auto;
-    }
-  }
-  .navbar-toggler {
-    outline: none;
-    height: $navbar-height;
-    line-height: $navbar-height;
-    cursor: pointer;
-    // Change rgba(236, 100, 51, 1) to match $color-orange
-    .navbar-toggler-icon {
-      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(236, 100, 51, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-      -webkit-transition: all 0.4s;
-      -ms-transition: all 0.4s;
-      -moz-transition: all 0.4s;
-      -o-transition: all 0.4s;
-      transition: all 0.4s;
-      &:hover {
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(193, 79, 38, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+@include media-breakpoint-down(sm) {
+  #navbar-wrapper {
+    #navbar {
+      .navbar-handle {
+        font-size: 2.2rem;
+        align-self: center;
+        transition-duration: $quick-transition-time;
+        cursor: pointer;
+        &:hover { color: $color-orange; }
+        &[data-component-id="navbar-primary"] {
+          order: 1;
+        }
+        &[data-component-id="navbar-secondary"] {
+          order: 3;
+        }
       }
-    }
-  }
-  .nav-item {
-    .nav-link {
-      height: $navbar-height;
-      line-height: $navbar-height;
-      padding: 0 30px;
-      font-size: 20px;
-    }
-    .nav-link, .dropdown-item {
-      color: $color-dark-grey;
-      background-color: $color-white;
-      -webkit-transition: all 0.4s;
-      -ms-transition: all 0.4s;
-      -moz-transition: all 0.4s;
-      -o-transition: all 0.4s;
-      transition: all 0.4s;
-      &:focus {
-        background-color: $color-grey;
+      #navbar-brand {
+        order: 2;
       }
-      &:hover {
-        color: $color-white;
-        background-color: $color-orange;
+      #navbar-primary, #navbar-secondary {
+        position: fixed;
+        flex-flow: column nowrap;
+        align-items: stretch;
+        justify-content: center;
+        overflow: hidden;
+        background-color: $color-tundora;
+        transition-duration: $medium-transition-time;
+        min-width: 15rem;
+        .navbar-primary-link, .navbar-secondary-link {
+          border-bottom: 0.01rem solid rgba(255,255,255,0.4);
+          &:nth-child(1) {
+            border-top: 0.01rem solid rgba(255,255,255,0.4);
+          }
+        }
+        a {
+          transition-duration: $quick-transition-time;
+          padding: 2rem 0;
+          width: 100%;
+          color: white;
+          font-size: 1.5rem;
+          font-weight: 300;
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+          }
+        }
+        &.active {
+          transform: translateX(0);
+        }
+        .clear-nav {
+          color: black;
+          position: absolute;
+          top: 1rem;
+          background-color: white;
+          padding: 0.4rem;
+          border-radius: 100%;
+          &:hover {
+            color: white;
+            background-color: black;
+          }
+        }
+      }
+      #navbar-primary {
+        left: 0;
+        transform: translateX(-100%);
+        .clear-nav {
+          right: 1rem;
+        }
+        .navbar-primary-link {
+          a {
+            display: inline-block;
+            padding-left: 1rem;
+            &:hover {
+            }
+          }
+        }
+      }
+      #navbar-secondary {
+        // TODO: Finish styling the other one lmao
+        right: 0;
+        transform: translateX(100%);
+        .clear-nav {
+          left: 1rem;
+        }
+        .navbar-secondary-link {
+          border-bottom: 0.01rem solid rgba(255,255,255,0.4);
+          &:nth-child(1) {
+            border-top: 0.01rem solid rgba(255,255,255,0.4);
+          }
+          .link-icon {
+            font-size: 3rem;
+          }
+          a {
+            display: flex;
+            flex-flow: row-reverse nowrap;
+            flex: none;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            justify-content: space-between;
+            align-items: center;
+            &:hover {
+            }
+          }
+        }
       }
     }
   }
 }
 
-@media (max-width: 991px) {
-  .navbar-custom .nav-item {
-    .dropdown-menu {
-      background-color: $color-turquoise;
+@include media-breakpoint-up(md) {
+  #navbar-wrapper {
+    transition-duration: $quick-transition-time;
+    transform: translateY(-100%);
+    &.active {
+      transform: translateY(0);
     }
-    // Round corners of last element in collapsed navbar,
-    // which happens to be the only .dropbdown-toggle element
-    .dropdown-toggle {
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-    }
-    .nav-link, .dropdown-item {
-      width: 100%;
-      color: $color-white;
-      background-color: $color-turquoise;
-      &:focus {
-        background-color: $color-dark-grey;
+    #navbar {
+      height: 4rem;
+      .navbar-handle {
+        display: none;
       }
-      &:hover {
-        background-color: $color-dark-turquoise;
+      #navbar-brand {
+        a {
+          padding: 0 1rem;
+          color: white;
+          background-color: $color-grey;
+          &:hover {
+            background-color: darken($color-grey, 15);
+          }
+          .brand-text {
+            font-size: 1rem;
+          }
+          .brand-img {
+            width: 1.3rem;
+            // TODO: Make this more elegant
+            &.type-dark {
+              display: none;
+            }
+            &.type-light {
+              display: inline-block;
+            }
+          }
+        }
+      }
+      #navbar-primary, #navbar-secondary {
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+      }
+      #navbar-primary {
+        margin: 0 0.6rem;
+        .navbar-primary-link {
+          position: relative;
+          font-size: 1rem;
+          border-left: 0.01rem solid $color-grey;
+          &:nth-child(1) {
+            border-left: 0;
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            margin: 0 auto;
+            top: 2rem;
+            left: 25%;
+            height: 0;
+            width: 0;
+            border-bottom: 0.15rem solid $color-orange;
+            transition-duration: $quick-transition-time;
+          }
+          &:hover::before {
+            width: 50%;
+          }
+          a {
+            color: $color-blue-diane;
+            padding: 0 1.5rem;
+          }
+        }
+      }
+      #navbar-secondary {
+        margin: 0;
+        margin-left: auto; // Moves the secondary to the right
+        .navbar-secondary-link {
+          height: 100%;
+          border-right: 0.01rem solid $color-grey;
+          &:nth-child(1) {
+            border-left: 0.01rem solid $color-grey;
+          }
+          .link-icon {
+            font-size: 2.5rem;
+            transition-duration: $quick-transition-time;
+          }
+          &:hover .link-icon {
+            cursor: pointer;
+            color: $color-orange;
+          }
+          a {
+            font-size: 0.5rem;
+            height: 100%;
+            display: flex;
+            flex-flow: column nowrap;
+            flex: none;
+            align-items: center;
+            justify-content: center;
+            text-transform: uppercase;
+            width: 5.4rem;
+            color: $color-blue-diane;
+          }
+        }
       }
     }
   }

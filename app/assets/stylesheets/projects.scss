@@ -41,23 +41,7 @@
   #page-main-header {
     padding-top: 120px; /* 83.33% */
     padding-bottom: 24px;
-    position: relative; /* necessary for applying the dark gradient */
-    z-index: 1; /* necessary for applying the dark gradient */
-    background-position: center 60%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: white;
-    &:before {
-      /* The following is so that a dark gradient can be applied */
-      content: "";
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7));
-    }
+    background-image: image-url("lost-boy.jpg");
   }
 
   /* ============================================
@@ -67,7 +51,6 @@
   #main-section {
     article {
       position: relative;
-      z-index: 1;
       padding-bottom: 40px;
       margin-bottom: 20px;
 
@@ -80,7 +63,6 @@
       &:before {
         content: "";
         position: absolute;
-        z-index: -1;
         top: 0;
         bottom: 0;
         left: 40%;
@@ -118,9 +100,7 @@
         display: block; /* Help ensures smooth image zooming */
 
         border-radius: 6px;
-        -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
-        -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
-        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+        @include light-shadow;
 
         &:hover .opp-card-image,
         &:focus .opp-card-image {
@@ -292,6 +272,10 @@
       font-size: 18px;
     }
   }
+}
+
+.projects-new #page-main-header {
+  background-image: image-url("mac-addicts.jpg");
 }
 
 /* ============================================

@@ -15,20 +15,26 @@
     <article>
       <h2 class="article-header">Opportunities</h2>
       <ul class="opp-card-grid links-list">
+      <div>
         <% @projects.each do |project| %>
-          <li class="opp-card">
-            <%= link_to project_path(project) do %>
-              <div class="img-wrapper">
-                <div class="opp-card-image" style="background-image: url(<%= project.image.url(:medium) %>)"></div>
+          <div class="pcard" data-project-url="<%= project_path(project) %>"> <!-- This data attribute is used by javascript, it enables navigation -->
+            <%= image_tag project.image.url(:medium), class: "pcard-img" %>
+            <div class="pcard-content">
+              <h2 class="pcard-maintitle"><%= project.name %></h2>
+              <h3 class="pcard-subtitle"><%= project.location %></h2>
+              <h3 class="pcard-subtitle">By <a href="#0">OVOXO</a></h3><!-- Inser the organization name here -->
+            </div>
+            <div class="pcard-footer">
+              <div class="btn-fav-wrapper">
+                <i class="btn-fav material-icons">favorite</i>
+                <span class="fav-count">132</span><!-- Insert the number of favourites here -->
               </div>
-              <div class="content-wrapper">
-                <h5 class="opp-card-header"><%= project.name %></h4>
-                <p class="opp-card-desc"><%= project.description %></p>
-              </div>
-            <% end %>
-          </li>
+              <a class="btn btn-success" data-category-value="Infrastructure" href="#">Infrastructure</a> <!-- Data-category is used so that JS can see the category value more easily -->
+            </div>
+          </div>
         <% end %>
       </ul>
+      </div>
     </article>
   </section>
 </main><!-- End of page-main -->

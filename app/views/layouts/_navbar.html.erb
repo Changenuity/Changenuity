@@ -1,0 +1,36 @@
+<div id="navbar-wrapper">
+  <div class="container">
+    <nav id="navbar">
+      <div id="navbar-brand">
+        <%= link_to home_path do %>
+          <!-- TODO: Make this more elegant -->
+          <%= image_tag("logo-notext.png", alt: "Changenuity Logo", class: "brand-img type-dark") %>
+          <%= image_tag("logo-notext-white.png", alt: "Changenuity Logo", class: "brand-img type-light") %>
+          <span class="brand-text">Changenuity</span>
+        <% end %>
+      </div>
+      <ul id="navbar-primary" class="links-list">
+        <li class="navbar-primary-link"><%= link_to "Discover", browse_path %></li>
+        <li class="navbar-primary-link"><%= link_to "Discuss", '#' %></li>
+        <li class="navbar-primary-link"><%= link_to "About", '#' %></li><!-- Should the "About" page really be up here? -->
+      </ul>
+      <ul id="navbar-secondary" class="links-list">
+        <!-- Once again, I do not think it is a good idea to have the ability to add projects front and center like this -->
+        <!-- <li class="navbar-secondary-link">
+          <%= link_to post_path do %>
+            <i class="link-icon material-icons">add</i>
+            Add Project
+          <% end %>
+        </li> -->
+        <li class="navbar-secondary-link">
+          <%= link_to '#' do %>
+            <i class="link-icon material-icons">account_box</i>
+            <span class="button-te">Login</span>
+          <% end %>
+        </li>
+      </ul>
+      <i class="material-icons navbar-handle open-nav" data-component-id="navbar-primary">menu</i>
+      <i class="material-icons navbar-handle open-nav" data-component-id="navbar-secondary">person_outline</i>
+    </nav>
+  </div>
+</div>

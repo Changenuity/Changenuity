@@ -52,3 +52,8 @@ To edit database entries directly, run `heroku run rails console`
 - assign an entry to a variable to modify it, e.g. `p = Project.find(3)` or `p = User.where(email: "eugene@changenuity.com").first`
 - then modify its attributes directly, e.g. `p.email = awesome@changenuity.com`
 - run `save` to permanently save your update to the Heroku database
+
+Rails console commands:
+
+- `ActiveRecord::Base.connection.data_sources`
+- ​

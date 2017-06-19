@@ -1,83 +1,51 @@
-<main id="page-main" class="static_pages_home">
-    <header id="page-main-header" class="jumbotron splash">
-      <div class="container">
-        <h2>An online platform for global impact collaboration.</h2>
-        <%= link_to "Sign Me Up", new_user_registration_path, class: "btn btn-secondary btn-lg" %>
-        <%= link_to "Browse Projects", browse_path, class: "btn btn-secondary btn-lg" %>
-      </div>
-    </header>
+
+<div id="static-pages-home">
+  <header class="jumbotron">
     <div class="container">
-      <div class="row">
-        <section id="main-section" class="col-12">
-          <article id="article-1" class="row">
-            <section class="col-12 col-md-6 col-lg-6">
-              <h2>Changing the world is hard.</h2>
-              <p>That's why we're building a sleek web-app to help changemakers, NGOs, and social enterprises work together on the global challenges.<p>
-            </section>
-            <section class="col-12 col-md-6 col-lg-6">
-              <ol id="sdg-list">
-                <li>
-                  <span class="sr-only">No poverty</span>
-                  <%= image_tag("Square_RGB/E_SDG goals_icons-individual-rgb-01.png", alt: "SDG_icon1", class: "img-responsive") %>
-                </li>
-                <li>
-                  <span class="sr-only">Zero hunger</span>
-                  <%= image_tag("Square_RGB/E_SDG goals_icons-individual-rgb-02.png", alt: "SDG_icon2", class: "img-responsive") %>
-                </li>
-                <li>
-                  <span class="sr-only">Good health and well-being</span>
-                  <%= image_tag("Square_RGB/E_SDG goals_icons-individual-rgb-03.png", alt: "SDG_icon3", class: "img-responsive") %>
-                </li>
-                <li>
-                  <span class="sr-only">Quality education</span>
-                  <%= image_tag("Square_RGB/E_SDG goals_icons-individual-rgb-04.png", alt: "SDG_icon4", class: "img-responsive") %>
-                </li>
-              </ol>
-            </section>
-          </article>
-          <article id="article-2" class="row">
-            <section class="col-12 col-md-6">
-              <div>
-                <h2>Multiple ways to engage.</h2>
-                <p>Become a user to post or join projects.</p>
-              </div>
-              <%= link_to "Sign up", new_user_registration_path, class: "btn btn-danger signup-btn btn-lg" %>
-            </section>
-            <section class="col-12 col-md-3">
-              <p>Post projets &amp; recruit new team members.</p>
-              <%= link_to "Post Projects", post_path, class: "btn btn-secondary special-btn" %>
-            </section>
-            <section class="col-12 col-md-3">
-              <p>Contribute Solutions &amp; join existing projects.</p>
-              <%= link_to "Browse Projects", root_path, class: "btn btn-secondary special-btn" %>
-            </section>
-          </article>
-          <article id="article-3" class="row">
-            <section class="col-12 col-md-8">
-              <h2>We invite you to join us.</h2>
-              <p>Together, let's build a sustainable future for humanity.</p>
-            </section>
-            <section class="col-12 col-md-4">
-              <%= image_tag("planet earth.png", alt: "Earth_icon", class: "") %>
-            </section>
-          </article>
-          <article id="article-4" class="row">
-            <section class="col-12 col-lg-7">
-              <h2>Sign up for our newsletter</h2>
-              <p>Lots of new features to come: community bulletins, reputation systems, prizes, and more!</p>
-            </section>
-            <section class="col-12 col-lg-5">
-              <h3>Subscribe to be notified when our features launch.</h3>
-              <form method="get">
-                <h4>Name:</h4>
-                <input type="text" class="well well-sm">
-                <h4>Email:</h4>
-                <input type="text" class="well well-sm">
-              </form>
-              <button type="submit" id="submit-btn" class="btn btn-danger btn-lg">SUBMIT</button>
-            </section>
-          </article>
-        </section>
+      <div class="header-wrapper">
+        <h1>
+          Welcome to<br/><strong>Changenuity</strong>
+        </h1>
+        <div class="button-group">
+          <a href="#0" class="homepage-button"><i class="material-icons button-icon">explore</i><span>Take A Tour</span></a>
+          <a href="#0" class="homepage-button"><i class="material-icons button-icon">person_add</i><span>Sign Up</span></a>
+        </div>
       </div>
     </div>
+    <div class="video-wrapper">
+      <%= video_tag('/videos/homepage-background-video.webm',id:'homepage-video',class:'background-video',size:'1280x720',autoplay:true,muted:true,loop:true) %>
+    </div>
+  </header>
+
+  <main id="homepage-main" class="container">
+    <article class="splash-body">
+      <section>
+        <i class="material-icons navbar-handle open-nav">search</i>
+        <p>
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
+          ab illo inventore veritatis et quasi architecto beatae vitae dicta
+          sunt explicabo.
+        </p>
+      </section>
+      <section>
+        <i class="material-icons navbar-handle open-nav">forum</i>
+        <p>
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
+          ab illo inventore veritatis et quasi architecto beatae vitae dicta
+          sunt explicabo.
+        </p>
+      </section>
+      <section>
+        <i class="material-icons navbar-handle open-nav">people</i>
+        <p>
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
+          ab illo inventore veritatis et quasi architecto beatae vitae dicta
+          sunt explicabo.
+        </p>
+      </section>
+    </article>
   </main>
+</div>
