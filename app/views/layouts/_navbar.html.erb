@@ -15,19 +15,17 @@
         <li class="navbar-primary-link"><%= link_to "About", '#' %></li><!-- Should the "About" page really be up here? -->
       </ul>
       <ul id="navbar-secondary" class="links-list">
-        <li class="navbar-secondary-link">
+        <!-- Once again, I do not think it is a good idea to have the ability to add projects front and center like this -->
+        <!-- <li class="navbar-secondary-link">
           <%= link_to post_path do %>
-            <i class="link-icon material-icons">add</i>Add Project
+            <i class="link-icon material-icons">add</i>
+            Add Project
           <% end %>
-        </li>
-        <li class="navbar-secondary-link">
-          <%= link_to new_user_registration_path do %>
-            <i class="link-icon material-icons">account_box</i>Sign Up
-          <% end %>
-        </li>
+        </li> -->
         <li class="navbar-secondary-link">
           <%= link_to '#' do %>
-            <i class="link-icon material-icons">account_box</i>Profile
+            <i class="link-icon material-icons">account_box</i>
+            <span class="button-te">Login</span>
           <% end %>
         </li>
       </ul>
