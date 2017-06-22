@@ -5,6 +5,8 @@ gem 'sprockets-rails', require: 'sprockets/railtie'
 # Use Bootstrap as the front-end framework, depends on Tether
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'rails-assets-tether', '~> 1.1.1'
+gem 'bcrypt', '3.1.11', :require => 'bcrypt',
+  git: 'https://github.com/codahale/bcrypt-ruby.git'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 # Use Puma as the app server
@@ -27,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
 # Use Paperclip for images
 gem 'paperclip', '~> 5.0.0'
 # Use Amazon Web Services for image uploads
@@ -71,4 +74,4 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Windows does not monitor directories for changes, so bundle the wdm gem
-gem 'wdm', '>= 0.1.0', platforms: :x64_mingw
+gem 'wdm', '>= 0.1.0', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
