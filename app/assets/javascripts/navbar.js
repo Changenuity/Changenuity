@@ -1,22 +1,93 @@
+var showNavBar = function() {
+  $('#navbar-wrapper').addClass('active');
+  $('#navbar-brand').addClass('active');
+  $('#navbar-primary')
+      .css("display", "flex")
+      .animate({
+        opacity: 1
+      }, medium_transition_time);
+  $('#navbar-secondary')
+      .css("display", "flex")
+      .animate({
+        opacity: 1
+      }, medium_transition_time);
+}
+var hideNavBar = function() {
+  $('#navbar-wrapper').removeClass('active');
+  $('#navbar-brand').removeClass('active');
+    $('#navbar-primary')
+        .animate({
+          opacity: 0
+        }, medium_transition_time)
+        .css("display", "none");
+    $('#navbar-secondary')
+        .animate({
+          opacity: 0
+        }, medium_transition_time)
+        .css("display", "none");
+}
 
 
 $(function(){
   var toggleNavBar = (function() {
-    var navbarWrapper = $('#navbar-wrapper');
-    var firstKnownY = scrollY;
+    var showNavBar = function() {
+      $('#navbar-wrapper').addClass('active');
+      $('#navbar-brand').addClass('active');
+      $('#navbar-primary')
+          .css("display", "flex")
+          .animate({
+            opacity: 1
+          }, medium_transition_time);
+      $('#navbar-secondary')
+          .css("display", "flex")
+          .animate({
+            opacity: 1
+          }, medium_transition_time);
+    }
+    var hideNavBar = function() {
+      $('#navbar-wrapper').removeClass('active');
+      $('#navbar-brand').removeClass('active');
+        $('#navbar-primary')
+            .animate({
+              opacity: 0
+            }, medium_transition_time)
+            .css("display", "none");
+        $('#navbar-secondary')
+            .animate({
+              opacity: 0
+            }, medium_transition_time)
+            .css("display", "none");
+    }
     var throttle = 50; // px
+    var navbarOn = false;
     return function() {
-      var currentY = scrollY;
-      if( Math.abs(currentY-firstKnownY) > throttle ) {
-        if( !navbarWrapper.hasClass('active') ) {
-          navbarWrapper.addClass('active');
-        }
-      } else {
-        requestAnimationFrame(toggleNavBar);
+      if( scrollY > throttle && !navbarOn ) {
+        showNavBar();
+        navbarOn = true;
+      } else if( scrollY < throttle && navbarOn ) {
+        hideNavBar();
+        navbarOn = false;
       }
+      requestAnimationFrame(toggleNavBar);
     }
   })();
   requestAnimationFrame(toggleNavBar);
+  // var toggleNavBar = (function() {
+  //   var navbarWrapper = $('#navbar-wrapper');
+  //   var firstKnownY = scrollY;
+  //   var throttle = 50; // px
+  //   return function() {
+  //     var currentY = scrollY;
+  //     if( Math.abs(currentY-firstKnownY) > throttle ) {
+  //       if( !navbarWrapper.hasClass('active') ) {
+  //         navbarWrapper.addClass('active');
+  //       }
+  //     } else {
+  //       requestAnimationFrame(toggleNavBar);
+  //     }
+  //   }
+  // })();
+  // requestAnimationFrame(toggleNavBar);
   /*
   var toggleNavBar = (function(){
     var navbarWrapper = $('#navbar-wrapper');

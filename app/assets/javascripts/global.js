@@ -4,6 +4,7 @@
 // CONSTANT DEFINITIONS
 var quick_transition_time = 200;
 var medium_transition_time = 400;
+var long_transition_time = 1000;
 
 
 // GLOBAL VARIABLES

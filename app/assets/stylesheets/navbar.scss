@@ -2,13 +2,11 @@
   width: 100%;
   position: fixed;
   z-index: 100;
-  background-color: rgba(255, 255, 255, 0.94);
-  @include light-shadow;
   #navbar {
     display: flex;
     flex-flow: row nowrap;
     width: 100%;
-    height: 4rem;
+    height: 4.3rem;
     // background-color: white;
     justify-content: space-between;
     #navbar-brand {
@@ -50,6 +48,8 @@
 
 @include media-breakpoint-down(sm) {
   #navbar-wrapper {
+    background-color: rgba(255, 255, 255, 0.94);
+    @include light-shadow;
     #navbar {
       .navbar-handle {
         font-size: 2.2rem;
@@ -88,7 +88,7 @@
           width: 100%;
           color: white;
           font-size: 1.5rem;
-          font-weight: 300;
+          font-weight: 200;
           &:hover {
             background-color: rgba(255, 255, 255, 0.4);
           }
@@ -158,24 +158,27 @@
 
 @include media-breakpoint-up(md) {
   #navbar-wrapper {
-    transition-duration: $quick-transition-time;
-    transform: translateY(-100%);
+    transition-duration: $medium-transition-time;
     &.active {
-      transform: translateY(0);
+      background-color: rgba(255, 255, 255, 0.94);
+      @include light-shadow;
     }
     #navbar {
-      height: 4rem;
       .navbar-handle {
         display: none;
       }
       #navbar-brand {
-        a {
-          padding: 0 1rem;
-          color: white;
+        position:relative;
+        transition-duration: $medium-transition-time;
+        &.active {
           background-color: $color-grey;
           &:hover {
             background-color: darken($color-grey, 15);
           }
+        }
+        a {
+          padding: 0 1rem;
+          color: white;
           .brand-text {
             font-size: 1rem;
           }
@@ -195,6 +198,7 @@
         flex-flow: row nowrap;
         align-items: center;
         justify-content: center;
+        display: none; /* Hack to get fadeIn to work */
       }
       #navbar-primary {
         margin: 0 0.6rem;

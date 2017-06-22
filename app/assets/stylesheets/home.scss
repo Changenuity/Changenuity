@@ -1,5 +1,8 @@
+
+
 @include media-breakpoint-up(md) {
   #static-pages-home {
+
     .homepage-button {
       display: flex;
       flex-flow: row nowrap;
@@ -7,7 +10,7 @@
       padding: 0.7rem 2rem;
       border-radius: 4rem;
       color: darken($color-prussian-blue, 10);
-      background: linear-gradient(to bottom right, rgba(236, 232, 249, 0.9), rgba(239, 235, 234, 0.90));
+      background: $gradient-generic;
       transition-duration: $quick-transition-time;
       font-size: 1.5rem;
       .button-icon {
@@ -34,34 +37,30 @@
         display: flex;
         flex-flow: row nowrap;
         justify-content: flex-end;
-        align-items: stretch;
+        align-items: center;
         height: 100%;
         .header-wrapper {
-          width: 40%;
+          padding: 6rem 3rem;
           margin: 0;
           display: flex;
           flex-flow: column nowrap;
           flex: none;
-          justify-content: flex-end;
+          justify-content: center;
           align-items: stretch;
+          border: 0.1rem solid white;
           border-left: 0.1rem solid white;
           border-right: 0.1rem solid white;
-          > * {
-            margin-bottom: 1rem;
-          }
+          @include immediate-children-bottom-margins(1rem);
           h1 {
-            font-size: 3rem;
             color: white;
+            margin-bottom: 1rem;
             strong {
-              font-size: 1.4em;
-              color: #93EC9B;
+              font-size: 1.5em;
+              color: $color-light-turquoise;
             }
           }
           .button-group {
-            .homepage-button {
-              margin-bottom: 0.65rem;
-            }
-            margin-bottom: 1.5rem;
+            @include immediate-children-bottom-margins(0.65rem);
           }
         }
       }
@@ -89,28 +88,58 @@
     }
     #homepage-main {
       align-items: center;
-      .splash-body {
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: center;
-        width: 90%;
-        margin: 0 auto;
-        section {
-          text-align: center;
-          padding: 0 1.4rem;
-          i {
-            cursor: default;
-            font-size: 4rem;
-            background-color: white;
-            padding: 1.4rem;
-            border-radius: 100%;
-            color: $color-prussian-blue;
-            text-shadow: antiquewhite;
-            text-shadow: 3px 3px 0px #00BCD4;
-            margin-bottom: 1rem;
+      .article-1 {
+        background-color: $color-light-turquoise;
+        .content-wrapper {
+          border-left: 0.1rem solid white;
+          p {
+            text-align: left;
+            margin: 0;
+            margin-left: 10%;
+            margin-right: 40%;
+            width: 50%;
+            padding: 10rem 0;
+            font-size: 2.5rem;
+            font-weight: 200;
+            em {
+              color: $color-orange;
+            }
           }
         }
       }
+      .article-2 {
+        // @include gradient-background(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8), white, $color-pastel-green, "clouds-windmill-crops.jpg");
+        padding: 3rem 0;
+        .content-wrapper {
+          z-index: 100;
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: space-between;
+          width: 90%;
+          margin: 0 auto;
+          section.focus-card {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            background: $gradient-generic;
+            border-radius: 0.4rem;
+            width: 30%;
+            i {
+              cursor: default;
+              font-size: 3rem;
+              background-color: white;
+              padding: 1.4rem;
+              border-radius: 100%;
+              color: $color-prussian-blue;
+              text-shadow: antiquewhite;
+              text-shadow: 0.18rem 0.18rem 0rem #00BCD4;
+              margin-bottom: 1rem;
+            }
+          }
+        }
+      }
+    }
+    header, #homepage-main > * {
+      margin-bottom: 0.2rem;
     }
   }
 }
@@ -119,9 +148,6 @@
   #static-pages-home {
     header {
       .container .header-wrapper {
-        width: 50%;
-        padding-left: 2.5rem;
-        padding-right: 10rem;
       }
     }
   }
