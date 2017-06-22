@@ -3,16 +3,20 @@
   <header id="page-main-header" class="jumbotron splash">
     <div class="container">
       <h1><%= @user.name %></h1>
-      <p class="project-location"><%= @user.email %></p>
-      <p><time><%= @user.created_at %></time></p>
     </div>
   </header>
   <aside class="col-md-4">
     <section class="user_info">
       <h1>
         <%= gravatar_for @user %>
-        <%= @user.name %>
       </h1>
+      <p>Username: <%= @user.username %></p>
+      <p class="project-location"><%= @user.email %></p>
+      <p><time><%= @user.created_at %></time></p>
     </section>
   </aside>
 </main>
+
+<%= link_to "Back", :back %><br/>
+<%= link_to "Edit", edit_user_registration_path %><br/>
+<%= link_to "Log out", destroy_user_session_path, method: :delete %>

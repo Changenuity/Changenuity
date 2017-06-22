@@ -11,6 +11,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email %>
   </div>
@@ -47,4 +52,6 @@
 
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "Back", :back %><br/>
+<%= link_to "View", user_path(@user.username) %><br/>
+<%= link_to "Log out", destroy_user_session_path, method: :delete %>
