@@ -1,77 +1,22 @@
-var showNavBar = function() {
-  $('#navbar-wrapper').addClass('active');
-  $('#navbar-brand').addClass('active');
-  $('#navbar-primary')
-      .css("display", "flex")
-      .animate({
-        opacity: 1
-      }, medium_transition_time);
-  $('#navbar-secondary')
-      .css("display", "flex")
-      .animate({
-        opacity: 1
-      }, medium_transition_time);
-}
-var hideNavBar = function() {
-  $('#navbar-wrapper').removeClass('active');
-  $('#navbar-brand').removeClass('active');
-    $('#navbar-primary')
-        .animate({
-          opacity: 0
-        }, medium_transition_time)
-        .css("display", "none");
-    $('#navbar-secondary')
-        .animate({
-          opacity: 0
-        }, medium_transition_time)
-        .css("display", "none");
-}
-
 
 $(function(){
+
   var toggleNavBar = (function() {
-    var showNavBar = function() {
-      $('#navbar-wrapper').addClass('active');
-      $('#navbar-brand').addClass('active');
-      $('#navbar-primary')
-          .css("display", "flex")
-          .animate({
-            opacity: 1
-          }, medium_transition_time);
-      $('#navbar-secondary')
-          .css("display", "flex")
-          .animate({
-            opacity: 1
-          }, medium_transition_time);
-    }
-    var hideNavBar = function() {
-      $('#navbar-wrapper').removeClass('active');
-      $('#navbar-brand').removeClass('active');
-        $('#navbar-primary')
-            .animate({
-              opacity: 0
-            }, medium_transition_time)
-            .css("display", "none");
-        $('#navbar-secondary')
-            .animate({
-              opacity: 0
-            }, medium_transition_time)
-            .css("display", "none");
-    }
     var throttle = 50; // px
     var navbarOn = false;
     return function() {
       if( scrollY > throttle && !navbarOn ) {
-        showNavBar();
+        $('#navbar-wrapper').addClass('active');
         navbarOn = true;
       } else if( scrollY < throttle && navbarOn ) {
-        hideNavBar();
+        $('#navbar-wrapper').removeClass('active');
         navbarOn = false;
       }
       requestAnimationFrame(toggleNavBar);
     }
   })();
   requestAnimationFrame(toggleNavBar);
+
   // var toggleNavBar = (function() {
   //   var navbarWrapper = $('#navbar-wrapper');
   //   var firstKnownY = scrollY;
@@ -136,6 +81,5 @@ $(function(){
     $(clearButton).on('click', removeFunction);
     $component.addClass('active');
   })
-
 
 });

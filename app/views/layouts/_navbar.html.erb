@@ -27,6 +27,18 @@
             <i class="link-icon material-icons">account_box</i>
             <span class="button-te">Login</span>
           <% end %>
+          <form class="navbar-login-form" action="" method="post">
+            <div class="form-widget">
+              <label for="user-mail" class="sr-only">Email</label>
+              <input type="email" id="user-email" placeholder="example@email.com" name="user_email">
+            </div>
+            <div class="form-widget">
+              <label for="user-mail" class="sr-only">Password</label>
+              <input type="password" id="user-password" placeholder="password" name="user_email">
+            </div>
+              <button type="submit" class="homepage-button button-sign-up"><i class="material-icons button-icon">person_add</i><span>Sign Up</span></button>
+              <button type="submit" class="homepage-button button-sign-in"><i class="material-icons button-icon">launch</i><span>Sign In</span></button>
+          </form>
         </li>
       </ul>
       <i class="material-icons navbar-handle open-nav" data-component-id="navbar-primary">menu</i>
