@@ -41,5 +41,13 @@ $(function() {
       }
     });
 
+    $(document.body).on('click', '#homepage-sign-in', function(){
+      $('.header-wrapper > *').toggleClass('active');
+    });
+
 
 });
+
+function flipHomepageCards() {
+    $('.header-wrapper > *').toggleClass('active');
+}
