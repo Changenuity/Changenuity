@@ -1,3 +1,6 @@
+
+
+
 #static-pages-home {
   header {
     position: relative;
@@ -15,6 +18,7 @@
       flex-flow: row nowrap;
       justify-content: center;
       align-items: center;
+      transform-style: preserve-3d; // If this is not included, the downards arrow will still show on flip; don't ask me why
       form {
         @include immediate-children-bottom-margins(0.65rem);
         .homepage-button {
@@ -44,6 +48,9 @@
             &::placeholder {
               color: $color-light-turquoise;
             }
+            &:focus {
+              outline: none;
+            }
           }
         }
       }
@@ -59,12 +66,11 @@
         justify-content: center;
         align-items: stretch;
         border: 0.1rem solid white;
-        border-radius: 1rem;
         backface-visibility: hidden;
         @include immediate-children-bottom-margins(1rem);
       }
       .front-side {
-        position: absolute; // Anchor for the explore-button
+        position: absolute;
         &.active {
           transform: rotateY(180deg);
         }
@@ -75,15 +81,38 @@
             color: #ffecb3;
           }
         }
+        p {
+          text-align: right;
+          color: white;
+          font-size: 1.1rem;
+          a {
+            font-size: 1.5rem;
+            color: $color-prussian-blue;
+            font-size: 1rem;
+            color: #ffffff;
+            border: 0.01px solid white;
+            border-radius: 4rem;
+            padding: 0.5rem 1rem;
+          }
+        }
         .explore-button {
+          @keyframes bobble {
+            0% {
+              transform: translate(0);
+            }
+            100% {
+              transform: translate(0, 0.6rem);
+            }
+          }
           transition-duration: $medium-transition-time;
           position: absolute;
           bottom: 0.1rem;
           align-self: center;
           color: white;
           text-align:center;
+          animation: bobble 0.6s 2s 2 alternate;
           &:hover {
-            transform: translate(0, 0.5rem);
+            transform: translate(0, 0.6rem);
           }
           &:focus {
             border: none;
@@ -109,6 +138,16 @@
           .form-widget input {
             background: $color-light-orange;
           }
+        }
+        .go-to-sign-up {
+          color: white;
+          display: flex;
+          border: 0.01px solid white;
+          border-radius: 4rem;
+          padding: 0.5rem 1.5rem 0.5rem 0.8rem;
+          position: absolute;
+          left: 2rem;
+          bottom: 1.5rem;
         }
       }
     }
