@@ -1,7 +1,6 @@
 
 $(function() {
-
-
+  
   // Smooth Scrolling on internal links
   // Stolen from CSS-tricks' article on smooth scrolling
   // https://css-tricks.com/snippets/jquery/smooth-scrolling/
@@ -41,13 +40,14 @@ $(function() {
       }
     });
 
-    $(document.body).on('click', '#homepage-sign-in', function(){
+    $(document.body).on('click', '.flip-homepage', function(e){
+      e.preventDefault();
       $('.header-wrapper > *').toggleClass('active');
+      if( $(e.target).hasClass('go-to-sign-in') ) {
+        document.getElementById('username').focus();
+      } else if( $(e.target).hasClass('go-to-sign-up') ) {
+        document.getElementById('user-email').focus();
+      }
     });
 
-
 });
-
-function flipHomepageCards() {
-    $('.header-wrapper > *').toggleClass('active');
-}
