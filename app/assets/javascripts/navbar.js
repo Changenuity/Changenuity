@@ -1,23 +1,39 @@
 
 $(function(){
 
+  // Navbar toggling on desktop
+  var navbarPermaOn = false;
   var toggleNavBar = (function() {
     var throttle = 50; // px
-    var navbarOn = false;
     return function() {
-      if( scrollY > throttle && !navbarOn ) {
+      if( scrollY > throttle && !navbarPermaOn ) {
         $('#navbar-wrapper').addClass('active');
-        navbarOn = true;
-      } else if( scrollY < throttle && navbarOn ) {
+      } else if( scrollY < throttle && !navbarPermaOn  ) {
         $('#navbar-wrapper').removeClass('active');
-        navbarOn = false;
       }
       requestAnimationFrame(toggleNavBar);
     }
   })();
   requestAnimationFrame(toggleNavBar);
 
-  // Bindings
+  $(document.body).on('mouseenter', '#navbar-brand', function(e) {
+    $('#navbar-wrapper').addClass('active');
+    navbarPermaOn = true;
+  });
+
+  $('#navbar-wrapper').on('mouseleave', function(e){
+    var _this = $(this);
+    var timeoutID = setTimeout(function() {
+      _this.removeClass('active');
+      navbarPermaOn = false;
+    }, 350); // A delay of 0.35s is given as a leeway
+    _this.data('fadeOutTimeOut', timeoutID);
+  }).on('mouseenter', function(e) {
+    clearTimeout($(this).data('fadeOutTimeOut'));
+  });
+  // END navbar toggling on desktop
+
+
   $(document.body).on('click', '.open-nav', function(e) {
     var $component = $('#' + $(e.target).attr('data-component-id'));
     var $overlay = $(createDisableOverlay($('#navbar'), medium_transition_time));
@@ -39,6 +55,23 @@ $(function(){
     $overlay.on('click', removeFunction);
     $(clearButton).on('click', removeFunction);
     $component.addClass('active');
-  })
+  });
+
+  var toggleNavbarForm = (function() {
+    var formOn = false;
+    var $form = $('#navbar-secondary .navbar-login-form');
+    return function() {
+      if( formOn ) {
+        $form.fadeIn();
+      } else {
+        $form.fadeOut();
+      }
+      formOn = !formOn;
+    };
+  })();
+
+  $(document.body).on('click', '#navbar-secondary button.form-toggle-show', function(e) {
+    toggleNavbarForm();
+  });
 
 });

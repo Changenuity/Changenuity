@@ -43,6 +43,62 @@
       display: flex;
       flex: none;
     }
+    #navbar-secondary .navbar-login-form {
+      position: absolute;
+      width: 20rem;
+      top: 5rem;
+      right: 0;
+      border-radius: 0.5rem;
+      background: rgba(255, 255, 255, 0.95);
+      overflow: hidden;
+      display: none;
+      @include light-shadow;
+      .widgets-wrapper {
+        padding: 2rem 1.5rem;
+        @include immediate-children-bottom-margins(0.65rem);
+        .form-widget input {
+          padding: 0.7rem 2rem;
+          background: none;
+          color: $color-blue-stone;
+          border-radius: 4rem;
+          border: 0.1rem solid $color-orange;
+          width: 100%;
+          &::placeholder {
+            color: $color-pastel-green;
+          }
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+      .buttons-wrapper {
+        display: flex;
+        border-top: 0.1rem solid $color-grey;
+        button {
+          flex: 1 0 auto;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: none;
+          padding: 1rem;
+          transition: $quick-transition-time;
+          &:first-child {
+            border-right: 0.1rem solid $color-grey;
+          }
+          .button-icon {
+            margin-right: 0.5rem;
+          }
+        }
+        .button-sign-up:hover {
+          color: white;
+          background-color: $color-light-orange;
+        }
+        .button-sign-in:hover {
+          color: white;
+          background-color: $color-turquoise;
+        }
+      }
+    }
   }
 }
 
@@ -76,9 +132,9 @@
         background-color: $color-tundora;
         transition-duration: $medium-transition-time;
         min-width: 15rem;
-        .navbar-primary-link, .navbar-secondary-link {
+        .navbar-primary-link {
           border-bottom: 0.01rem solid rgba(255,255,255,0.4);
-          &:nth-child(1) {
+          &:first-child {
             border-top: 0.01rem solid rgba(255,255,255,0.4);
           }
         }
@@ -125,31 +181,10 @@
         }
       }
       #navbar-secondary {
-        // TODO: Finish styling the other one lmao
         right: 0;
         transform: translateX(100%);
-        .clear-nav {
-          left: 1rem;
-        }
-        .navbar-secondary-link {
-          border-bottom: 0.01rem solid rgba(255,255,255,0.4);
-          &:nth-child(1) {
-            border-top: 0.01rem solid rgba(255,255,255,0.4);
-          }
-          .link-icon {
-            font-size: 3rem;
-          }
-          a {
-            display: flex;
-            flex-flow: row-reverse nowrap;
-            flex: none;
-            padding-left: 1rem;
-            padding-right: 1rem;
-            justify-content: space-between;
-            align-items: center;
-            &:hover {
-            }
-          }
+        .form-toggle-show {
+          display: none;
         }
       }
     }
@@ -220,12 +255,21 @@
       #navbar-secondary {
         margin: 0;
         margin-left: auto; // Moves the secondary to the right
-        .navbar-secondary-link {
+        .form-toggle-show {
           height: 100%;
+          font-size: 0.5rem;
+          height: 100%;
+          display: flex;
+          flex-flow: column nowrap;
+          flex: none;
+          align-items: center;
+          justify-content: center;
+          text-transform: uppercase;
+          width: 5.4rem;
+          color: $color-blue-diane;
+          border-left: 0.01rem solid $color-grey;
           border-right: 0.01rem solid $color-grey;
-          &:nth-child(1) {
-            border-left: 0.01rem solid $color-grey;
-          }
+          background: none;
           .link-icon {
             font-size: 2.5rem;
             transition-duration: $quick-transition-time;
@@ -234,18 +278,9 @@
             cursor: pointer;
             color: $color-orange;
           }
-          a {
-            font-size: 0.5rem;
-            height: 100%;
-            display: flex;
-            flex-flow: column nowrap;
-            flex: none;
-            align-items: center;
-            justify-content: center;
-            text-transform: uppercase;
-            width: 5.4rem;
-            color: $color-blue-diane;
-          }
+        }
+        .navbar-login-form {
+
         }
       }
     }
