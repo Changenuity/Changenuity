@@ -11,6 +11,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   validates_format_of :email, without: TEMP_EMAIL_REGEX, on: :update
+  validates :username, presence: true, uniqueness: true
 
   def User.find_for_omniauth(auth, signed_in_resource = nil)
     # Get the authentication and user if they exist
