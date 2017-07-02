@@ -22,12 +22,27 @@
             Add Project
           <% end %>
         </li> -->
-        <li class="navbar-secondary-link">
-          <%= link_to '#' do %>
-            <i class="link-icon material-icons">account_box</i>
-            <span class="button-te">Login</span>
-          <% end %>
-        </li>
+        <% if user_signed_in? %>
+          <li class="navbar-secondary-link">
+            <%= link_to user_path(current_user.username) do %>
+              <i class="link-icon material-icons">account_box</i>
+              <span class="button-te">Profile</span>
+            <% end %>
+          </li>
+          <li class="navbar-secondary-link">
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="link-icon material-icons">account_box</i>
+              <span class="button-te">Log out</span>
+            <% end %>
+          </li>
+        <% else %>
+          <li class="navbar-secondary-link">
+            <%= link_to new_user_session_path do %>
+              <i class="link-icon material-icons">account_box</i>
+              <span class="button-te">Login</span>
+            <% end %>
+          </li>
+        <% end %>
       </ul>
       <i class="material-icons navbar-handle open-nav" data-component-id="navbar-primary">menu</i>
       <i class="material-icons navbar-handle open-nav" data-component-id="navbar-secondary">person_outline</i>
