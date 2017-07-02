@@ -15,7 +15,4 @@ Rails.application.routes.draw do
   get  '/users',    to: 'users#index'
   get  '/users/:username',to: 'users#show'
   resources :users, :only => [:show]
-  # devise_scope :user do
-  #   get 'users/:id' => 'registrations#show', as: user
-  # end
 end
