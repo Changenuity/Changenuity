@@ -1,5 +1,11 @@
 
-$(function(){
+// A Small Note - Shawn
+// Originally, all of my JS was wrapped by a `$(function(...))`
+// This is using jQuery to ensure that the JS is executed only
+// once the page has been loaded.
+// Unfortunately, with turbolinks, this ain't enough; we gotta
+// use `$(document).on('turbolinks:load', function(...))`
+$(document).on('turbolinks:load', function(){
 
   // Navbar toggling on desktop
   var navbarPermaOn = false;

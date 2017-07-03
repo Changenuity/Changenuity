@@ -1,6 +1,6 @@
 
-$(function() {
-  
+$(document).on('turbolinks:load', function() {
+
   // Smooth Scrolling on internal links
   // Stolen from CSS-tricks' article on smooth scrolling
   // https://css-tricks.com/snippets/jquery/smooth-scrolling/

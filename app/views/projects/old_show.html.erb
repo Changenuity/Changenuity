@@ -1,0 +1,106 @@
+<% provide(:title, @project.name) %>
+<main id="page-main" class="projects projects-show">
+  <header id="page-main-header" class="jumbotron splash" style="background-image: url(<%= @project.image.url(:medium) %>)">
+    <div class="container">
+      <h1 class="project-name"><%= @project.name %></h1>
+      <p class="project-team">Project Team</p>
+      <p class="project-location"><%= @project.location %></p>
+      <p><time class="project-date"><%= @project.date %></time></p>
+    </div>
+  </header>
+  <div class="container">
+    <div class="row">
+      <section id="main-section" class="col-md-9">
+        <article>
+          <h4 class="list-inline-header sr-only">Tags:</h4>
+          <ul id="tags" class="list-inline">
+            <%= render @project.tags %>
+          </ul>
+        </article>
+        <article class="project-description">
+          <h2 class="article-header">Description</h2>
+          <p><%= @project.description %></p>
+          <%= image_tag @project.image.url(:medium), class: "img-responsive img-rounded featured-img" %>
+        </article>
+        <article class="project-team">
+          <h2 class="article-header">Team (Or Organization)</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+            do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+            irure dolor in reprehenderit in voluptate velit esse cillum
+            dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt
+            mollit anim id est laborum.
+          </p>
+        </article>
+      </section> <!-- End of main-section -->
+
+      <section id="sidebar-section" class="col-md-3">
+        <article class="project-contact">
+          <h4>Have a solution or want to get in touch?</h4>
+          <button class="contact-btn" class="btn btn-primary-hollow btn-lg">
+            <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+            Contact</button>
+          <h4>Connect with us:</h4>
+          <ul class="social-media-links" class="list-inline link-list">
+            <li class="connect-link btn">
+              <%= link_to image_tag("website.svg", alt: "Website", class: "img-responsive"),
+                          root_path %>
+            </li>
+            <li class="connect-link btn">
+              <%= link_to image_tag("facebook.svg", alt: "Facebook", class: "img-responsive"),
+                          root_path %>
+            </li>
+            <li class="connect-link btn">
+              <%= link_to image_tag("twitter.svg", alt: "Twitter", class: "img-responsive"),
+                          root_path %>
+            </li>
+            <li class="btn">
+              <%= link_to "Edit", edit_project_path(@project) %>
+            </li>
+          </ul>
+        </article>
+        <article class="projects-gallery">
+          <h4>Related Projects</h4>
+          <ul class="links-list row">
+            <li class="opp-card col-sm-6 col-md-12">
+              <%= link_to root_path do %>
+                <div class="img-wrapper">
+                    <div class="opp-card-image" style="background-image: url(<%= "#{@project.image.url(:medium)}" %>)"></div>
+                </div>
+                <div class="content-wrapper">
+                  <h5 class="opp-card-header">Opportunity Header</h4>
+                  <p class="opp-card-desc">Opportunity Description</p>
+                </div>
+              <% end %>
+            </li>
+            <li class="opp-card col-sm-6 col-md-12">
+              <%= link_to root_path do %>
+                <div class="img-wrapper">
+                  <div class="opp-card-image" style="background-image: url(<%= "#{@project.image.url(:medium)}" %>)"></div>
+                </div>
+                <div class="content-wrapper">
+                  <h5 class="opp-card-header">Opportunity Header</h4>
+                  <p class="opp-card-desc">Opportunity Description</p>
+                </div>
+              <% end %>
+            </li>
+            <li class="opp-card col-sm-6 col-md-12">
+              <%= link_to root_path do %>
+                <div class="img-wrapper">
+                  <div class="opp-card-image" style="background-image: url(<%= "#{@project.image.url(:medium)}" %>)"></div>
+                </div>
+                <div class="content-wrapper">
+                  <h5 class="opp-card-header">Opportunity Header</h4>
+                  <p class="opp-card-desc">Opportunity Description</p>
+                </div>
+              <% end %>
+            </li>
+          </ul>
+        </article>
+      </section> <!-- End of sidebar-section -->
+    </div>
+  </div>
+</main>

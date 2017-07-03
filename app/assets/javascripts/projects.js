@@ -4,7 +4,7 @@
 
 // Sets up all bindings related to the Projects views
 
-$(function() {
+$(document).on('turbolinks:load', function() {
 
   var clickOnFavButton = function() {
     if( $(this).hasClass('active') ) {
