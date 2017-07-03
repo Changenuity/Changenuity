@@ -16,32 +16,35 @@
       </ul>
       <ul id="navbar-secondary" class="links-list">
         <!-- Once again, I do not think it is a good idea to have the ability to add projects front and center like this -->
-        <!-- <li class="navbar-secondary-link">
+        <li class="navbar-secondary-link">
           <%= link_to post_path do %>
             <i class="link-icon material-icons">add</i>
             Add Project
           <% end %>
-        </li> -->
+        </li>
         <% if user_signed_in? %>
-          <li class="navbar-secondary-link">
-            <%= link_to user_path(current_user.username) do %>
-              <i class="link-icon material-icons">account_box</i>
-              <span class="button-te">Profile</span>
-            <% end %>
-          </li>
-          <li class="navbar-secondary-link">
-            <%= link_to destroy_user_session_path, method: :delete do %>
-              <i class="link-icon material-icons">account_box</i>
-              <span class="button-te">Log out</span>
-            <% end %>
-          </li>
+        <li>
+          Signed in as <%= current_user.name || current_user.username %>
+        </li>
+        <li class="navbar-secondary-link">
+          <%= link_to user_path(current_user.username) do %>
+            <i class="link-icon material-icons">account_box</i>
+            <span class="button-te">Profile</span>
+          <% end %>
+        </li>
+        <li class="navbar-secondary-link">
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="link-icon material-icons">account_box</i>
+            <span class="button-te">Log out</span>
+          <% end %>
+        </li>
         <% else %>
-          <li class="navbar-secondary-link">
-            <%= link_to new_user_session_path do %>
-              <i class="link-icon material-icons">account_box</i>
-              <span class="button-te">Login</span>
-            <% end %>
-          </li>
+        <li class="navbar-secondary-link">
+          <%= link_to new_user_session_path do %>
+            <i class="link-icon material-icons">account_box</i>
+            <span class="button-te">Login</span>
+          <% end %>
+        </li>
         <% end %>
       </ul>
       <i class="material-icons navbar-handle open-nav" data-component-id="navbar-primary">menu</i>
