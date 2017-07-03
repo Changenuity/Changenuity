@@ -44,9 +44,9 @@ $(document).on('turbolinks:load', function() {
       e.preventDefault();
       $('.header-wrapper > *').toggleClass('active');
       if( $(e.target).hasClass('go-to-sign-in') ) {
-        document.getElementById('username').focus();
+        $('#username').focus();
       } else if( $(e.target).hasClass('go-to-sign-up') ) {
-        document.getElementById('user-email').focus();
+        $('#user-email').focus();
       }
     });
 

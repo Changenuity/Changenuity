@@ -225,13 +225,10 @@
       }
       #navbar-primary {
         margin: 0 0.6rem;
+        margin-right: auto; // Moves the secondary to the right
         .navbar-primary-link {
           position: relative;
           font-size: 1rem;
-          border-left: 0.01rem solid $color-grey;
-          &:nth-child(1) {
-            border-left: 0;
-          }
           &::before {
             content: "";
             position: absolute;
@@ -247,14 +244,12 @@
             width: 50%;
           }
           a {
-            color: $color-blue-diane;
             padding: 0 1.5rem;
           }
         }
       }
       #navbar-secondary {
         margin: 0;
-        margin-left: auto; // Moves the secondary to the right
         .form-toggle-show {
           height: 100%;
           font-size: 0.5rem;
@@ -279,9 +274,6 @@
             color: $color-orange;
           }
         }
-        .navbar-login-form {
-
-        }
       }
     }
   }
@@ -295,10 +287,16 @@
       #navbar-brand {
         transition-duration: $medium-transition-time;
       }
-      #navbar-primary, #navbar-secondary {
+      #navbar-secondary {
         transition-duration: $medium-transition-time;
         display: none;
         opacity: 0;
+      }
+      #navbar-primary {
+        transition-duration: $medium-transition-time;
+        .navbar-primary-link a {
+          color: white;
+        }
       }
     }
     &.active {
@@ -311,7 +309,18 @@
             background-color: darken($color-grey, 15);
           }
         }
-        #navbar-primary, #navbar-secondary {
+        #navbar-primary {
+          .navbar-primary-link {
+            // border-left: 0.01rem solid $color-grey;
+            &:first-child {
+              border-left: 0;
+            }
+            a {
+              color: $color-blue-diane;
+            }
+          }
+        }
+        #navbar-secondary {
           display: flex;
           opacity: 1;
         }
