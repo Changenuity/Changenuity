@@ -48,8 +48,7 @@ class UsersController < ApplicationController
     elsif try = User.find_by_username(params[:username])
       @user = try
     else
-      sign_out @user
-      flash[:error] = "You have been logged out."
+      flash[:error] = "Could not find user."
       redirect_to home_path
     end
   end
