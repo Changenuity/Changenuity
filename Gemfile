@@ -5,8 +5,6 @@ gem 'sprockets-rails', require: 'sprockets/railtie'
 # Use Bootstrap as the front-end framework, depends on Tether
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'rails-assets-tether', '~> 1.1.1'
-gem 'bcrypt', '3.1.11', :require => 'bcrypt',
-  git: 'https://github.com/codahale/bcrypt-ruby.git'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 # Use Puma as the app server
