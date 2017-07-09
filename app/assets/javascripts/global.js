@@ -6,6 +6,8 @@ var quick_transition_time = 200;
 var medium_transition_time = 400;
 var long_transition_time = 1000;
 
+var DESKTOP_NAVBAR_SOLID_THRESHOLD = 50; // px
+
 
 // GLOBAL VARIABLES
 var scrollY;

@@ -6,6 +6,10 @@
 
 $(document).on('turbolinks:load', function() {
 
+  ////////////////////////////////////////////////
+  // BEGIN - Code related to the project cards  //
+  ////////////////////////////////////////////////
+
   var clickOnFavButton = function() {
     if( $(this).hasClass('active') ) {
       $(this).siblings('.fav-count').html(function(){
@@ -26,10 +30,6 @@ $(document).on('turbolinks:load', function() {
     }
   }
 
-
-  // BINDINGS
-
-
   // Adds bindings for when user clicks on a pcard (aka Project cards)
   $('.pcard').on('click', function(){
     window.location.href = $(this).attr('data-project-url');
@@ -37,4 +37,10 @@ $(document).on('turbolinks:load', function() {
     e.stopPropagation();
     dispatch(e.target);
   });
+
+  ////////////////////////////////////////////////
+  // END - Code related to the project cards    //
+  ////////////////////////////////////////////////
+
+
 });
