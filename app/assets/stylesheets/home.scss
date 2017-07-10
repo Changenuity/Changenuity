@@ -1,3 +1,8 @@
+body,
+html {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 #static-pages-home {
   header {
     position: relative;
@@ -206,7 +211,7 @@
     }
     .article-2 {
       // @include gradient-background(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8), white, $color-pastel-green, "clouds-windmill-crops.jpg");
-      padding: 3rem 0;
+      padding-top: 3rem;
       .content-wrapper {
         z-index: 100;
         display: flex;
@@ -219,7 +224,9 @@
           padding: 2.5rem 1.5rem;
           background: $gradient-generic;
           border-radius: 0.4rem;
-          width: 30%;
+          height: 25rem;
+          padding-left: 0;
+          padding-right: 0;
           i {
             cursor: default;
             font-size: 3rem;
