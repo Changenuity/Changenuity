@@ -35,11 +35,25 @@
             mollit anim id est laborum.
           </p>
         </article>
+        <article>
+          <h4>PROPOSALS:</h4>
+          <% @project.proposals.each do |proposal| %>
+            <p>
+              <strong>Proposal:</strong>
+              <%= proposal.content %>
+            </p>
+          <% end %>
+          <%= render @project.proposals %>
+        </article>
       </section> <!-- End of main-section -->
 
       <section id="sidebar-section" class="col-md-3">
         <article class="project-contact">
           <h4>Have a solution or want to get in touch?</h4>
+          
+          <h3>Submit a Proposal</h3>
+          <%= render 'proposals/form' %>
+
           <button class="contact-btn" class="btn btn-primary-hollow btn-lg">
             <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
             Contact</button>

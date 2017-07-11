@@ -1,9 +1,10 @@
 class ProposalsController < ApplicationController
-
-	before_action :set_references, only: [:show, :edit, :update, :destroy]
+	before_action :authenticate_user!
+	before_action :set_references #, only: [:show, :edit, :update, :destroy]
 
 	def index
     @proposals = Proposal.all
+    # TODO set to current_user's
   end
 
   def show
@@ -16,13 +17,14 @@ class ProposalsController < ApplicationController
   end
 
   def create
-    @proposal = Proposal.new(proposal_params)
+    @project = Project.find(params[:project_id])
+    @proposal = @project.proposals.build(proposal_params)
     if @proposal.save
-      flash[:success] = "Thank you for sending in a proposal!"
-      redirect_to @proposal
+      flash[:success] = "Thank you for sending in your proposal!"
     else
-      render 'new'
+      flash[:error] = "Failed to submit proposal..."
     end
+    redirect_to project_path(@project)
   end
 
   def edit
@@ -43,8 +45,8 @@ class ProposalsController < ApplicationController
   private
 
   def set_references
-  	@user = User.find(params[:user_id])
-  	@project = Project.find(params[:project_id])
+  	@user = current_user
+  	# @projects = Project.find(params[:project_id])
   end
 
   def proposal_params
