@@ -37,12 +37,6 @@
         </article>
         <article>
           <h4>PROPOSALS:</h4>
-          <% @project.proposals.each do |proposal| %>
-            <p>
-              <strong>Proposal:</strong>
-              <%= proposal.content %>
-            </p>
-          <% end %>
           <%= render @project.proposals %>
         </article>
       </section> <!-- End of main-section -->

@@ -1,6 +1,5 @@
 class ProposalsController < ApplicationController
 	before_action :authenticate_user!
-	before_action :set_references #, only: [:show, :edit, :update, :destroy]
 
 	def index
     @proposals = Proposal.all
@@ -19,6 +18,7 @@ class ProposalsController < ApplicationController
   def create
     @project = Project.find(params[:project_id])
     @proposal = @project.proposals.build(proposal_params)
+    @proposal.user_id = current_user.id
     if @proposal.save
       flash[:success] = "Thank you for sending in your proposal!"
     else
@@ -43,11 +43,6 @@ class ProposalsController < ApplicationController
   end
 
   private
-
-  def set_references
-  	@user = current_user
-  	# @projects = Project.find(params[:project_id])
-  end
 
   def proposal_params
     params.require(:proposal).permit(:content)
