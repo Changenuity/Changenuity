@@ -92,16 +92,6 @@ body {
   font-family: "Lato", sans-serif;
 }
 
-.disabling-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
 input, button {
   border: none;
 }
@@ -120,6 +110,21 @@ a {
   &:hover {
     text-decoration: none;
   }
+}
+
+ul, li {
+  list-style: none;
+  padding: 0;
+}
+
+.disabling-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .list-inline {
@@ -141,21 +146,19 @@ a {
   -moz-transition: all $quick-transition-time;
   -o-transition: all $quick-transition-time;
   transition: all $quick-transition-time;
-  border: none;
-  border-radius: $border-radius;
 }
 
-.btn-danger {
-  // TODO: Please name the following colors
-  color: white;
-  background-color: #9E2727;
-}
-
-.btn-secondary {
-  // TODO: Please name the following colors
-  color: white;
-  color: #056B49;
-}
+// .btn-danger {
+//   // TODO: Please name the following colors
+//   color: white;
+//   background-color: #9E2727;
+// }
+//
+// .btn-secondary {
+//   // TODO: Please name the following colors
+//   color: white;
+//   color: #056B49;
+// }
 
 .main-header {
   h1, h2, h3, h4, h5, h6 {
