@@ -1,13 +1,6 @@
 <% provide(:title, @project.name) %>
-<div id="projects-show-background-image"></div>
-<div id="projects-show" class="projects projects-show">
-  <!--
-  BACKEND: Insert the project's main image as an image element here.
-  It must have id="project-feature-image", also set the width and height
-  attributes of the image to its native resolution, whatever it happens to be.
-  -->
-
-  <header>
+<header id="projects-show-header">
+    <div id="projects-show-background-image"></div>
     <div class="container">
       <!-- <img class="project-feature-image" src="/projects-view-sample.jpg" width="800" height="600"/> -->
       <h1 class="project-name"><%= @project.name %></h1>
@@ -15,39 +8,39 @@
       <a href="#projects-show-main" class="explore-button"><i class="material-icons">keyboard_arrow_down</i></a>
     </div>
   </header>
+</header>
 
-  <main id="projects-show-main">
-    <div class="container">
-      <section class="prj-section" data-section-id="quick-info">
-        <h3 class="section-header">Quick Info</h3>
-        <ul class="quick-info-pane">
-          <li class="quick-info-item">
-            <span class="quick-info-title">Project</span>
-            <%= @project.name %>
-          </li>
-          <li class="quick-info-item">
-            <span class="quick-info-title">Location</span>
-            <%= @project.location %>
-          </li>
-          <li class="quick-info-item">
-            <span class="quick-info-title">Date</span>
-            <%= @project.date %>
-          </li>
-          <li class="quick-info-item">
-            <span class="quick-info-title">Author</span>
-            AUTHOR/ORGANIZATION
-          </li>
+<main id="projects-show-main">
+  <div class="container">
+    <section class="prj-section" data-section-id="quick-info">
+      <h3 class="section-header">Quick Info</h3>
+      <ul class="quick-info-pane">
+        <li class="quick-info-item">
+          <span class="quick-info-title">Project</span>
+          <%= @project.name %>
+        </li>
+        <li class="quick-info-item">
+          <span class="quick-info-title">Location</span>
+          <%= @project.location %>
+        </li>
+        <li class="quick-info-item">
+          <span class="quick-info-title">Date</span>
+          <%= @project.date %>
+        </li>
+        <li class="quick-info-item">
+          <span class="quick-info-title">Author</span>
+          AUTHOR/ORGANIZATION
+        </li>
+      </ul>
+    </section>
+    <section class="prj-section" data-section-id="tags">
+      <h3 class="section-header">Tags</h3>
+      <div class="project-tags-wrapper">
+        <ul class="project-tags">
+          <%= render @project.tags %>
         </ul>
-      </section>
-      <section class="prj-section" data-section-id="tags">
-        <h3 class="section-header">Tags</h3>
-        <div class="project-tags-wrapper">
-          <ul class="project-tags">
-            <%= render @project.tags %>
-          </ul>
-        </div>
-      </section>
-    </container>
+      </div>
+    </section>
 
 
     <!-- <article>
@@ -93,5 +86,5 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </main>
-</div>
+  </div>
+</main>
