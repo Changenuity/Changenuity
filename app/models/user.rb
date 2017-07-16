@@ -4,14 +4,22 @@ class User < ApplicationRecord
 
   TEMP_EMAIL_PREFIX = 'changeme@changenuity'
   TEMP_EMAIL_REGEX = /\Achangeme@changenuity/
+  VALID_EMAIL_REGEX = /\A[\w+\-.@]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+
+  before_save { email.downcase! }
+  validates :name,     presence: true, length: { maximum: 255 }
+  validates :username, presence: true, length: { maximum: 255 },
+                       uniqueness: { case_sensitive: false }
+  validates :email,    presence: true, length: { maximum: 255 },
+                       format: { with: VALID_EMAIL_REGEX },
+                       uniqueness: { case_sensitive: false }
+  # can save initial temporary email, but must change to valid email on update
+  validates_format_of :email, without: TEMP_EMAIL_REGEX, on: :update
 
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
-
-  validates_format_of :email, without: TEMP_EMAIL_REGEX, on: :update
-  validates :username, presence: true, uniqueness: true
 
   def User.find_for_omniauth(auth, signed_in_resource = nil)
     # Get the authentication and user if they exist
