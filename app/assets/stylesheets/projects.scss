@@ -6,3 +6,115 @@
     background-position: center;
   }
 }
+
+body,
+html {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+// Phones
+@include media-breakpoint-down(sm) {
+  .jumbotron{
+    margin-bottom: 0rem;
+  }
+  header
+  {
+    background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0)), url('/assets/aerial-turbines.jpg') no-repeat  center center fixed;
+  }
+  #Discover
+  {
+    height: 30em;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    h1{
+      padding-top: 3rem;
+      color: white;
+      text-align: center;
+    }
+    h4{
+      color: white;
+      text-align: center;
+    }
+  }
+}
+
+
+// Not phones
+@include media-breakpoint-up(md) {
+  .jumbotron{
+    margin-bottom: 0rem;
+  }
+  header{
+    background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0)), url('/assets/aerial-turbines.jpg') no-repeat  center center fixed;
+  }
+  #Discover
+  {
+    .tracking-in-expand {
+    	-webkit-animation: tracking-in-expand 2s ease-in both;
+    	        animation: tracking-in-expand 2s ease-in both;
+    }
+    @-webkit-keyframes tracking-in-expand {
+      0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+      }
+      40% {
+        opacity: 0.6;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    @keyframes tracking-in-expand {
+      0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+      }
+      40% {
+        opacity: 0.6;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    height: 30em;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    h1{
+      padding-top: 3rem;
+      color: white;
+      text-align: center;
+      font-size: 5rem;
+    }
+    h4{
+      color: white;
+      text-align: center;
+    }
+  }
+  #view-projects
+  {
+    height:30rem;
+  }
+}
+
+// large monitors
+@include media-breakpoint-up(xl) {
+  .jumbotron{
+    margin-bottom: 0rem;
+  }
+  #Discover
+  {
+    background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0)), url('/assets/aerial-turbines.jpg') no-repeat  center center fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 30em;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    h1{
+      color: white;
+      text-align: center;
+    }
+    h4{
+      color: white;
+      text-align: center;
+    }
+  }
+}
