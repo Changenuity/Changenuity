@@ -49,8 +49,14 @@ $(document).on('turbolinks:load', function() {
 
   // The following is some magic to get the scrollbar to disappear
   // from the project tags, courtesy of Stack Overflow
-  var project_tags = $('#projects-show-main').find('.project-tags')[0];
-  $(project_tags).css('bottom', '-' + (project_tags.offsetHeight - project_tags.clientHeight) + 'px' );
+  var project_tags = $('#projects-show-main .project-tags')[0];
+  if( project_tags ) {
+    $(project_tags).css('bottom', '-' + (project_tags.offsetHeight - project_tags.clientHeight) + 'px' );
+  }
+
+
+
+
 
 
 
