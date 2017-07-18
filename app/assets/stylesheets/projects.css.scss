@@ -19,14 +19,17 @@
     position: fixed;
     height: 100vh;
     width: 100%;
-    transition: $long-transition-time;
+    transition: $medium-transition-time;
+    box-shadow: 0 0 4rem -1rem black;
     @keyframes floatIn {
       to {
         transform: translateY(0);
         opacity: 1;
       }
     }
-
+    &.shrink {
+      transform: scale(0.8);
+    }
     .container {
       position: relative;
       display: flex;
@@ -91,17 +94,12 @@
     margin-top: 100vh; // Clears the header
     width: 100%;
 
-    // padding-top: 3rem;
-    // padding-bottom: 3rem;
-    background: image-url('pattern');
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center 60%;
-    background-repeat: no-repeat;
-    // // background: linear-gradient(to bottom right,
-    // //   #9c27b0,
-    // //   #8bc34a);
-    // border-top: 0.2rem solid white;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    background: $gradient-tropics;
+    border-top: 0.3rem solid white;
+
+    box-shadow: inset 0 0 2.8rem -0.7rem black;
     .section-group {
       background-color: white;
       overflow: hidden;
