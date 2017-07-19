@@ -20,7 +20,7 @@ html {
   }
   header
   {
-    background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0)), url('/assets/aerial-turbines.jpg') no-repeat  center center fixed;
+    background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0)), url('/assets/small-turbines.jpg') no-repeat  center center fixed;
   }
   #Discover
   {
@@ -45,13 +45,13 @@ html {
     margin-bottom: 0rem;
   }
   header{
-    background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0)), url('/assets/aerial-turbines.jpg') no-repeat  center center fixed;
+    background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0)), url('/assets/small-turbines.jpg') no-repeat  center center fixed;
   }
   #Discover
   {
     .tracking-in-expand {
-    	-webkit-animation: tracking-in-expand 2s ease-in both;
-    	        animation: tracking-in-expand 2s ease-in both;
+    	-webkit-animation: tracking-in-expand 1s ease-in both;
+    	        animation: tracking-in-expand 1s ease-in both;
     }
     @-webkit-keyframes tracking-in-expand {
       0% {
@@ -92,7 +92,16 @@ html {
   }
   #view-projects
   {
-    height:30rem;
+    height:5rem;
+    background-color: rgb(15, 73, 161);
+    color: white;
+    .filters
+    {
+      padding-top: 1.5rem;
+    }
+    #types
+    {
+    }
   }
 }
 
@@ -101,9 +110,13 @@ html {
   .jumbotron{
     margin-bottom: 0rem;
   }
+  header
+  {
+    background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0)), url('/assets/small-turbines.jpg') no-repeat  center center fixed;
+  }
   #Discover
   {
-    background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0)), url('/assets/aerial-turbines.jpg') no-repeat  center center fixed;
+    //background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0)), url('/assets/small-turbines.jpg') no-repeat  center center fixed;
     background-size: cover;
     background-repeat: no-repeat;
     height: 30em;
