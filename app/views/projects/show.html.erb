@@ -35,7 +35,7 @@
             mollit anim id est laborum.
           </p>
         </article>
-        <% if user_signed_in? %> <!--TODO: show only your own-->
+        <% if user_signed_in? && @project.user_id == current_user.id %>
         <article>
           <h4>PROPOSALS:</h4>
           <%= render @project.proposals %>
