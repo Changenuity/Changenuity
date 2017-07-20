@@ -2,8 +2,7 @@ class ProposalsController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
-    @proposals = Proposal.all
-    # TODO set to current_user's
+    @proposals = Proposal.where(user_id: current_user.id)
   end
 
   def show
