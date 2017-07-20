@@ -1,6 +1,6 @@
 class Project < ApplicationRecord
   has_many :proposals
-  has_one :user
+  belongs_to :user
   
   acts_as_taggable_on :tags
   has_attached_file :image, styles: { medium: '300x300>', thumb: '100x100>' },

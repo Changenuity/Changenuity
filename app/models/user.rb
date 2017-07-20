@@ -2,6 +2,7 @@ class User < ApplicationRecord
 
   has_many :authentications
   has_many :proposals
+  has_many :projects
 
   TEMP_EMAIL_PREFIX = 'changeme@changenuity'
   TEMP_EMAIL_REGEX = /\Achangeme@changenuity/
