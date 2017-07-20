@@ -1,5 +1,6 @@
 class Project < ApplicationRecord
   has_many :proposals
+  has_one :user
   
   acts_as_taggable_on :tags
   has_attached_file :image, styles: { medium: '300x300>', thumb: '100x100>' },
@@ -13,6 +14,7 @@ class Project < ApplicationRecord
   validates :description,           length: { maximum: 65535 }
   validates :parameters,            length: { maximum: 65535 }
   validates :references,            length: { maximum: 65535 }
+  validates :user_id, presence: true
 
   def self.search(term)
     if term

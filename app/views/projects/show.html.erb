@@ -3,7 +3,7 @@
   <header id="page-main-header" class="jumbotron splash" style="background-image: url(<%= @project.image.url(:medium) %>)">
     <div class="container">
       <h1 class="project-name"><%= @project.name %></h1>
-      <p class="project-team">Project Team</p>
+      <p class="project-team">Project posted by <i><%= @authorName %></i></p>
       <p class="project-location"><%= @project.location %></p>
       <p><time class="project-date"><%= @project.date %></time></p>
     </div>
@@ -35,10 +35,12 @@
             mollit anim id est laborum.
           </p>
         </article>
+        <% if user_signed_in? %> <!--TODO: show only your own-->
         <article>
           <h4>PROPOSALS:</h4>
           <%= render @project.proposals %>
         </article>
+        <% end %>
       </section> <!-- End of main-section -->
 
       <section id="sidebar-section" class="col-md-3">

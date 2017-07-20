@@ -46,7 +46,7 @@
             <%= f.file_field :image, class: "form-control" %>
           </p>
 
-            <%= f.hidden_field :author, :value => current_user.name || current_user.username %>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
             <%= f.submit "Post my project", class: "btn btn-primary" %>
         <% end %>
         <ol>
