@@ -36,6 +36,24 @@ html {
       text-align: center;
     }
   }
+  #view-projects
+  {
+    height:6rem;
+    background-color: rgb(15, 73, 161);
+    color: white;
+    .filters
+    {
+      padding-top: 1.5rem;
+    }
+  }
+  #projects
+  {
+    margin-left: 1rem;
+    .card{
+      width: 15rem;
+      height: 14rem;
+    }
+  }
 }
 
 
@@ -103,6 +121,16 @@ html {
     {
     }
   }
+  #projects
+  {
+    margin-top: 3rem;
+    .card{
+      width: 10rem;
+      height: 14rem;
+      margin-right: 2rem;
+      margin-top: 2rem;
+    }
+  }
 }
 
 // large monitors
@@ -128,6 +156,21 @@ html {
     h4{
       color: white;
       text-align: center;
+    }
+  }
+  #view-projects
+  {
+
+  }
+  #projects
+  {
+    margin-top: 3rem;
+    margin-left: 3rem;
+    .card{
+      width: 10rem;
+      height: 14rem;
+      margin-right: 1rem;
+      margin-top: 2rem;
     }
   }
 }
