@@ -20,6 +20,10 @@ $gradient-tropics: linear-gradient(to bottom right, rgba(156, 39, 176, 0.5), rgb
 $bgDefault: white;
 $bgHighlight: #EC6333;
 
+$background-stripes: repeating-linear-gradient(135deg,
+                      #ECECEC 0,      #ECECEC 0.2rem,
+                      transparent 0,  transparent 0.5rem);
+
 
 $quick-transition-time: 0.2s;
 $medium-transition-time: 0.4s;
@@ -98,12 +102,6 @@ body {
   width: 100%;
   position: relative;
   font-family: "Lato", sans-serif;
-
-  // &.circuit {
-    background-color: #4db7e6;
-    background-image: image-url('circuit-board');
-    background-attachment: fixed;
-  // }
 }
 
 input, button {

@@ -54,21 +54,6 @@ $(document).on('turbolinks:load', function() {
     $(project_tags).css('bottom', '-' + (project_tags.offsetHeight - project_tags.clientHeight) + 'px' );
   }
 
-
-  var scrollToggle = (function(){
-    var throttle = DESKTOP_NAVBAR_SOLID_THRESHOLD;
-    var $projectsHeader = $('#projects-show-header');
-    return function() {
-      if( scrollY > throttle ) {
-        $projectsHeader.addClass('shrink');
-      } else {
-        $projectsHeader.removeClass('shrink');
-      }
-      requestAnimationFrame(scrollToggle);
-    }
-  })();
-  requestAnimationFrame(scrollToggle);
-
   ////////////////////////////////////////////////
   // END - Code related to the project show     //
   ////////////////////////////////////////////////
