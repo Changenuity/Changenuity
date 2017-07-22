@@ -186,3 +186,22 @@ ul, li {
     font-weight: 700;
   }
 }
+
+.missing-img {
+  background-color: $color-grey;
+  background-image: url(shrug);
+  background-repeat: no-repeat;
+  background-position: center 53%;
+  background-size: 70%;
+  height: 15rem;
+  width: 15rem;
+  max-width: 100%;
+  max-height: 100%;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: white;
+  font-size: 1.5rem;
+  color: white;
+}

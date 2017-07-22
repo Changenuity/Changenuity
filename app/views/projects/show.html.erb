@@ -58,13 +58,13 @@
                    it is wrapped in a div with class "carousel-item".
                    Make sure that the first div also has the "active" class -->
               <div class="carousel-item active">
-                <%= image_tag @project.image.url(:thumb), class: "project-image", alt: "Picture Not Found!" %>
+                <%= image_tag @project.image.url(:thumb), class: "project-image", alt: "Project Image" %>
               </div>
               <div class="carousel-item">
-                <%= image_tag @project.image.url(:medium), class: "project-image", alt: "Picture Not Found!" %>
+                <%= image_tag @project.image.url(:medium), class: "project-image", alt: "Project Image" %>
               </div>
               <div class="carousel-item">
-                <%= image_tag @project.image.url(:large), class: "project-image", alt: "Picture Not Found!" %>
+                <%= image_tag @project.image.url(:large), class: "project-image", alt: "Project Image" %>
               </div>
             </div>
             <a class="carousel-control-prev" href="#project-pictures-carousel" role="button" data-slide="prev">
@@ -78,34 +78,6 @@
           </div>
         </section>
       </div>
-
-
-      <!-- <article>
-        <%= @project.name %>
-      </article>
-      <article>
-        <%= @project.location %>
-      </article>
-      <article>
-        <%= @project.date %>
-      </article>
-      <article>
-        <%= @project.description %>
-      </article>
-      <article>
-        <%= @project.parameters %>
-      </article>
-      <article>
-        <%= @project.references %>
-      </article>
-      <article>
-        <%= render @project.tags %>
-      </article>
-      <article>
-        <%= image_tag @project.image.url(:thumb), class: "img-responsive img-rounded featured-img" %>
-        <%= image_tag @project.image.url(:medium), class: "img-responsive img-rounded featured-img" %>
-        <%= image_tag @project.image.url(:large), class: "img-responsive img-rounded featured-img" %>
-      </article>
     </div>
   </main>
 </div>

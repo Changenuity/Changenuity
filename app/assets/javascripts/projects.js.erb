@@ -54,6 +54,14 @@ $(document).on('turbolinks:load', function() {
     $(project_tags).css('bottom', '-' + (project_tags.offsetHeight - project_tags.clientHeight) + 'px' );
   }
 
+  // Image fallback/Missing image
+  $('.project-image').error(function(){
+    $(this)
+      .hide()
+      .parent()
+      .append('<div class="missing-img">Project Image Not Found!</div>');
+  });
+
   ////////////////////////////////////////////////
   // END - Code related to the project show     //
   ////////////////////////////////////////////////

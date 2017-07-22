@@ -10,36 +10,28 @@
   flex-flow: row nowrap;
   width: 100%;
   height: 4rem;
-  // background-color: white;
   justify-content: space-between;
-  .brand-img {
-    width: 1.6rem;
-    height: auto;
-    margin-right: 0.3rem;
-    // TODO: Make this more elegant
-    &.type-dark {
-      display: inline-block;
-    }
-    &.type-light {
-      display: none;
-    }
-  }
-  .brand-text {
-    font-size: 1.2rem;
-    font-weight: 700;
-    letter-spacing: 0.02rem;
-  }
 }
 
-#navbar-brand a {
+#navbar-brand {
   height: 100%;
   display: flex;
   flex-flow: row nowrap;
   flex: none;
   align-items: center;
   justify-content: center;
-  color: black;
   transition-duration: $quick-transition-time;
+  .logo {
+    height: 1.5rem;
+    margin: 0.3rem;
+    filter: brightness(0); // Makes the logo black
+  }
+  .brand-text {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.02rem;
+    color: black;
+  }
 }
 
 #navbar-primary, #navbar-secondary {
@@ -196,23 +188,14 @@
     }
   }
   #navbar-brand {
-    position:relative;
-    a {
-      padding: 0 1rem;
-      color: white;
+    padding: 0 1rem;
+    .logo {
+      width: 1.3rem;
+      filter: brightness(1); // Makes the logo white
     }
     .brand-text {
       font-size: 1rem;
-    }
-    .brand-img {
-      width: 1.3rem;
-      // TODO: Make this more elegant
-      &.type-dark {
-        display: none;
-      }
-      &.type-light {
-        display: inline-block;
-      }
+      color: white;
     }
   }
   #navbar-primary, #navbar-secondary {
