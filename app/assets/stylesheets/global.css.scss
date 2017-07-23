@@ -2,8 +2,8 @@
    Global Variables
 ============================================ */
 
-$color-orange: #EC6433;
-$color-light-orange: #C14F26;
+$color-orange: #C14F26;
+$color-light-orange: #EC6333;
 $color-turquoise: #8AB7A3;
 $color-light-turquoise: #DDDDDD;
 $color-grey: #63C1C0;
@@ -15,12 +15,19 @@ $color-pastel-green: #7AA391;
 $color-tundora: #625F5E;
 $color-prussian-blue: #2196F3;
 $color-bad-glass: rgba(236, 238, 239, 0.9);
+$gradient-generic: linear-gradient(to bottom right, rgba(236, 232, 249, 0.9), rgba(239, 235, 234, 0.90));
+$gradient-tropics: linear-gradient(to bottom right, rgba(156, 39, 176, 0.5), rgba(139, 195, 74, 0.5));
 $bgDefault: white;
-$bgHighlight: #EC6433;
+$bgHighlight: #EC6333;
+
+$background-stripes: repeating-linear-gradient(135deg,
+                      #ECECEC 0,      #ECECEC 0.2rem,
+                      transparent 0,  transparent 0.5rem);
 
 
 $quick-transition-time: 0.2s;
 $medium-transition-time: 0.4s;
+$long-transition-time: 1s;
 $border-radius: 0.3rem;
 
 /* ============================================
@@ -32,6 +39,14 @@ $border-radius: 0.3rem;
   -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
   -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
   box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+}
+
+@mixin absolute-full-cover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 // Creates a linear gradient overlay on top of the background.
@@ -63,6 +78,15 @@ $border-radius: 0.3rem;
   }
 }
 
+@mixin immediate-children-bottom-margins($bottom-margin) {
+  > * {
+    margin-bottom: $bottom-margin;
+  }
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
 /* ============================================
    General Styles
 ============================================ */
@@ -70,6 +94,7 @@ $border-radius: 0.3rem;
 html {
   min-height: 100%;
   font-size: 16px; // This is to ensure consistent sizing across different platforms
+
 }
 
 body {
@@ -79,14 +104,12 @@ body {
   font-family: "Lato", sans-serif;
 }
 
-.disabling-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+input, button {
+  border: none;
+}
+
+button {
+  cursor: pointer;
 }
 
 a {
@@ -99,6 +122,21 @@ a {
   &:hover {
     text-decoration: none;
   }
+}
+
+ul, li {
+  list-style: none;
+  padding: 0;
+}
+
+.disabling-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .list-inline {
@@ -120,21 +158,19 @@ a {
   -moz-transition: all $quick-transition-time;
   -o-transition: all $quick-transition-time;
   transition: all $quick-transition-time;
-  border: none;
-  border-radius: $border-radius;
 }
 
-.btn-danger {
-  // TODO: Please name the following colors
-  color: white;
-  background-color: #9E2727;
-}
-
-.btn-secondary {
-  // TODO: Please name the following colors
-  color: white;
-  color: #056B49;
-}
+// .btn-danger {
+//   // TODO: Please name the following colors
+//   color: white;
+//   background-color: #9E2727;
+// }
+//
+// .btn-secondary {
+//   // TODO: Please name the following colors
+//   color: white;
+//   color: #056B49;
+// }
 
 .main-header {
   h1, h2, h3, h4, h5, h6 {
@@ -149,4 +185,23 @@ a {
     font-style: normal;
     font-weight: 700;
   }
+}
+
+.missing-img {
+  background-color: $color-grey;
+  background-image: url(shrug);
+  background-repeat: no-repeat;
+  background-position: center 53%;
+  background-size: 70%;
+  height: 15rem;
+  width: 15rem;
+  max-width: 100%;
+  max-height: 100%;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: white;
+  font-size: 1.5rem;
+  color: white;
 }

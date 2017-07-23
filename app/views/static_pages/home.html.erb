@@ -3,49 +3,80 @@
   <header class="jumbotron">
     <div class="container">
       <div class="header-wrapper">
-        <h1>
-          Welcome to<br/><strong>Changenuity</strong>
-        </h1>
-        <div class="button-group">
-          <a href="#0" class="homepage-button"><i class="material-icons button-icon">explore</i><span>Take A Tour</span></a>
-          <a href="#0" class="homepage-button"><i class="material-icons button-icon">person_add</i><span>Sign Up</span></a>
+        <div class="front-side">
+          <h1>
+            Welcome to<br/><strong>Changenuity.</strong>
+          </h1>
+          <p class="feature-text">Freelancing for a better future.</p>
+          <!-- Experimental forms, no actions associated -->
+          <form action="" method="post">
+            <div class="form-widget">
+              <label for="user-mail" class="sr-only">Email</label>
+              <input type="email" id="user-email" placeholder="example@email.com" name="user_email">
+            </div>
+            <button type="submit" class="homepage-button button-sign-up"><i class="material-icons button-icon">person_add</i><span>Sign Up</span></button>
+          </form>
+          <p>Or <a class="flip-homepage go-to-sign-in" href="#0">Sign In</a></p>
+          <a href="#homepage-main" class="explore-button"><i class="material-icons">keyboard_arrow_down</i></a>
+        </div>
+        <div class="back-side">
+          <h2>
+            Welcome back
+          </h2>
+          <form action="" method="post">
+            <div class="form-widget">
+              <label for="username" class="sr-only">Username</label>
+              <input type="text" id="username" placeholder="example@email.com" name="username">
+            </div>
+            <div class="form-widget">
+              <label for="user-mail" class="sr-only">Password</label>
+              <input type="password" id="password" placeholder="password" name="password">
+            </div>
+            <button type="submit" class="homepage-button button-sign-in"><i class="material-icons button-icon">person_add</i><span>Sign In</span></button>
+          </form>
+          <a class="flip-homepage go-to-sign-up" href='#0'><i class="material-icons">chevron_left</i>Back</a>
         </div>
       </div>
     </div>
     <div class="video-wrapper">
-      <%= video_tag('/videos/homepage-background-video.webm',id:'homepage-video',class:'background-video',size:'1280x720',autoplay:true,muted:true,loop:true) %>
+      <%= video_tag('/videos/homepage-background-video.webm',id:'homepage-video',class:'background-video',size:'1280x720',preload:'auto',autoplay:true,muted:true,loop:true) %>
     </div>
   </header>
 
-  <main id="homepage-main" class="container">
-    <article class="splash-body">
-      <section>
-        <i class="material-icons navbar-handle open-nav">search</i>
-        <p>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-          ab illo inventore veritatis et quasi architecto beatae vitae dicta
-          sunt explicabo.
-        </p>
+  <main id="homepage-main">
+    <article class="article-1">
+      <section class="container">
+        <div class="content-wrapper">
+          <p>We make global development <em>easy</em> and <em>accessible</em>.</p>
+        </div>
       </section>
-      <section>
-        <i class="material-icons navbar-handle open-nav">forum</i>
-        <p>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-          ab illo inventore veritatis et quasi architecto beatae vitae dicta
-          sunt explicabo.
-        </p>
-      </section>
-      <section>
-        <i class="material-icons navbar-handle open-nav">people</i>
-        <p>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-          ab illo inventore veritatis et quasi architecto beatae vitae dicta
-          sunt explicabo.
-        </p>
-      </section>
+    </article>
+    <article class="article-2">
+      <div class="container">
+        <div class="content-wrapper">
+          <section class="focus-card">
+            <i class="material-icons navbar-handle open-nav">search</i>
+            <h3>Discover.</h3>
+            <p>
+              Browse inspiring impact projects from all around the world and apply to contribute your skills.
+            </p>
+          </section>
+          <section class="focus-card">
+            <i class="material-icons navbar-handle open-nav">people</i>
+            <h3>Collaborate.</h3>
+            <p>
+              Find talented freelancers to collaborate with on your project.
+            </p>
+          </section>
+          <section class="focus-card">
+            <i class="material-icons navbar-handle open-nav">forum</i>
+            <h3>Discuss.</h3>
+            <p>
+              Ask and answer questions about global development.
+            </p>
+          </section>
+        </div>
+      </div>
     </article>
   </main>
 </div>

@@ -1,261 +1,304 @@
 #navbar-wrapper {
   width: 100%;
   position: fixed;
+  top: 0;
   z-index: 100;
-  background-color: rgba(255, 255, 255, 0.94);
+}
+
+#navbar {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  height: 4rem;
+  justify-content: space-between;
+}
+
+#navbar-brand {
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  transition-duration: $quick-transition-time;
+  .logo {
+    height: 1.5rem;
+    margin: 0.3rem;
+    filter: brightness(0); // Makes the logo black
+  }
+  .brand-text {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.02rem;
+    color: black;
+  }
+}
+
+#navbar-primary, #navbar-secondary {
+  height: 100%;
+  display: flex;
+  flex: none;
+}
+
+.navbar-login-form {
+  position: absolute;
+  width: 20rem;
+  top: 5rem;
+  right: 0;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  overflow: hidden;
+  display: none;
   @include light-shadow;
-  #navbar {
-    display: flex;
-    flex-flow: row nowrap;
+  .widgets-wrapper {
+    padding: 2rem 1.5rem;
+    @include immediate-children-bottom-margins(0.65rem);
+  }
+  .form-widget input {
+    padding: 0.7rem 2rem;
+    background: none;
+    color: $color-blue-stone;
+    border-radius: 4rem;
+    border: 0.1rem solid $color-orange;
     width: 100%;
-    height: 4rem;
-    // background-color: white;
-    justify-content: space-between;
-    #navbar-brand {
-      a {
-        height: 100%;
-        display: flex;
-        flex-flow: row nowrap;
-        flex: none;
-        align-items: center;
-        justify-content: center;
-        color: black;
-        transition-duration: $quick-transition-time;
-        .brand-img {
-          width: 1.6rem;
-          height: auto;
-          margin-right: 0.3rem;
-          // TODO: Make this more elegant
-          &.type-dark {
-            display: inline-block;
-          }
-          &.type-light {
-            display: none;
-          }
-        }
-        .brand-text {
-          font-size: 1.2rem;
-          font-weight: 700;
-          letter-spacing: 0.02rem;
-        }
-      }
+    &::placeholder {
+      color: $color-pastel-green;
     }
-    #navbar-primary, #navbar-secondary {
-      height: 100%;
-      display: flex;
-      flex: none;
+    &:focus {
+      outline: none;
     }
+  }
+  .buttons-wrapper {
+    display: flex;
+    border-top: 0.1rem solid $color-grey;
+  }
+  button {
+    flex: 1 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    padding: 1rem;
+    transition: $quick-transition-time;
+    &:first-child {
+      border-right: 0.1rem solid $color-grey;
+    }
+    .button-icon {
+      margin-right: 0.5rem;
+    }
+  }
+  .button-sign-up:hover {
+    color: white;
+    background-color: $color-light-orange;
+  }
+  .button-sign-in:hover {
+    color: white;
+    background-color: $color-turquoise;
   }
 }
 
 @include media-breakpoint-down(sm) {
   #navbar-wrapper {
-    #navbar {
-      .navbar-handle {
-        font-size: 2.2rem;
-        align-self: center;
-        transition-duration: $quick-transition-time;
-        cursor: pointer;
-        &:hover { color: $color-orange; }
-        &[data-component-id="navbar-primary"] {
-          order: 1;
-        }
-        &[data-component-id="navbar-secondary"] {
-          order: 3;
-        }
+    background-color: rgba(255, 255, 255, 0.94);
+    @include light-shadow;
+  }
+  #navbar .navbar-handle {
+    font-size: 2.2rem;
+    align-self: center;
+    transition-duration: $quick-transition-time;
+    cursor: pointer;
+    &:hover { color: $color-orange; }
+    &[data-component-id="navbar-primary"] {
+      order: 1;
+    }
+    &[data-component-id="navbar-secondary"] {
+      order: 3;
+    }
+  }
+  #navbar-brand {
+    order: 2;
+  }
+  #navbar-primary, #navbar-secondary {
+    position: fixed;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: center;
+    overflow: hidden;
+    background-color: $color-tundora;
+    transition-duration: $medium-transition-time;
+    min-width: 15rem;
+    .navbar-primary-link {
+      border-bottom: 0.01rem solid rgba(255,255,255,0.4);
+      &:first-child {
+        border-top: 0.01rem solid rgba(255,255,255,0.4);
       }
-      #navbar-brand {
-        order: 2;
+    }
+    a {
+      transition-duration: $quick-transition-time;
+      padding: 2rem 0;
+      width: 100%;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 200;
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.4);
       }
-      #navbar-primary, #navbar-secondary {
-        position: fixed;
-        flex-flow: column nowrap;
-        align-items: stretch;
-        justify-content: center;
-        overflow: hidden;
-        background-color: $color-tundora;
-        transition-duration: $medium-transition-time;
-        min-width: 15rem;
-        .navbar-primary-link, .navbar-secondary-link {
-          border-bottom: 0.01rem solid rgba(255,255,255,0.4);
-          &:nth-child(1) {
-            border-top: 0.01rem solid rgba(255,255,255,0.4);
-          }
-        }
-        a {
-          transition-duration: $quick-transition-time;
-          padding: 2rem 0;
-          width: 100%;
-          color: white;
-          font-size: 1.5rem;
-          font-weight: 300;
-          &:hover {
-            background-color: rgba(255, 255, 255, 0.4);
-          }
-        }
-        &.active {
-          transform: translateX(0);
-        }
-        .clear-nav {
-          color: black;
-          position: absolute;
-          top: 1rem;
-          background-color: white;
-          padding: 0.4rem;
-          border-radius: 100%;
-          &:hover {
-            color: white;
-            background-color: black;
-          }
-        }
+    }
+    &.active {
+      transform: translateX(0);
+    }
+    .clear-nav {
+      color: black;
+      position: absolute;
+      top: 1rem;
+      background-color: white;
+      padding: 0.4rem;
+      border-radius: 100%;
+      &:hover {
+        color: white;
+        background-color: black;
       }
-      #navbar-primary {
-        left: 0;
-        transform: translateX(-100%);
-        .clear-nav {
-          right: 1rem;
-        }
-        .navbar-primary-link {
-          a {
-            display: inline-block;
-            padding-left: 1rem;
-            &:hover {
-            }
-          }
-        }
-      }
-      #navbar-secondary {
-        // TODO: Finish styling the other one lmao
-        right: 0;
-        transform: translateX(100%);
-        .clear-nav {
-          left: 1rem;
-        }
-        .navbar-secondary-link {
-          border-bottom: 0.01rem solid rgba(255,255,255,0.4);
-          &:nth-child(1) {
-            border-top: 0.01rem solid rgba(255,255,255,0.4);
-          }
-          .link-icon {
-            font-size: 3rem;
-          }
-          a {
-            display: flex;
-            flex-flow: row-reverse nowrap;
-            flex: none;
-            padding-left: 1rem;
-            padding-right: 1rem;
-            justify-content: space-between;
-            align-items: center;
-            &:hover {
-            }
-          }
-        }
-      }
+    }
+  }
+  #navbar-primary {
+    left: 0;
+    transform: translateX(-100%);
+    .clear-nav {
+      right: 1rem;
+    }
+    .navbar-primary-link a {
+      display: inline-block;
+      padding-left: 1rem;
+    }
+  }
+  #navbar-secondary {
+    right: 0;
+    transform: translateX(100%);
+    .form-toggle-show {
+      display: none;
     }
   }
 }
 
 @include media-breakpoint-up(md) {
-  #navbar-wrapper {
-    transition-duration: $quick-transition-time;
-    transform: translateY(-100%);
-    &.active {
-      transform: translateY(0);
+  #navbar {
+    height: 4.3rem;
+    .navbar-handle {
+      display: none;
     }
-    #navbar {
-      height: 4rem;
-      .navbar-handle {
-        display: none;
+  }
+  #navbar-brand {
+    padding: 0 1rem;
+    .logo {
+      width: 1.3rem;
+      filter: brightness(1); // Makes the logo white
+    }
+    .brand-text {
+      font-size: 1rem;
+      color: white;
+    }
+  }
+  #navbar-primary, #navbar-secondary {
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+  }
+  #navbar-primary {
+    margin: 0 0.6rem;
+    margin-right: auto; // Moves the secondary to the right
+    .navbar-primary-link {
+      position: relative;
+      font-size: 1rem;
+      &::before {
+        content: "";
+        position: absolute;
+        margin: 0 auto;
+        top: 2rem;
+        left: 25%;
+        height: 0;
+        width: 0;
+        border-bottom: 0.15rem solid $color-orange;
+        transition-duration: $quick-transition-time;
       }
-      #navbar-brand {
+      &:hover::before {
+        width: 50%;
+      }
+      a {
+        padding: 0 1.5rem;
+      }
+    }
+  }
+  #navbar-secondary {
+    margin: 0;
+    .form-toggle-show {
+      height: 100%;
+      font-size: 0.5rem;
+      height: 100%;
+      display: flex;
+      flex-flow: column nowrap;
+      flex: none;
+      align-items: center;
+      justify-content: center;
+      text-transform: uppercase;
+      width: 5.4rem;
+      color: $color-blue-diane;
+      border-left: 0.01rem solid $color-grey;
+      border-right: 0.01rem solid $color-grey;
+      background: none;
+      .link-icon {
+        font-size: 2.5rem;
+        transition-duration: $quick-transition-time;
+      }
+      &:hover .link-icon {
+        cursor: pointer;
+        color: $color-orange;
+      }
+    }
+  }
+
+  // The following block of styles is for creating the fade-in navbar
+  // seen in desktop sizes. With these styles, one can "trigger" the
+  // navbar simply by adding the 'active' class to #navbar-wrapper
+  #navbar-wrapper {
+    transition-duration: $medium-transition-time;
+  }
+  #navbar-brand {
+    transition-duration: $medium-transition-time;
+  }
+  #navbar-secondary {
+    transition-duration: $medium-transition-time;
+    display: none;
+    opacity: 0;
+  }
+  #navbar-primary {
+    transition-duration: $medium-transition-time;
+    .navbar-primary-link a {
+      color: white;
+    }
+  }
+  #navbar-wrapper.active {
+    background-color: rgba(255, 255, 255, 0.94);
+    @include light-shadow;
+    #navbar-brand {
+      background-color: $color-grey;
+      &:hover {
+        background-color: darken($color-grey, 15);
+      }
+    }
+    #navbar-primary {
+      .navbar-primary-link {
+        // border-left: 0.01rem solid $color-grey;
+        &:first-child {
+          border-left: 0;
+        }
         a {
-          padding: 0 1rem;
-          color: white;
-          background-color: $color-grey;
-          &:hover {
-            background-color: darken($color-grey, 15);
-          }
-          .brand-text {
-            font-size: 1rem;
-          }
-          .brand-img {
-            width: 1.3rem;
-            // TODO: Make this more elegant
-            &.type-dark {
-              display: none;
-            }
-            &.type-light {
-              display: inline-block;
-            }
-          }
+          color: $color-blue-diane;
         }
       }
-      #navbar-primary, #navbar-secondary {
-        flex-flow: row nowrap;
-        align-items: center;
-        justify-content: center;
-      }
-      #navbar-primary {
-        margin: 0 0.6rem;
-        .navbar-primary-link {
-          position: relative;
-          font-size: 1rem;
-          border-left: 0.01rem solid $color-grey;
-          &:nth-child(1) {
-            border-left: 0;
-          }
-          &::before {
-            content: "";
-            position: absolute;
-            margin: 0 auto;
-            top: 2rem;
-            left: 25%;
-            height: 0;
-            width: 0;
-            border-bottom: 0.15rem solid $color-orange;
-            transition-duration: $quick-transition-time;
-          }
-          &:hover::before {
-            width: 50%;
-          }
-          a {
-            color: $color-blue-diane;
-            padding: 0 1.5rem;
-          }
-        }
-      }
-      #navbar-secondary {
-        margin: 0;
-        margin-left: auto; // Moves the secondary to the right
-        .navbar-secondary-link {
-          height: 100%;
-          border-right: 0.01rem solid $color-grey;
-          &:nth-child(1) {
-            border-left: 0.01rem solid $color-grey;
-          }
-          .link-icon {
-            font-size: 2.5rem;
-            transition-duration: $quick-transition-time;
-          }
-          &:hover .link-icon {
-            cursor: pointer;
-            color: $color-orange;
-          }
-          a {
-            font-size: 0.5rem;
-            height: 100%;
-            display: flex;
-            flex-flow: column nowrap;
-            flex: none;
-            align-items: center;
-            justify-content: center;
-            text-transform: uppercase;
-            width: 5.4rem;
-            color: $color-blue-diane;
-          }
-        }
-      }
+    }
+    #navbar-secondary {
+      display: flex;
+      opacity: 1;
     }
   }
 }

@@ -1,19 +1,45 @@
 <div id="navbar-wrapper">
   <div class="container">
     <nav id="navbar">
-      <div id="navbar-brand">
-        <%= link_to home_path do %>
-          <!-- TODO: Make this more elegant -->
-          <%= image_tag("logo-notext.png", alt: "Changenuity Logo", class: "brand-img type-dark") %>
-          <%= image_tag("logo-notext-white.png", alt: "Changenuity Logo", class: "brand-img type-light") %>
-          <span class="brand-text">Changenuity</span>
-        <% end %>
-      </div>
+      <%= link_to home_path, id: 'navbar-brand', class: 'check' do %>
+        <object type="image/svg+xml" data="<%= asset_path 'delta_logo' %>" class="logo">
+          Logo
+        </object>
+        <span class="brand-text">Changenuity</span>
+      <% end %>
       <ul id="navbar-primary" class="links-list">
         <li class="navbar-primary-link"><%= link_to "Discover", browse_path %></li>
         <li class="navbar-primary-link"><%= link_to "Discuss", '#' %></li>
-        <li class="navbar-primary-link"><%= link_to "About", '#' %></li><!-- Should the "About" page really be up here? -->
+        <li class="navbar-primary-link"><%= link_to "About", '#' %></li>
       </ul>
+      <div id="navbar-secondary">
+        <button class="form-toggle-show">
+          <i class="link-icon material-icons">account_box</i>
+          <span>Login</span>
+        </button>
+        <form class="navbar-login-form" action="" method="post">
+          <div class="widgets-wrapper">
+            <div class="form-widget">
+              <label for="nav-user-email" class="sr-only">Email</label>
+              <input type="email" id="nav-user-email" placeholder="example@email.com" name="user_email">
+            </div>
+            <div class="form-widget">
+              <label for="nav-user-password" class="sr-only">Password</label>
+              <input type="password" id="nav-user-password" placeholder="password" name="user_email">
+            </div>
+          </div>
+          <div class="buttons-wrapper">
+            <button type="submit" class="button-sign-up">
+              <i class="material-icons button-icon">person_add</i>
+              <span>Sign Up</span>
+            </button>
+            <button type="submit" class="button-sign-in">
+              <i class="material-icons button-icon">launch</i>
+              <span>Sign In</span>
+            </button>
+          </div>
+        </form>
+      </div>
       <ul id="navbar-secondary" class="links-list">
         <!-- Once again, I do not think it is a good idea to have the ability to add projects front and center like this -->
         <li class="navbar-secondary-link">

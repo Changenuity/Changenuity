@@ -1,112 +1,226 @@
-@include media-breakpoint-up(md) {
-  #static-pages-home {
-    .homepage-button {
+#static-pages-home {
+  header {
+    position: relative;
+    border-radius: 0;
+    overflow: hidden;
+    padding: 0;
+    transform: scale(1); // To create a stacking context
+    margin-bottom: 0.2rem;
+    & > .container {
+      height: 100vh;
+    }
+    .header-wrapper {
+      height: 100%;
       display: flex;
       flex-flow: row nowrap;
+      justify-content: center;
       align-items: center;
-      padding: 0.7rem 2rem;
-      border-radius: 4rem;
-      color: darken($color-prussian-blue, 10);
-      background: linear-gradient(to bottom right, rgba(236, 232, 249, 0.9), rgba(239, 235, 234, 0.90));
-      transition-duration: $quick-transition-time;
-      font-size: 1.5rem;
-      .button-icon {
-        font-size: 2rem;
-        margin-right: 0.7rem;
-      }
-      &:hover {
-        color: $color-prussian-blue;
-      }
-    }
-    header {
-      position: relative;
-      height: 100vh;
-      width: 100%;
-      border-radius: 0;
-      overflow: hidden;
-      display: flex;
-      flex-flow: column nowrap;
-      flex: none;
-      align-items: center;
-      padding: 0;
-      transform: scale(1); // To create a stacking context
-      .container {
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: flex-end;
-        align-items: stretch;
-        height: 100%;
-        .header-wrapper {
-          width: 40%;
-          margin: 0;
-          display: flex;
-          flex-flow: column nowrap;
-          flex: none;
-          justify-content: flex-end;
-          align-items: stretch;
-          border-left: 0.1rem solid white;
-          border-right: 0.1rem solid white;
-          > * {
-            margin-bottom: 1rem;
-          }
-          h1 {
-            font-size: 3rem;
-            color: white;
-            strong {
-              font-size: 1.4em;
-              color: #93EC9B;
-            }
-          }
-          .button-group {
-            .homepage-button {
-              margin-bottom: 0.65rem;
-            }
-            margin-bottom: 1.5rem;
-          }
-        }
-      }
-      .video-wrapper {
-        position: absolute;
-        z-index: -200;
-        width: 100%;
-        height: 100%;
-        &::after {
-          content: "";
-          position: absolute;
+      transform-style: preserve-3d; // If this is not included, the downards arrow will still show on flip; don't ask me why
+      form {
+        @include immediate-children-bottom-margins(0.65rem);
+        .homepage-button {
           width: 100%;
-          height: 100%;
-          top: 0;
-          left: 0;
-          background: linear-gradient(to bottom right, rgba(156, 39, 176, 0.5), rgba(139, 195, 74, 0.5));
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+          justify-content: center;
+          padding: 0.7rem 0;
+          border-radius: 4rem;
+          color: $color-prussian-blue;
+          background: $gradient-generic;
+          transition-duration: $quick-transition-time;
+          border: 0.1rem solid white;
+          .button-icon {
+            margin-right: 0.7rem;
+          }
         }
-        .background-video {
-          min-width: 100%;
-          min-height: 100%;
-          width: auto;
-          height: auto;
+        .form-widget {
+          input {
+            padding: 0.7rem 2rem;
+            background: none;
+            color: white;
+            border-radius: 4rem;
+            border: 0.1rem solid white;
+            width: 100%;
+            &::placeholder {
+              color: $color-light-turquoise;
+            }
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+      }
+      .front-side, .back-side {
+        transition: $long-transition-time;
+        padding: 3rem 3rem;
+        overflow: hidden;
+        height: 80%;
+        max-height: 35rem;
+        margin: 0;
+        display: flex;
+        flex-flow: column nowrap;
+        flex: none;
+        justify-content: center;
+        align-items: stretch;
+        border: 0.1rem solid white;
+        border-radius: 1rem;
+        backface-visibility: hidden;
+        @include immediate-children-bottom-margins(1rem);
+      }
+      .front-side {
+        position: absolute;
+        &.active {
+          transform: rotateY(180deg);
+        }
+        h1 {
+          color: white;
+          margin-bottom: 1rem;
+          strong {
+            color: #ffecb3;
+          }
+        }
+        p {
+          text-align: left;
+          color: white;
+          font-size: 1.1rem;
+          a {
+            color: $color-prussian-blue;
+            font-size: 1rem;
+            color: #ffffff;
+            border: 0.01px solid white;
+            border-radius: 4rem;
+            padding: 0.5rem 1rem;
+          }
+        }
+        .explore-button {
+          @keyframes bobble {
+            0% {
+              transform: translate(0);
+            }
+            100% {
+              transform: translate(0, 0.6rem);
+            }
+          }
+          transition-duration: $medium-transition-time;
+          position: absolute;
+          bottom: 0.1rem;
+          align-self: center;
+          color: white;
+          text-align:center;
+          animation: bobble 0.6s 2s 2 alternate;
+          &:hover {
+            transform: translate(0, 0.6rem);
+          }
+          &:focus {
+            border: none;
+          }
+          i {
+            font-size: 5rem;
+            display:block;
+          }
+        }
+      }
+      .back-side {
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.3);
+        transform: rotateY(180deg);
+        &.active {
+          transform: rotateY(0);
+        }
+        h2 {
+          color: white;
+          margin-bottom: 2.5rem;
+        }
+        form {
+          .form-widget input {
+            background: $color-light-orange;
+          }
+        }
+        .go-to-sign-up {
+          color: white;
+          display: flex;
+          border: 0.01px solid white;
+          border-radius: 4rem;
+          padding: 0.5rem 1.5rem 0.5rem 0.8rem;
+          position: absolute;
+          left: 2rem;
+          bottom: 1.5rem;
         }
       }
     }
-    #homepage-main {
-      align-items: center;
-      .splash-body {
+    .video-wrapper {
+      z-index: -200;
+      @include absolute-full-cover;
+      &::after {
+        content: "";
+        @include absolute-full-cover;
+        background: $gradient-tropics;
+      }
+      .background-video {
+        // Don't even ask.
+        // The below styles are a mess but accomplish what I need them to do.
+        // This makes sure that the video is always covering the header, and
+        // that it is centered in doing so.
+        position: absolute;
+        min-height: 100%;
+        min-width: 100%;
+        height: auto;
+        width: auto;
+        top: -9999px;
+        bottom: -9999px;
+        left: -9999px;
+        right: -9999px;
+        margin: auto;
+      }
+    }
+  }
+  #homepage-main {
+    align-items: center;
+    .article-1 {
+      background-color: $color-light-turquoise;
+      .content-wrapper {
+        border-left: 0.1rem solid white;
+        p {
+          text-align: left;
+          margin: 0;
+          margin-left: 10%;
+          margin-right: 40%;
+          width: 50%;
+          padding: 10rem 0;
+          font-size: 2.5rem;
+          font-weight: 200;
+          em {
+            color: $color-orange;
+          }
+        }
+      }
+    }
+    .article-2 {
+      // @include gradient-background(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8), white, $color-pastel-green, "clouds-windmill-crops.jpg");
+      padding: 3rem 0;
+      .content-wrapper {
+        z-index: 100;
         display: flex;
         flex-flow: row nowrap;
-        justify-content: center;
+        justify-content: space-between;
         width: 90%;
         margin: 0 auto;
-        section {
+        section.focus-card {
           text-align: center;
-          padding: 0 1.4rem;
+          padding: 2.5rem 1.5rem;
+          background: $gradient-generic;
+          border-radius: 0.4rem;
+          width: 30%;
           i {
             cursor: default;
-            font-size: 4rem;
+            font-size: 3rem;
             background-color: white;
             padding: 1.4rem;
             border-radius: 100%;
             color: $color-prussian-blue;
             text-shadow: antiquewhite;
-            text-shadow: 3px 3px 0px #00BCD4;
+            text-shadow: 0.18rem 0.18rem 0rem #00BCD4;
             margin-bottom: 1rem;
           }
         }
@@ -115,14 +229,45 @@
   }
 }
 
+// Phones
+@include media-breakpoint-down(sm) {
+  #static-pages-home {
+    header > .container {
+      padding-top: 4.3rem; // This is the height of the navbar
+    }
+  }
+}
+
+
+// Not phones
+@include media-breakpoint-up(md) {
+  #static-pages-home {
+    header .container .header-wrapper {
+      h1 {
+        strong {
+          font-size: 1.3em;
+        }
+      }
+      form {
+        .homepage-button {
+          font-size: 1.15rem;
+          .button-icon {
+            font-size: 2rem;
+          }
+        }
+        .form-widget input {
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+}
+
+// Large-ass monitors that probably cost more than my tuition
 @include media-breakpoint-up(xl) {
   #static-pages-home {
-    header {
-      .container .header-wrapper {
-        width: 50%;
-        padding-left: 2.5rem;
-        padding-right: 10rem;
-      }
+    header .header-wrapper {
+      // justify-content: flex-end; // Disabled for now, flex doesn't play well with flip
     }
   }
 }
