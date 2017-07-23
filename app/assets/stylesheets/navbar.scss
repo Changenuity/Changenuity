@@ -22,9 +22,10 @@
   justify-content: center;
   transition-duration: $quick-transition-time;
   .logo {
-    height: 1.5rem;
+    height: 1.4rem;
+    width: 1.4rem;
     margin: 0.3rem;
-    filter: brightness(0); // Makes the logo black
+    fill: black;
   }
   .brand-text {
     font-size: 1.2rem;
@@ -99,7 +100,7 @@
 
 @include media-breakpoint-down(sm) {
   #navbar-wrapper {
-    background-color: rgba(255, 255, 255, 0.94);
+    background-color: rgba(255, 255, 255, 0.95);
     @include light-shadow;
   }
   #navbar .navbar-handle {
@@ -190,8 +191,7 @@
   #navbar-brand {
     padding: 0 1rem;
     .logo {
-      width: 1.3rem;
-      filter: brightness(1); // Makes the logo white
+      fill: white;
     }
     .brand-text {
       font-size: 1rem;
@@ -277,7 +277,7 @@
     }
   }
   #navbar-wrapper.active {
-    background-color: rgba(255, 255, 255, 0.94);
+    background-color: rgba(255, 255, 255, 0.95);
     @include light-shadow;
     #navbar-brand {
       background-color: $color-grey;

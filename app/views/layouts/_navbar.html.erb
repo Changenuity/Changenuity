@@ -2,9 +2,7 @@
   <div class="container">
     <nav id="navbar">
       <%= link_to home_path, id: 'navbar-brand', class: 'check' do %>
-        <object type="image/svg+xml" data="<%= asset_path 'delta_logo' %>" class="logo">
-          Logo
-        </object>
+        <%= image_tag "delta_logo", class: 'svg logo' %>
         <span class="brand-text">Changenuity</span>
       <% end %>
       <ul id="navbar-primary" class="links-list">
