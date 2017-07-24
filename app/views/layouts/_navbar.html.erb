@@ -13,35 +13,42 @@
         <li class="navbar-primary-link"><%= link_to "About", '#' %></li>
       </ul>
       <div id="navbar-secondary">
-        <button class="form-toggle-show">
-          <i class="link-icon material-icons">account_box</i>
-          <span>Login</span>
-        </button>
-        <form class="navbar-login-form" action="" method="post">
-          <div class="widgets-wrapper">
-            <div class="form-widget">
-              <label for="nav-user-email" class="sr-only">Email</label>
-              <input type="email" id="nav-user-email" placeholder="example@email.com" name="user_email">
+        <% if user_signed_in? %>
+          <button class="form-toggle-show">
+            <!-- <%= gravatar_for @user %> -->
+            <%= current_user.name || current_user.username %>
+          </button>
+        <% else %>
+          <button class="form-toggle-show">
+            <i class="link-icon material-icons">account_box</i>
+            <span>Login</span>
+          </button>
+          <form class="navbar-login-form" action="" method="post">
+            <div class="widgets-wrapper">
+              <div class="form-widget">
+                <label for="nav-user-email" class="sr-only">Email</label>
+                <input type="email" id="nav-user-email" placeholder="example@email.com" name="user_email">
+              </div>
+              <div class="form-widget">
+                <label for="nav-user-password" class="sr-only">Password</label>
+                <input type="password" id="nav-user-password" placeholder="password" name="user_email">
+              </div>
             </div>
-            <div class="form-widget">
-              <label for="nav-user-password" class="sr-only">Password</label>
-              <input type="password" id="nav-user-password" placeholder="password" name="user_email">
+            <div class="buttons-wrapper">
+              <button type="submit" class="button-sign-up">
+                <i class="material-icons button-icon">person_add</i>
+                <span>Sign Up</span>
+              </button>
+              <button type="submit" class="button-sign-in">
+                <i class="material-icons button-icon">launch</i>
+                <span>Sign In</span>
+              </button>
             </div>
-          </div>
-          <div class="buttons-wrapper">
-            <button type="submit" class="button-sign-up">
-              <i class="material-icons button-icon">person_add</i>
-              <span>Sign Up</span>
-            </button>
-            <button type="submit" class="button-sign-in">
-              <i class="material-icons button-icon">launch</i>
-              <span>Sign In</span>
-            </button>
-          </div>
-        </form>
+          </form>
+        <% end %>
       </div>
+      <!--
       <ul id="navbar-secondary" class="links-list">
-        <!-- Once again, I do not think it is a good idea to have the ability to add projects front and center like this -->
         <li class="navbar-secondary-link">
           <%= link_to post_path do %>
             <i class="link-icon material-icons">add</i>
@@ -75,6 +82,7 @@
       </ul>
       <i class="material-icons navbar-handle open-nav" data-component-id="navbar-primary">menu</i>
       <i class="material-icons navbar-handle open-nav" data-component-id="navbar-secondary">person_outline</i>
+    -->
     </nav>
   </div>
 </div>
