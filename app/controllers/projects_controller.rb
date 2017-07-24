@@ -3,7 +3,11 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!,      only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @projects = Project.search(params[:term])
+    if params[:userid]
+      @projects = Project.where(user_id: params[:userid])
+    else
+      @projects = Project.search(params[:term])
+    end
   end
 
   def show
