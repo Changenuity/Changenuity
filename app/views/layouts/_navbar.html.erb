@@ -15,10 +15,19 @@
         <li class="navbar-primary-link"><%= link_to "About", '#' %></li><!-- Should the "About" page really be up here? -->
       </ul>
       <div id="navbar-secondary">
-        <button class="form-toggle-show">
-          <i class="link-icon material-icons">account_box</i>
-          <span>Login</span>
-        </button>
+        <% if user_signed_in? %>
+          <%= form_tag destroy_user_session_path, method: :delete do %>
+            <button class="form-toggle-show">
+              <i class="link-icon material-icons">account_box</i>
+              <span>Logout</span>
+            </button>
+          <% end %>
+        <% else %>
+          <button class="form-toggle-show navbar-login-box">
+            <i class="link-icon material-icons">account_box</i>
+            <span>Login</span>
+          </button>
+        <% end %>
         <form class="navbar-login-form" action="" method="post">
           <div class="widgets-wrapper">
             <div class="form-widget">

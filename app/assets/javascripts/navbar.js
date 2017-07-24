@@ -137,7 +137,7 @@ $(document).on('turbolinks:load', function(){
     $navbarForm.fadeOut();
     navbarFormOn = false;
   });
-  $('#navbar-secondary button.form-toggle-show').on('click', function(e) {
+  $('#navbar-secondary button.navbar-login-box').on('click', function(e) {
     e.stopPropagation();
     toggleNavbarForm();
   });

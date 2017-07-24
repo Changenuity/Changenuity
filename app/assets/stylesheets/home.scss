@@ -39,20 +39,32 @@ html {
             margin-right: 0.7rem;
           }
         }
-        .form-widget {
-          input {
-            padding: 0.7rem 2rem;
-            background: none;
-            color: white;
-            border-radius: 4rem;
-            border: 0.1rem solid white;
-            width: 100%;
-            &::placeholder {
-              color: $color-light-turquoise;
-            }
-            &:focus {
-              outline: none;
-            }
+        a:hover {
+          text-decoration: underline;
+        }
+        label, a {
+          display: block;
+          text-align: right;
+          color: white;
+          font-size: 1.1rem;
+          margin: 0;
+          input[type="checkbox"] {
+            width: auto;
+            margin: 0.5rem;
+          }
+        }
+        input {
+          padding: 0.7rem 2rem;
+          background: none;
+          color: white;
+          border-radius: 4rem;
+          border: 0.1rem solid white;
+          width: 100%;
+          &::placeholder {
+            color: $color-light-turquoise;
+          }
+          &:focus {
+            outline: none;
           }
         }
       }
@@ -88,14 +100,15 @@ html {
           text-align: right;
           color: white;
           font-size: 1.1rem;
-          a {
+          a.go-to-sign-in {
             font-size: 1.5rem;
             color: $color-prussian-blue;
             font-size: 1rem;
             color: #ffffff;
             border: 0.01px solid white;
             border-radius: 4rem;
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 0.8rem;
+            margin: 0 0 0 0.3rem;
           }
         }
         .explore-button {
@@ -138,7 +151,7 @@ html {
           margin-bottom: 2.5rem;
         }
         form {
-          .form-widget input {
+          input {
             background: $color-light-orange;
           }
         }
@@ -273,7 +286,7 @@ html {
             font-size: 2rem;
           }
         }
-        .form-widget input {
+        input {
           font-size: 1.1rem;
         }
       }
