@@ -1,10 +1,91 @@
 <% provide(:title, @project.name) %>
-<div id="projects-show" class="projects projects-show">
-  <header style="background-image: url(<%= @project.image.url(:medium) %>)">
+<div id="projects-show">
+  <header id="projects-show-header">
+    <div class="projects-show-background-image"></div>
     <div class="container">
-      <h1><%= @project.name %></h1>
+      <h1 class="project-name"><%= @project.name %></h1>
       <p class="project-location"><%= @project.location %></p>
+      <a href="#projects-show-main" class="explore-button"><i class="material-icons">keyboard_arrow_down</i></a>
     </div>
   </header>
-  <main></main>
+        <% if user_signed_in? && @project.user_id == current_user.id %>
+        <article>
+          <h4>PROPOSALS:</h4>
+          <%= render @project.proposals %>
+        </article>
+        <% end %>
+
+  <main id="projects-show-main">
+    <div class="container">
+      <div class="section-group">
+        <section class="prj-section" data-section-id="quick-info">
+          <h3 class="section-header">Quick Info</h3>
+          <ul class="quick-info-pane">
+            <li class="quick-info-item">
+              <span class="quick-info-title">Project</span>
+              <%= @project.name %>
+          <h3>Submit a Proposal</h3>
+          <%= render 'proposals/form' %>
+            </li>
+            <li class="quick-info-item">
+              <span class="quick-info-title">Location</span>
+              <%= @project.location %>
+            </li>
+            <li class="quick-info-item">
+              <span class="quick-info-title">Date</span>
+              <%= @project.date %>
+            </li>
+            <li class="quick-info-item">
+              <span class="quick-info-title">Author</span>
+              AUTHOR/ORGANIZATION
+            </li>
+          </ul>
+        </section>
+        <section class="prj-section" data-section-id="tags">
+          <h3 class="section-header">Tags</h3>
+          <div class="project-tags-wrapper">
+            <ul class="project-tags">
+              <%= render @project.tags %>
+            </ul>
+          </div>
+        </section>
+      </div>
+      <div class="section-group">
+        <section class="prj-section" data-section-id="description">
+          <h3 class="section-header">Description</h3>
+          <p class="project-description"><%= @project.description %></p>
+        </section>
+      </div>
+      <div class="section-group">
+        <section class="prj-section" data-section-id="gallery">
+          <h3 class="section-header">Images</h3>
+          <div id="project-pictures-carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+              <!-- For backend folks: For rendering multiple carousel items,
+                   ensure that the image has class "project-image" and that
+                   it is wrapped in a div with class "carousel-item".
+                   Make sure that the first div also has the "active" class -->
+              <div class="carousel-item active">
+                <%= image_tag @project.image.url(:thumb), class: "project-image", alt: "Project Image" %>
+              </div>
+              <div class="carousel-item">
+                <%= image_tag @project.image.url(:medium), class: "project-image", alt: "Project Image" %>
+              </div>
+              <div class="carousel-item">
+                <%= image_tag @project.image.url(:large), class: "project-image", alt: "Project Image" %>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#project-pictures-carousel" role="button" data-slide="prev">
+              <i class="material-icons">keyboard_arrow_left</i>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#project-pictures-carousel" role="button" data-slide="next">
+              <i class="material-icons">keyboard_arrow_right</i>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
 </div>

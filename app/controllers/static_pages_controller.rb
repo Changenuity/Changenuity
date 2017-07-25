@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def landing
-    render layout: "landing"
+    render layout: "landing" #remove - not used
   end
 
   def home

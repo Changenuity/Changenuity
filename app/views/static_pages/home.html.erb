@@ -4,7 +4,7 @@
       <div class="header-wrapper">
         <div class="front-side">
           <h1>Welcome to <br /> <strong>Changenuity.</strong></h1>
-          <p>Hello!</p>
+          <p class="feature-text">Freelancing for a better future.</p>
           <%= form_tag "https://changenuity.typeform.com/to/ksjDPs", method: :get do %>
             <%#= label_tag :user_email, "Email", class: "sr-only" %>
             <%#= email_field_tag :user_email, nil, placeholder: "email@example.com" %>
@@ -39,7 +39,7 @@
       </div>
     </div>
     <div class="video-wrapper">
-      <%= video_tag "/videos/homepage-background-video.webm", id: "homepage-video", class: "background-video", size: "1280x720", autoplay: true, muted: true, loop: true %>
+      <%= video_tag "/videos/homepage-background-video.webm", id: "homepage-video", class: "background-video", size: "1280x720", preload: "auto", autoplay: true, muted: true, loop: true %>
     </div>
   </header>
   <main id="homepage-main">

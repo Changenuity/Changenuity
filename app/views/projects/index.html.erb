@@ -19,7 +19,7 @@
       <ul class="opp-card-grid links-list">
       <div>
         <% @projects.each do |project| %>
-          <div class="pcard" data-project-url="<%= project_path(project) %>"> <!-- This data attribute is used by javascript, it enables navigation -->
+          <div class="pcard" data-project-url="<%= project_path(project) %>">
             <%= image_tag project.image.url(:medium), class: "pcard-img" %>
             <div class="pcard-content">
               <h2 class="pcard-maintitle"><%= project.name %></h2>

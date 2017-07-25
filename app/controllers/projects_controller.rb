@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
-  before_action :ensure_signup_complete, only: [:new, :create, :update, :destroy]
+  before_action :ensure_signup_complete,  only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!,      only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @projects = Project.search(params[:term])
@@ -7,6 +8,11 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    if @user = User.find_by_id(@project.user_id)
+      @authorName = @user.name || @user.username
+    else
+      @authorName = "Somebody"
+    end
   end
 
   def new
@@ -42,6 +48,6 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:name, :date, :location,
-      :description, :parameters, :references, :image, :tag_list, :term)
+      :description, :parameters, :references, :image, :tag_list, :user_id, :term)
   end
 end

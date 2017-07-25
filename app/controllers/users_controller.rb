@@ -43,11 +43,18 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    @user = User.find(params[:id])
+    if params[:id]
+      @user = User.find(params[:id])
+    elsif try = User.find_by_username(params[:username])
+      @user = try
+    else
+      flash[:error] = "Could not find user."
+      redirect_to home_path
+    end
   end
 
   def user_params
-    accessible = [ :name, :email ]
+    accessible = [ :name, :username, :email ]
     accessible << [ :password, :password_confirmation ] unless params[:user][:password].blank?
     params.require(:user).permit(accessible)
   end

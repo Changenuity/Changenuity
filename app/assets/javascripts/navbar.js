@@ -89,7 +89,7 @@ $(document).on('turbolinks:load', function(){
 
   // Scroll Remote logic
   var scrollToggle = (function(){
-    var throttle = 50;
+    var throttle = DESKTOP_NAVBAR_SOLID_THRESHOLD;
     return function() {
       if( scrollY > throttle ) {
         scrollRemote.turnOn();

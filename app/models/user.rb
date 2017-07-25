@@ -1,6 +1,8 @@
 class User < ApplicationRecord
 
   has_many :authentications
+  has_many :proposals
+  has_many :projects
 
   TEMP_EMAIL_PREFIX = 'changeme@changenuity'
   TEMP_EMAIL_REGEX = /\Achangeme@changenuity/
@@ -11,6 +13,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   validates_format_of :email, without: TEMP_EMAIL_REGEX, on: :update
+  validates :username, presence: true, uniqueness: true
 
   def User.find_for_omniauth(auth, signed_in_resource = nil)
     # Get the authentication and user if they exist
@@ -54,5 +57,10 @@ class User < ApplicationRecord
 
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
+  end
+
+  protected
+  def confirmation_required?
+    !Rails.env.development?
   end
 end
