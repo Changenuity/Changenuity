@@ -65,7 +65,7 @@ $border-radius: 0.3rem;
   background-repeat: no-repeat;
   color: $text-color;
   background-color: $base-color;
-  background-image: url($background-url);
+  background-image: image-url($background-url);
   &:before {
     /* Dark gradient */
     content: "";
@@ -189,7 +189,7 @@ ul, li {
 
 .missing-img {
   background-color: $color-grey;
-  background-image: url(shrug);
+  background-image: image-url("missing.svg");
   background-repeat: no-repeat;
   background-position: center 53%;
   background-size: 70%;
