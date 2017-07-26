@@ -1,7 +1,24 @@
-<footer id="page-footer" class="footer">
-  <div class="container-fluid col-xs-12">
-    <small>
-      Copyright &copy; 2017 Changenuity.
-    </small>
+<footer id="page-footer">
+  <div class="container footer-container">
+    <div class="links-wrapper">
+      <!-- <h4 class="links-header">Keep Exploring</h4> -->
+      <ul class="links-list footer-links-list">
+        <li class="footer-link"><%= link_to "Home", home_path %></li>
+        <li class="footer-link"><a href="#0">About</a></li>
+        <li class="footer-link"><a href="#0">Terms</a></li>
+      </ul>
+    </div>
+    <div class="links-wrapper">
+      <!-- <h4 class="links-header">Also At</h4> -->
+      <ul class="links-list footer-links-list">
+        <li class="footer-link"><a href="https://www.facebook.com/changenuity/"><i class="fa fa-facebook-official link-icon" aria-hidden="true"></i>Facebook</a></li>
+        <li class="footer-link"><a href="https://medium.com/@changenuity"><i class="fa fa-medium link-icon" aria-hidden="true"></i>Blog</a></li>
+        <li class="footer-link"><a href="https://twitter.com/changenuity"><i class="fa fa-twitter link-icon" aria-hidden="true"></i>Twitter</a></li>
+      </ul>
+    </div>
+    <p class="footer-brand">
+      <span class="footer-copyright">Copyright &copy; 2017 Changenuity.</span>
+      <%= image_tag "delta_logo", class: 'svg footer-logo' %>
+    </p>
   </div>
 </footer>
