@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   def set_user
     if params[:id]
       @user = User.find(params[:id])
-    elsif try = User.find_by_username(params[:username])
+    elsif try = User.find_by_username(params["username"])
       @user = try
     else
       flash[:error] = "Could not find user."
