@@ -13,7 +13,6 @@
       <div id="navbar-secondary">
         <% if user_signed_in? %>
           <button class="form-toggle-show">
-            <!-- <%= gravatar_for @user %> -->
             <%= current_user.name || current_user.username %>
           </button>
           <%= form_tag destroy_user_session_path, method: :delete do %>
