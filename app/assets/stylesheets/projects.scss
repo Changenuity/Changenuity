@@ -20,7 +20,10 @@ html {
   }
   header
   {
-    background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0)), url('/assets/small-turbines.jpg') no-repeat  center center fixed;
+    background-size: 100%;
+    background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0)), url('/assets/change-laptop.png') no-repeat;
+    background-size: cover;
+    background-position: center;
   }
   #Discover
   {
@@ -38,20 +41,37 @@ html {
   }
   #view-projects
   {
-    height:6rem;
+    height:12rem;
     background-color: rgb(15, 73, 161);
     color: white;
     .filters
     {
       padding-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-flow: row wrap;
+      #options-title{
+        padding-top: 0.3rem;
+        padding-right: 1rem;
+        width: 100%;
+      }
+      .options{
+      }
     }
   }
   #projects
   {
     margin-left: 1rem;
-    .card{
-      width: 15rem;
-      height: 14rem;
+    .projects-card{
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      .card{
+        width: 10rem;
+        height: 14rem;
+        margin-right: 2rem;
+        margin-top: 2rem;
+      }
     }
   }
 }
@@ -63,7 +83,9 @@ html {
     margin-bottom: 0rem;
   }
   header{
-    background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0)), url('/assets/small-turbines.jpg') no-repeat  center center fixed;
+    background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0)), url('/assets/change-laptop.png') no-repeat;
+    background-size: cover;
+    background-position: center;
   }
   #Discover
   {
@@ -95,7 +117,7 @@ html {
         opacity: 1;
       }
     }
-    height: 30em;
+    height: 40em;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     h1{
       padding-top: 3rem;
@@ -110,25 +132,34 @@ html {
   }
   #view-projects
   {
-    height:5rem;
+    height: 10.5rem;
     background-color: rgb(15, 73, 161);
     color: white;
     .filters
     {
       padding-top: 1.5rem;
-    }
-    #types
-    {
+      display: flex;
+      justify-content: space-between;
+      #options-title{
+        padding-top: 0.3rem;
+        width: 100%;
+      }
+      .options{
+      }
     }
   }
   #projects
   {
     margin-top: 3rem;
-    .card{
-      width: 10rem;
-      height: 14rem;
-      margin-right: 2rem;
-      margin-top: 2rem;
+    .projects-card{
+      display: flex;
+      flex-flow: none;
+      .card{
+        width: 10rem;
+        height: 14rem;
+        margin-right: 2rem;
+        margin-top: 2rem;
+      }
     }
   }
 }
@@ -140,13 +171,15 @@ html {
   }
   header
   {
-    background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0)), url('/assets/small-turbines.jpg') no-repeat  center center fixed;
+    background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0)), url('/assets/change-laptop.png') no-repeat;
+    background-size: cover;
+    background-position: center;
   }
   #Discover
   {
-    //background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0)), url('/assets/small-turbines.jpg') no-repeat  center center fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
+    //background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0)), url('/assets/change-laptop.png') no-repeat  center center fixed;
+    //background-size: cover;
+    //background-repeat: no-repeat;
     height: 30em;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     h1{
@@ -160,12 +193,31 @@ html {
   }
   #view-projects
   {
-
+    height:6rem;
+    background-color: rgb(15, 73, 161);
+    color: white;
+    .filters
+    {
+      padding-top: 1.5rem;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      #options-title{
+        padding-top: 0.3rem;
+        width: auto;
+      }
+      .options{
+      }
+    }
   }
   #projects
   {
     margin-top: 3rem;
     margin-left: 3rem;
+    .projects-card{
+      display: flex;
+      flex-flow: none;
+    }
     .card{
       width: 10rem;
       height: 14rem;

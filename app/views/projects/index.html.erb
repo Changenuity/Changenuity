@@ -21,12 +21,30 @@
   <section id="view-projects">
     <div class="container">
       <div class="row filters">
-        <div class="col-sm-3">
+        <div id="options-title">
           Filters
         </div>
-        <div class="col-sm-3">
+        <div class="options">
           Type:
-          <select class="custom-select" id="types">
+          <select class="custom-select">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <div class="options">
+          Sectors:
+          <select class="custom-select">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <div class="options">
+          Location:
+          <select class="custom-select">
             <option selected>Open this select menu</option>
             <option value="1">One</option>
             <option value="2">Two</option>
@@ -39,7 +57,7 @@
 
   <section id="projects">
     <div class="container-fluid">
-      <div class="d-flex justify-content-md-start justify-content-sm-center justify-content-lg-start">
+      <div class="justify-content-md-start justify-content-lg-start projects-card">
           <div class="card">
             Add a new project
           </div>
