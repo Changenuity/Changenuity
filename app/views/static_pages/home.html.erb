@@ -14,7 +14,9 @@
             <% end %>
           <% end %>
           <p>Or <%= link_to "Sign In", nil, class: "flip-homepage go-to-sign-in" %></p>
-          <%= link_to raw('<i class="material-icons">keyboard_arrow_down</i>'), "#homepage-main", class: "explore-button" %>
+          <%= link_to "#homepage-main", class: "explore-button" do %>
+            <i class="material-icons">keyboard_arrow_down</i>
+          <% end %>
         </div>
         <div class="back-side">
           <h2>Welcome back.</h2>
@@ -34,7 +36,10 @@
             <% end %>
             <%= link_to "Forgot your password?", new_password_path(:user) %>
           <% end %>
-          <%= link_to raw('<i class="material-icons">chevron_left</i> Back'), nil, class: "flip-homepage go-to-sign-up" %>
+          <%= link_to nil, class: "flip-homepage go-to-sign-up" do %>
+            <i class="material-icons">chevron_left</i>
+            Back
+          <% end %>
         </div>
       </div>
     </div>

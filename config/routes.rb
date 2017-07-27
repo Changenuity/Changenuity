@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   end
   resources  :tags, only: [:index, :show]
   devise_for :users, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
-  get  '/users',    to: 'users#index'
-  get  '/users/:username',to: 'users#show'
-  resources :users, :only => [:show]
+  get '/users/:username', to: 'users#show'
+  resources :users, :only => [:index, :show]
 end

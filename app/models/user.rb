@@ -4,6 +4,11 @@ class User < ApplicationRecord
   has_many :proposals
   has_many :projects
 
+  # Make user_path(@user) point to /users/username instead of /users/id
+  def to_param
+    username
+  end
+
   TEMP_EMAIL_PREFIX = 'changeme@changenuity'
   TEMP_EMAIL_REGEX = /\Achangeme@changenuity/
 
