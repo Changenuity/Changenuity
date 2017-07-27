@@ -15,12 +15,24 @@
       <p><time><%= @user.created_at %></time></p>
     </section>
   </aside>
+  <div style="float:right;">
+    <h3>My Projects</h3>
+    <%= render @projects %>
+
+    <h3>My Proposals</h3>
+    <%= render @proposals %>
+
+    <h3>Received Proposals</h3>
+    <% @proposalsReceived.each do |proposal| %>
+      <%= render proposal %>
+    <% end %>
+  </div>
 </main>
 
 <% if user_signed_in? && @user == current_user %>
 <%= link_to "My Projects", projects_path(:userid => current_user.id) %><br/><!--TODO-->
 <%= link_to "My Proposals", proposals_path %><br/>
 <%= link_to "Edit", edit_user_registration_path %><br/>
-<%= link_to "Log out", destroy_user_session_path, method: :delete %>
+<%= link_to "Log out", destroy_user_session_path, method: :delete %><br />
 <% end %>
 <%= link_to "Back", :back %><br/>

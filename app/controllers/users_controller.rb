@@ -3,6 +3,12 @@ class UsersController < ApplicationController
   before_action :ensure_signup_complete, only: [:new, :create, :update, :destroy]
 
   def show
+    @proposals = Proposal.where(user_id: current_user.id)
+    @projects = Project.where(user_id: current_user.id)
+    @proposalsReceived = []
+    @projects.each do |project|
+      @proposalsReceived << project.proposals
+    end
   end
 
   def edit
