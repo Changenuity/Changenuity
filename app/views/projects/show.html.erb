@@ -8,13 +8,6 @@
       <a href="#projects-show-main" class="explore-button"><i class="material-icons">keyboard_arrow_down</i></a>
     </div>
   </header>
-        <% if user_signed_in? && @project.user_id == current_user.id %>
-        <article>
-          <h4>PROPOSALS:</h4>
-          <%= render @project.proposals %>
-        </article>
-        <% end %>
-
   <main id="projects-show-main">
     <div class="container">
       <div class="section-group">
@@ -24,8 +17,6 @@
             <li class="quick-info-item">
               <span class="quick-info-title">Project</span>
               <%= @project.name %>
-          <h3>Submit a Proposal</h3>
-          <%= render 'proposals/form' %>
             </li>
             <li class="quick-info-item">
               <span class="quick-info-title">Location</span>
@@ -61,10 +52,10 @@
           <h3 class="section-header">Images</h3>
           <div id="project-pictures-carousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner" role="listbox">
-              <!-- For backend folks: For rendering multiple carousel items,
+              <%#  For backend folks: For rendering multiple carousel items,
                    ensure that the image has class "project-image" and that
                    it is wrapped in a div with class "carousel-item".
-                   Make sure that the first div also has the "active" class -->
+                   Make sure that the first div also has the "active" class %>
               <div class="carousel-item active">
                 <%= image_tag @project.image.url(:thumb), class: "project-image", alt: "Project Image" %>
               </div>
@@ -86,6 +77,22 @@
           </div>
         </section>
       </div>
+
+      <% if user_signed_in? && @project.user_id == current_user.id %>
+        <div class="section-group">
+          <section class="prj-section" data-section-id="proposals">
+            <h3 class="section-header">Proposals</h3>
+            <%= render @project.proposals %>
+          </section>
+        </div>
+      <% elsif user_signed_in? %>
+        <div class="section-group">
+          <section class="prj-section">
+            <h3>Submit a Proposal</h3>
+            <%= render 'proposals/form' %>
+          </section>
+        </div>
+      <% end %>
     </div>
   </main>
 </div>

@@ -27,25 +27,35 @@
             <i class="link-icon material-icons">account_box</i>
             <span>Login</span>
           </button>
-        <% end %>
-        <form class="navbar-login-form" action="" method="post">
-          <div class="widgets-wrapper">
-            <div class="form-widget">
-              <label for="nav-user-email" class="sr-only">Email</label>
-              <input type="email" id="nav-user-email" placeholder="example@email.com" name="user_email">
+          <%= form_for :user, url: session_path(:user), html:{ class:"navbar-login-form" } do |f| %>
+            <div class="widgets-wrapper">
+              <div class="form-widget">
+                <%= f.label :email, "Email", class: "sr-only", for: "navbar-user-email"%>
+                <%= f.text_field :email, placeholder: "example@email.com", id: "navbar-user-email" %>
+              </div>
+              <div class="form-widget">
+                <%= f.label :password, "Password", class: "sr-only", for: "navbar-user-password" %>
+                <%= f.password_field :password, placeholder: "password", id: "navbar-user-password", autocomplete: "off" %>
+              </div>
+              <%= f.label :remember_me do %>
+                <%= f.check_box :remember_me %>
+                Remember me
+              <% end %>
+              <%= link_to "Forgot your password?", new_password_path(:user) %>
             </div>
             <div class="buttons-wrapper">
               <button type="submit" class="button-sign-up">
                 <i class="material-icons button-icon">person_add</i>
                 <span>Sign Up</span>
               </button>
-              <button type="submit" class="button-sign-in">
+              <%= button_tag type: "submit", class: "button-sign-in" do %>
                 <i class="material-icons button-icon">launch</i>
                 <span>Sign In</span>
-              </button>
+              <% end %>
             </div>
-          </form>
-      </div>
+          <% end %>
+        <% end %>
+      </div><!-- navbar-secondary -->
       <% if false %>
         <ul id="navbar-secondary" class="links-list">
           <li class="navbar-secondary-link">
@@ -79,9 +89,9 @@
           </li>
           <% end %>
         </ul>
-        <i class="material-icons navbar-handle open-nav" data-component-id="navbar-primary">menu</i>
-        <i class="material-icons navbar-handle open-nav" data-component-id="navbar-secondary">person_outline</i>
       <% end %>
+      <i class="material-icons navbar-handle open-nav" data-component-id="navbar-primary">menu</i>
+      <i class="material-icons navbar-handle open-nav" data-component-id="navbar-secondary">person_outline</i>
     </nav>
   </div>
 </div>
