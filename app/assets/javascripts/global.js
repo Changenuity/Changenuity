@@ -45,6 +45,8 @@ function createDisableOverlay($parentElement, transitionTime, zIndex) {
 // Global bindings and behaviours
 $(document).on('turbolinks:load', function(){
 
+  // Store the latest scrollY and scrollX values for
+  // debouncing scroll events
   $(window).on('scroll', function(){
     scrollY = window.scrollY;
     scrollX = window.scrollX;
@@ -54,42 +56,52 @@ $(document).on('turbolinks:load', function(){
   // Smooth Scrolling on internal links
   // Stolen from CSS-tricks' article on smooth scrolling
   // https://css-tricks.com/snippets/jquery/smooth-scrolling/
-  $('a[href*="#"]')
-    // Remove links that don't actually link to anything
-    .not('[href="#"]')
-    .not('[href="#0"]')
-    .click(function(event) {
-      // On-page links
-      if (
-        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
-        &&
-        location.hostname == this.hostname
-      ) {
-        // Figure out element to scroll to
-        var target = $(this.hash);
-        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-        // Does a scroll target exist?
-        if (target.length) {
-          // Only prevent default if animation is actually gonna happen
-          event.preventDefault();
-          $('html, body').animate({
-            scrollTop: target.offset().top
-          }, long_transition_time, function() {
-            // Callback after animation
-            // Must change focus!
-            var $target = $(target);
-            $target.focus();
-            if ($target.is(":focus")) { // Checking if the target was focused
-              return false;
-            } else {
-              $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
-              $target.focus(); // Set focus again
-            };
-          });
-        }
+  $(document.body).on('click', 'a[href*="#"]', function(){
+    if($(this).is('[href="#"], [href="#0"], [role="button"]')) {
+      // Remove links that don't actually link to anything and
+      // links which are intended as buttons
+      return;
+    }
+    // On-page links
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+      &&
+      location.hostname == this.hostname
+    ) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, long_transition_time, function() {
+          // Callback after animation
+          // Must change focus!
+          var $target = $(target);
+          $target.focus();
+          if ($target.is(":focus")) { // Checking if the target was focused
+            return false;
+          } else {
+            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+            $target.focus(); // Set focus again
+          };
+        });
+      } else if( this.hash === '#top' ) {
+        // Special case for scroll to top
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: 0
+        }, medium_transition_time, function() {
+          // Reset focus by arbitrarily selecting something
+          // to focus and then blur out
+          $(target).focus().blur();
+        });
       }
-    });
-
+    }
+  });
 
   // Replace all images with the svg class with inline-svg
   // Code courtesy of Drew Baker: https://stackoverflow.com/a/11978996

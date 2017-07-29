@@ -13,7 +13,7 @@
               <span>Sign Up</span>
             <% end %>
           <% end %>
-          <p>Or <%= link_to "Sign In", nil, class: "flip-homepage go-to-sign-in" %></p>
+          <p>Or <button class="flip-homepage go-to-sign-in">Sign In</button></p>
           <%= link_to "#homepage-main", class: "explore-button" do %>
             <i class="material-icons">keyboard_arrow_down</i>
           <% end %>
@@ -36,10 +36,10 @@
             <% end %>
             <%= link_to "Forgot your password?", new_password_path(:user) %>
           <% end %>
-          <%= link_to nil, class: "flip-homepage go-to-sign-up" do %>
+          <button class="flip-homepage go-to-sign-up">
             <i class="material-icons">chevron_left</i>
             Back
-          <% end %>
+          </button>
         </div>
       </div>
     </div>

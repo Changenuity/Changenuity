@@ -244,4 +244,10 @@
       padding: 0.2rem;
     }
   }
+  section[data-section-id="proposals"] {
+    .section-header {
+      border-left: 0.1rem solid #607D8B;
+      border-top: 0.1rem solid #607D8B;
+    }
+  }
 }

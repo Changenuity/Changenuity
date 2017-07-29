@@ -79,16 +79,16 @@
       </div>
 
       <% if user_signed_in? && @project.user_id == current_user.id %>
+      <% elsif user_signed_in? %>
         <div class="section-group">
           <section class="prj-section" data-section-id="proposals">
             <h3 class="section-header">Proposals</h3>
             <%= render @project.proposals %>
           </section>
         </div>
-      <% elsif user_signed_in? %>
         <div class="section-group">
-          <section class="prj-section">
-            <h3>Submit a Proposal</h3>
+          <section class="prj-section" data-section-id="proposals">
+            <h3 class="section-header">Submit a Proposal</h3>
             <%= render 'proposals/form' %>
           </section>
         </div>

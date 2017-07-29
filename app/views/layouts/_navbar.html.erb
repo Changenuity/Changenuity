@@ -12,18 +12,18 @@
       </ul>
       <div id="navbar-secondary">
         <% if user_signed_in? %>
-          <%= link_to user_path(current_user) do %>
-            <%= gravatar_for current_user %>
+          <%= link_to user_path(current_user), class: "navbar-account-button go-to-account" do %>
+            <i class="link-icon material-icons">face</i>
             <%= current_user.name || current_user.username %>
           <% end %>
           <%= form_tag destroy_user_session_path, method: :delete do %>
-            <button class="form-toggle-show">
-              <i class="link-icon material-icons">account_box</i>
+            <button class="navbar-account-button">
+              <i class="link-icon material-icons">exit_to_app</i>
               <span>Logout</span>
             </button>
           <% end %>
         <% else %>
-          <button class="form-toggle-show navbar-login-box">
+          <button class="navbar-account-button navbar-login-box">
             <i class="link-icon material-icons">account_box</i>
             <span>Login</span>
           </button>
@@ -37,10 +37,13 @@
                 <%= f.label :password, "Password", class: "sr-only", for: "navbar-user-password" %>
                 <%= f.password_field :password, placeholder: "password", id: "navbar-user-password", autocomplete: "off" %>
               </div>
-              <%= f.label :remember_me do %>
-                <%= f.check_box :remember_me %>
-                Remember me
-              <% end %>
+              <div class="form-widget checkbox">
+                <%= f.label :remember_me, for: "navbar-remember-me" do %>
+                  <%= f.check_box :remember_me, id: "navbar-remember-me"%>
+                  Remember me
+                <% end %>
+              </div>
+
               <%= link_to "Forgot your password?", new_password_path(:user) %>
             </div>
             <div class="buttons-wrapper">
