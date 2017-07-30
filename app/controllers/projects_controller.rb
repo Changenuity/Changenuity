@@ -12,6 +12,11 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    if user_signed_in? && @project.user_id != current_user.id
+      @myProposals = @project.proposals.select do |proposal|
+        proposal.user_id == current_user.id
+      end
+    end
     if @user = User.find_by_id(@project.user_id)
       @authorName = @user.name || @user.username
     else
