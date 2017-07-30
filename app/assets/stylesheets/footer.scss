@@ -48,7 +48,7 @@
   }
   a {
     transition: $quick-transition-time;
-    color: #37474F;
+    color: $color-blue-diane;
     &:hover {
       color: $color-light-orange;
     }

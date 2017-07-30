@@ -1,0 +1,86 @@
+#users-show {
+  .users-show-background-image {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background: image-url("circle-mess.svg");
+    background-size: cover;
+    background-position: center 60%;
+    background-repeat: no-repeat;
+    z-index: -1;
+    transform: translateZ(0);
+    pointer-events: none;
+  }
+  .users-show-container {
+    margin-top: 50vh;
+    margin-bottom: 3rem;
+    background-color: white;
+    @include light-shadow;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+  }
+  .header-wrapper {
+    text-align: center;
+  }
+}
+
+#users-show-header {
+  padding-top: 5rem;
+  display: inline-flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  justify-content: center;
+  margin-bottom: 1rem;
+  .gravatar {
+    position: absolute;
+    top: 0;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 100%;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    border: 0.3rem solid white;
+    @include light-shadow;
+  }
+  .user-name {
+    font-size: 2.5rem;
+    color: $color-blue-diane;
+    margin-bottom: 1rem;
+    font-family: "Roboto";
+  }
+  .header-row {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .row-title {
+    font-weight: 700;
+    width: 10rem;
+  }
+}
+
+#users-show-main {
+  position: relative;
+  width: 100%;
+  @include immediate-children-bottom-margins(1rem);
+  section {
+    position: relative;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    overflow: hidden;
+  }
+  .section-header {
+    padding: 2rem 2rem 1rem;
+    font-size: 2.45rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.12rem;
+    font-family: "Roboto";
+    border-top: 0.1rem solid #EC6333;
+    box-shadow: 0 -2rem 5rem black;
+  }
+  .section-wrapper {
+    padding: 0 1.5rem;
+  }
+}
