@@ -205,3 +205,8 @@ ul, li {
   font-size: 1.5rem;
   color: white;
 }
+
+// Style Devise alert-notice the same way as Bootstrap alert-success
+.alert-notice {
+  @extend .alert-success;
+}

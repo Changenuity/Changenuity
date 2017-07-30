@@ -1,7 +1,7 @@
 class ProposalsController < ApplicationController
-	before_action :authenticate_user!
+  before_action :authenticate_user!
 
-	def index
+  def index
     @proposals = Proposal.where(user_id: current_user.id)
   end
 
@@ -20,6 +20,7 @@ class ProposalsController < ApplicationController
     @proposal.user_id = current_user.id
     if @proposal.save
       flash[:success] = "Thank you for sending in your proposal!"
+      ProposalMailer.new_proposal_email(@proposal).deliver_later
     else
       flash[:error] = "Failed to submit proposal..."
     end
