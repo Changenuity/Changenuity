@@ -101,14 +101,14 @@ html {
           text-align: left;
           color: white;
           font-size: 1.1rem;
-          a.go-to-sign-in {
-            color: $color-prussian-blue;
+          .go-to-sign-in {
             font-size: 1rem;
             color: #ffffff;
             border: 0.01px solid white;
             border-radius: 4rem;
             padding: 0.5rem 0.8rem;
             margin: 0 0 0 0.3rem;
+            background: none;
           }
         }
         .explore-button {
@@ -164,6 +164,7 @@ html {
           position: absolute;
           left: 2rem;
           bottom: 1.5rem;
+          background: none;
         }
       }
     }

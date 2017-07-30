@@ -1,0 +1,85 @@
+#page-footer {
+  background-color: rgba(255, 255, 255, 0.95);
+  position: relative;
+  @include light-shadow;
+  .footer-container {
+    padding-top: 2rem;
+    overflow: auto;
+    > * {
+      margin-bottom: 1rem;
+    }
+  }
+  .footer-brand {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+  .footer-copyright {
+    width: 100%;
+    color: $color-grey;
+  }
+  .footer-logo {
+    fill: $color-pastel-green;
+    width: 1.5rem;
+    height: auto;
+    margin-top: 0.3rem;
+  }
+  .links-header {
+    text-align: center;
+    font-size: 1rem;
+  }
+  .footer-links-list {
+    display: flex;
+    justify-content: center;
+  }
+  .footer-link {
+    flex: 1;
+    max-width: 8rem;
+    text-align: center;
+    border-right: 0.01rem solid $color-grey;
+    &:last-child {
+      border-right: none;
+    }
+  }
+  .link-icon {
+    margin-right: 0.5rem;
+  }
+  a {
+    transition: $quick-transition-time;
+    color: $color-blue-diane;
+    &:hover {
+      color: $color-light-orange;
+    }
+  }
+  .back-to-top {
+    z-index: 100;
+    position: absolute;
+    left: 50%;
+    transform:translate(-50%,0);
+    top: -1.6rem;
+    border: 0.01rem solid $color-light-orange;
+    background-color: white;
+    margin: 0;
+    line-height: 0;
+    border-radius: 100%;
+    overflow: hidden;
+    &:hover {
+      background-color: $color-light-orange;
+      color: white;
+    }
+    .material-icons {
+      font-size: 3rem;
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  #page-footer {
+    .footer-container {
+      border-left: 0.01rem solid $color-grey;
+      border-right: 0.01rem solid $color-grey;
+    }
+  }
+}

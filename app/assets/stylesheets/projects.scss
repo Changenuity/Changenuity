@@ -28,7 +28,7 @@
     bottom: 0px;
     left: 0px;
     right: 0px;
-    background: image-url("pattern.svg");
+    background: image-url("project_backdrop");
     background-size: cover;
     background-position: center 60%;
     background-repeat: no-repeat;
@@ -88,7 +88,7 @@
     &:hover {
       animation-play-state: paused, paused;
       .material-icons {
-        color: $color-light-orange;
+        text-shadow: 0 0 0.4rem white;
       }
     }
   }
@@ -98,12 +98,11 @@
     margin-top: 100vh; // Clears the header
     width: 100%;
 
-    padding-top: 3rem;
+    padding-top: 5rem;
     padding-bottom: 3rem;
     background: $gradient-tropics;
-    border-top: 0.3rem solid white;
 
-    box-shadow: inset 0 0 2.8rem -0.7rem black;
+    box-shadow: 0 0 2.8rem -0.7rem black;
   }
   .section-group {
     background-color: white;
@@ -243,6 +242,12 @@
       border-radius: 100%;
       font-size: 3rem;
       padding: 0.2rem;
+    }
+  }
+  section[data-section-id="proposals"] {
+    .section-header {
+      border-left: 0.1rem solid #607D8B;
+      border-top: 0.1rem solid #607D8B;
     }
   }
 }

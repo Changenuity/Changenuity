@@ -122,7 +122,7 @@ $(document).on('turbolinks:load', function(){
     if( !navbarFormOn ) {
       loginRemote.turnOn();
       $navbarForm.fadeIn();
-      $('#nav-user-email').focus();
+      $('#navbar-user-email').focus();
     } else {
       loginRemote.turnOff();
       $navbarForm.fadeOut();
@@ -148,8 +148,8 @@ $(document).on('turbolinks:load', function(){
 
 
 
-  $(document.body).on('click', '.open-nav', function(e) {
-    var $component = $('#' + $(e.target).attr('data-component-id'));
+  $(document.body).on('click', '.open-nav', function() {
+    var $component = $('#' + $(this).attr('data-component-id'));
     var $overlay = $(createDisableOverlay($('#navbar'), medium_transition_time));
     var clearButton = document.createElement('i');
     clearButton.innerHTML = 'clear';

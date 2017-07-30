@@ -1,23 +1,65 @@
 <% provide(:title, @user.name) %>
-<main id="page-main">
-  <header id="page-main-header" class="jumbotron splash">
-    <div class="container">
-      <h1><%= @user.name %></h1>
+<div id="users-show">
+  <div class="users-show-background-image"></div>
+  <div class="container users-show-container">
+    <div class="header-wrapper">
+      <header id="users-show-header">
+          <h1 class="sr-only">User Profile</h1>
+          <%= gravatar_for @user %>
+          <h2 class="user-name"><%= @user.name || @user.username %></h2>
+          <p class="user-email header-row"><span class="row-title">Email:</span><%= @user.email %></p>
+          <p class="user-created header-row" data-datetime="<%= @user.created_at %>"><span class="row-title">Created:</span><%= @user.created_at.strftime("%B #{@user.created_at.day.ordinalize}, %Y") %></p>
+      </header>
     </div>
-  </header>
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-      </h1>
-      <p>Username: <%= @user.username %></p>
-      <p class="project-location"><%= @user.email %></p>
-      <p><time><%= @user.created_at %></time></p>
-    </section>
-  </aside>
+    <main id="users-show-main">
+      <section class="user-section">
+        <h3 class="section-header">My Projects</h3>
+        <div class="section-wrapper">
+          <% @projects.each do |project| %>
+            <div class="pcard" data-project-url="<%= project_path(project) %>">
+              <%= image_tag project.image.url(:medium), class: "pcard-img" %>
+              <div class="pcard-content">
+                <h2 class="pcard-maintitle"><%= project.name %></h2>
+                <h3 class="pcard-subtitle"><%= project.location %></h2>
+                <h3 class="pcard-subtitle">By <a href="#0">OVOXO</a></h3>
+              </div>
+              <div class="pcard-footer">
+                <div class="btn-fav-wrapper">
+                  <i class="btn-fav material-icons">favorite</i>
+                  <span class="fav-count">132</span>
+                </div>
+                <a class="btn btn-success" data-category-value="Infrastructure" href="#">Infrastructure</a>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </section>
+      <section class="user-section">
+        <h3 class="section-header">My Proposals</h3>
+        <%= render @proposals %>
+      </section>
+    </main>
+  </div>
+<!--
   <div style="float:right;">
     <h3>My Projects</h3>
-    <%= render @projects %>
+    <% @projects.each do |project| %>
+      <div class="pcard" data-project-url="<%= project_path(project) %>">
+        <%= image_tag project.image.url(:medium), class: "pcard-img" %>
+        <div class="pcard-content">
+          <h2 class="pcard-maintitle"><%= project.name %></h2>
+          <h3 class="pcard-subtitle"><%= project.location %></h2>
+          <h3 class="pcard-subtitle">By <a href="#0">OVOXO</a></h3>
+        </div>
+        <div class="pcard-footer">
+          <div class="btn-fav-wrapper">
+            <i class="btn-fav material-icons">favorite</i>
+            <span class="fav-count">132</span>
+          </div>
+          <a class="btn btn-success" data-category-value="Infrastructure" href="#">Infrastructure</a>
+        </div>
+      </div>
+    <% end %>
 
     <h3>My Proposals</h3>
     <%= render @proposals %>
@@ -26,13 +68,14 @@
     <% @proposalsReceived.each do |proposal| %>
       <%= render proposal %>
     <% end %>
-  </div>
-</main>
 
-<% if user_signed_in? && @user == current_user %>
-<%= link_to "My Projects", projects_path(:userid => current_user.id) %><br/><!--TODO-->
-<%= link_to "My Proposals", proposals_path %><br/>
-<%= link_to "Edit", edit_user_registration_path %><br/>
-<%= link_to "Log out", destroy_user_session_path, method: :delete %><br />
-<% end %>
-<%= link_to "Back", :back %><br/>
+
+    <% if user_signed_in? && @user == current_user %>
+    <%= link_to "My Projects", projects_path(:userid => current_user.id) %><br/>
+    <%= link_to "My Proposals", proposals_path %><br/>
+    <%= link_to "Edit", edit_user_registration_path %><br/>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete %><br />
+    <% end %>
+    <%= link_to "Back", :back %><br/>
+  -->
+</div>

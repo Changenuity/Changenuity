@@ -17,14 +17,14 @@
   height: 100%;
   display: flex;
   flex-flow: row nowrap;
-  flex: none;
   align-items: center;
   justify-content: center;
   transition-duration: $quick-transition-time;
   .logo {
-    height: 1.5rem;
+    height: 1.4rem;
+    width: 1.4rem;
     margin: 0.3rem;
-    filter: brightness(0); // Makes the logo black
+    fill: black;
   }
   .brand-text {
     font-size: 1.2rem;
@@ -37,7 +37,6 @@
 #navbar-primary, #navbar-secondary {
   height: 100%;
   display: flex;
-  flex: none;
 }
 
 .navbar-login-form {
@@ -54,7 +53,7 @@
     padding: 2rem 1.5rem;
     @include immediate-children-bottom-margins(0.65rem);
   }
-  .form-widget input {
+  input[type="text"], input[type="password"] {
     padding: 0.7rem 2rem;
     background: none;
     color: $color-blue-stone;
@@ -99,7 +98,7 @@
 
 @include media-breakpoint-down(sm) {
   #navbar-wrapper {
-    background-color: rgba(255, 255, 255, 0.94);
+    background-color: rgba(255, 255, 255, 0.95);
     @include light-shadow;
   }
   #navbar .navbar-handle {
@@ -174,7 +173,7 @@
   #navbar-secondary {
     right: 0;
     transform: translateX(100%);
-    .form-toggle-show {
+    .navbar-account-button {
       display: none;
     }
   }
@@ -190,8 +189,7 @@
   #navbar-brand {
     padding: 0 1rem;
     .logo {
-      width: 1.3rem;
-      filter: brightness(1); // Makes the logo white
+      fill: white;
     }
     .brand-text {
       font-size: 1rem;
@@ -200,12 +198,12 @@
   }
   #navbar-primary, #navbar-secondary {
     flex-flow: row nowrap;
-    align-items: center;
     justify-content: center;
   }
   #navbar-primary {
     margin: 0 0.6rem;
     margin-right: auto; // Moves the secondary to the right
+    align-items: center;
     .navbar-primary-link {
       position: relative;
       font-size: 1rem;
@@ -230,13 +228,13 @@
   }
   #navbar-secondary {
     margin: 0;
-    .form-toggle-show {
+    align-items: stretch;
+    .navbar-account-button {
       height: 100%;
       font-size: 0.5rem;
       height: 100%;
       display: flex;
       flex-flow: column nowrap;
-      flex: none;
       align-items: center;
       justify-content: center;
       text-transform: uppercase;
@@ -246,13 +244,17 @@
       border-right: 0.01rem solid $color-grey;
       background: none;
       .link-icon {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
         transition-duration: $quick-transition-time;
+        margin-bottom: 0.3rem;
       }
       &:hover .link-icon {
         cursor: pointer;
         color: $color-orange;
       }
+    }
+    .go-to-account {
+      border-right: none;
     }
   }
 
@@ -277,7 +279,7 @@
     }
   }
   #navbar-wrapper.active {
-    background-color: rgba(255, 255, 255, 0.94);
+    background-color: rgba(255, 255, 255, 0.95);
     @include light-shadow;
     #navbar-brand {
       background-color: $color-grey;

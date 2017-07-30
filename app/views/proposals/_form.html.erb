@@ -1,8 +1,11 @@
-<%= form_for([@project, @project.proposals.build]) do |f| %>
+<%= form_for([@project, @project.proposals.build], html:{ class:"proposals-new-form" }) do |f| %>
 	<%= render "shared/error_messages", object: @project %>
-	<p>
-		<%= f.label :content %><br/>
-		<%= f.text_area :content %>
-	</p>
-	<%= f.submit %>
+	<div>
+		<%= f.label :content, class: "sr-only" %>
+		<%= f.text_area :content, class: "form-control" %>
+	</div>
+	<%= button_tag type: "submit", class: "btn btn-success submit-button" do %>
+		<i class="material-icons">call_made</i>
+		Submit
+	<% end %>
 <% end %>
