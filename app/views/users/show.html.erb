@@ -44,7 +44,12 @@
       </section>
       <section class="user-section">
         <h3 class="section-header">My Proposals</h3>
-        <%= render @proposals %>
+        <% @proposals.each do |proposal| %>
+          <div>
+            <%= proposal.content %>
+            <%= link_to proposal.project_id, project_path(:id => proposal.project_id) %>
+          </div>
+        <% end %>
       </section>
     </main>
   </div>
