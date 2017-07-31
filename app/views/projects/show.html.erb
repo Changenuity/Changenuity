@@ -14,7 +14,6 @@
         <section class="prj-section" data-section-id="quick-info">
           <h3 class="section-header">Quick Info
           <% if user_signed_in? && @project.user_id == current_user.id %>
-            <!--TODO: restrict users from access to edit page (server side)-->
             <%= link_to "<Edit>", edit_project_path(@project) %>
           <% end %>
           </h3>

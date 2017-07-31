@@ -40,6 +40,9 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
+    if current_user.id != @project.user_id
+      redirect_to @project
+    end
   end
 
   def update
