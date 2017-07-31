@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources  :proposals
   end
   resources  :tags, only: [:index, :show]
-  devise_for :users, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}, path_names: {sign_up: 'top_secret_sign_up'}
+  devise_for :users, path: '', controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}, path_names: {sign_up: 'top_secret_sign_up'}
   get '/users/:username', to: 'users#show'
   resources :users, :only => [:index, :show]
 end
