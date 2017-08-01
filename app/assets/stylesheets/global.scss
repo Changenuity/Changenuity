@@ -91,6 +91,12 @@ $border-radius: 0.3rem;
    General Styles
 ============================================ */
 
+body,
+html {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 html {
   min-height: 100%;
   font-size: 16px; // This is to ensure consistent sizing across different platforms
@@ -160,18 +166,6 @@ ul, li {
   transition: all $quick-transition-time;
 }
 
-// .btn-danger {
-//   // TODO: Please name the following colors
-//   color: white;
-//   background-color: #9E2727;
-// }
-//
-// .btn-secondary {
-//   // TODO: Please name the following colors
-//   color: white;
-//   color: #056B49;
-// }
-
 .main-header {
   h1, h2, h3, h4, h5, h6 {
     letter-spacing: 0.11rem;
@@ -204,6 +198,44 @@ ul, li {
   color: white;
   font-size: 1.5rem;
   color: white;
+}
+
+.snackbar-container {
+  position: fixed;
+  z-index: 200;
+  right: 10%;
+  bottom: 1rem;
+  text-align: right;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-end;
+}
+
+.alert {
+
+  @keyframes alert-floatIn {
+    from {
+      transform: translateY(2rem);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  display: none;
+  max-width: 30rem;
+  text-align: left;
+  &.add {
+    animation: 1s alert-floatIn;
+  }
+  &.remove {
+    animation: $medium-transition-time alert-floatIn 0s 1 reverse forwards;
+  }
+}
+
+.alert-alert {
+  @extend .alert-danger;
 }
 
 // Style Devise alert-notice the same way as Bootstrap alert-success

@@ -71,7 +71,8 @@
     display: flex;
     border-top: 0.1rem solid $color-grey;
   }
-  button {
+  .button {
+    color: $color-blue-diane;
     flex: 1 0 auto;
     display: flex;
     align-items: center;

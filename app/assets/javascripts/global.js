@@ -42,8 +42,38 @@ function createDisableOverlay($parentElement, transitionTime, zIndex) {
 }
 
 
+
+function SnackbarController(alerts) {
+  var _this = this;
+  _this.alerts_array = [];
+  $(alerts).each(function(index, alert) {
+    _this.alerts_array.push(alert);
+  });
+}
+
+SnackbarController.prototype.showAlerts = function() {
+  $.each(this.alerts_array, function(index, alert) {
+    $(alert).show().addClass('add');
+    setTimeout(function(){
+      // It is necessary to remove the add class so that
+      $(alert).removeClass('add');
+    }, 1000);
+  });
+}
+
+SnackbarController.prototype.removeAlerts = function() {
+  $.each(this.alerts_array, function(index, alert){
+    $(alert).addClass('remove');
+    setTimeout(function() {
+      $(alert).remove();
+    }, 400);
+  })
+}
+
+
 // Global bindings and behaviours
 $(document).on('turbolinks:load', function(){
+
 
   // Store the latest scrollY and scrollX values for
   // debouncing scroll events
@@ -106,31 +136,36 @@ $(document).on('turbolinks:load', function(){
   // Replace all images with the svg class with inline-svg
   // Code courtesy of Drew Baker: https://stackoverflow.com/a/11978996
   $('img.svg').each(function(){
-      var $img = jQuery(this);
-      var imgID = $img.attr('id');
-      var imgClass = $img.attr('class');
-      var imgURL = $img.attr('src');
+    var $img = jQuery(this);
+    var imgID = $img.attr('id');
+    var imgClass = $img.attr('class');
+    var imgURL = $img.attr('src');
 
-      $.get(imgURL, function(data) {
-          // Get the SVG tag, ignore the rest
-          var $svg = $(data).find('svg');
+    $.get(imgURL, function(data) {
+        // Get the SVG tag, ignore the rest
+        var $svg = $(data).find('svg');
 
-          // Add replaced image's ID to the new SVG
-          if(typeof imgID !== 'undefined') {
-              $svg = $svg.attr('id', imgID);
-          }
-          // Add replaced image's classes to the new SVG
-          if(typeof imgClass !== 'undefined') {
-              $svg = $svg.attr('class', imgClass+' replaced-svg');
-          }
+        // Add replaced image's ID to the new SVG
+        if(typeof imgID !== 'undefined') {
+            $svg = $svg.attr('id', imgID);
+        }
+        // Add replaced image's classes to the new SVG
+        if(typeof imgClass !== 'undefined') {
+            $svg = $svg.attr('class', imgClass+' replaced-svg');
+        }
 
-          // Remove any invalid XML tags as per http://validator.w3.org
-          $svg = $svg.removeAttr('xmlns:a');
+        // Remove any invalid XML tags as per http://validator.w3.org
+        $svg = $svg.removeAttr('xmlns:a');
 
-          // Replace image with new SVG
-          $img.replaceWith($svg);
+        // Replace image with new SVG
+        $img.replaceWith($svg);
+    }, 'xml');
+  });
 
-      }, 'xml');
-    });
-
+  // Snackbar behaviour
+  snackbar = new SnackbarController($('.snackbar-container .alert'));
+  snackbar.showAlerts();
+  setTimeout(function(){
+    snackbar.removeAlerts();
+  }, 3000);
 });

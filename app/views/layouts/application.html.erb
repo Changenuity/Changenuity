@@ -7,8 +7,9 @@
   </head>
   <body>
     <%= render "layouts/navbar" %>
-    <div class="container">
+    <div class="snackbar-container">
       <% flash.each do |message_type, message| %>
+        <%# To display alerts on the site, just make sure that it is put into the "flash" variable %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
     </div>
