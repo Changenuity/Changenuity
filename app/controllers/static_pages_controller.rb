@@ -13,4 +13,7 @@ class StaticPagesController < ApplicationController
 
   def tos
   end
+
+  def tba
+  end
 end
