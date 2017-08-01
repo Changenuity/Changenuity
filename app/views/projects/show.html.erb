@@ -12,7 +12,11 @@
     <div class="container">
       <div class="section-group">
         <section class="prj-section" data-section-id="quick-info">
-          <h3 class="section-header">Quick Info</h3>
+          <h3 class="section-header">Quick Info
+          <% if user_signed_in? && @project.user_id == current_user.id %>
+            <%= link_to "<Edit>", edit_project_path(@project) %>
+          <% end %>
+          </h3>
           <ul class="quick-info-pane">
             <li class="quick-info-item">
               <span class="quick-info-title">Project</span>
@@ -79,11 +83,17 @@
       </div>
 
       <% if user_signed_in? && @project.user_id == current_user.id %>
-      <% elsif user_signed_in? %>
         <div class="section-group">
           <section class="prj-section" data-section-id="proposals">
             <h3 class="section-header">Proposals</h3>
             <%= render @project.proposals %>
+          </section>
+        </div>
+      <% elsif user_signed_in? %>
+        <div class="section-group">
+          <section class="prj-section" data-section-id="proposals">
+            <h3 class="section-header">Proposals</h3>
+            <%= render @myProposals %>
           </section>
         </div>
         <div class="section-group">
