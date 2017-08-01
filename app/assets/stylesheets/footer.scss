@@ -78,8 +78,10 @@
 @include media-breakpoint-up(md) {
   #page-footer {
     .footer-container {
+      /*
       border-left: 0.01rem solid $color-grey;
       border-right: 0.01rem solid $color-grey;
+      */
     }
   }
 }
