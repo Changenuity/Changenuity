@@ -78,14 +78,12 @@ added them to the main css code yet*/
         text-align: center;
         border-radius: 4px;
         display: inline-block;
-        //font-family: 'Lato';
         background-color: $color-orange;
         border-color: $color-orange;
     }
     a[data-category-value] {
         text-transform: uppercase;
         font-size: 0.75em;
-        //font-family: 'Lato';
     }
     a[data-category-value="Infrastructure"] {
         background-color: $color-orange;
