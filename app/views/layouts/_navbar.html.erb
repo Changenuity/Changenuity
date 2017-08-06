@@ -12,23 +12,37 @@
       </ul>
       <div id="navbar-secondary">
         <% if user_signed_in? %>
-          <%= link_to user_path(current_user), class: "navbar-account-button go-to-account" do %>
+          <%= link_to post_path, class: "secondary-navbar-button add-contract" do %>
+            <i class="link-icon material-icons">add</i>
+            Add Contract
+          <% end %>
+          <button class="secondary-navbar-button nav-window-toggle">
             <i class="link-icon material-icons">face</i>
             <%= current_user.name || current_user.username %>
-          <% end %>
-          <%= form_tag destroy_user_session_path, method: :delete do %>
-            <button class="navbar-account-button">
-              <i class="link-icon material-icons">exit_to_app</i>
-              <span>Logout</span>
-            </button>
-          <% end %>
+          </button>
+          <div class="navbar-window">
+            <div class="content-wrapper">
+              <%= gravatar_for current_user %>
+            </div>
+            <%= form_tag destroy_user_session_path, method: :delete, class: 'buttons-wrapper' do %>
+              <button type="button" class="button button-secondary">
+                <i class="link-icon material-icons">exit_to_app</i>
+                <span>Logout</span>
+              </button>
+              <%# Honestly the link should not be a part of the form, but oh well, I needed it to be a part of the 'buttons-wrapper container' %>
+              <%= link_to user_path(current_user), class: "button button-primary" do %>
+                <i class="link-icon material-icons">open_in_new</i>
+                <span>Profile</span>
+              <% end %>
+            <% end %>
+          </div>
         <% else %>
-          <button class="navbar-account-button navbar-login-box">
+          <button class="secondary-navbar-button nav-window-toggle">
             <i class="link-icon material-icons">account_box</i>
             <span>Login</span>
           </button>
-          <%= form_for :user, url: session_path(:user), html:{ class:"navbar-login-form" } do |f| %>
-            <div class="widgets-wrapper">
+          <%= form_for :user, url: session_path(:user), html:{ class:"navbar-window" } do |f| %>
+            <div class="content-wrapper">
               <div class="form-widget">
                 <%= f.label :email, "Email", class: "sr-only", for: "navbar-user-email"%>
                 <%= f.text_field :email, placeholder: "example@email.com", id: "navbar-user-email" %>
@@ -46,11 +60,11 @@
               <%= link_to "Forgot your password?", new_password_path(:user) %>
             </div>
             <div class="buttons-wrapper">
-              <%= link_to "https://changenuity.typeform.com/to/ksjDPs", class: "button button-sign-up" do %>
+              <%= link_to "https://changenuity.typeform.com/to/ksjDPs", class: "button button-primary" do %>
                 <i class="material-icons button-icon">person_add</i>
                 <span>Sign Up</span>
               <% end %>
-              <%= button_tag type: "submit", class: "button button-sign-in" do %>
+              <%= button_tag type: "submit", class: "button button-seconday" do %>
                 <i class="material-icons button-icon">launch</i>
                 <span>Sign In</span>
               <% end %>

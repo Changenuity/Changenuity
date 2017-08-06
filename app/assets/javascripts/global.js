@@ -2,9 +2,11 @@
 // throughout the application.
 
 // CONSTANT DEFINITIONS
-var quick_transition_time = 5000;
-var medium_transition_time = 10000;
-var long_transition_time = 20000;
+var quick_transition_time = 200;
+var medium_transition_time = 400;
+var long_transition_time = 1000;
+
+var snackbar_time = 4000;
 
 var DESKTOP_NAVBAR_SOLID_THRESHOLD = 50; // px
 
@@ -41,8 +43,84 @@ function createDisableOverlay($parentElement, transitionTime, zIndex) {
   return overlay;
 }
 
+/** Timer Class
+ *  Courtesy of: https://stackoverflow.com/questions/3969475/javascript-pause-settimeout
+ *  A wrapper for setTimeout that provides pause and resume capabilities.
+ *  Timer starts as soon as the object is created.
+ *
+ *  In addition to pausing the timer, the pause method also returns in
+ *  miliseconds the amount of time remaining.
+ **/
+function Timer(callback, delay) {
+  var timerId
+    , start
+    , remaining = delay;
+
+  this.pause = function() {
+    window.clearTimeout(timerId);
+    remaining -= (new Date() - start);
+    return remaining;
+  }
+
+  this.play = function() {
+    start = new Date();
+    window.clearTimeout(timerId);
+    timerId = setTimeout(callback, remaining);
+  }
+
+  this.play();
+}
+
+function Snackbar(element) {
+  this.element = element;
+  this.progressBar = new ProgressBar.Line(element, {
+    strokeWidth: 0.5,
+    color: '#EC6333',
+    duration: snackbar_time,
+    easing: 'linear'
+  });
+}
+
+// Fade in the element and then start the count down
+Snackbar.prototype.startShow = function() {
+  var _this = this;
+  $(_this.element).show().addClass('add');
+  // No need to keep track of this timerId, let it run
+  setTimeout(function() {
+    $(_this.element).removeClass('add'); // Must remove the add class so the animation associated with the remove class may run
+    _this.progressBar.animate(1); // Begin progress bar animation
+    _this.removeTimer = new Timer(function(){
+      _this.remove();
+    }, snackbar_time);
+  }, 1000); // After a second, start the countdown
+  return _this;
+}
+
+Snackbar.prototype.pause = function() {
+  this.progressBar.stop();
+  this.remainingTime = this.removeTimer.pause();
+  return this;
+}
+
+Snackbar.prototype.resume = function() {
+  this.progressBar.animate(1, {duration: this.remainingTime});
+  this.removeTimer.play();
+  return this;
+}
+
+Snackbar.prototype.remove = function() {
+  var $element = $(this.element);
+  $element.addClass('remove');
+  setTimeout(function(){
+    $element.remove();
+  }, 400);
+  return this;
+}
 
 
+
+
+/*
 function SnackbarController(alerts) {
   var _this = this;
   _this.alerts_array = [];
@@ -55,7 +133,6 @@ SnackbarController.prototype.showAlerts = function() {
   $.each(this.alerts_array, function(index, alert) {
     $(alert).show().addClass('add');
     setTimeout(function(){
-      // It is necessary to remove the add class so that
       $(alert).removeClass('add');
     }, 1000);
   });
@@ -69,7 +146,7 @@ SnackbarController.prototype.removeAlerts = function() {
     }, 400);
   })
 }
-
+*/
 
 // Global bindings and behaviours
 $(document).on('turbolinks:load', function(){
@@ -162,10 +239,32 @@ $(document).on('turbolinks:load', function(){
     }, 'xml');
   });
 
+  var alerts = [];
+  $('.snackbar-container .alert').each(function(){
+    alerts.push((new Snackbar(this)).startShow());
+  });
+  //
+  // $(document.body).on('mouseenter', '.snackbar-container', function(){
+  //   $.each(alerts, function() {
+  //     this.pause();
+  //   });
+  // });
+
+  $('.snackbar-container').on('mouseenter', function(){
+    $.each(alerts, function() {
+      this.pause();
+    });
+  }).on('mouseleave', function() {
+    $.each(alerts, function() {
+      this.resume();
+    });
+  });
+  /*
   // Snackbar behaviour
   snackbar = new SnackbarController($('.snackbar-container .alert'));
   snackbar.showAlerts();
   setTimeout(function(){
     snackbar.removeAlerts();
   }, 3000);
+  */
 });

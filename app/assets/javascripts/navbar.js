@@ -117,27 +117,27 @@ $(document).on('turbolinks:load', function(){
 
   // Login Remote logic
   var navbarFormOn = false;
-  var $navbarForm = $('#navbar-secondary .navbar-login-form');
+  var $navbarWindow = $('#navbar-secondary .navbar-window');
   var toggleNavbarForm = function() {
     if( !navbarFormOn ) {
       loginRemote.turnOn();
-      $navbarForm.fadeIn();
+      $navbarWindow.fadeIn();
       $('#navbar-user-email').focus();
     } else {
       loginRemote.turnOff();
-      $navbarForm.fadeOut();
+      $navbarWindow.fadeOut();
     }
     navbarFormOn = !navbarFormOn;
   }
-  $navbarForm.on('click', function(e){
+  $navbarWindow.on('click', function(e){
     e.stopPropagation();
   });
   $(document.body).on('click', function(){
     loginRemote.turnOff();
-    $navbarForm.fadeOut();
+    $navbarWindow.fadeOut();
     navbarFormOn = false;
   });
-  $('#navbar-secondary button.navbar-login-box').on('click', function(e) {
+  $('#navbar-secondary button.nav-window-toggle').on('click', function(e) {
     e.stopPropagation();
     toggleNavbarForm();
   });
