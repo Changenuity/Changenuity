@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170720030019) do
+ActiveRecord::Schema.define(version: 20170813235428) do
 
   create_table "authentications", force: :cascade do |t|
     t.integer  "user_id"
@@ -43,9 +43,15 @@ ActiveRecord::Schema.define(version: 20170720030019) do
   create_table "proposals", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "project_id"
-    t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text     "reason"
+    t.text     "passions"
+    t.text     "skills"
+    t.text     "work"
+    t.string   "commitment"
+    t.string   "estimation"
+    t.string   "linkedin"
     t.index ["project_id"], name: "index_proposals_on_project_id"
     t.index ["user_id"], name: "index_proposals_on_user_id"
   end
@@ -97,7 +103,6 @@ ActiveRecord::Schema.define(version: 20170720030019) do
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
 end

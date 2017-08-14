@@ -34,7 +34,7 @@
                 <h3 class="pcard-subtitle">Received Proposals:</h2>
                 <% project.proposals.each do |proposal| %>
                   <div>
-                    <%= proposal.content %>
+                    <%= proposal.linkedin %>
                   </div>
                 <% end %>
               </div>
@@ -46,7 +46,7 @@
         <h3 class="section-header">My Proposals</h3>
         <% @proposals.each do |proposal| %>
           <div>
-            <%= proposal.content %>
+            <%= proposal.linkedin %>
             <%= link_to proposal.project_id, project_path(:id => proposal.project_id) %>
           </div>
         <% end %>

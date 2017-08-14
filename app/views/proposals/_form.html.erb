@@ -1,9 +1,34 @@
 <%= form_for([@project, @project.proposals.build], html:{ class:"proposals-new-form" }) do |f| %>
 	<%= render "shared/error_messages", object: @project %>
 	<div>
-		<%= f.label :content, class: "sr-only" %>
-		<%= f.text_area :content, class: "form-control" %>
+		<%= f.label :reason, class: "" %>
+		<%= f.text_area :reason, class: "form-control" %>
 	</div>
+	<div>
+		<%= f.label :passions, class: "" %>
+		<%= f.text_area :passions, class: "form-control" %>
+	</div>
+	<div>
+		<%= f.label :skills, class: "" %>
+		<%= f.text_area :skills, class: "form-control" %>
+	</div>
+	<div>
+		<%= f.label :work, class: "" %>
+		<%= f.text_area :work, class: "form-control" %>
+	</div>
+	<div>
+		<%= f.label :commitment, class: "" %>
+		<%= f.text_field :commitment, class: "form-control" %>
+	</div>
+	<div>
+		<%= f.label :estimation, class: "" %>
+		<%= f.text_field :estimation, class: "form-control" %>
+	</div>
+	<div>
+		<%= f.label :linkedin, class: "" %>
+		<%= f.text_field :linkedin, class: "form-control" %>
+	</div>
+
 	<%= button_tag type: "submit", class: "btn btn-success submit-button" do %>
 		<i class="material-icons">call_made</i>
 		Submit
