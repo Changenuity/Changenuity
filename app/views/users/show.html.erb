@@ -15,80 +15,12 @@
       <section class="user-section">
         <h3 class="section-header">My Projects</h3>
         <div class="section-wrapper">
-          <% @projects.each do |project| %>
-            <div class="pcard" data-project-url="<%= project_path(project) %>">
-              <%= image_tag project.image.url(:medium), class: "pcard-img" %>
-              <div class="pcard-content">
-                <h2 class="pcard-maintitle"><%= project.name %></h2>
-                <h3 class="pcard-subtitle"><%= project.location %></h2>
-                <h3 class="pcard-subtitle">By <a href="#0">OVOXO</a></h3>
-              </div>
-              <div class="pcard-footer">
-                <div class="btn-fav-wrapper">
-                  <i class="btn-fav material-icons">favorite</i>
-                  <span class="fav-count">132</span>
-                </div>
-                <a class="btn btn-success" data-category-value="Infrastructure" href="#">Infrastructure</a>
-              </div>
-              <div class="pcard-content">
-                <h3 class="pcard-subtitle">Received Proposals:</h2>
-                <% project.proposals.each do |proposal| %>
-                  <div>
-                    <%= proposal.content %>
-                  </div>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-        </div>
+          <%= render partial: "/projects/project", collection: @projects %>
       </section>
       <section class="user-section">
         <h3 class="section-header">My Proposals</h3>
-        <% @proposals.each do |proposal| %>
-          <div>
-            <%= proposal.content %>
-            <%= link_to proposal.project_id, project_path(:id => proposal.project_id) %>
-          </div>
-        <% end %>
+        <%= render partial: "/proposals/proposal", collection: @proposals %>
       </section>
     </main>
   </div>
-<!--
-  <div style="float:right;">
-    <h3>My Projects</h3>
-    <% @projects.each do |project| %>
-      <div class="pcard" data-project-url="<%= project_path(project) %>">
-        <%= image_tag project.image.url(:medium), class: "pcard-img" %>
-        <div class="pcard-content">
-          <h2 class="pcard-maintitle"><%= project.name %></h2>
-          <h3 class="pcard-subtitle"><%= project.location %></h2>
-          <h3 class="pcard-subtitle">By <a href="#0">OVOXO</a></h3>
-        </div>
-        <div class="pcard-footer">
-          <div class="btn-fav-wrapper">
-            <i class="btn-fav material-icons">favorite</i>
-            <span class="fav-count">132</span>
-          </div>
-          <a class="btn btn-success" data-category-value="Infrastructure" href="#">Infrastructure</a>
-        </div>
-      </div>
-    <% end %>
-
-    <h3>My Proposals</h3>
-    <%= render @proposals %>
-
-    <h3>Received Proposals</h3>
-    <% @proposalsReceived.each do |proposal| %>
-      <%= render proposal %>
-    <% end %>
-
-
-    <% if user_signed_in? && @user == current_user %>
-    <%= link_to "My Projects", projects_path(:userid => current_user.id) %><br/>
-    <%= link_to "My Proposals", proposals_path %><br/>
-    <%= link_to "Edit", edit_user_registration_path %><br/>
-    <%= link_to "Log out", destroy_user_session_path, method: :delete %><br />
-    <% end %>
-    <%= link_to "Back", :back %><br/>
-  -->
 </div>

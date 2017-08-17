@@ -64,9 +64,7 @@
       <h2 class="article-header">Opportunities</h2>
       <ul class="opp-card-grid links-list">
       <div>
-        <% @projects.each do |project| %>
-          <%= render project %>
-        <% end %>
+        <%= render @projects %>
       </ul>
       </div>
     </article>

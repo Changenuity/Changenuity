@@ -12,4 +12,10 @@
     </div>
     <a class="btn btn-success" data-category-value="Infrastructure" href="#">Infrastructure</a>
   </div>
+  <% if user_signed_in? && project.user_id == current_user.id %>
+    <div class="pcard-content">
+      <h3 class="pcard-subtitle">Received Proposals:</h2>
+      <%= render partial: "/proposals/proposal", collection: project.proposals %>
+    </div>
+  <% end %>
 </div>
