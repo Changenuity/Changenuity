@@ -15,6 +15,5 @@
 //= require turbolinks
 //= require tether
 //= require bootstrap-sprockets
-//= require progressbar.min.js
 //= require global
 //= require_tree .
