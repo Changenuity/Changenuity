@@ -150,7 +150,7 @@ $(document).on('turbolinks:load', function(){
 
   $(document.body).on('click', '.open-nav', function() {
     var $component = $('#' + $(this).attr('data-component-id'));
-    var $overlay = $(createDisableOverlay($('#navbar'), medium_transition_time));
+    var $overlay = $(createDisableOverlay($('#navbar'), MEDIUM_TRANSITION_TIME));
     var clearButton = document.createElement('i');
     clearButton.innerHTML = 'clear';
     clearButton.className = 'material-icons navbar-handle clear-nav';
@@ -163,7 +163,7 @@ $(document).on('turbolinks:load', function(){
       setTimeout(function() {
         $overlay.remove();
         $(clearButton).remove();
-      }, medium_transition_time);
+      }, MEDIUM_TRANSITION_TIME);
     }
 
     $overlay.on('click', removeFunction);

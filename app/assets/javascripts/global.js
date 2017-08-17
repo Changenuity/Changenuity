@@ -2,11 +2,13 @@
 // throughout the application.
 
 // CONSTANT DEFINITIONS
-var quick_transition_time = 200;
-var medium_transition_time = 400;
-var long_transition_time = 1000;
+var QUICK_TRANSITION_TIME = 200;
+var MEDIUM_TRANSITION_TIME = 400;
+var LONG_TRANSITION_TIME = 1000;
 
-var snackbar_time = 4000;
+var SNACKBAR_TIME = 4000;
+
+var NULL_FUNCTION = function(){};
 
 var DESKTOP_NAVBAR_SOLID_THRESHOLD = 50; // px
 
@@ -43,7 +45,8 @@ function createDisableOverlay($parentElement, transitionTime, zIndex) {
   return overlay;
 }
 
-/** Timer Class
+/**
+ *  Timer Class
  *  Courtesy of: https://stackoverflow.com/questions/3969475/javascript-pause-settimeout
  *  A wrapper for setTimeout that provides pause and resume capabilities.
  *  Timer starts as soon as the object is created.
@@ -71,82 +74,76 @@ function Timer(callback, delay) {
   this.play();
 }
 
-function Snackbar(element) {
+
+
+
+function Snackbar(element, duration) {
   this.element = element;
-  this.progressBar = new ProgressBar.Line(element, {
-    strokeWidth: 0.5,
-    color: '#EC6333',
-    duration: snackbar_time,
-    easing: 'linear'
+  this.duration = duration;
+
+  var _this = this;
+  // Set up bindings for click removing
+  $(this.element).on('click', function() {
+    _this.remove();
   });
 }
 
 // Fade in the element and then start the count down
 Snackbar.prototype.startShow = function() {
-  var _this = this;
-  $(_this.element).show().addClass('add');
-  // No need to keep track of this timerId, let it run
-  setTimeout(function() {
-    $(_this.element).removeClass('add'); // Must remove the add class so the animation associated with the remove class may run
-    _this.progressBar.animate(1); // Begin progress bar animation
-    _this.removeTimer = new Timer(function(){
-      _this.remove();
-    }, snackbar_time);
-  }, 1000); // After a second, start the countdown
-  return _this;
+  TweenLite.from(this.element, 1, {
+    y: "50px",
+    opacity: 0,
+    onComplete: function() {
+      console.log(this);
+      $(this.element).css('background-image', 'rgba(0,0,0,0.5)')
+      this.progress = TweenLite.fromTo(this.element, this.duration, {
+        backgroundImage: "linear-gradient(to right,rgba(255,255,255,0.1),rgba(255,255,255,0.5))",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "0% 100%"
+      }, {
+        backgroundSize: "100% 100%",
+        ease: Power0.easeNone,
+        onComplete: function() {
+          this.remove();
+        },
+        onCompleteScope: this
+      });
+    },
+    onCompleteScope: this
+  });
+  return this;
 }
 
 Snackbar.prototype.pause = function() {
-  this.progressBar.stop();
-  this.remainingTime = this.removeTimer.pause();
+  this.progress.pause();
   return this;
 }
 
 Snackbar.prototype.resume = function() {
-  this.progressBar.animate(1, {duration: this.remainingTime});
-  this.removeTimer.play();
+  this.progress.resume();
   return this;
 }
 
 Snackbar.prototype.remove = function() {
-  var $element = $(this.element);
-  $element.addClass('remove');
-  setTimeout(function(){
-    $element.remove();
-  }, 400);
-  return this;
-}
-
-
-
-
-/*
-function SnackbarController(alerts) {
-  var _this = this;
-  _this.alerts_array = [];
-  $(alerts).each(function(index, alert) {
-    _this.alerts_array.push(alert);
+  TweenLite.to($(this.element), 0.4, {
+      y: "50px",
+      opacity: 0,
+      onComplete: function() {
+        TweenLite.to($(this), 0.2, {
+          height: 0,
+          margin: 0,
+          padding: 0,
+          borderWidth: 0,
+          onComplete: function() {
+            $(this).remove();
+          },
+          onCompleteScope: this
+        });
+      },
+      onCompleteScope: this.element
   });
 }
 
-SnackbarController.prototype.showAlerts = function() {
-  $.each(this.alerts_array, function(index, alert) {
-    $(alert).show().addClass('add');
-    setTimeout(function(){
-      $(alert).removeClass('add');
-    }, 1000);
-  });
-}
-
-SnackbarController.prototype.removeAlerts = function() {
-  $.each(this.alerts_array, function(index, alert){
-    $(alert).addClass('remove');
-    setTimeout(function() {
-      $(alert).remove();
-    }, 400);
-  })
-}
-*/
 
 // Global bindings and behaviours
 $(document).on('turbolinks:load', function(){
@@ -184,7 +181,7 @@ $(document).on('turbolinks:load', function(){
         event.preventDefault();
         $('html, body').animate({
           scrollTop: target.offset().top
-        }, medium_transition_time, function() {
+        }, MEDIUM_TRANSITION_TIME, function() {
           // Callback after animation
           // Must change focus!
           var $target = $(target);
@@ -201,7 +198,7 @@ $(document).on('turbolinks:load', function(){
         event.preventDefault();
         $('html, body').animate({
           scrollTop: 0
-        }, medium_transition_time, function() {
+        }, MEDIUM_TRANSITION_TIME, function() {
           // Reset focus by arbitrarily selecting something
           // to focus and then blur out
           $(target).focus().blur();
@@ -239,32 +236,22 @@ $(document).on('turbolinks:load', function(){
     }, 'xml');
   });
 
-  var alerts = [];
-  $('.snackbar-container .alert').each(function(){
-    alerts.push((new Snackbar(this)).startShow());
+  alerts = [];
+  $('.snackbar-container .snackbar').each(function(){
+    alerts.push((new Snackbar(this, 7)).startShow());
   });
-  //
-  // $(document.body).on('mouseenter', '.snackbar-container', function(){
-  //   $.each(alerts, function() {
-  //     this.pause();
-  //   });
-  // });
 
-  $('.snackbar-container').on('mouseenter', function(){
-    $.each(alerts, function() {
-      this.pause();
+  $(document.body)
+    .on('mouseenter', '.snackbar-container', function(){
+      $.each(alerts, function() {
+        console.log("Entry registered!");
+        this.pause();
+      });
+    })
+    .on('mouseleave', '.snackbar-container', function(){
+      $.each(alerts, function() {
+        console.log("Leave registered!");
+        this.resume();
+      });
     });
-  }).on('mouseleave', function() {
-    $.each(alerts, function() {
-      this.resume();
-    });
-  });
-  /*
-  // Snackbar behaviour
-  snackbar = new SnackbarController($('.snackbar-container .alert'));
-  snackbar.showAlerts();
-  setTimeout(function(){
-    snackbar.removeAlerts();
-  }, 3000);
-  */
 });

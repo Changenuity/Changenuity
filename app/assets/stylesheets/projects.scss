@@ -33,13 +33,14 @@
     background-position: center 60%;
     background-repeat: no-repeat;
     z-index: -1;
-    transform: translateZ(0);
+    transform: translateZ(0); /* This is a hack to get higher fps */
     pointer-events: none;
   }
 
   #projects-show-header {
     top: 0;
     position: fixed;
+    transform: translateZ(0); /* This is a hack to get higher fps */
     height: 100vh;
     width: 100%;
     transition: $medium-transition-time;

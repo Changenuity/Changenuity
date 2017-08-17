@@ -8,11 +8,9 @@
   <body>
     <%= render "layouts/navbar" %>
     <div class="snackbar-container">
-      <div class="alert alert-alert">Lorem ipsum</div>
-      <div class="alert alert-alert">Lorem ipsum Lorem ipsum Lorem ipsum</div>
       <% flash.each do |message_type, message| %>
         <%# To display alerts on the site, just make sure that it is put into the "flash" variable %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <div class="snackbar alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
     </div>
     <%= yield %>
