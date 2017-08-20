@@ -1,51 +1,122 @@
-
 <div id="static-pages-home">
-  <header class="jumbotron">
+  <header id="homepage-header" class="jumbotron">
     <div class="container">
       <div class="header-wrapper">
-        <h1>
-          Welcome to<br/><strong>Changenuity</strong>
-        </h1>
-        <div class="button-group">
-          <a href="#0" class="homepage-button"><i class="material-icons button-icon">explore</i><span>Take A Tour</span></a>
-          <a href="#0" class="homepage-button"><i class="material-icons button-icon">person_add</i><span>Sign Up</span></a>
+        <div class="front-side">
+          <h1>Welcome to <br /> <strong>Changenuity.</strong></h1>
+          <p class="feature-text">Freelancing for a better future.</p>
+          <%= form_tag "https://changenuity.typeform.com/to/ksjDPs", method: :get do %>
+            <%#= label_tag :user_email, "Email", class: "sr-only" %>
+            <%#= email_field_tag :user_email, nil, placeholder: "email@example.com" %>
+            <%= button_tag type: "submit", class: "homepage-button button-sign-up" do %>
+              <i class="material-icons button-icon">person_add</i>
+              <span>Sign Up</span>
+            <% end %>
+          <% end %>
+          <p>Or <button class="flip-homepage go-to-sign-in">Sign In</button></p>
+          <%= link_to "#homepage-main", class: "explore-button" do %>
+            <i class="material-icons">keyboard_arrow_down</i>
+          <% end %>
+        </div>
+        <div class="back-side">
+          <h2>Welcome back.</h2>
+          <%= form_for :user, url: session_path(:user) do |f| %>
+            <%= f.label :email, "Email", class: "sr-only" %>
+            <%= f.text_field :email, placeholder: "email", autofocus: true %>
+            <br /> <!-- TODO take this out -->
+            <%= f.label :password, "Password", class: "sr-only" %>
+            <%= f.password_field :password, placeholder: "password", autocomplete: "off" %>
+            <%= button_tag type: "submit", class: "homepage-button button-sign-in" do %>
+              <i class="material-icons button-icon"></i>
+              <span>Sign In</span>
+            <% end %>
+            <%= f.label :remember_me do %>
+              <%= f.check_box :remember_me %>
+              Remember me
+            <% end %>
+            <%= link_to "Forgot your password?", new_password_path(:user) %>
+          <% end %>
+          <button class="flip-homepage go-to-sign-up">
+            <i class="material-icons">chevron_left</i>
+            Back
+          </button>
         </div>
       </div>
     </div>
     <div class="video-wrapper">
-      <%= video_tag('/videos/homepage-background-video.webm',id:'homepage-video',class:'background-video',size:'1280x720',autoplay:true,muted:true,loop:true) %>
+      <%= video_tag "/videos/homepage-background-video.webm", id: "homepage-video", class: "background-video", size: "1280x720", preload: "auto", autoplay: true, muted: true, loop: true %>
     </div>
   </header>
-
-  <main id="homepage-main" class="container">
-    <article class="splash-body">
-      <section>
-        <i class="material-icons navbar-handle open-nav">search</i>
-        <p>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-          ab illo inventore veritatis et quasi architecto beatae vitae dicta
-          sunt explicabo.
+  <main id="homepage-main">
+    <section class="homepage-section discover-section">
+      <div class="container content-wrapper">
+        <h3 class="section-header">Discover.</h3>
+        <p class="section-description">
+          Browse inspiring impact projects from all around the world, and apply to be a freelancer.
         </p>
-      </section>
-      <section>
-        <i class="material-icons navbar-handle open-nav">forum</i>
-        <p>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-          ab illo inventore veritatis et quasi architecto beatae vitae dicta
-          sunt explicabo.
+      </div>
+    </section>
+    <section class="homepage-section collaborate-section">
+      <div class="container content-wrapper">
+        <h3 class="section-header">Collaborate.</h3>
+        <p class="section-description">
+          Find talented freelancers to collaborate with on your project.
         </p>
-      </section>
-      <section>
-        <i class="material-icons navbar-handle open-nav">people</i>
-        <p>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-          ab illo inventore veritatis et quasi architecto beatae vitae dicta
-          sunt explicabo.
+      </div>
+    </section>
+    <section class="homepage-section discuss-section">
+      <div class="container content-wrapper">
+        <h3 class="section-header">Discuss.</h3>
+        <p class="section-description">
+          Ask and answer questions about global development. A community for changemakers, by changemakers.
         </p>
+      </div>
+    </section>
+    <section class="homepage-section signup-section">
+      <div class="container content-wrapper">
+        <p class="section-description">
+          In short, we make global development <em>easy</em>&nbsp;and&nbsp;<em>accessible</em>.
+        </p>
+        <a class="btn btn-primary" href="https://changenuity.typeform.com/to/ksjDPs">Get Started</a>
+      </div>
+    </div>
+    <%#
+    <article class="article-1">
+      <section class="container">
+        <div class="content-wrapper">
+          <p>We make global development <em>easy</em> and <em>accessible</em>.</p>
+        </div>
       </section>
     </article>
+    <article class="article-2">
+      <div class="container-fluid">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-sm">
+              <section class="focus-card">
+                <i class="material-icons navbar-handle open-nav">search</i>
+                <h3>Discover.</h3>
+                <p>Browse inspiring impact projects from all around the world and apply to contribute your skills.</p>
+              </section>
+            </div>
+            <div class="col-sm">
+              <section class="focus-card">
+                <i class="material-icons navbar-handle open-nav">people</i>
+                <h3>Collaborate.</h3>
+                <p>Find talented freelancers to collaborate with on your project.</p>
+              </section>
+            </div>
+            <div class="col-sm">
+              <section class="focus-card">
+                <i class="material-icons navbar-handle open-nav">forum</i>
+                <h3>Discuss.</h3>
+                <p>Ask and answer questions about global development.</p>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+    #%>
   </main>
 </div>

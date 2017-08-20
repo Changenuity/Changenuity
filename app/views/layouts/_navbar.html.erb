@@ -1,50 +1,97 @@
 <div id="navbar-wrapper">
   <div class="container">
     <nav id="navbar">
-      <div id="navbar-brand">
-        <%= link_to home_path do %>
-          <!-- TODO: Make this more elegant -->
-          <%= image_tag("logo-notext.png", alt: "Changenuity Logo", class: "brand-img type-dark") %>
-          <%= image_tag("logo-notext-white.png", alt: "Changenuity Logo", class: "brand-img type-light") %>
-          <span class="brand-text">Changenuity</span>
-        <% end %>
-      </div>
+      <%= link_to home_path, id: 'navbar-brand', class: 'check' do %>
+        <%= image_tag "delta_logo.svg", class: 'svg logo' %>
+        <span class="brand-text">Changenuity</span>
+      <% end %>
       <ul id="navbar-primary" class="links-list">
         <li class="navbar-primary-link"><%= link_to "Discover", browse_path %></li>
-        <li class="navbar-primary-link"><%= link_to "Discuss", '#' %></li>
-        <li class="navbar-primary-link"><%= link_to "About", '#' %></li><!-- Should the "About" page really be up here? -->
+        <li class="navbar-primary-link"><%= link_to "Discuss", tba_path %></li>
+        <li class="navbar-primary-link"><%= link_to "About", about_path %></li>
       </ul>
-      <ul id="navbar-secondary" class="links-list">
-        <!-- Once again, I do not think it is a good idea to have the ability to add projects front and center like this -->
-        <li class="navbar-secondary-link">
-          <%= link_to post_path do %>
-            <i class="link-icon material-icons">add</i>
-            Add Project
-          <% end %>
-        </li>
+      <div id="navbar-secondary">
         <% if user_signed_in? %>
-        <li>
-          Signed in as <%= current_user.name || current_user.username %>
-        </li>
-        <li class="navbar-secondary-link">
-          <%= link_to user_path(current_user.username) do %>
-            <i class="link-icon material-icons">account_box</i>
-            <span class="button-te">Profile</span>
+          <%= link_to user_path(current_user), class: "navbar-account-button go-to-account" do %>
+            <i class="link-icon material-icons">face</i>
+            <%= current_user.name || current_user.username %>
           <% end %>
-        </li>
-        <li class="navbar-secondary-link">
-          <i class="link-icon material-icons">account_box</i>
-          <%= button_to "Log out", destroy_user_session_path, method: :delete, form_class: "button-te" %>
-        </li>
+          <%= form_tag destroy_user_session_path, method: :delete do %>
+            <button class="navbar-account-button">
+              <i class="link-icon material-icons">exit_to_app</i>
+              <span>Logout</span>
+            </button>
+          <% end %>
         <% else %>
-        <li class="navbar-secondary-link">
-          <%= link_to new_user_session_path do %>
+          <button class="navbar-account-button navbar-login-box">
             <i class="link-icon material-icons">account_box</i>
-            <span class="button-te">Login</span>
+            <span>Login</span>
+          </button>
+          <%= form_for :user, url: session_path(:user), html:{ class:"navbar-login-form" } do |f| %>
+            <div class="widgets-wrapper">
+              <div class="form-widget">
+                <%= f.label :email, "Email", class: "sr-only", for: "navbar-user-email"%>
+                <%= f.text_field :email, placeholder: "example@email.com", id: "navbar-user-email" %>
+              </div>
+              <div class="form-widget">
+                <%= f.label :password, "Password", class: "sr-only", for: "navbar-user-password" %>
+                <%= f.password_field :password, placeholder: "password", id: "navbar-user-password", autocomplete: "off" %>
+              </div>
+              <div class="form-widget checkbox">
+                <%= f.label :remember_me, for: "navbar-remember-me" do %>
+                  <%= f.check_box :remember_me, id: "navbar-remember-me"%>
+                  Remember me
+                <% end %>
+              </div>
+              <%= link_to "Forgot your password?", new_password_path(:user) %>
+            </div>
+            <div class="buttons-wrapper">
+              <%= link_to "https://changenuity.typeform.com/to/ksjDPs", class: "button button-sign-up" do %>
+                <i class="material-icons button-icon">person_add</i>
+                <span>Sign Up</span>
+              <% end %>
+              <%= button_tag type: "submit", class: "button button-sign-in" do %>
+                <i class="material-icons button-icon">launch</i>
+                <span>Sign In</span>
+              <% end %>
+            </div>
           <% end %>
-        </li>
         <% end %>
-      </ul>
+      </div><!-- navbar-secondary -->
+      <% if false %>
+        <ul id="navbar-secondary" class="links-list">
+          <li class="navbar-secondary-link">
+            <%= link_to post_path do %>
+              <i class="link-icon material-icons">add</i>
+              Add Project
+            <% end %>
+          </li>
+          <% if user_signed_in? %>
+          <li>
+            Signed in as <%= current_user.name || current_user.username %>
+          </li>
+          <li class="navbar-secondary-link">
+            <%= link_to user_path(current_user.username) do %>
+              <i class="link-icon material-icons">account_box</i>
+              <span class="button-te">Profile</span>
+            <% end %>
+          </li>
+          <li class="navbar-secondary-link">
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="link-icon material-icons">account_box</i>
+              <span class="button-te">Log out</span>
+            <% end %>
+          </li>
+          <% else %>
+          <li class="navbar-secondary-link">
+            <%= link_to new_user_session_path do %>
+              <i class="link-icon material-icons">account_box</i>
+              <span class="button-te">Login</span>
+            <% end %>
+          </li>
+          <% end %>
+        </ul>
+      <% end %>
       <i class="material-icons navbar-handle open-nav" data-component-id="navbar-primary">menu</i>
       <i class="material-icons navbar-handle open-nav" data-component-id="navbar-secondary">person_outline</i>
     </nav>

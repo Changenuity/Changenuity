@@ -3,6 +3,12 @@ class UsersController < ApplicationController
   before_action :ensure_signup_complete, only: [:new, :create, :update, :destroy]
 
   def show
+    @proposals = Proposal.where(user_id: @user.id)
+    @projects = Project.where(user_id: @user.id)
+    @proposalsReceived = []
+    @projects.each do |project|
+      @proposalsReceived << project.proposals
+    end
   end
 
   def edit
@@ -45,7 +51,7 @@ class UsersController < ApplicationController
   def set_user
     if params[:id]
       @user = User.find(params[:id])
-    elsif try = User.find_by_username(params[:username])
+    elsif try = User.find_by_username(params["username"])
       @user = try
     else
       flash[:error] = "Could not find user."

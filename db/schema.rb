@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170610192240) do
+ActiveRecord::Schema.define(version: 20170720030019) do
 
   create_table "authentications", force: :cascade do |t|
     t.integer  "user_id"
@@ -36,6 +36,18 @@ ActiveRecord::Schema.define(version: 20170610192240) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_projects_on_user_id"
+  end
+
+  create_table "proposals", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_proposals_on_project_id"
+    t.index ["user_id"], name: "index_proposals_on_user_id"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -85,6 +97,7 @@ ActiveRecord::Schema.define(version: 20170610192240) do
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
 end

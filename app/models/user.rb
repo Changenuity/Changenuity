@@ -1,6 +1,13 @@
 class User < ApplicationRecord
 
   has_many :authentications
+  has_many :proposals
+  has_many :projects
+
+  # Make user_path(@user) point to /users/username instead of /users/id
+  def to_param
+    username
+  end
 
   TEMP_EMAIL_PREFIX = 'changeme@changenuity'
   TEMP_EMAIL_REGEX = /\Achangeme@changenuity/
@@ -55,5 +62,10 @@ class User < ApplicationRecord
 
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
+  end
+
+  protected
+  def confirmation_required?
+    !Rails.env.development?
   end
 end

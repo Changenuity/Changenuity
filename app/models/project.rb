@@ -1,7 +1,9 @@
 class Project < ApplicationRecord
-
+  has_many :proposals
+  belongs_to :user
+  
   acts_as_taggable_on :tags
-  has_attached_file :image, styles: { medium: '300x300>', thumb: '100x100>' },
+  has_attached_file :image, styles: { large: '1000x1000>', medium: '300x300>', thumb: '100x100>' },
                             s3_protocol: :https
   validates_attachment_content_type :image,
     content_type: ['image/jpeg', 'image/png'],
@@ -12,13 +14,13 @@ class Project < ApplicationRecord
   validates :description,           length: { maximum: 65535 }
   validates :parameters,            length: { maximum: 65535 }
   validates :references,            length: { maximum: 65535 }
+  validates :user_id, presence: true
 
   def self.search(term)
     if term
-      where('name ILIKE ?', "%#{term}%")
+      where('lower(name) LIKE lower(?)', "%#{term}%").order('id DESC')
     else
       order('id DESC')
-      # all
     end
   end
 end

@@ -1,38 +1,70 @@
 <% provide(:title, "Browse Projects") %>
 <main id="page-main" class="projects projects-index">
+
   <header id="page-main-header" class="jumbotron splash">
-    <div class="container">
+    <!--<div class="container">
       <h1>Browse Projects</h1>
       <p>Your change is right around the corner.</p>
       <%= form_tag(projects_path, method: :get) do %>
         <%= text_field_tag :term, params[:term] %>
         <%= submit_tag 'Search', name: nil %>
       <% end %>
-    </div>
+    </div> -->
+
+    <!-- Introduction with changenuity background -->
+    <section id="Discover">
+      <h1> Discover </h1>
+      <h4 class="tracking-in-expand">Projects that are changing the world.</h4>
+    </section>
+
   </header>
+
+<!-- Filter bar -->
+  <section id="view-projects">
+    <div class="container">
+      <div class="row filters">
+        <div id="options-title">
+          Filters
+        </div>
+        <!-- Dropdown boxes -->
+        <div class="options">
+          Type:
+          <select class="custom-select">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <div class="options">
+          Sectors:
+          <select class="custom-select">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <div class="options">
+          Location:
+          <select class="custom-select">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="main-section" class="container opt-section">
     <p class="text-center">Want to see your project on this page? <%= link_to "Post your project today!", post_path %></p>
     <article>
       <h2 class="article-header">Opportunities</h2>
       <ul class="opp-card-grid links-list">
       <div>
-        <% @projects.each do |project| %>
-          <div class="pcard" data-project-url="<%= project_path(project) %>"> <!-- This data attribute is used by javascript, it enables navigation -->
-            <%= image_tag project.image.url(:medium), class: "pcard-img" %>
-            <div class="pcard-content">
-              <h2 class="pcard-maintitle"><%= project.name %></h2>
-              <h3 class="pcard-subtitle"><%= project.location %></h2>
-              <h3 class="pcard-subtitle">By <a href="#0">OVOXO</a></h3><!-- Inser the organization name here -->
-            </div>
-            <div class="pcard-footer">
-              <div class="btn-fav-wrapper">
-                <i class="btn-fav material-icons">favorite</i>
-                <span class="fav-count">132</span><!-- Insert the number of favourites here -->
-              </div>
-              <a class="btn btn-success" data-category-value="Infrastructure" href="#">Infrastructure</a> <!-- Data-category is used so that JS can see the category value more easily -->
-            </div>
-          </div>
-        <% end %>
+        <%= render @projects %>
       </ul>
       </div>
     </article>

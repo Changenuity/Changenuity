@@ -13,7 +13,7 @@
                                html: { multipart: true } do |f| %>
           <%= render "shared/error_messages", object: @project %>
           <p>
-            <%= f.label :name %>
+            <%= f.label :name, "Project Name" %>
             <%= f.text_field :name, class: "form-control" %>
           </p>
           <p>
@@ -45,6 +45,8 @@
             <%= f.label :image %>
             <%= f.file_field :image, class: "form-control" %>
           </p>
+
+            <%= f.hidden_field :user_id, :value => current_user.id %>
             <%= f.submit "Post my project", class: "btn btn-primary" %>
         <% end %>
         <ol>

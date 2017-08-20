@@ -1,331 +1,479 @@
-// Place all the styles related to the Projects controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#projects-show {
 
-// The following are styles which apply to all views related to the Projects
-// controller.
-
-.projects {
-
-  article h1, article h2, article h3, article h4, article h5, article h6 {
-    /* Resets margins */
-    margin-top: 0;
+  @keyframes floatIn {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 
-  .btn-primary {
-    background-color: $color-orange;
-    border-color: transparent;
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes bobble {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(0.6rem);
+    }
+  }
+
+  .projects-show-background-image {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background: image-url("project_backdrop");
+    background-size: cover;
+    background-position: center 60%;
+    background-repeat: no-repeat;
+    z-index: -1;
+    transform: translateZ(0);
+    pointer-events: none;
+  }
+
+  #projects-show-header {
+    top: 0;
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    transition: $medium-transition-time;
+    box-shadow: 0 0 4rem -1rem black;
+    &.shrink {
+      transform: scale(0.8);
+    }
+    .container {
+      position: relative;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+  }
+  .project-name {
+    transform: translateY(30px);
+    opacity: 0;
+    padding: 3rem 2rem;
+    text-transform: uppercase;
     color: white;
+    border: 0.1rem solid white;
+    animation: floatIn 1.4s 0s ease-in-out 1 forwards;
   }
-
-  .btn-primary:hover {
-    border-color: transparent;
-    background-color: $color-light-orange;
+  .project-location {
+    transform: translateY(30px);
+    opacity: 0;
+    padding: 1rem 2rem;
+    background: $gradient-generic;
+    text-transform: uppercase;
+    color: black;
+    animation: floatIn 1.4s 0s ease-in-out 1 forwards;
   }
-
-  .btn-primary-hollow {
-    color: $color-orange;
-    border-color: $color-orange;
-    background-color: transparent;
-  }
-
-  .btn-primary-hollow:hover {
-    color: $color-light-orange;
-    border-color: $color-light-orange;
-  }
-
-  /* ============================================
-     Splash Banner Styles
-  ============================================ */
-
-  #page-main-header {
-    padding-top: 120px; /* 83.33% */
-    padding-bottom: 24px;
-    background-image: image-url("lost-boy.jpg");
-  }
-
-  /* ============================================
-     Main Section Styles
-  ============================================ */
-
-  #main-section {
-    article {
-      position: relative;
-      padding-bottom: 40px;
-      margin-bottom: 20px;
-
-      p {
-        font-size: 18px;
-        line-height: 1.8;
-        text-align: justify;
-      }
-
-      &:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 40%;
-        right: 40%;
-
-        border-bottom: 1px solid $color-light-turquoise;
-      }
+  .explore-button {
+    opacity: 0;
+    position: absolute;
+    bottom: 0.1rem;
+    animation:  fadeIn 0.6s 1.5s linear 1 forwards,
+                bobble 0.6s 1.5s linear infinite alternate;
+    .material-icons {
+      transition-duration: $quick-transition-time;
+      font-size: 5.5rem;
+      color: white;
     }
-
-    .article-header {
-      font-weight: 200;
-      font-size: 40px;
-
-      padding: 20px 0 10px;
-      border-bottom: 2px solid $color-turquoise;
-      &::first-letter {
-        color: $color-orange;
-      }
-    }
-  }
-
-  .opp-card-grid {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 -1%;
-    .opp-card {
-      padding: 0 1%;
-      flex: 1;
-      min-width: 280px;
-      margin-bottom: 20px;
-      a {
-        position: relative;
-        overflow: hidden;
-        z-index: 1; /* Help ensures smooth image zooming */
-        display: block; /* Help ensures smooth image zooming */
-
-        border-radius: 6px;
-        @include light-shadow;
-
-        &:hover .opp-card-image,
-        &:focus .opp-card-image {
-          transform: scale(1.1);
-        }
-      }
-      p {
-        word-wrap: break-word;
-      }
-      .img-wrapper {
-        width: 100%;
-        height: 200px;
-        overflow: hidden;
-      }
-      .opp-card-image {
-        width: 100%;
-        height: 100%;
-        position: relative;
-        background-color: $color-light-turquoise;
-        background-position: center;
-        background-size: cover;
-        transition: all .5s;
-        &::before {
-          content: "";
-          height: 100%;
-          width: 100%;
-          position: absolute;
-          top: 0;
-          left: 0;
-          background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6));
-        }
-      }
-      .content-wrapper {
-        position: absolute;
-        bottom: 0;
-        color: white;
-        padding: 10px 20px;
-      }
-      .opp-card-header {
-        font-size: 30px;
-        padding-bottom: 20px;
-        position: relative;
-        &:after {
-          content: "";
-          width: 35px;
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          border-bottom: 5px solid white;
-        }
-      }
-    }
-  }
-}
-
-.projects-index {
-  #main-section {
-    p {
-      font-size: 24px;
-    }
-  }
-}
-
-.projects-show {
-
-  #page-main-header {
-    p {
-      float: left;
-      margin-bottom: 10px;
-    }
-
-    .project-team {
-      width: 100%;
-    }
-
-    .project-location {
-      position: relative;
-      z-index: 1;
-      padding-right: 30px; /* Line in-between location and date */
-
-      &::before {
-        /* For generating that little line in-between location and date */
-        content: ""; /* Necessary for the pseudo-element to show */
-        position: absolute;
-        z-index: -1;
-        right: 15px;
-        top: 5px;
-        bottom: 5px;
-        border-right: 1px solid white;
-      }
-    }
-  }
-
-  /* ============================================
-     Tags Styles
-  ============================================ */
-
-  .tags {
-    margin: 0;
-    font-size: 0;
-
-    li {
-      padding: 10px 10px;
-      margin-right: 5px;
-      margin-top: 10px;
-    }
-  }
-
-  /* ============================================
-     Sidebar Styles
-  ============================================ */
-
-  #sidebar-section {
-    article {
-      display: block;
-      width: 80%;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    h4 {
-      padding: 30px 0;
-      font-size: 26px;
-      letter-spacing: 2;
-      text-align: center;
-      margin-bottom: 30px;
-    }
-  }
-
-  .project-contact {
-    > * {
-      margin-bottom: 30px;
-    }
-  }
-
-  .contact-btn {
-    width: 100%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 15px 0;
-
-    letter-spacing: 10px;
-    font-size: 20px;
-  }
-
-  .social-media-links {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 0;
-  }
-
-  .connect-link {
-    width: 33.333%;
-    padding: 0 10px;
     &:hover {
-      opacity: 0.8;
-    }
-    img {
-      width: 100%;
-      height: auto;
-      max-width: 100px;
-      max-height: 100px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    span {
-      font-size: 18px;
+      animation-play-state: paused, paused;
+      .material-icons {
+        text-shadow: 0 0 0.4rem white;
+      }
     }
   }
-}
 
-.projects-new #page-main-header {
-  background-image: image-url("mac-addicts.jpg");
-}
+  #projects-show-main {
+    position: relative;
+    margin-top: 100vh; // Clears the header
+    width: 100%;
 
-/* ============================================
-   Media Queries Styles
-============================================ */
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+    background: $gradient-tropics;
 
-@media (min-width: 768px) { /* Tablets and up */
-  .projects .opp-card-grid .opp-card {
-    .img-wrapper {
-      height: 150px;
+    box-shadow: 0 0 2.8rem -0.7rem black;
+  }
+  .section-group {
+    background-color: white;
+    overflow: hidden;
+    @include light-shadow;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.3rem;
+    &:last-child {
+      margin-bottom: 0;
     }
-    .content-wrapper {
-      padding: 10px 15px;
-      position: static;
+    @include immediate-children-bottom-margins(1rem);
+  }
+  .section-header {
+    padding: 1rem;
+    font-size: 2.45rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.12rem;
+    font-family: "Roboto";
+  }
+  section[data-section-id="quick-info"] {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: stretch;
+    justify-content: space-between;
+    .section-header {
+      flex: none;
+      margin: 0 0.3rem 0 0;
+      width: 20rem;
+      min-height: 10rem;
       color: black;
+      border: 0.1rem solid $color-prussian-blue;
     }
-    .opp-card-header {
-      padding-top: 20px;
-      font-size: 24px;
-      &:after {
-        border-bottom: 5px solid black;
+    .quick-info-pane {
+      flex: auto;
+      margin: 0;
+      background: $background-stripes;
+      padding: 1rem;
+      font-size: 1.1rem;
+    }
+    .quick-info-item {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      margin: 0 1rem 1rem 0;
+      border-left: 0.2rem solid rgba(3, 169, 244, 0.70);
+      color: #795548;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    .quick-info-title {
+      flex: none;
+      width: 8rem;
+      color: #3F51B5;
+      text-transform: uppercase;
+      padding: 0.5rem 1rem;
+    }
+  }
+  section[data-section-id="tags"] {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+    .section-header {
+      margin: 0;
+      border: 0.1rem solid #E91E63;
+      color: black;
+      padding-right: 2rem;
+    }
+    .project-tags-wrapper {
+      position: relative;
+      flex: auto;
+      width: 100%;
+      overflow: hidden;
+    }
+    .project-tags {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      bottom: -1rem;
+      overflow-y: hidden;
+      overflow-x: auto;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      margin: 0;
+    }
+    .tag {
+      flex: none;
+      padding: 0 0.4rem;
+      .btn {
+        font-size: 1.3rem;
+        padding: 0.6rem 1.3rem;
+        text-transform: capitalize;
+        @include light-shadow;
+      }
+    }
+  }
+  section[data-section-id="description"] {
+    .section-header {
+      border-left: 0.1rem solid $color-light-orange;
+      border-top: 0.1rem solid $color-light-orange;
+    }
+    .project-description {
+      font-size: 1.5rem;
+      font-weight: 300;
+    }
+  }
+  section[data-section-id="gallery"] {
+    .section-header {
+      border-left: 0.1rem solid $color-prussian-blue;
+      border-top: 0.1rem solid $color-prussian-blue;
+    }
+  }
+  #project-pictures-carousel {
+    height: 60vh;
+    background: $background-stripes;
+    .carousel-inner {
+      height: 100%;
+    }
+    .carousel-item {
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+    .project-image {
+      max-width: 90%;
+      max-height: 90%;
+      width: auto;
+      height: auto;
+      border: 0.6rem solid rgba(76, 76, 76, 0.2);
+    }
+    i.material-icons {
+      background-color: black;
+      opacity: 0.5;
+      border-radius: 100%;
+      font-size: 3rem;
+      padding: 0.2rem;
+    }
+  }
+  section[data-section-id="proposals"] {
+    .section-header {
+      border-left: 0.1rem solid #607D8B;
+      border-top: 0.1rem solid #607D8B;
+    }
+  }
+}
+
+body,
+html {
+    max-width: 100%;
+    overflow-x: hidden; //make sure mobile side scrolling is disabled
+}
+
+// Phones
+@include media-breakpoint-down(sm) {
+  .projects {
+    .jumbotron{
+      margin-bottom: 0rem;
+    }
+    header
+    {
+      background-size: 100%;
+      background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0)), image-url("change-laptop") no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+    #Discover
+    {
+      height: 30em;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      h1{
+        padding-top: 3rem;
+        color: white;
+        text-align: center;
+      }
+      h4{
+        color: white;
+        text-align: center;
+      }
+    }
+    #view-projects
+    {
+      height:12rem;
+      background-color: rgb(15, 73, 161);
+      color: white;
+      .filters
+      {
+        padding-top: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        flex-flow: row wrap;
+        #options-title{
+          padding-top: 0.3rem;
+          padding-right: 1rem;
+          width: 100%;
+        }
+        .options{
+        }
+      }
+    }
+    #projects
+    {
+      margin-left: 1rem;
+      .projects-card{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        .card{
+          width: 10rem;
+          height: 14rem;
+          margin-right: 2rem;
+          margin-top: 2rem;
+        }
       }
     }
   }
 }
 
-@media (min-width: 992px) { /* md and up */
-  .projects-show {
-    #sidebar-section {
-      border-left: 1px solid $color-light-turquoise;
-      border-right: 1px solid $color-light-turquoise;
-      article {
-        width: 100%;
+
+// Not phones
+@include media-breakpoint-up(md) {
+  .projects {
+    .jumbotron{
+      margin-bottom: 0rem;
+    }
+    header{
+      background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0)), image-url("change-laptop") no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+    #Discover
+    {
+      .tracking-in-expand {
+        -webkit-animation: tracking-in-expand 1s ease-in both;
+                animation: tracking-in-expand 1s ease-in both;
       }
-      h4 {
-        font-size: 20px;
-        padding: 15px 0;
+      @-webkit-keyframes tracking-in-expand {
+        0% {
+          letter-spacing: -0.5em;
+          opacity: 0;
+        }
+        40% {
+          opacity: 0.6;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @keyframes tracking-in-expand {
+        0% {
+          letter-spacing: -0.5em;
+          opacity: 0;
+        }
+        40% {
+          opacity: 0.6;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      height: 40em;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      h1{
+        padding-top: 3rem;
+        color: white;
+        text-align: center;
+        font-size: 5rem;
+      }
+      h4{
+        color: white;
+        text-align: center;
       }
     }
-    .project-contact {
-      > * {
-        margin-bottom: 30px;
+    #view-projects
+    {
+      height: 10.5rem;
+      background-color: rgb(15, 73, 161);
+      color: white;
+      .filters
+      {
+        padding-top: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        #options-title{
+          padding-top: 0.3rem;
+          width: 100%;
+        }
+        .options{
+        }
       }
     }
-    .contact-btn {
-      letter-spacing: 3px;
+    #projects
+    {
+      margin-top: 3rem;
+      .projects-card{
+        display: flex;
+        flex-flow: none;
+        .card{
+          width: 10rem;
+          height: 14rem;
+          margin-right: 2rem;
+          margin-top: 2rem;
+        }
+      }
     }
   }
+}
 
-  .projects .opp-card-grid .opp-card {
-    margin-bottom: 10px;
+// large monitors
+@include media-breakpoint-up(xl) {
+  .projects {
+    .jumbotron{
+      margin-bottom: 0rem;
+    }
+    header
+    {
+      background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0)), image-url("change-laptop") no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+    #Discover
+    {
+      //background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0)), image-url("change-laptop") no-repeat  center center fixed;
+      //background-size: cover;
+      //background-repeat: no-repeat;
+      height: 30em;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      h1{
+        color: white;
+        text-align: center;
+      }
+      h4{
+        color: white;
+        text-align: center;
+      }
+    }
+    #view-projects
+    {
+      height:6rem;
+      background-color: rgb(15, 73, 161);
+      color: white;
+      .filters
+      {
+        padding-top: 1.5rem;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        #options-title{
+          padding-top: 0.3rem;
+          width: auto;
+        }
+        .options{
+        }
+      }
+    }
+    #projects
+    {
+      margin-top: 3rem;
+      margin-left: 3rem;
+      .projects-card{
+        display: flex;
+        flex-flow: none;
+      }
+      .card{
+        width: 10rem;
+        height: 14rem;
+        margin-right: 1rem;
+        margin-top: 2rem;
+      }
+    }
   }
 }

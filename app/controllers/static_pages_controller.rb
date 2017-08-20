@@ -1,8 +1,4 @@
 class StaticPagesController < ApplicationController
-  def landing
-    render layout: "landing" #remove - not used
-  end
-
   def home
   end
 
@@ -16,5 +12,8 @@ class StaticPagesController < ApplicationController
   end
 
   def tos
+  end
+
+  def tba
   end
 end
