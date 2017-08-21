@@ -19,6 +19,7 @@ $gradient-generic: linear-gradient(to bottom right, rgba(236, 232, 249, 0.9), rg
 $gradient-tropics: linear-gradient(to bottom right, rgba(156, 39, 176, 0.5), rgba(139, 195, 74, 0.5));
 $bgDefault: white;
 $bgHighlight: #EC6333;
+$navbar-height: 4.3rem;
 
 $background-stripes: repeating-linear-gradient(135deg,
                       #ECECEC 0,      #ECECEC 0.2rem,
@@ -107,8 +108,20 @@ body {
   min-height: 100%;
   width: 100%;
   position: relative;
-  // font-family: "Lato", sans-serif;
+
+  // By default, text font is set to Source Sans Pro
   font-family: "Source Sans Pro", sans-serif;
+}
+
+button, input, optgroup, select, textarea {
+  // Overrides a bootstrap rule that gives
+  // these elements the default font-family
+  // of sans-serif
+  font-family: "Source Sans Pro";
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Lato", sans-serif;
 }
 
 input, button {
@@ -166,6 +179,8 @@ ul, li {
   -o-transition: all $quick-transition-time;
   transition: all $quick-transition-time;
 }
+
+
 
 .main-header {
   h1, h2, h3, h4, h5, h6 {

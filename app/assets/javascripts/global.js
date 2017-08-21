@@ -107,7 +107,7 @@ $(document).on('turbolinks:load', function(){
         event.preventDefault();
         $('html, body').animate({
           scrollTop: target.offset().top
-        }, long_transition_time, function() {
+        }, medium_transition_time, function() {
           // Callback after animation
           // Must change focus!
           var $target = $(target);

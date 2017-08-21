@@ -114,6 +114,7 @@
         margin-bottom: 1rem;
         strong {
           color: #B3E6FF;
+          font-family: "Source Sans Pro", sans-serif;
         }
       }
       p {
@@ -203,7 +204,7 @@
     font-size: 4.5rem;
     margin-bottom: 3rem;
     font-weight: 900;
-    //font-family: "Roboto";
+    font-family: "Roboto", sans-serif;
   }
   .section-description {
     font-size: 1.7rem;
@@ -281,7 +282,7 @@
 // Phones
 @include media-breakpoint-down(sm) {
   #homepage-header > .container {
-    padding-top: 4.3rem; // This is the height of the navbar
+    padding-top: $navbar-height; // This is the height of the navbar
   }
   #homepage-header .focus-card{
     margin-top: 2rem;
