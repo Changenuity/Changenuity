@@ -1,7 +1,7 @@
 class ProposalsController < ApplicationController
   before_action :authenticate_user!
 
-  def index
+  def index # list all by/to current_user
     @proposals = Proposal.where(user_id: current_user.id)
   end
 
@@ -11,7 +11,6 @@ class ProposalsController < ApplicationController
 
   def new
     @proposal = Proposal.new
-    # TODO need to get current_user and @project to associate....
   end
 
   def create

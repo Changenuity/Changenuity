@@ -1,6 +1,6 @@
 <% provide(:title, "Browse Your Proposals") %>
 <% @proposals.each do |proposal| %>
 	<%= proposal.user_id %>
-	<%= proposal.project_id %>
-	<%= proposal.content %><br/>
+	<%= proposal.project_id %><br/>
+	<%= proposal.id %><br/>
 <% end %>

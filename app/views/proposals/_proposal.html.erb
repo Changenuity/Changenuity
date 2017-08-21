@@ -1,11 +1,14 @@
 <p>
-	<strong>Content:</strong>
-	<%= proposal.reason %>
-	<%= proposal.passions %>
-	<%= proposal.skills %>
-	<%= proposal.work %>
-	<%= proposal.commitment %>
-	<%= proposal.estimation %>
-	<%= proposal.linkedin %>
-  	<%= link_to proposal.project_id, project_path(:id => proposal.project_id) %>
+	<strong>Application:</strong><br/>
+	<%= proposal.reason %><br/>
+	<%= proposal.passions %><br/>
+	<%= proposal.skills %><br/>
+	<%= proposal.work %><br/>
+	<%= proposal.commitment %><br/>
+	<%= proposal.estimation %><br/>
+	<%= proposal.linkedin %><br/>
+	
+  	<%= link_to "Project", project_path(:id => proposal.project_id) %><br/>
+  	Link:
+  	<%= link_to proposal.id, project_proposal_path(proposal.project_id, proposal.id) %>
 </p>
