@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170813235428) do
+ActiveRecord::Schema.define(version: 20170827223404) do
 
   create_table "authentications", force: :cascade do |t|
     t.integer  "user_id"
@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 20170813235428) do
     t.string   "commitment"
     t.string   "estimation"
     t.string   "linkedin"
+    t.string   "website"
+    t.string   "github"
     t.index ["project_id"], name: "index_proposals_on_project_id"
     t.index ["user_id"], name: "index_proposals_on_user_id"
   end

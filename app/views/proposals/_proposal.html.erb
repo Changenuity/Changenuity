@@ -6,7 +6,9 @@
 	Work: <%= proposal.work %><br/>
 	Commitment: <%= proposal.commitment %><br/>
 	Estimation: <%= proposal.estimation %><br/>
+	Personal Website: <%= proposal.website %><br/>
 	LinkedIn: <%= proposal.linkedin %><br/>
+	Github: <%= proposal.github %><br/>
 	
   	<%= link_to "Project", project_path(:id => proposal.project_id) %><br/>
   	<%= link_to "Proposal", project_proposal_path(proposal.project_id, proposal.id) %>
