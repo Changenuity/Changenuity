@@ -27,6 +27,7 @@ class ProposalsController < ApplicationController
   end
 
   def edit
+    @project = Project.find(params[:project_id])
     @proposal = Proposal.find(params[:id])
   end
 
@@ -34,8 +35,8 @@ class ProposalsController < ApplicationController
     @proposal = Proposal.find(params[:id])
     if @proposal.update_attributes(proposal_params)
       # Handle successful update
-      flash[:success] = "Proposal changed"
-      redirect_to @proposal
+      flash[:success] = "Application updated"
+      redirect_to project_proposal_path(@proposal)
     else
       render 'edit'
     end

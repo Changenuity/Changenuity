@@ -1,4 +1,55 @@
-<p>
-	<strong>Application:</strong><br/>
-	TODO: edit form
-</p>
+<% provide(:title, "Edit Application") %>
+<main id="page-main" class="projects projects-new">
+  <header id="page-main-header" class="jumbotron splash">
+    <div class="container">
+      <h1>Edit Your Application!</h1>
+      <p>Your change is right around the corner.</p>
+    </div>
+  </header>
+  <section id="main-section" class="container opt-section">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <%= form_for([@project, @proposal], html:{ class:"proposals-edit-form" }) do |f| %>
+          <%= render "shared/error_messages", object: @proposal %>
+          <p>
+            <%= f.label :reason %>
+            <%= f.text_area :reason, class: "form-control" %>
+          </p>
+          <p>
+            <%= f.label :passions %>
+            <%= f.text_area :passions, class: "form-control" %>
+          </p>
+          <p>
+            <%= f.label :skills %>
+            <%= f.text_area :skills, class: "form-control" %>
+          </p>
+          <p>
+            <%= f.label :work %>
+            <%= f.text_area :work, class: "form-control" %>
+          </p>
+          <p>
+            <%= f.label :commitment %>
+            <%= f.text_field :commitment, class: "form-control" %>
+          </p>
+          <p>
+            <%= f.label :estimation %>
+            <%= f.text_field :estimation, class: "form-control" %>
+          </p>
+          <p>
+            <%= f.label :website %>
+            <%= f.text_field :website, class: "form-control" %>
+          </p>
+          <p>
+            <%= f.label :linkedin %>
+            <%= f.text_field :linkedin, class: "form-control" %>
+          </p>
+          <p>
+            <%= f.label :github %>
+            <%= f.text_field :github, class: "form-control" %>
+          </p>
+            <%= f.submit "Save changes", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </section>
+</main>
