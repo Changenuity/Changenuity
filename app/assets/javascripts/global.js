@@ -236,21 +236,21 @@ $(document).on('turbolinks:load', function(){
     }, 'xml');
   });
 
-  alerts = [];
-  $('.snackbar-container .snackbar').each(function(){
-    alerts.push((new Snackbar(this, 7)).startShow());
+  var alerts = [];
+  $('.snackbar-container .snackbar').each(function() {
+    alerts.push((new Snackbar(this, 5)).startShow());
   });
 
   $(document.body)
     .on('mouseenter', '.snackbar-container', function(){
+      // console.log("Entry registered!");
       $.each(alerts, function() {
-        console.log("Entry registered!");
         this.pause();
       });
     })
     .on('mouseleave', '.snackbar-container', function(){
+      // console.log("Leave registered!");
       $.each(alerts, function() {
-        console.log("Leave registered!");
         this.resume();
       });
     });
