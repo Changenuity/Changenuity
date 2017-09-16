@@ -1,12 +1,8 @@
-/*Note: SCSS (which we have) will allow us to define constants,
-such as for transition times and common colours*/
-/*I have defined them here, but for demo purposes have not
-added them to the main css code yet*/
-
 .pcard {
+    background-color: white;
     overflow: hidden;
     transition-duration: 0.2s;
-    width: 270px;
+    width: 17rem;
     padding-bottom: 17px;
     border-radius: $border-radius;
     box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
@@ -14,7 +10,7 @@ added them to the main css code yet*/
         box-shadow: 0px 0px 15px rgba(0,0,0,0.4);
         cursor: pointer;
     }
-    .pcard-img, .pcard-content, .pcard-footer {
+    .pcard-img-container, .pcard-content, .pcard-footer {
         width: 100%;
     }
     .pcard-content, .pcard-footer {
@@ -26,8 +22,22 @@ added them to the main css code yet*/
         justify-content: space-between;
         align-items: center;
     }
+    .pcard-img-container {
+      height: 13rem; /* Uniform height on all images */
+      /* Display flex to leverage flex centering, ensures that the image is centered both horizontally and vertically, even if it overflows */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin-bottom: 17px;
+    }
     .pcard-img {
-        margin-bottom: 17px;
+      /* Ensures that the image covers the container */
+      flex: none;
+      // height: auto;
+      // width: auto;
+      min-width: 100%;
+      min-height: 100%;
     }
     .pcard-maintitle {
         font-size: 1.5rem;

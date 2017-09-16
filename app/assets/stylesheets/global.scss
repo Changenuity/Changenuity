@@ -54,28 +54,25 @@ $border-radius: 0.3rem;
 //
 // WARNING: The element will be given 'position: relative', make sure that this
 // does not break formatting
-// $text-color      -   The desired text color
-// $fallback-color  -   The base color of the background, used as a fallback if
+// $base-color      -   The base color of the background, used as a fallback if
 //                      a background image is provided
 // $background-url  -   OPTIONAL: The url of the background image, provide ""
 //                      if you don't have one
-@mixin gradient-background($color-to, $color-from, $text-color, $base-color, $background-url) {
+@mixin gradient-background($color-to, $color-from, $base-color, $background-url) {
   position: relative;
   background-position: center 60%;
   background-size: cover;
   background-repeat: no-repeat;
-  color: $text-color;
   background-color: $base-color;
   background-image: image-url($background-url);
   &:before {
-    /* Dark gradient */
     content: "";
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient($color-to, $color-from);
+    background: linear-gradient(to bottom, $color-to, $color-from);
   }
 }
 
