@@ -32,7 +32,6 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      margin-bottom: 17px;
     }
     .pcard-img {
       /* Ensures that the image covers the container */
@@ -41,6 +40,9 @@
       // width: auto;
       min-width: 100%;
       min-height: 100%;
+    }
+    .pcard-content {
+      margin-top: 17px;
     }
     .pcard-maintitle {
         font-size: 1.5rem;
