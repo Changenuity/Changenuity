@@ -30,7 +30,7 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
-    align-items: flex-start;
+    align-items: stretch;
     .pcard {
       flex: none;
       margin-bottom: 0.8rem;

@@ -1,4 +1,6 @@
 .pcard {
+    display: flex;
+    flex-flow: column nowrap;
     background-color: white;
     overflow: hidden;
     transition-duration: 0.2s;
@@ -17,6 +19,7 @@
         padding: 0 1rem;
     }
     .pcard-footer {
+        margin-top: auto; /* Makes sure the footer is at the bottom */
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-between;
