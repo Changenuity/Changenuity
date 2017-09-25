@@ -29,6 +29,10 @@
             <%= f.text_field :tag_list %>
           </p>
           <p>
+            <%= f.label :category %>
+            <%= select_tag :category_list, options_from_collection_for_select(@categories, "id", "name") %>
+          </p>
+          <p>
             <%= f.label :description %>
             <%= f.text_area :description, class: "form-control" %>
           </p>

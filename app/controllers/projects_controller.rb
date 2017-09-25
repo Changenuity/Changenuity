@@ -26,6 +26,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @categories = Project.category_counts
   end
 
   def create
@@ -40,6 +41,7 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
+    @categories = Project.category_counts
     if current_user.id != @project.user_id
       redirect_to @project
     end
@@ -60,6 +62,7 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:name, :date, :location,
-      :description, :parameters, :references, :image, :tag_list, :user_id, :term)
+      :description, :parameters, :references, :image,
+      :tag_list, :category_list, :user_id, :term)
   end
 end
