@@ -10,7 +10,7 @@
       <i class="btn-fav material-icons">favorite</i>
       <span class="fav-count">132</span>
     </div>
-    <%= link_to(project.categories.first, "#", class: "btn btn-success") %>
+    <%= link_to(project.categories.first, category_path(project.categories.first), class: "btn btn-success") %>
   </div>
   <% if user_signed_in? && project.user_id == current_user.id %>
     <div class="pcard-content">
