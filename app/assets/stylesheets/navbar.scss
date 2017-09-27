@@ -6,6 +6,7 @@
 }
 
 #navbar {
+  position: relative;
   display: flex;
   flex-flow: row nowrap;
   width: 100%;
@@ -40,7 +41,7 @@
   display: flex;
 }
 
-.navbar-login-form {
+.navbar-window {
   position: absolute;
   width: 20rem;
   top: 5rem;
@@ -50,7 +51,7 @@
   overflow: hidden;
   display: none;
   @include light-shadow;
-  .widgets-wrapper {
+  .content-wrapper {
     padding: 2rem 1.5rem;
     @include immediate-children-bottom-margins(0.65rem);
   }
@@ -88,13 +89,17 @@
       margin-right: 0.5rem;
     }
   }
-  .button-sign-up:hover {
+  .button-primary:hover {
     color: white;
     background-color: $color-light-orange;
   }
-  .button-sign-in:hover {
+  .button-secondary:hover {
     color: white;
     background-color: $color-turquoise;
+  }
+  .gravatar {
+    border-radius: 100%;
+    @include light-shadow;
   }
 }
 
@@ -175,7 +180,7 @@
   #navbar-secondary {
     right: 0;
     transform: translateX(100%);
-    .navbar-account-button {
+    .secondary-navbar-button {
       display: none;
     }
   }
@@ -228,7 +233,7 @@
   #navbar-secondary {
     margin: 0;
     align-items: stretch;
-    .navbar-account-button {
+    .secondary-navbar-button {
       height: 100%;
       font-size: 0.5rem;
       height: 100%;
@@ -252,7 +257,7 @@
         color: $color-orange;
       }
     }
-    .go-to-account {
+    .add-contract {
       border-right: none;
     }
   }

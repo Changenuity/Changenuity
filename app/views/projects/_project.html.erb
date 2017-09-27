@@ -1,5 +1,9 @@
 <div class="pcard" data-project-url="<%= project_path(project) %>">
-  <%= image_tag project.image.url(:medium), class: "pcard-img" %>
+  <% if project.image.exists? %>
+    <div class="pcard-img-container">
+      <%= image_tag project.image.url(:medium), class: "pcard-img" %>
+    </div>
+  <% end %>
   <div class="pcard-content">
     <h2 class="pcard-maintitle"><%= project.name %></h2>
     <h3 class="pcard-subtitle"><%= project.location %></h2>
@@ -12,10 +16,12 @@
     </div>
     <a class="btn btn-success" data-category-value="Infrastructure" href="#">Infrastructure</a>
   </div>
-  <% if user_signed_in? && project.user_id == current_user.id %>
-    <div class="pcard-content">
-      <h3 class="pcard-subtitle">Received Proposals:</h2>
-      <%= render partial: "/proposals/proposal", collection: project.proposals %>
-    </div>
+  <% if false # Commented out for now %>
+    <% if user_signed_in? && project.user_id == current_user.id %>
+      <div class="pcard-content">
+        <h3 class="pcard-subtitle">Received Proposals:</h2>
+        <%= render partial: "/proposals/proposal", collection: project.proposals %>
+      </div>
+    <% end %>
   <% end %>
 </div>

@@ -61,7 +61,12 @@ $(document).on('turbolinks:load', function() {
       .parent()
       .append('<div class="missing-img">Project Image Not Found!</div>');
   });
-
+  $('.pcard-img').error(function(){
+    $(this)
+      .hide()
+      .parent()
+      .append('<div class="missing-img pcard-img">Project Image Not Found!</div>');
+  });
   ////////////////////////////////////////////////
   // END - Code related to the project show     //
   ////////////////////////////////////////////////
