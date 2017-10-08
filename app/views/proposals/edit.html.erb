@@ -11,42 +11,60 @@
       <div class="col-md-8 col-md-offset-2">
         <%= form_for([@project, @proposal], html:{ class:"proposals-edit-form" }) do |f| %>
           <%= render "shared/error_messages", object: @proposal %>
-          <p>
-            <%= f.label :reason %>
-            <%= f.text_area :reason, class: "form-control" %>
-          </p>
+          <% if @project.form_fields.include?("Reason") %>
+            <p>
+              <%= f.label :reason %>
+              <%= f.text_area :reason, class: "form-control" %>
+            </p>
+          <% end %>
+          <% if @project.form_fields.include?("Passions") %>
           <p>
             <%= f.label :passions %>
             <%= f.text_area :passions, class: "form-control" %>
           </p>
+          <% end %>
+          <% if @project.form_fields.include?("Skills") %>
           <p>
             <%= f.label :skills %>
             <%= f.text_area :skills, class: "form-control" %>
           </p>
+          <% end %>
+          <% if @project.form_fields.include?("Work") %>
           <p>
             <%= f.label :work %>
             <%= f.text_area :work, class: "form-control" %>
           </p>
+          <% end %>
+          <% if @project.form_fields.include?("Commitment") %>
           <p>
             <%= f.label :commitment %>
             <%= f.text_field :commitment, class: "form-control" %>
           </p>
+          <% end %>
+          <% if @project.form_fields.include?("Estimation") %>
           <p>
             <%= f.label :estimation %>
             <%= f.text_field :estimation, class: "form-control" %>
           </p>
+          <% end %>
+          <% if @project.form_fields.include?("Website") %>
           <p>
             <%= f.label :website %>
             <%= f.text_field :website, class: "form-control" %>
           </p>
+          <% end %>
+          <% if @project.form_fields.include?("LinkedIn") %>
           <p>
             <%= f.label :linkedin %>
             <%= f.text_field :linkedin, class: "form-control" %>
           </p>
+          <% end %>
+          <% if @project.form_fields.include?("Github") %>
           <p>
             <%= f.label :github %>
             <%= f.text_field :github, class: "form-control" %>
           </p>
+          <% end %>
             <%= f.submit "Save changes", class: "btn btn-primary" %>
         <% end %>
       </div>

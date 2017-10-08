@@ -16,6 +16,9 @@ class Project < ApplicationRecord
   validates :references,            length: { maximum: 65535 }
   validates :user_id, presence: true
 
+  # store :form_fields, coder: JSON, accessors: [:reason, :passions, :skills, :work, :commitment, :estimation, :website, :linkedin, :github]
+  serialize :form_fields, Array
+
   def self.search(term)
     if term
       where('lower(name) LIKE lower(?)', "%#{term}%").order('id DESC')
