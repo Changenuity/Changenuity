@@ -15,19 +15,21 @@
           <h3 class="section-header">Quick Info
           <% if user_signed_in? && @project.user_id == current_user.id %>
             <%= link_to "<Edit>", edit_project_path(@project) %>
-
-            <% # Toggle test %>
-            <div class="wrapper">
-              <input type="checkbox" name="recruiting" id="recruiting-toggle" />
-              <label class="toggle-label" for="recruiting-toggle"></label>
-            </div>
-
           <% end %>
           </h3>
           <ul class="quick-info-pane">
             <li class="quick-info-item">
               <span class="quick-info-title">Project</span>
               <%= @project.name %>
+            </li>
+            <li class="quick-info-item">
+              <span class="quick-info-title">
+                <% if @project.recruiting %>
+                  Recruiting
+                <% else %>
+                  Not Recruiting
+                <% end %>
+              </span>
             </li>
             <li class="quick-info-item">
               <span class="quick-info-title">Location</span>
