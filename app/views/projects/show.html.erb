@@ -15,6 +15,13 @@
           <h3 class="section-header">Quick Info
           <% if user_signed_in? && @project.user_id == current_user.id %>
             <%= link_to "<Edit>", edit_project_path(@project) %>
+
+            <% # Toggle test %>
+            <div class="wrapper">
+              <input type="checkbox" name="recruiting" id="recruiting-toggle" />
+              <label class="toggle-label" for="recruiting-toggle"></label>
+            </div>
+
           <% end %>
           </h3>
           <ul class="quick-info-pane">

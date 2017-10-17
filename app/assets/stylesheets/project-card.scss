@@ -32,6 +32,7 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
+      background-color: $color-edward;
     }
     .pcard-img {
       /* Ensures that the image covers the container */
@@ -40,6 +41,11 @@
       // width: auto;
       min-width: 100%;
       min-height: 100%;
+    }
+    .pcard-logo {
+      flex: none;
+      height: 40%;
+      fill: $color-light-turquoise;
     }
     .pcard-content {
       margin-top: 17px;

@@ -3,9 +3,7 @@
     <% if project.image.exists? %>
         <%= image_tag project.image.url(:medium), class: "pcard-img" %>
     <% else %>
-        <div class="pcard-img">
-          <%= image_tag "delta_logo.svg", class: 'svg logo' %>
-        </div>
+          <%= image_tag "delta_logo.svg", class: 'svg pcard-logo' %>
     <% end %>
   </div>
   <div class="pcard-content">
