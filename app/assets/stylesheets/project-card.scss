@@ -27,12 +27,13 @@
     }
     .pcard-img-container {
       height: 13rem; /* Uniform height on all images */
+      position: relative;
       /* Display flex to leverage flex centering, ensures that the image is centered both horizontally and vertically, even if it overflows */
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      background-color: $color-edward;
+      background-color: $color-blue-stone;
     }
     .pcard-img {
       /* Ensures that the image covers the container */
@@ -45,7 +46,7 @@
     .pcard-logo {
       flex: none;
       height: 40%;
-      fill: $color-light-turquoise;
+      fill: $color-edward;
     }
     .pcard-content {
       margin-top: 17px;
@@ -113,6 +114,19 @@
             background-color: darken($color-orange, 10);
             border-color: darken($color-orange, 10);
         }
+    }
+    &.pcard-recruiting .pcard-img-container::after {
+      content: "Currently Recruiting";
+      font-family: "Lato";
+      position: absolute;
+      width: 110%;
+      padding-right: 1rem;
+      bottom: 0;
+      left: 0;
+      text-align: center;
+      background-color: #FF5722;
+      color: white;
+      border-radius: 3rem 0px;
     }
 }
 

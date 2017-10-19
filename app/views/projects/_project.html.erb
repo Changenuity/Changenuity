@@ -1,4 +1,4 @@
-<div class="pcard <% if not project.recruiting %> pcard-disabled <% end %>" data-project-url="<%= project_path(project) %>">
+<div class="pcard<% if project.recruiting %> pcard-recruiting<% end %>" data-project-url="<%= project_path(project) %>">
   <div class="pcard-img-container">
     <% if project.image.exists? %>
         <%= image_tag project.image.url(:medium), class: "pcard-img" %>
