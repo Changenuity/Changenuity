@@ -2,9 +2,13 @@
 // throughout the application.
 
 // CONSTANT DEFINITIONS
-var quick_transition_time = 5000;
-var medium_transition_time = 10000;
-var long_transition_time = 20000;
+var QUICK_TRANSITION_TIME = 200;
+var MEDIUM_TRANSITION_TIME = 400;
+var LONG_TRANSITION_TIME = 1000;
+
+var SNACKBAR_TIME = 4000;
+
+var NULL_FUNCTION = function(){};
 
 var DESKTOP_NAVBAR_SOLID_THRESHOLD = 50; // px
 
@@ -41,33 +45,103 @@ function createDisableOverlay($parentElement, transitionTime, zIndex) {
   return overlay;
 }
 
+/**
+ *  Timer Class
+ *  Courtesy of: https://stackoverflow.com/questions/3969475/javascript-pause-settimeout
+ *  A wrapper for setTimeout that provides pause and resume capabilities.
+ *  Timer starts as soon as the object is created.
+ *
+ *  In addition to pausing the timer, the pause method also returns in
+ *  miliseconds the amount of time remaining.
+ **/
+function Timer(callback, delay) {
+  var timerId
+    , start
+    , remaining = delay;
+
+  this.pause = function() {
+    window.clearTimeout(timerId);
+    remaining -= (new Date() - start);
+    return remaining;
+  }
+
+  this.play = function() {
+    start = new Date();
+    window.clearTimeout(timerId);
+    timerId = setTimeout(callback, remaining);
+  }
+
+  this.play();
+}
 
 
-function SnackbarController(alerts) {
+
+
+function Snackbar(element, duration) {
+  this.element = element;
+  this.duration = duration;
+
   var _this = this;
-  _this.alerts_array = [];
-  $(alerts).each(function(index, alert) {
-    _this.alerts_array.push(alert);
+  // Set up bindings for click removing
+  $(this.element).on('click', function() {
+    _this.remove();
   });
 }
 
-SnackbarController.prototype.showAlerts = function() {
-  $.each(this.alerts_array, function(index, alert) {
-    $(alert).show().addClass('add');
-    setTimeout(function(){
-      // It is necessary to remove the add class so that
-      $(alert).removeClass('add');
-    }, 1000);
+// Fade in the element and then start the count down
+Snackbar.prototype.startShow = function() {
+  TweenLite.from(this.element, 1, {
+    y: "50px",
+    opacity: 0,
+    onComplete: function() {
+      console.log(this);
+      $(this.element).css('background-image', 'rgba(0,0,0,0.5)')
+      this.progress = TweenLite.fromTo(this.element, this.duration, {
+        backgroundImage: "linear-gradient(to right,rgba(255,255,255,0.1),rgba(255,255,255,0.5))",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "0% 100%"
+      }, {
+        backgroundSize: "100% 100%",
+        ease: Power0.easeNone,
+        onComplete: function() {
+          this.remove();
+        },
+        onCompleteScope: this
+      });
+    },
+    onCompleteScope: this
   });
+  return this;
 }
 
-SnackbarController.prototype.removeAlerts = function() {
-  $.each(this.alerts_array, function(index, alert){
-    $(alert).addClass('remove');
-    setTimeout(function() {
-      $(alert).remove();
-    }, 400);
-  })
+Snackbar.prototype.pause = function() {
+  this.progress.pause();
+  return this;
+}
+
+Snackbar.prototype.resume = function() {
+  this.progress.resume();
+  return this;
+}
+
+Snackbar.prototype.remove = function() {
+  TweenLite.to($(this.element), 0.4, {
+      y: "50px",
+      opacity: 0,
+      onComplete: function() {
+        TweenLite.to($(this), 0.2, {
+          height: 0,
+          margin: 0,
+          padding: 0,
+          borderWidth: 0,
+          onComplete: function() {
+            $(this).remove();
+          },
+          onCompleteScope: this
+        });
+      },
+      onCompleteScope: this.element
+  });
 }
 
 
@@ -107,7 +181,7 @@ $(document).on('turbolinks:load', function(){
         event.preventDefault();
         $('html, body').animate({
           scrollTop: target.offset().top
-        }, medium_transition_time, function() {
+        }, MEDIUM_TRANSITION_TIME, function() {
           // Callback after animation
           // Must change focus!
           var $target = $(target);
@@ -124,7 +198,7 @@ $(document).on('turbolinks:load', function(){
         event.preventDefault();
         $('html, body').animate({
           scrollTop: 0
-        }, medium_transition_time, function() {
+        }, MEDIUM_TRANSITION_TIME, function() {
           // Reset focus by arbitrarily selecting something
           // to focus and then blur out
           $(target).focus().blur();
@@ -162,10 +236,22 @@ $(document).on('turbolinks:load', function(){
     }, 'xml');
   });
 
-  // Snackbar behaviour
-  snackbar = new SnackbarController($('.snackbar-container .alert'));
-  snackbar.showAlerts();
-  setTimeout(function(){
-    snackbar.removeAlerts();
-  }, 3000);
+  var alerts = [];
+  $('.snackbar-container .snackbar').each(function() {
+    alerts.push((new Snackbar(this, 5)).startShow());
+  });
+
+  $(document.body)
+    .on('mouseenter', '.snackbar-container', function(){
+      // console.log("Entry registered!");
+      $.each(alerts, function() {
+        this.pause();
+      });
+    })
+    .on('mouseleave', '.snackbar-container', function(){
+      // console.log("Leave registered!");
+      $.each(alerts, function() {
+        this.resume();
+      });
+    });
 });
