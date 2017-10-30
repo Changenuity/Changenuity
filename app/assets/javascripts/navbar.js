@@ -75,14 +75,18 @@ $(document).on('turbolinks:load', function(){
     return NavbarReceiver;
   })();
 
-  var mainNavbar = new NavbarReceiver($('#navbar-wrapper')
-                    ,function($navbar) {
-                      $navbar.addClass('active');
-                    }
-                    ,function($navbar) {
-                      $navbar.removeClass('active');
-                    });
+  var mainNavbar = new NavbarReceiver($('#navbar-wrapper'),
+        function($navbar) {
+          $navbar.addClass('active');
+        },
+        function($navbar) {
+          $navbar.removeClass('active');
+        }
+  );
 
+
+  var constRemote = mainNavbar.makeNewRemote();
+  constRemote.turnOn();
   var scrollRemote = mainNavbar.makeNewRemote();
   var hoverRemote = mainNavbar.makeNewRemote();
   var loginRemote = mainNavbar.makeNewRemote();

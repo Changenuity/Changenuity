@@ -1,11 +1,13 @@
 .pcard {
+    font-size: 1rem; // Master sizing control, change this to scale the card
+
     display: flex;
     flex-flow: column nowrap;
     background-color: white;
     overflow: hidden;
     transition-duration: 0.2s;
-    width: 17rem;
-    padding-bottom: 17px;
+    width: 17em;
+    padding-bottom: 1em;
     border-radius: $border-radius;
     box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
     &:hover {
@@ -16,7 +18,7 @@
         width: 100%;
     }
     .pcard-content, .pcard-footer {
-        padding: 0 1rem;
+        padding: 0 1em;
     }
     .pcard-footer {
         margin-top: auto; /* Makes sure the footer is at the bottom */
@@ -26,7 +28,7 @@
         align-items: center;
     }
     .pcard-img-container {
-      height: 13rem; /* Uniform height on all images */
+      height: 13em; /* Uniform height on all images */
       position: relative;
       /* Display flex to leverage flex centering, ensures that the image is centered both horizontally and vertically, even if it overflows */
       display: flex;
@@ -49,10 +51,10 @@
       fill: $color-edward;
     }
     .pcard-content {
-      margin-top: 17px;
+      margin-top: 1em;
     }
     .pcard-maintitle {
-        font-size: 1.5rem;
+        font-size: 1.5em;
         color: $color-blue-stone;
     }
     .pcard-subtitle a {
@@ -63,14 +65,14 @@
         }
     }
     p, .pcard-subtitle {
-        font-size: 1rem;
+        font-size: 1em;
         color: $color-edward;
     }
     .btn-fav-wrapper {
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
-        font-size: 2rem;
+        font-size: 2em;
         color: $color-edward;
         &:hover {
             cursor: default;
@@ -93,7 +95,7 @@
     }
     .main-category {
         margin: 0;
-        padding: 10px 15px;
+        padding: 0.6em 1em;
         text-transform: uppercase;
         color: white;
         font-size: 0.75em;
@@ -120,7 +122,7 @@
       font-family: "Lato";
       position: absolute;
       width: 110%;
-      padding-right: 1rem;
+      padding-right: 1em;
       bottom: 0;
       left: 0;
       text-align: center;
