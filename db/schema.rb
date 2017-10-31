@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171008065929) do
+ActiveRecord::Schema.define(version: 20171031040925) do
 
   create_table "authentications", force: :cascade do |t|
     t.integer  "user_id"
@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(version: 20171008065929) do
   create_table "proposals", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "project_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.text     "reason"
     t.text     "passions"
     t.text     "skills"
@@ -55,6 +55,10 @@ ActiveRecord::Schema.define(version: 20171008065929) do
     t.string   "linkedin"
     t.string   "website"
     t.string   "github"
+    t.string   "resume_file_name"
+    t.string   "resume_content_type"
+    t.integer  "resume_file_size"
+    t.datetime "resume_updated_at"
     t.index ["project_id"], name: "index_proposals_on_project_id"
     t.index ["user_id"], name: "index_proposals_on_user_id"
   end

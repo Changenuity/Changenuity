@@ -54,6 +54,10 @@
 		<%= f.text_field :github, class: "form-control" %>
 	</div>
 	<% end %>
+	<div>
+		<%= f.label :resume %>
+		<%= f.file_field :resume, class: "form-control" %>
+	</div>
 
 	<%= button_tag type: "submit", class: "btn btn-success submit-button" do %>
 		<i class="material-icons">call_made</i>

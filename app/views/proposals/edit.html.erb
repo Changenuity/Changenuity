@@ -64,6 +64,10 @@
             <%= f.label :github %>
             <%= f.text_field :github, class: "form-control" %>
           </p>
+          <p>
+            <%= f.label :resume %>
+            <%= f.file_field :resume, class: "form-control" %>
+          </p>
           <% end %>
             <%= f.submit "Save changes", class: "btn btn-primary" %>
         <% end %>
