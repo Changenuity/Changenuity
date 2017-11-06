@@ -10,6 +10,9 @@
 	<% if (@proposal.website) %>Personal Website: <%= @proposal.website %><br/><%end%>
 	<% if (@proposal.linkedin) %>LinkedIn: <%= @proposal.linkedin %><br/><%end%>
 	<% if (@proposal.github) %>Github: <%= @proposal.github %><br/><%end%>
+	<% if @proposal.resume? %>
+		Resume: <a href="<%= @proposal.resume.url %>"><%= @proposal.resume.original_filename %></a><br/>
+	<% end %>
 	
   	<%= link_to "Project", project_path(:id => @proposal.project_id) %><br/>
 <% if user_signed_in? && @proposal.user_id == current_user.id %>

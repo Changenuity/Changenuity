@@ -1,14 +1,17 @@
 <p>
 	<strong>Application:</strong><br/>
-	Reason: <%= proposal.reason %><br/>
-	Passions: <%= proposal.passions %><br/>
-	Skills: <%= proposal.skills %><br/>
-	Work: <%= proposal.work %><br/>
-	Commitment: <%= proposal.commitment %><br/>
-	Estimation: <%= proposal.estimation %><br/>
-	Personal Website: <%= proposal.website %><br/>
-	LinkedIn: <%= proposal.linkedin %><br/>
-	Github: <%= proposal.github %><br/>
+	<% if proposal.reason? %>Reason: <%= proposal.reason %><br/><%end%>
+	<% if proposal.passions? %>Passions: <%= proposal.passions %><br/><%end%>
+	<% if proposal.skills? %>Skills: <%= proposal.skills %><br/><%end%>
+	<% if proposal.work? %>Work: <%= proposal.work %><br/><%end%>
+	<% if proposal.commitment? %>Commitment: <%= proposal.commitment %><br/><%end%>
+	<% if proposal.estimation? %>Estimation: <%= proposal.estimation %><br/><%end%>
+	<% if proposal.website? %>Personal Website: <%= proposal.website %><br/><%end%>
+	<% if proposal.linkedin? %>LinkedIn: <%= proposal.linkedin %><br/><%end%>
+	<% if proposal.github? %>Github: <%= proposal.github %><br/><%end%>
+	<% if proposal.resume? %>
+		Resume: <a href="<%= proposal.resume.url %>"><%= proposal.resume.original_filename %></a><br/>
+	<% end %>
 	
   	<%= link_to "Project", project_path(:id => proposal.project_id) %><br/>
   	<%= link_to "View", project_proposal_path(proposal.project_id, proposal.id) %>

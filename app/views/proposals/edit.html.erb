@@ -64,12 +64,17 @@
             <%= f.label :github %>
             <%= f.text_field :github, class: "form-control" %>
           </p>
+          <% end %>
           <p>
             <%= f.label :resume %>
-            <%= f.file_field :resume, class: "form-control" %>
+            <span class="form-control">
+              <%= f.file_field :resume, style: "width:100%;" %>
+              <% if @proposal.resume? %>
+                <br/><a href="<%= @proposal.resume.url %>"><%= @proposal.resume.original_filename %></a>
+              <% end %>
+            </span>
           </p>
-          <% end %>
-            <%= f.submit "Save changes", class: "btn btn-primary" %>
+          <%= f.submit "Save changes", class: "btn btn-primary" %>
         <% end %>
       </div>
     </div>
