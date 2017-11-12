@@ -1,53 +1,103 @@
 #users-show {
   background-color: #E6E6E6;
-  .users-show-container {
+  overflow: hidden;
+
+  .container {
     background-color: #F2F4F4;
-    position: relative;
-    height: 100vh;
     @include light-shadow;
+  }
+  .row {
+    padding-top: $navbar-height;
+  }
+  .main-row {
+    height: 100vh;
+    padding-top: $navbar-height;
+  }
+  .control-panel, .content-panes {
+    height: 100%;
   }
 
   .control-panel {
-    width: 25%;
-    position: absolute;
-    top: $navbar-height;
-    bottom: 0;
-    left: 0;
-    padding-left: inherit;
-    padding-right: inherit;
     background-color: white;
-    padding-top: 1rem;
     border-right: 0.01rem solid #CED3D3;
   }
+  .calling-card {
+    padding: 1.7rem 0;
+    border-bottom: 0.01rem solid #CED3D3;
+    text-align: center;
+  }
+  .gravatar {
+    width: 7.5rem;
+    height: auto;
+    border-radius: 100%;
+    margin-bottom: 0.5rem;
+  }
+  .info-line {
+    margin: 0;
+    margin-top: 0.2rem;
+    font-family: "Lato";
+    color: $color-blue-stone;
+  }
+  .user-name {
+    font-size: 2rem;
+    color: $color-prussian-blue;
+  }
+  .quick-access {
+    font-family: "Lato";
+    font-size: 1.2rem;
+    margin-left: -15px;
+    margin-right: -15px;
+    padding-top: 0.7rem;
+    background-color: inherit;
+  }
+  .quick-access-item {
+    cursor: pointer;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 30px;
+    font-weight: 700;
+    color: #5C6A7E;
+    background-color: inherit;
+    margin-top: 0.5rem;
+    transition-duration: 0.2s;
+    &.active, &:hover {
+      color: #007BFF;
+      box-shadow: 2px 0px 10px -2px rgba(0, 0, 0, 0.4);
+      margin-right: -5px;
+    }
+  }
+
   .content-panes {
-    width: 75%;
-    position: absolute;
-    top: $navbar-height;
-    bottom: 0;
-    right: 0;
-    padding-left: inherit;
-    padding-right: inherit;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
-  .jobs-pane {
-    position: relative;
-    width: 100%;
-  }
+
   .jobs-pane-header {
     background-color: white;
     padding: 1.4rem;
     margin: 1rem 0;
-    border: 1px solid #ced3d3;
+    border: 1px solid #CED3D3;
     border-radius: 0.2rem;
     width: 100%;
+  }
+  .box {
+    flex: none;
+    width: 32%;
+    height: 300px;
+    background-color: #9E9E9E;
+    margin-bottom: 0.8em;
   }
   .projects-container {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: stretch;
     .pcard {
       flex: none;
-      width: 16em;
+      width: 32%;
       margin-bottom: 0.8em;
     }
   }

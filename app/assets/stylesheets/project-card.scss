@@ -9,10 +9,10 @@
     width: 17em;
     padding-bottom: 1em;
     border-radius: $border-radius;
-    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+    border: 0.06rem solid #CED3D3;
     &:hover {
-        box-shadow: 0px 0px 15px rgba(0,0,0,0.4);
         cursor: pointer;
+        @include light-shadow;
     }
     .pcard-img-container, .pcard-content, .pcard-footer {
         width: 100%;
@@ -37,11 +37,12 @@
       overflow: hidden;
       background-color: $color-blue-stone;
     }
+    .pcard-img, .pcard-logo {
+      translateZ: 0;
+    }
     .pcard-img {
       /* Ensures that the image covers the container */
       flex: none;
-      // height: auto;
-      // width: auto;
       min-width: 100%;
       min-height: 100%;
     }
