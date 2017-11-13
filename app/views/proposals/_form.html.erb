@@ -1,9 +1,64 @@
 <%= form_for([@project, @project.proposals.build], html:{ class:"proposals-new-form" }) do |f| %>
 	<%= render "shared/error_messages", object: @project %>
+	<% if @project.form_fields.include?("Reason") %>
+		<div>
+			<%= f.label :reason, class: "" %>
+			<%= f.text_area :reason, class: "form-control" %>
+		</div>
+	<% end %>
+	<% if @project.form_fields.include?("Passions") %>
+		<div>
+			<%= f.label :passions, class: "" %>
+			<%= f.text_area :passions, class: "form-control" %>
+		</div>
+	<% end %>
+	<% if @project.form_fields.include?("Skills") %>
 	<div>
-		<%= f.label :content, class: "sr-only" %>
-		<%= f.text_area :content, class: "form-control" %>
+		<%= f.label :skills, class: "" %>
+		<%= f.text_area :skills, class: "form-control" %>
 	</div>
+	<% end %>
+	<% if @project.form_fields.include?("Work") %>
+	<div>
+		<%= f.label :work, class: "" %>
+		<%= f.text_area :work, class: "form-control" %>
+	</div>
+	<% end %>
+	<% if @project.form_fields.include?("Commitment") %>
+	<div>
+		<%= f.label :commitment, class: "" %>
+		<%= f.text_field :commitment, class: "form-control" %>
+	</div>
+	<% end %>
+	<% if @project.form_fields.include?("Estimation") %>
+	<div>
+		<%= f.label :estimation, class: "" %>
+		<%= f.text_field :estimation, class: "form-control" %>
+	</div>
+	<% end %>
+	<% if @project.form_fields.include?("Website") %>
+	<div>
+		<%= f.label :website, class: "" %>
+		<%= f.text_field :website, class: "form-control" %>
+	</div>
+	<% end %>
+	<% if @project.form_fields.include?("LinkedIn") %>
+	<div>
+		<%= f.label :linkedin, class: "" %>
+		<%= f.text_field :linkedin, class: "form-control" %>
+	</div>
+	<% end %>
+	<% if @project.form_fields.include?("Github") %>
+	<div>
+		<%= f.label :github, class: "" %>
+		<%= f.text_field :github, class: "form-control" %>
+	</div>
+	<% end %>
+	<div>
+		<%= f.label :resume %>
+		<%= f.file_field :resume, class: "form-control" %>
+	</div>
+
 	<%= button_tag type: "submit", class: "btn btn-success submit-button" do %>
 		<i class="material-icons">call_made</i>
 		Submit

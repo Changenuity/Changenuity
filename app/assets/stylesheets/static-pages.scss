@@ -1,0 +1,42 @@
+.static-pages {
+  #static-pages-about-header {
+    background-image: image-url("eugenes-future");
+  }
+  #static-pages-contact-header {
+    background-image: image-url("eugenes-future");
+  }
+  #static-pages-privacy-header {
+    background-image: image-url("eugenes-future");
+  }
+  #static-pages-tos-header {
+    background-image: image-url("eugenes-future");
+  }
+  #static-pages-tba-header {
+    background-image: image-url("eugenes-future");
+  }
+
+  .static-pages-header {
+    background-position: center center;
+    background-size: cover;
+    .container {
+      padding: 6rem 0 0 0;
+      height: 11.5rem;
+      h1 {
+        color: white;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 0.5rem;
+      }
+    }
+  }
+
+  .static-pages-main {
+    background-color: $color-light-grey;
+    .container {
+      padding: 4rem 8rem;
+      li {
+          list-style: decimal;
+      }
+    }
+  }
+}

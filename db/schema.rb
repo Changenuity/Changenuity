@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170929190127) do
+ActiveRecord::Schema.define(version: 20171031040925) do
 
   create_table "authentications", force: :cascade do |t|
     t.integer  "user_id"
@@ -30,23 +30,35 @@ ActiveRecord::Schema.define(version: 20170929190127) do
     t.text     "description"
     t.text     "parameters"
     t.text     "references"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "user_id"
-    t.boolean  "recruiting"
+    t.string   "form_fields",        default: "--- []\n"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "proposals", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "project_id"
-    t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.text     "reason"
+    t.text     "passions"
+    t.text     "skills"
+    t.text     "work"
+    t.string   "commitment"
+    t.string   "estimation"
+    t.string   "linkedin"
+    t.string   "website"
+    t.string   "github"
+    t.string   "resume_file_name"
+    t.string   "resume_content_type"
+    t.integer  "resume_file_size"
+    t.datetime "resume_updated_at"
     t.index ["project_id"], name: "index_proposals_on_project_id"
     t.index ["user_id"], name: "index_proposals_on_user_id"
   end
@@ -98,7 +110,6 @@ ActiveRecord::Schema.define(version: 20170929190127) do
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
 end

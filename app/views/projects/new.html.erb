@@ -9,8 +9,7 @@
   <section id="main-section" class="container opt-section">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-        <%= form_for :project, url: post_path,
-                               html: { multipart: true } do |f| %>
+        <%= form_for :project, url: post_path, html: { multipart: true } do |f| %>
           <%= render "shared/error_messages", object: @project %>
           <p>
             <%= f.label :name, "Project Name" %>
@@ -49,7 +48,15 @@
             <%= f.label :image %>
             <%= f.file_field :image, class: "form-control" %>
           </p>
-
+          <h4>What do you want to know from applicants?</h4>
+          <ul>
+            <% ["Reason", "Passions", "Skills", "Work", "Commitment", "Estimation", "Website", "LinkedIn", "Github"].each do |field| %>
+              <li>
+                <%= check_box_tag "project[form_fields][]", field, @project.form_fields.include?(field), id: "project-proposal-field-#{field}" %>
+                <%= field %>
+              </li>
+            <% end %>
+          </ul>
             <%= f.hidden_field :user_id, :value => current_user.id %>
             <%= f.submit "Post my project", class: "btn btn-primary" %>
         <% end %>

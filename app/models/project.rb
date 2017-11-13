@@ -17,6 +17,9 @@ class Project < ApplicationRecord
   validates :user_id, presence: true
   validates_inclusion_of :recruiting, in: [true, false]
 
+  # store :form_fields, coder: JSON, accessors: [:reason, :passions, :skills, :work, :commitment, :estimation, :website, :linkedin, :github]
+  serialize :form_fields, Array
+
   def self.search(term)
     if term
       where('lower(name) LIKE lower(?)', "%#{term}%").order('id DESC')
