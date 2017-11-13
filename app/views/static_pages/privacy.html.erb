@@ -1,18 +1,11 @@
 <% provide(:title, "Privacy Policy") %>
-<div id="static-pages-privacy" class="static-pages">
-  <header id="static-pages-privacy-header" class="static-pages-header">
-    <div class="container">
-      <h1>Privacy Policy</h1>
-    </div>
-  </header>
-  <main class="static-pages-main">
-    <section class="container">
-      <ol>
-        <li>We only collect the personal information that you personally submit to us, via the Post and Edit Profile forms.</li>
-        <li>The only purpose of this information is to enhance your user experience on the site.</li>
-        <li>You can opt-out of all data collection by simply not submitting any personal information to the website.</li>
-        <li>However, all information you enter, except for your e-mail address, will be visible to all members of Changenuity.</li>
-      </ol>
-    </section>
-  </main>
-</div>
+<% content_for :css_slug do %>privacy<% end %>
+<% content_for :header do %>Privacy Policy<% end %>
+<%= render layout: "main" do %>
+  <ol>
+    <li>We only collect the personal information that you personally submit to us, via the Post and Edit Profile forms.</li>
+    <li>The only purpose of this information is to enhance your user experience on the site.</li>
+    <li>You can opt-out of all data collection by simply not submitting any personal information to the website.</li>
+    <li>However, all information you enter, except for your e-mail address, will be visible to all members of Changenuity.</li>
+  </ol>
+<% end %>
