@@ -1,25 +1,16 @@
 <% provide(:title, "Resend Confirmation") %>
-<div id="devise-confirmations-new" class="devise">
-  <header id="devise-confirmations-new-header" class="devise-header">
-    <div class="container">
-      <h1>Resend Confirmation</h1>
+<% content_for :css_slug do %>confirmations-new<% end %>
+<% content_for :header do %>Resend Confirmation<% end %>
+<%= render layout: "main" do %>
+  <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { class: "devise-form", method: :post }) do |f| %>
+    <%= devise_error_messages! %>
+    <div class="field">
+      <%= f.label :email, class: "sr-only" %>
+      <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
     </div>
-  </header>
-  <main class="devise-main">
-    <section class="container">
-      <div class="center">
-      <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { class: "devise-form", method: :post }) do |f| %>
-        <%= devise_error_messages! %>
-        <div class="field">
-          <%= f.label :email, class: "sr-only" %>
-          <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
-        </div>
-        <div class="actions">
-          <%= f.submit "Resend confirmation instructions", class: "action" %>
-        </div>
-      <% end %>
-      <%= render "devise/shared/links" %>
-      </div>
-    </section>
-  </main>
-</div>
+    <div class="actions">
+      <%= f.submit "Resend confirmation instructions", class: "action" %>
+    </div>
+  <% end %>
+  <%= render "devise/shared/links" %>
+<% end %>
