@@ -1,120 +1,22 @@
 <div id="static-pages-home">
   <header id="homepage-header" class="jumbotron">
-    <div class="container">
+    <div class="container main-container">
       <div class="header-wrapper">
-        <div class="front-side">
-          <h1>Welcome to <br /> <strong>Changenuity.</strong></h1>
-          <p class="feature-text">Freelancing for a better future.</p>
-          <%= link_to new_registration_path(:user), class: "homepage-button button-sign-up" do %>
-            <i class="material-icons button-icon">person_add</i>
-            <span>Sign Up</span>
-          <% end %>
-          <p>Or <button class="flip-homepage go-to-sign-in">Sign In</button></p>
-          <%= link_to "#homepage-main", class: "explore-button" do %>
-            <i class="material-icons">keyboard_arrow_down</i>
-          <% end %>
-        </div>
-        <div class="back-side">
-          <h2>Welcome back.</h2>
-          <%= form_for :user, url: session_path(:user) do |f| %>
-            <%= f.label :email, "Email", class: "sr-only" %>
-            <%= f.text_field :email, placeholder: "email", autofocus: true %>
-            <br /> <!-- TODO take this out -->
-            <%= f.label :password, "Password", class: "sr-only" %>
-            <%= f.password_field :password, placeholder: "password", autocomplete: "off" %>
-            <%= button_tag type: "submit", class: "homepage-button button-secondary" do %>
-              <i class="material-icons button-icon"></i>
-              <span>Sign In</span>
-            <% end %>
-            <%= f.label :remember_me do %>
-              <%= f.check_box :remember_me %>
-              Remember me
-            <% end %>
-            <%= link_to "Forgot your password?", new_password_path(:user) %>
-          <% end %>
-          <button class="flip-homepage go-to-sign-up">
-            <i class="material-icons">chevron_left</i>
-            Back
-          </button>
-        </div>
+        <h1 class="main-header">Social freelancers for your social enterprise.</h1>
+        <p class="main-subheader">
+          Find flexible, affordable, and mission-driven talent for changing
+          the world.<br/>Wherever in the world you are.
+        </p>
+        <h2 class="form-header">Be the first to know when we launch.</h2>
+        <form class="ml-form">
+          <label class="sr-only" for="ml-address">Email Address</label>
+          <input class="input-text" placeholder="email" type="text" id="ml-address">
+          <button class="btn btn-outline-primary" type="submit">Sign Up</button>
+        </form>
       </div>
     </div>
     <div class="video-wrapper">
       <%= video_tag "/videos/homepage-background-video.webm", id: "homepage-video", class: "background-video", size: "1280x720", preload: "auto", autoplay: true, muted: true, loop: true %>
     </div>
   </header>
-  <main id="homepage-main">
-    <section class="homepage-section discover-section">
-      <div class="container content-wrapper">
-        <h3 class="section-header">Discover.</h3>
-        <p class="section-description">
-          Browse inspiring impact projects from all around the world, and apply to be a freelancer.
-        </p>
-      </div>
-    </section>
-    <section class="homepage-section collaborate-section">
-      <div class="container content-wrapper">
-        <h3 class="section-header">Collaborate.</h3>
-        <p class="section-description">
-          Find talented freelancers to collaborate with on your project.
-        </p>
-      </div>
-    </section>
-    <section class="homepage-section discuss-section">
-      <div class="container content-wrapper">
-        <h3 class="section-header">Discuss.</h3>
-        <p class="section-description">
-          Ask and answer questions about global development. A community for changemakers, by changemakers.
-        </p>
-      </div>
-    </section>
-    <section class="homepage-section signup-section">
-      <div class="container content-wrapper">
-        <p class="section-description">
-          In short, we make global development <em>easy</em>&nbsp;and&nbsp;<em>accessible</em>.
-        </p>
-        <%= link_to new_registration_path(:user), class: "btn btn-primary" do %>
-          Get Started
-        <% end %>
-      </div>
-    </div>
-    <%#
-    <article class="article-1">
-      <section class="container">
-        <div class="content-wrapper">
-          <p>We make global development <em>easy</em> and <em>accessible</em>.</p>
-        </div>
-      </section>
-    </article>
-    <article class="article-2">
-      <div class="container-fluid">
-        <div class="content-wrapper">
-          <div class="row">
-            <div class="col-sm">
-              <section class="focus-card">
-                <i class="material-icons navbar-handle open-nav">search</i>
-                <h3>Discover.</h3>
-                <p>Browse inspiring impact projects from all around the world and apply to contribute your skills.</p>
-              </section>
-            </div>
-            <div class="col-sm">
-              <section class="focus-card">
-                <i class="material-icons navbar-handle open-nav">people</i>
-                <h3>Collaborate.</h3>
-                <p>Find talented freelancers to collaborate with on your project.</p>
-              </section>
-            </div>
-            <div class="col-sm">
-              <section class="focus-card">
-                <i class="material-icons navbar-handle open-nav">forum</i>
-                <h3>Discuss.</h3>
-                <p>Ask and answer questions about global development.</p>
-              </section>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-    #%>
-  </main>
 </div>
