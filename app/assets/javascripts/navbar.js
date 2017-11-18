@@ -117,27 +117,27 @@ $(document).on('turbolinks:load', function(){
 
   // Login Remote logic
   var navbarFormOn = false;
-  var $navbarForm = $('#navbar-secondary .navbar-login-form');
+  var $navbarWindow = $('#navbar-secondary .navbar-window');
   var toggleNavbarForm = function() {
     if( !navbarFormOn ) {
       loginRemote.turnOn();
-      $navbarForm.fadeIn();
+      $navbarWindow.fadeIn();
       $('#navbar-user-email').focus();
     } else {
       loginRemote.turnOff();
-      $navbarForm.fadeOut();
+      $navbarWindow.fadeOut();
     }
     navbarFormOn = !navbarFormOn;
   }
-  $navbarForm.on('click', function(e){
+  $navbarWindow.on('click', function(e){
     e.stopPropagation();
   });
   $(document.body).on('click', function(){
     loginRemote.turnOff();
-    $navbarForm.fadeOut();
+    $navbarWindow.fadeOut();
     navbarFormOn = false;
   });
-  $('#navbar-secondary button.navbar-login-box').on('click', function(e) {
+  $('#navbar-secondary button.nav-window-toggle').on('click', function(e) {
     e.stopPropagation();
     toggleNavbarForm();
   });
@@ -150,7 +150,7 @@ $(document).on('turbolinks:load', function(){
 
   $(document.body).on('click', '.open-nav', function() {
     var $component = $('#' + $(this).attr('data-component-id'));
-    var $overlay = $(createDisableOverlay($('#navbar'), medium_transition_time));
+    var $overlay = $(createDisableOverlay($('#navbar'), MEDIUM_TRANSITION_TIME));
     var clearButton = document.createElement('i');
     clearButton.innerHTML = 'clear';
     clearButton.className = 'material-icons navbar-handle clear-nav';
@@ -163,7 +163,7 @@ $(document).on('turbolinks:load', function(){
       setTimeout(function() {
         $overlay.remove();
         $(clearButton).remove();
-      }, medium_transition_time);
+      }, MEDIUM_TRANSITION_TIME);
     }
 
     $overlay.on('click', removeFunction);

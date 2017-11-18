@@ -1,7 +1,7 @@
 class ProposalsController < ApplicationController
   before_action :authenticate_user!
 
-  def index
+  def index # list all by/to current_user
     @proposals = Proposal.where(user_id: current_user.id)
   end
 
@@ -11,7 +11,6 @@ class ProposalsController < ApplicationController
 
   def new
     @proposal = Proposal.new
-    # TODO need to get current_user and @project to associate....
   end
 
   def create
@@ -28,6 +27,7 @@ class ProposalsController < ApplicationController
   end
 
   def edit
+    @project = Project.find(params[:project_id])
     @proposal = Proposal.find(params[:id])
   end
 
@@ -35,8 +35,8 @@ class ProposalsController < ApplicationController
     @proposal = Proposal.find(params[:id])
     if @proposal.update_attributes(proposal_params)
       # Handle successful update
-      flash[:success] = "Proposal changed"
-      redirect_to @proposal
+      flash[:success] = "Application updated"
+      redirect_to project_proposal_path(@proposal)
     else
       render 'edit'
     end
@@ -45,6 +45,7 @@ class ProposalsController < ApplicationController
   private
 
   def proposal_params
-    params.require(:proposal).permit(:content)
+    params.require(:proposal).permit(:reason, :passions, :skills, :work, :commitment, :estimation, 
+      :website, :linkedin, :github, :resume)
   end
 end

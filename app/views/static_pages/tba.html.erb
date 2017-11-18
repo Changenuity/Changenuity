@@ -1,9 +1,6 @@
 <% provide(:title, "Under Construction") %>
-<main id="page-main">
-  <header id="page-main-header" class="jumbotron splash">
-    <div class="container">
-      <h1>Under Construction</h1>
-      <p>Sorry, this feature is still under development. Check back soon!</p>
-    </div>
-  </header>
-</main>
+<% content_for :css_slug do %>tba<% end %>
+<% content_for :header do %>Under Construction<% end %>
+<%= render layout: "main" do %>
+  <p>Sorry, this feature is still under development. Check back soon!</p>
+<% end %>

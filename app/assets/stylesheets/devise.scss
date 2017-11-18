@@ -1,0 +1,76 @@
+.devise {
+  #devise-sessions-new-header {
+    background-image: image-url("eugenes-future");
+  }
+  #devise-confirmations-new-header {
+    background-image: image-url("eugenes-future");
+  }
+  #devise-unlocks-new-header {
+    background-image: image-url("eugenes-future");
+  }
+  #devise-registrations-new-header {
+    background-image: image-url("eugenes-future");
+  }
+  #devise-registrations-edit-header {
+    background-image: image-url("eugenes-future");
+  }
+  #devise-passwords-new-header {
+    background-image: image-url("eugenes-future");
+  }
+  #devise-passwords-edit-header {
+    background-image: image-url("eugenes-future");
+  }
+
+  .devise-header {
+    background-position: center center;
+    background-size: cover;
+    .container {
+      padding: 6rem 0 0 0;
+      height: 11.5rem;
+      h1 {
+        color: white;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 0.5rem;
+      }
+    }
+  }
+
+  .devise-main {
+    background-color: $color-light-grey;
+    .container {
+      padding: 1rem 0 2rem 0;
+      display: flex;
+      justify-content: center;
+      .devise-form {
+        padding-bottom: 2rem;
+        input[type="text"], input[type="email"], input[type="password"] {
+          margin: 0.5rem 0;
+          padding: 0.7rem 2rem;
+          width: 100%;
+          border-radius: 4rem;
+          border: 0.1rem solid $color-orange;
+          outline: none;
+        }
+        .actions {
+          display: flex;
+          .action {
+            flex: 1 0 auto;
+            margin-top: 1rem;
+            border-radius: 4rem;
+            padding: 1rem;
+            color: $color-blue-diane;
+            transition: $quick-transition-time;
+            &:hover {
+              color: white;
+              background-color: $color-light-orange;
+            }
+          }
+        }
+      }
+      .devise-links {
+        list-style: none;
+      }
+    }
+  }
+}

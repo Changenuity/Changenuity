@@ -1,0 +1,261 @@
+#projects-index {
+
+  .projects-index-header {
+    @include gradient-background(
+      rgba(192, 57, 43, 0.55),
+      rgba(142, 68, 173, 0.85),
+      $color-pastel-green,
+      "change-laptop");
+    width: 100%;
+    .container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 27rem;
+    }
+  }
+  .main-header {
+    color: white;
+    padding: 2.5rem 3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    border: 0.1rem solid white;
+  }
+  .projects-index-main {
+    background-color: $color-light-grey;
+  }
+  .projects-container {
+    padding: 2rem 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: stretch;
+    .pcard {
+      flex: none;
+      margin-bottom: 0.8rem;
+    }
+  }
+}
+/*
+
+// Phones
+@include media-breakpoint-down(sm) {
+  .projects {
+    .jumbotron{
+      margin-bottom: 0rem;
+    }
+    header
+    {
+      background-size: 100%;
+      background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0)), image-url("change-laptop") no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+    #Discover
+    {
+      height: 30em;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      h1{
+        padding-top: 3rem;
+        color: white;
+        text-align: center;
+      }
+      h4{
+        color: white;
+        text-align: center;
+      }
+    }
+    #view-projects
+    {
+      height:12rem;
+      background-color: rgb(15, 73, 161);
+      color: white;
+      .filters
+      {
+        padding-top: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        flex-flow: row wrap;
+        #options-title{
+          padding-top: 0.3rem;
+          padding-right: 1rem;
+          width: 100%;
+        }
+        .options{
+        }
+      }
+    }
+    #projects
+    {
+      margin-left: 1rem;
+      .projects-card{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        .card{
+          width: 10rem;
+          height: 14rem;
+          margin-right: 2rem;
+          margin-top: 2rem;
+        }
+      }
+    }
+  }
+}
+
+
+// Not phones
+@include media-breakpoint-up(md) {
+  .projects {
+    .jumbotron{
+      margin-bottom: 0rem;
+    }
+    header{
+      background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0)), image-url("change-laptop") no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+    #Discover
+    {
+      .tracking-in-expand {
+        -webkit-animation: tracking-in-expand 1s ease-in both;
+                animation: tracking-in-expand 1s ease-in both;
+      }
+      @-webkit-keyframes tracking-in-expand {
+        0% {
+          letter-spacing: -0.5em;
+          opacity: 0;
+        }
+        40% {
+          opacity: 0.6;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @keyframes tracking-in-expand {
+        0% {
+          letter-spacing: -0.5em;
+          opacity: 0;
+        }
+        40% {
+          opacity: 0.6;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      height: 40em;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      h1{
+        padding-top: 3rem;
+        color: white;
+        text-align: center;
+        font-size: 5rem;
+      }
+      h4{
+        color: white;
+        text-align: center;
+      }
+    }
+    #view-projects
+    {
+      height: 10.5rem;
+      background-color: rgb(15, 73, 161);
+      color: white;
+      .filters
+      {
+        padding-top: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        #options-title{
+          padding-top: 0.3rem;
+          width: 100%;
+        }
+        .options{
+        }
+      }
+    }
+    #projects
+    {
+      margin-top: 3rem;
+      .projects-card{
+        display: flex;
+        flex-flow: none;
+        .card{
+          width: 10rem;
+          height: 14rem;
+          margin-right: 2rem;
+          margin-top: 2rem;
+        }
+      }
+    }
+  }
+}
+
+// large monitors
+@include media-breakpoint-up(xl) {
+  .projects {
+    .jumbotron{
+      margin-bottom: 0rem;
+    }
+    header
+    {
+      background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0)), image-url("change-laptop") no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+    #Discover
+    {
+      //background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0)), image-url("change-laptop") no-repeat  center center fixed;
+      //background-size: cover;
+      //background-repeat: no-repeat;
+      height: 30em;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      h1{
+        color: white;
+        text-align: center;
+      }
+      h4{
+        color: white;
+        text-align: center;
+      }
+    }
+    #view-projects
+    {
+      height:6rem;
+      background-color: rgb(15, 73, 161);
+      color: white;
+      .filters
+      {
+        padding-top: 1.5rem;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        #options-title{
+          padding-top: 0.3rem;
+          width: auto;
+        }
+        .options{
+        }
+      }
+    }
+    #projects
+    {
+      margin-top: 3rem;
+      margin-left: 3rem;
+      .projects-card{
+        display: flex;
+        flex-flow: none;
+      }
+      .card{
+        width: 10rem;
+        height: 14rem;
+        margin-right: 1rem;
+        margin-top: 2rem;
+      }
+    }
+  }
+}
+*/

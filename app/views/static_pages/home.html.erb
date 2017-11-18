@@ -5,13 +5,9 @@
         <div class="front-side">
           <h1>Welcome to <br /> <strong>Changenuity.</strong></h1>
           <p class="feature-text">Freelancing for a better future.</p>
-          <%= form_tag "https://changenuity.typeform.com/to/ksjDPs", method: :get do %>
-            <%#= label_tag :user_email, "Email", class: "sr-only" %>
-            <%#= email_field_tag :user_email, nil, placeholder: "email@example.com" %>
-            <%= button_tag type: "submit", class: "homepage-button button-sign-up" do %>
-              <i class="material-icons button-icon">person_add</i>
-              <span>Sign Up</span>
-            <% end %>
+          <%= link_to new_registration_path(:user), class: "homepage-button button-sign-up" do %>
+            <i class="material-icons button-icon">person_add</i>
+            <span>Sign Up</span>
           <% end %>
           <p>Or <button class="flip-homepage go-to-sign-in">Sign In</button></p>
           <%= link_to "#homepage-main", class: "explore-button" do %>
@@ -26,7 +22,7 @@
             <br /> <!-- TODO take this out -->
             <%= f.label :password, "Password", class: "sr-only" %>
             <%= f.password_field :password, placeholder: "password", autocomplete: "off" %>
-            <%= button_tag type: "submit", class: "homepage-button button-sign-in" do %>
+            <%= button_tag type: "submit", class: "homepage-button button-secondary" do %>
               <i class="material-icons button-icon"></i>
               <span>Sign In</span>
             <% end %>
@@ -77,7 +73,9 @@
         <p class="section-description">
           In short, we make global development <em>easy</em>&nbsp;and&nbsp;<em>accessible</em>.
         </p>
-        <a class="btn btn-primary" href="https://changenuity.typeform.com/to/ksjDPs">Get Started</a>
+        <%= link_to new_registration_path(:user), class: "btn btn-primary" do %>
+          Get Started
+        <% end %>
       </div>
     </div>
     <%#
