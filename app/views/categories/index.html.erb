@@ -1,0 +1,6 @@
+<% provide(:title, "Categories") %>
+<% content_for :css_slug do %>index<% end %>
+<% content_for :header do %>Categories<% end %>
+<%= render layout: "main" do %>
+  <%= render partial: "category", collection: @categories %>
+<% end %>

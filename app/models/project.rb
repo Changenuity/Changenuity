@@ -2,7 +2,7 @@ class Project < ApplicationRecord
   has_many :proposals
   belongs_to :user
 
-  acts_as_taggable_on :tags
+  acts_as_taggable_on :tags, :categories
   has_attached_file :image, styles: { large: '1000x1000>', medium: '300x300>', thumb: '100x100>' },
                             s3_protocol: :https
   validates_attachment_content_type :image,

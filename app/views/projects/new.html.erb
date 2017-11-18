@@ -9,7 +9,8 @@
   <section id="main-section" class="container opt-section">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-        <%= form_for :project, url: post_path, html: { multipart: true } do |f| %>
+        <%= form_for :project, url: post_path,
+                               html: { multipart: true } do |f| %>
           <%= render "shared/error_messages", object: @project %>
           <p>
             <%= f.label :name, "Project Name" %>
@@ -27,6 +28,10 @@
           <p>
             <%= f.label :comma_separated_tags %>
             <%= f.text_field :tag_list %>
+          </p>
+          <p>
+            <%= f.label :category %>
+            <%= select_tag :category_list, options_from_collection_for_select(@categories, "id", "name") %>
           </p>
           <p>
             <%= f.label :description %>
