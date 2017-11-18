@@ -1,5 +1,6 @@
 <% provide(:title, "Categories") %>
-<div class="container col-xs-12">
-  <h1>Categories</h1>
+<% content_for :css_slug do %>index<% end %>
+<% content_for :header do %>Categories<% end %>
+<%= render layout: "main" do %>
   <%= render partial: "category", collection: @categories %>
-</div>
+<% end %>

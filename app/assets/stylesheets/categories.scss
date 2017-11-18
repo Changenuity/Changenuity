@@ -1,0 +1,33 @@
+.categories {
+  #categories-index-header {
+    background-image: image-url("eugenes-future");
+  }
+  #categories-show-header {
+    background-image: image-url("eugenes-future");
+  }
+
+  .categories-header {
+    background-position: center center;
+    background-size: cover;
+    .container {
+      padding: 6rem 0 0 0;
+      height: 11.5rem;
+      h1 {
+        color: white;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 0.5rem;
+      }
+    }
+  }
+
+  .categories-main {
+    background-color: $color-light-grey;
+    .container {
+      padding: 4rem 8rem;
+      li {
+          list-style: decimal;
+      }
+    }
+  }
+}
