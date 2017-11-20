@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     split = request.fullpath.split("/")
     # the first nine tags in Changenuity are the categories
     # only allow users to see these nine tags as categories
-    if split.length == 3 and split[1] == "categories" and split[2].to_i > 8
+    if split.length == 3 and split[1] == "categories" and split[2].to_i > 9
       raise ActionController::RoutingError.new('Not Found')
     end
   end

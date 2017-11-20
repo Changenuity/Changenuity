@@ -31,6 +31,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
+    @categories = Project.category_counts
     if @project.save
       flash[:success] = "Thank you for posting to Changenuity!"
       redirect_to @project

@@ -31,7 +31,7 @@
           </p>
           <p>
             <%= f.label :category %>
-            <%= select_tag :category_list, options_from_collection_for_select(@categories, "id", "name") %>
+            <%= f.collection_select :category_list, @categories, :name, :name %>
           </p>
           <p>
             <%= f.label :description %>
