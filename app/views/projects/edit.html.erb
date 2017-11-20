@@ -30,7 +30,7 @@
           </p>
           <p>
             <%= f.label :category %>
-            <%= f.collection_select :category_list, @categories, :name, :name %>
+            <%= f.select :category_list, options_for_select(@categories, @project.category_list.first) %>
           </p>
           <p>
             <%= f.label :description %>

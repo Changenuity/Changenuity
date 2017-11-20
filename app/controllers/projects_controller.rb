@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :ensure_signup_complete,  only: [:new, :create, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :get_categories
 
   def index
     if params[:userid]
@@ -26,12 +27,10 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
-    @categories = Project.category_counts
   end
 
   def create
     @project = Project.new(project_params)
-    @categories = Project.category_counts
     if @project.save
       flash[:success] = "Thank you for posting to Changenuity!"
       redirect_to @project
@@ -42,7 +41,6 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
-    @categories = Project.category_counts
     if current_user.id != @project.user_id
       redirect_to @project
     end
@@ -65,5 +63,9 @@ class ProjectsController < ApplicationController
     params.require(:project).permit(:name, :date, :location,
       :description, :parameters, :references, :image,
       :tag_list, :category_list, :user_id, :term, form_fields: [])
+  end
+
+  def get_categories
+    @categories = ["awareness", "education", "energy", "environment", "food/water", "health", "housing", "information", "materials"]
   end
 end
