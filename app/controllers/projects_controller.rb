@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :ensure_signup_complete,  only: [:new, :create, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :get_categories
 
   def index
     if params[:userid]
@@ -59,7 +60,12 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :date, :location, :description, :parameters, :references, 
-      :image, :tag_list, :user_id, :term, form_fields: [])
+    params.require(:project).permit(:name, :date, :location,
+      :description, :parameters, :references, :image,
+      :tag_list, :category_list, :user_id, :term, form_fields: [])
+  end
+
+  def get_categories
+    @categories = ["awareness", "education", "energy", "environment", "food/water", "health", "housing", "information", "materials"]
   end
 end

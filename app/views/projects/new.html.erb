@@ -1,5 +1,6 @@
 <% provide(:title, "Post Project") %>
 <div id="projects-new">
+<main id="page-main" class="projects projects-new">
   <header id="page-main-header" class="jumbotron splash">
     <div class="container">
       <h1>Post Your Project!</h1>
@@ -10,6 +11,8 @@
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <%= form_for :project, url: post_path, html: { multipart: true } do |f| %>
+        <%= form_for :project, url: post_path,
+                               html: { multipart: true } do |f| %>
           <%= render "shared/error_messages", object: @project %>
           <p>
             <%= f.label :name, "Project Name" %>
@@ -27,6 +30,10 @@
           <p>
             <%= f.label :comma_separated_tags %>
             <%= f.text_field :tag_list %>
+          </p>
+          <p>
+            <%= f.label :category %>
+            <%= f.select :category_list, options_for_select(@categories) %>
           </p>
           <p>
             <%= f.label :description %>
@@ -68,4 +75,5 @@
       </div>
     </div>
   </section>
+</main>
 </div>

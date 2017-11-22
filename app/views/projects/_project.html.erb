@@ -9,14 +9,14 @@
   <div class="pcard-content">
     <h2 class="pcard-maintitle"><%= project.name %></h2>
     <h3 class="pcard-subtitle"><%= project.location %></h2>
-    <h3 class="pcard-subtitle">By <%= User.find_by_id(project.user_id) %></h3>
+    <h3 class="pcard-subtitle">By <%= User.find_by_id(project.user_id).username %></h3>
   </div>
   <div class="pcard-footer">
     <div class="btn-fav-wrapper">
       <i class="btn-fav material-icons">favorite</i>
       <span class="fav-count">132</span>
     </div>
-    <a class="btn btn-success" data-category-value="Infrastructure" href="#">Infrastructure</a>
+    <%= link_to(project.categories.first, category_path(project.categories.first), class: "btn btn-success") %>
   </div>
   <% if user_signed_in? && project.user_id == current_user.id && current_page?(controller: 'users', action: 'show', username: current_user.username) %>
     <div class="pcard-content">

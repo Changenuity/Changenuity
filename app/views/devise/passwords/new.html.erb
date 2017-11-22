@@ -1,25 +1,16 @@
 <% provide(:title, "Reset Password") %>
-<div id="devise-passwords-new" class="devise">
-  <header id="devise-passwords-new-header" class="devise-header">
-    <div class="container">
-      <h1>Forgot Your Password?</h1>
+<% content_for :css_slug do %>passwords-new<% end %>
+<% content_for :header do %>Forgot Your Password?<% end %>
+<%= render layout: "main" do %>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { class: "devise-form", method: :post }) do |f| %>
+    <%= devise_error_messages! %>
+    <div class="field">
+      <%= f.label :email, class: "sr-only" %>
+      <%= f.email_field :email, autofocus: true, placeholder: "email@example.com" %>
     </div>
-  </header>
-  <main class="devise-main">
-    <section class="container">
-      <div class="center">
-        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { class: "devise-form", method: :post }) do |f| %>
-          <%= devise_error_messages! %>
-          <div class="field">
-            <%= f.label :email, class: "sr-only" %>
-            <%= f.email_field :email, autofocus: true, placeholder: "email@example.com" %>
-          </div>
-          <div class="actions">
-            <%= f.submit "Send me reset instructions", class: "action" %>
-          </div>
-        <% end %>
-        <% render "devise/shared/links" %>
-      </div>
-    </section>
-  </main>
-</div>
+    <div class="actions">
+      <%= f.submit "Send me reset instructions", class: "action" %>
+    </div>
+  <% end %>
+  <% render "devise/shared/links" %>
+<% end %>

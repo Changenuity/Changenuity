@@ -1,37 +1,28 @@
 <% provide(:title, "Sign Up") %>
-<div id="devise-registrations-new" class="devise">
-  <header id="devise-registrations-new-header" class="devise-header">
-    <div class="container">
-      <h1>Sign Up</h1>
+<% content_for :css_slug do %>registrations-new<% end %>
+<% content_for :header do %>Sign Up<% end %>
+<%= render layout: "main" do %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "devise-form" }) do |f| %>
+    <%= devise_error_messages! %>
+    <div class="field">
+      <%= f.label :username, class: "sr-only" %>
+      <%= f.text_field :username, autofocus: true, placeholder: "username" %>
     </div>
-  </header>
-  <main class="devise-main">
-    <section class="container">
-      <div class="center">
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "devise-form" }) do |f| %>
-          <%= devise_error_messages! %>
-          <div class="field">
-            <%= f.label :username, class: "sr-only" %>
-            <%= f.text_field :username, autofocus: true, placeholder: "username" %>
-          </div>
-          <div class="field">
-            <%= f.label :email, class: "sr-only" %>
-            <%= f.email_field :email, placeholder: "email@example.com" %>
-          </div>
-          <div class="field">
-            <%= f.label :password, class: "sr-only" %>
-            <%= f.password_field :password, autocomplete: "off", placeholder: "password123" %>
-          </div>
-          <div class="field">
-            <%= f.label :password_confirmation, class: "sr-only" %>
-            <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "password123" %>
-          </div>
-          <div class="actions">
-            <%= f.submit "Sign Up", class: "action" %>
-          </div>
-        <% end %>
-        <%= render "devise/shared/links" %>
-      </div>
-    </section>
-  </main>
-</div>
+    <div class="field">
+      <%= f.label :email, class: "sr-only" %>
+      <%= f.email_field :email, placeholder: "email@example.com" %>
+    </div>
+    <div class="field">
+      <%= f.label :password, class: "sr-only" %>
+      <%= f.password_field :password, autocomplete: "off", placeholder: "password123" %>
+    </div>
+    <div class="field">
+      <%= f.label :password_confirmation, class: "sr-only" %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "password123" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Sign Up", class: "action" %>
+    </div>
+  <% end %>
+  <%= render "devise/shared/links" %>
+<% end %>

@@ -1,13 +1,6 @@
 <% provide(:title, "About") %>
-<div id="static-pages-about" class="static-pages">
-  <header id="static-pages-about-header" class="static-pages-header">
-    <div class="container">
-      <h1>About</h1>
-    </div>
-  </header>
-  <main class="static-pages-main">
-    <section class="container">
-      <p>About Changenuity....</p>
-    </section>
-  </main>
-</div>
+<% content_for :css_slug do %>about<% end %>
+<% content_for :header do %>About<% end %>
+<%= render layout: "main" do %>
+  <p>About Changenuity...</p>
+<% end %>

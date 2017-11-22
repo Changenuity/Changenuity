@@ -1,13 +1,6 @@
 <% provide(:title, "Contact") %>
-<div id="static-pages-contact" class="static-pages">
-  <header id="static-pages-contact-header" class="static-pages-header">
-    <div class="container">
-      <h1>Let's Talk!</h1>
-    </div>
-  </header>
-  <main class="static-pages-main">
-    <section class="container">
-      <p>E-mail hello@changenuity.com for hellos!</p>
-    </section>
-  </main>
-</div>
+<% content_for :css_slug do %>contact<% end %>
+<% content_for :header do %>Let's Talk!<% end %>
+<%= render layout: "main" do %>
+  <p>E-mail hello@changenuity.com for hellos!</p>
+<% end %>

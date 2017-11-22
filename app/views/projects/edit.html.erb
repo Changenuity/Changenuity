@@ -1,5 +1,6 @@
 <% provide(:title, "Edit Project") %>
 <div id="projects-edit">
+<main id="page-main" class="projects projects-new">
   <header id="page-main-header" class="jumbotron splash">
     <div class="container">
       <h1>Edit Your Project!</h1>
@@ -27,6 +28,10 @@
           <p>
             <%= f.label :comma_separated_tags %>
             <%= f.text_field :tag_list %>
+          </p>
+          <p>
+            <%= f.label :category %>
+            <%= f.select :category_list, options_for_select(@categories, @project.category_list.first) %>
           </p>
           <p>
             <%= f.label :description %>
@@ -57,7 +62,7 @@
               </li>
             <% end %>
           </ul>
-            <%= f.submit "Save changes", class: "btn btn-primary" %>
+          <%= f.submit "Save changes", class: "btn btn-primary" %>
         <% end %>
         <ol>
           <li>It may take up to 3 days for your project's profile to appear on our website.</li>
@@ -67,4 +72,5 @@
       </div>
     </div>
   </section>
+</main>
 </div>
