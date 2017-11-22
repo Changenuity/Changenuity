@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20171031040925) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "user_id"
+    t.boolean  "recruiting"
     t.string   "form_fields",        default: "--- []\n"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
