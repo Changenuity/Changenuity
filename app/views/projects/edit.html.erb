@@ -1,4 +1,5 @@
 <% provide(:title, "Edit Project") %>
+<div id="projects-edit">
 <main id="page-main" class="projects projects-new">
   <header id="page-main-header" class="jumbotron splash">
     <div class="container">
@@ -45,6 +46,10 @@
             <%= f.text_area :references, class: "form-control" %>
           </p>
           <p>
+            <%= f.check_box :recruiting, class: "form-control", id: "recruiting-toggle" %>
+            <%= f.label :recruiting, for: "recruiting-toggle", class: "toggle-label" %>
+          </p>
+          <p>
             <%= f.label :image %>
             <%= f.file_field :image, class: "form-control" %>
           </p>
@@ -68,3 +73,4 @@
     </div>
   </section>
 </main>
+</div>

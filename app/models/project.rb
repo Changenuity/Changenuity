@@ -15,6 +15,7 @@ class Project < ApplicationRecord
   validates :parameters,            length: { maximum: 65535 }
   validates :references,            length: { maximum: 65535 }
   validates :user_id, presence: true
+  validates_inclusion_of :recruiting, in: [true, false]
 
   # store :form_fields, coder: JSON, accessors: [:reason, :passions, :skills, :work, :commitment, :estimation, :website, :linkedin, :github]
   serialize :form_fields, Array

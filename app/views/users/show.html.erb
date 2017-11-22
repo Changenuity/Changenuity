@@ -1,26 +1,39 @@
 <% provide(:title, @user.name) %>
 <div id="users-show">
-  <div class="users-show-background-image"></div>
-  <div class="container users-show-container">
-    <div class="header-wrapper">
-      <header id="users-show-header">
-          <h1 class="sr-only">User Profile</h1>
-          <%= gravatar_for @user %>
-          <h2 class="user-name"><%= @user.name || @user.username %></h2>
-          <p class="user-email header-row"><span class="row-title">Email:</span><%= @user.email %></p>
-          <p class="user-created header-row" data-datetime="<%= @user.created_at %>"><span class="row-title">Created:</span><%= @user.created_at.strftime("%B #{@user.created_at.day.ordinalize}, %Y") %></p>
-      </header>
+    <div class="container">
+      <div class="row main-row">
+        <div class="control-panel col-3">
+          <div class="calling-card">
+            <%= gravatar_for @user %>
+            <p class="user-name info-line"><%= @user.name || @user.username %></p>
+            <p class="user-email info-line"><%= @user.email %></p>
+          </div>
+          <ul class="quick-access">
+            <li class="quick-access-item"><a href="#0">Profile</a></li>
+            <li class="quick-access-item active"><a href="#0">Jobs</a></li>
+            <li class="quick-access-item"><a href="#0">Projects</a></li>
+            <li class="quick-access-item"><a href="#0">Teams</a></li>
+            <li class="quick-access-item"><a href="#0">Messages</a></li>
+          </ul>
+        </div>
+        <main class="content-panes col-9">
+          <div class="main-inner">
+            <div class="jobs-pane">
+              <div class="jobs-pane-header">
+                <h2>My Jobs</h2>
+              </div>
+              <div class="projects-container">
+                <!-- <div class="box"></div>
+                  <div class="box"></div>
+                    <div class="box"></div>
+                      <div class="box"></div>
+                        <div class="box"></div>
+                          <div class="box"></div> -->
+                <%= render partial: "/projects/project", collection: @projects %>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
     </div>
-    <main id="users-show-main">
-      <section class="user-section">
-        <h3 class="section-header">My Projects</h3>
-        <div class="section-wrapper">
-          <%= render partial: "/projects/project", collection: @projects %>
-      </section>
-      <section class="user-section">
-        <h3 class="section-header">My Proposals</h3>
-        <%= render partial: "/proposals/proposal", collection: @proposals %>
-      </section>
-    </main>
-  </div>
 </div>

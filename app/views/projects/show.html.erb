@@ -23,6 +23,15 @@
               <%= @project.name %>
             </li>
             <li class="quick-info-item">
+              <span class="quick-info-title">
+                <% if @project.recruiting %>
+                  Recruiting
+                <% else %>
+                  Not Recruiting
+                <% end %>
+              </span>
+            </li>
+            <li class="quick-info-item">
               <span class="quick-info-title">Location</span>
               <%= @project.location %>
             </li>

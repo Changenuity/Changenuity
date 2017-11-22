@@ -1,4 +1,5 @@
 <% provide(:title, "Post Project") %>
+<div id="projects-new">
 <main id="page-main" class="projects projects-new">
   <header id="page-main-header" class="jumbotron splash">
     <div class="container">
@@ -9,6 +10,7 @@
   <section id="main-section" class="container opt-section">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
+        <%= form_for :project, url: post_path, html: { multipart: true } do |f| %>
         <%= form_for :project, url: post_path,
                                html: { multipart: true } do |f| %>
           <%= render "shared/error_messages", object: @project %>
@@ -46,6 +48,10 @@
             <%= f.text_area :references, class: "form-control" %>
           </p>
           <p>
+            <%= f.check_box :recruiting, { checked: true, class: "form-control", id: "recruiting-toggle" } %>
+            <%= f.label :recruiting, for: "recruiting-toggle", class: "toggle-label" %>
+          </p>
+          <p>
             <%= f.label :image %>
             <%= f.file_field :image, class: "form-control" %>
           </p>
@@ -70,3 +76,4 @@
     </div>
   </section>
 </main>
+</div>

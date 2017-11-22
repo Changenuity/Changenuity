@@ -145,6 +145,9 @@ a {
 ul, li {
   list-style: none;
   padding: 0;
+  * > a {
+    color: inherit;
+  }
 }
 
 .disabling-overlay {
@@ -197,7 +200,7 @@ ul, li {
 
 .missing-img {
   background-color: $color-grey;
-  background-image: image-url("missing");
+  background-image: image-url("pattern");
   background-repeat: no-repeat;
   background-position: center 53%;
   background-size: 70%;
