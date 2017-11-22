@@ -58,4 +58,3 @@ To edit database entries directly, run `heroku run rails console`
 Rails console commands:
 
 - `ActiveRecord::Base.connection.data_sources`
-- ​
