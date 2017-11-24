@@ -3,10 +3,49 @@
   border-radius: 0;
   overflow: hidden;
   padding: 0;
-  transform: scale(1); // To create a stacking context
   margin-bottom: 0;
-  & > .container {
+  transform: scale(1); // To create a stacking context
+  .main-container {
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .header-wrapper {
+    background-color: white;
+    font-size: 1rem; // Master sizing control
+    padding: 6.5rem 7rem;
+    border-radius: 0.3rem;
+    border: 0.07rem solid #f5d1d1;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color: #5C6A7E;
+  }
+  .main-header {
+    font-size: 2em;
+    font-weight: 600;
+  }
+  .main-subheader {
+    font-size: 1.2rem;
+  }
+  .form-header {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-top: 1.3em;
+  }
+  .ml-form {
+    font-size: 1.3em;
+    display: flex;
+  }
+  .input-text {
+    border: 0.04rem solid #69C2D3;
+    border-radius: 0.2rem;
+    padding: 0.3rem 1rem;
+    background-color: #ECEFF4;
+    margin-right: 1rem;
   }
   .video-wrapper {
     z-index: -200;
@@ -33,250 +72,6 @@
     right: -9999px;
     margin: auto;
   }
-  .header-wrapper {
-    height: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-    transform-style: preserve-3d; // If this is not included, the downards arrow will still show on flip; don't ask me why
-    form {
-      @include immediate-children-bottom-margins(0.65rem);
-      a:hover {
-        text-decoration: underline;
-      }
-      label, a {
-        display: block;
-        text-align: right;
-        color: white;
-        font-size: 1.1rem;
-        margin: 0;
-        input[type="checkbox"] {
-          width: auto;
-          margin: 0.5rem;
-        }
-      }
-      input {
-        padding: 0.7rem 2rem;
-        background: none;
-        color: white;
-        border-radius: 4rem;
-        border: 0.1rem solid white;
-        width: 100%;
-        &::placeholder {
-          color: $color-light-turquoise;
-        }
-        &:focus {
-          outline: none;
-        }
-      }
-    }
-    .homepage-button {
-      width: 100%;
-      display: flex;
-      flex-flow: row nowrap;
-      align-items: center;
-      justify-content: center;
-      padding: 0.7rem 0;
-      border-radius: 4rem;
-      color: $color-prussian-blue;
-      background: $gradient-generic;
-      transition-duration: $quick-transition-time;
-      border: 0.1rem solid white;
-      .button-icon {
-        margin-right: 0.7rem;
-      }
-    }
-    .front-side, .back-side {
-      transition: $long-transition-time;
-      padding: 3rem 3rem;
-      overflow: hidden;
-      height: 80%;
-      max-height: 35rem;
-      margin: 0;
-      display: flex;
-      flex-flow: column nowrap;
-      flex: none;
-      justify-content: center;
-      align-items: stretch;
-      border: 0.1rem solid white;
-      border-radius: 1rem;
-      backface-visibility: hidden;
-      @include immediate-children-bottom-margins(1rem);
-    }
-    .front-side {
-      position: absolute;
-      &.active {
-        transform: rotateY(180deg);
-      }
-      h1 {
-        color: white;
-        margin-bottom: 1rem;
-        strong {
-          color: #B3E6FF;
-          font-family: "Source Sans Pro", sans-serif;
-        }
-      }
-      p {
-        text-align: left;
-        color: white;
-        font-size: 1.1rem;
-        .go-to-sign-in {
-          font-size: 1rem;
-          color: #ffffff;
-          border: 0.01px solid white;
-          border-radius: 4rem;
-          padding: 0.5rem 0.8rem;
-          margin: 0 0 0 0.3rem;
-          background: none;
-        }
-      }
-    }
-
-    .explore-button {
-      @keyframes bobble {
-        0% {
-          transform: translate(0);
-        }
-        100% {
-          transform: translate(0, 0.6rem);
-        }
-      }
-      transition-duration: $medium-transition-time;
-      position: absolute;
-      bottom: 0.1rem;
-      align-self: center;
-      color: white;
-      text-align:center;
-      animation: bobble 0.6s 2s 2 alternate;
-      &:hover {
-        transform: translate(0, 0.6rem);
-      }
-      &:focus {
-        border: none;
-      }
-      i {
-        font-size: 5rem;
-        display:block;
-      }
-    }
-    .back-side {
-      position: absolute;
-      background-color: rgba(0, 0, 0, 0.3);
-      transform: rotateY(180deg);
-      &.active {
-        transform: rotateY(0);
-      }
-      h2 {
-        color: white;
-        margin-bottom: 2.5rem;
-      }
-      input {
-        background: $color-light-orange;
-      }
-    }
-    .go-to-sign-up {
-      color: white;
-      display: flex;
-      border: 0.01px solid white;
-      border-radius: 4rem;
-      padding: 0.5rem 1.5rem 0.5rem 0.8rem;
-      position: absolute;
-      left: 2rem;
-      bottom: 1.5rem;
-      background: none;
-    }
-  }
-}
-#homepage-main {
-
-  section {
-    height: 85vh;
-  }
-  .content-wrapper {
-    height: 100%;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: stretch;
-    justify-content: center;
-  }
-  .section-header {
-    font-size: 4.5rem;
-    margin-bottom: 3rem;
-    font-weight: 900;
-    font-family: "Roboto", sans-serif;
-  }
-  .section-description {
-    font-size: 1.7rem;
-    font-weight: 300;
-  }
-
-  .discover-section {
-    color: white;
-    background: linear-gradient(to right, #7975FF, #B275C8);
-    .content-wrapper {
-      background: image-url("magnifying.png");
-      background-size: auto 80%;
-      background-repeat: no-repeat;
-      background-position: 90% 50%;
-      padding-right: 30%;
-      padding-left: 5rem;
-    }
-  }
-
-  .collaborate-section {
-    color: black;
-    background: white;
-    .content-wrapper {
-      background: image-url("mac.png");
-      background-size: auto 55%;
-      background-repeat: no-repeat;
-      background-position: 5% 50%;
-      padding-left: 30%;
-      padding-right: 7rem;
-      text-align: right;
-    }
-  }
-
-  .discuss-section {
-    color: white;
-    background: linear-gradient(to right, #F48080, #FBAB61);
-    .content-wrapper {
-      background-image: image-url("message-bubble.jpg");
-      background-size: auto 75%;
-      background-repeat: no-repeat;
-      background-position: 90% 50%;
-      padding-right: 40%;
-      padding-left: 5rem;
-    }
-  }
-
-  .signup-section {
-    height: 60vh;
-    color: $color-light-orange;
-    .content-wrapper {
-      width: 50%;
-      align-items: center;
-    }
-    .section-description {
-      font-size: 2rem;
-      font-weight: 500;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    em {
-      font-weight: 300;
-    }
-    a.btn {
-      font-size: 1.3rem;
-      padding: 1rem 3rem;
-      border-radius: 4rem;
-      background-color: $color-prussian-blue;
-      &:hover {
-        background-color: darken($color-prussian-blue, 10);
-      }
-    }
-  }
 }
 
 // Phones
@@ -284,28 +79,11 @@
   #homepage-header > .container {
     padding-top: $navbar-height; // This is the height of the navbar
   }
-  #homepage-header .focus-card{
-    margin-top: 2rem;
-  }
 }
 
 
 // Not phones
 @include media-breakpoint-up(md) {
-  #homepage-header .header-wrapper {
-    strong {
-      font-size: 1.3em;
-    }
-    .homepage-button {
-      font-size: 1.15rem;
-      .button-icon {
-        font-size: 2rem;
-      }
-    }
-    input {
-      font-size: 1.1rem;
-    }
-  }
 }
 
 // Large-ass monitors that probably cost more than my tuition
