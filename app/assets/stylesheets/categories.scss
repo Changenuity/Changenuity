@@ -1,17 +1,14 @@
 .categories {
-  #categories-index-header {
-    background-image: image-url("eugenes-future");
-  }
-  #categories-show-header {
-    background-image: image-url("eugenes-future");
+  #categories-index-header, #categories-show-header {
+    background-image: image-url("headers/browse");
   }
 
   .categories-header {
     background-position: center center;
     background-size: cover;
     .container {
-      padding: 6rem 0 0 0;
-      height: 11.5rem;
+      padding: $header-container-padding;
+      height: $header-container-height;
       h1 {
         color: white;
         text-align: center;

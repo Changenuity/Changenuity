@@ -1,32 +1,17 @@
 .devise {
-  #devise-sessions-new-header {
-    background-image: image-url("eugenes-future");
-  }
-  #devise-confirmations-new-header {
-    background-image: image-url("eugenes-future");
-  }
-  #devise-unlocks-new-header {
-    background-image: image-url("eugenes-future");
-  }
-  #devise-registrations-new-header {
-    background-image: image-url("eugenes-future");
-  }
-  #devise-registrations-edit-header {
-    background-image: image-url("eugenes-future");
-  }
-  #devise-passwords-new-header {
-    background-image: image-url("eugenes-future");
-  }
+  #devise-sessions-new-header, #devise-confirmations-new-header,
+  #devise-unlocks-new-header, #devise-registrations-new-header,
+  #devise-registrations-edit-header, #devise-passwords-new-header,
   #devise-passwords-edit-header {
-    background-image: image-url("eugenes-future");
+    background-image: image-url("headers/devise");
   }
 
   .devise-header {
     background-position: center center;
     background-size: cover;
     .container {
-      padding: 6rem 0 0 0;
-      height: 11.5rem;
+      padding: $header-container-padding;
+      height: $header-container-height;
       h1 {
         color: white;
         text-align: center;
