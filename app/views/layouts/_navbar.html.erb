@@ -12,13 +12,17 @@
       </ul>
       <div id="navbar-secondary">
         <% if user_signed_in? %>
-          <%= link_to post_path, class: "secondary-navbar-button add-contract" do %>
+          <%= link_to post_path, class: "secondary-navbar-button add-project" do %>
             <i class="link-icon material-icons">add</i>
-            Add Contract
+            Add Project
           <% end %>
           <button class="secondary-navbar-button nav-window-toggle">
             <i class="link-icon material-icons">face</i>
-            <%= current_user.name || current_user.username %>
+            <% if current_user.name.empty? %>
+              <%= current_user.username %>
+            <% else %>
+              <%= current_user.name %>
+            <% end %>
           </button>
           <div class="navbar-window">
             <div class="content-wrapper">
