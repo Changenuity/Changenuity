@@ -1,0 +1,12 @@
+<div id="projects-<%= yield :css_slug %>" class="projects">
+  <header id="projects-<%= yield :css_slug %>-header" class="projects-header">
+    <div class="container">
+      <%= yield :header %>
+    </div>
+  </header>
+  <main class="projects-main">
+    <section class="container">
+      <%= yield %>
+    </section>
+  </main>
+</div>

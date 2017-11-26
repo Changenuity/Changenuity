@@ -1,13 +1,10 @@
 <% provide(:title, "Browse Projects") %>
-<div id="projects-index">
-  <header class="projects-index-header">
-    <div class="container">
-      <h1 class="main-header">Browse</h1>
-    </div>
-  </header>
-  <main class="projects-index-main">
-    <section class="container projects-container">
-      <%= render @projects %>
-    </div>
-  </main>
-</div>
+<% content_for :css_slug do %>index<% end %>
+<% content_for :header do %>
+  <h1>Browse</h1>
+<% end %>
+<%= render layout: "main" do %>
+  <div class="projects-container">
+    <%= render @projects %>
+  </div>
+<% end %>
