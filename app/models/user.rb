@@ -19,6 +19,13 @@ class User < ApplicationRecord
 
   validates_format_of :email, without: TEMP_EMAIL_REGEX, on: :update
   validates :username, presence: true, uniqueness: true
+  validates :location,        length: { maximum: 127 }
+  validates :biography,       length: { maximum: 65535 }
+  validates :experience,      length: { maximum: 65535 }
+  validates :organization,    length: { maximum: 65535 }
+  validates :passions,        length: { maximum: 65535 }
+  validates :skills,          length: { maximum: 65535 }
+  validates :work,            length: { maximum: 65535 }
 
   def User.find_for_omniauth(auth, signed_in_resource = nil)
     # Get the authentication and user if they exist
