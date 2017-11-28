@@ -26,7 +26,7 @@
           </button>
           <div class="navbar-window">
             <div class="content-wrapper">
-              <%= gravatar_for current_user %>
+              <%= image_tag current_user.image.url(:thumb) %>
             </div>
             <%= form_tag destroy_user_session_path, method: :delete, class: 'buttons-wrapper' do %>
               <button type="submit" class="button button-secondary">

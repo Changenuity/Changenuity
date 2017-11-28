@@ -4,8 +4,7 @@
       <div class="row main-row">
         <div class="control-panel col-3">
           <div class="calling-card">
-            <%= gravatar_for @user %>
-            <%= image_tag @user.image.url %>
+            <%= image_tag @user.image.url(:thumb) %>
             <p class="user-name info-line"><%= @user.name || @user.username %></p>
             <p class="user-email info-line"><%= @user.email %></p>
           </div>
