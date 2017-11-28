@@ -4,12 +4,12 @@
       <div class="row main-row">
         <div class="control-panel col-3">
           <div class="calling-card">
-            <%= gravatar_for @user %>
+            <%= image_tag @user.image.url(:thumb) %>
             <p class="user-name info-line"><%= @user.name || @user.username %></p>
             <p class="user-email info-line"><%= @user.email %></p>
           </div>
           <ul class="quick-access">
-            <li class="quick-access-item"><a href="#0">Profile</a></li>
+            <li class="quick-access-item"><a href="#0">Profile</a> <%= link_to "<edit>", edit_user_registration_path %></li>
             <li class="quick-access-item active"><a href="#0">Jobs</a></li>
             <li class="quick-access-item"><a href="#0">Projects</a></li>
             <li class="quick-access-item"><a href="#0">Teams</a></li>
@@ -18,6 +18,19 @@
         </div>
         <main class="content-panes col-9">
           <div class="main-inner">
+            <div class="jobs-pane"> <!--TODO: fix html?-->
+              <div class="jobs-pane-header">
+                <h2>Profile</h2>
+              </div>
+              <%= @user.username %>
+              <%= @user.location %>
+              <%= @user.biography %>
+              <%= @user.experience %>
+              <%= @user.organization %>
+              <%= @user.passions %>
+              <%= @user.skills %>
+              <%= @user.work %>
+            </div>
             <div class="jobs-pane">
               <div class="jobs-pane-header">
                 <h2>My Jobs</h2>

@@ -18,15 +18,15 @@
           <% end %>
           <button class="secondary-navbar-button nav-window-toggle">
             <i class="link-icon material-icons">face</i>
-            <% if current_user.name.empty? %>
-              <%= current_user.username %>
-            <% else %>
+            <% if current_user.name? %>
               <%= current_user.name %>
+            <% else %>
+              <%= current_user.username %>
             <% end %>
           </button>
           <div class="navbar-window">
             <div class="content-wrapper">
-              <%= gravatar_for current_user %>
+              <%= image_tag current_user.image.url(:thumb) %>
             </div>
             <%= form_tag destroy_user_session_path, method: :delete, class: 'buttons-wrapper' do %>
               <button type="submit" class="button button-secondary">
