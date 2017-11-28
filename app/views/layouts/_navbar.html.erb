@@ -18,10 +18,10 @@
           <% end %>
           <button class="secondary-navbar-button nav-window-toggle">
             <i class="link-icon material-icons">face</i>
-            <% if current_user.name.empty? %>
-              <%= current_user.username %>
-            <% else %>
+            <% if current_user.name? %>
               <%= current_user.name %>
+            <% else %>
+              <%= current_user.username %>
             <% end %>
           </button>
           <div class="navbar-window">
