@@ -26,6 +26,11 @@ class User < ApplicationRecord
   validates :passions,        length: { maximum: 65535 }
   validates :skills,          length: { maximum: 65535 }
   validates :work,            length: { maximum: 65535 }
+  has_attached_file :image, styles: { large: '1000x1000>', medium: '300x300>', thumb: '100x100>' },
+                            s3_protocol: :https
+  validates_attachment_content_type :image,
+    content_type: ['image/jpeg', 'image/png'],
+    message: 'file type is not allowed (only jpeg/png images)'
 
   def User.find_for_omniauth(auth, signed_in_resource = nil)
     # Get the authentication and user if they exist
