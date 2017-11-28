@@ -35,7 +35,9 @@ Rails generates a bunch of files and configs you mostly don't need to concern yo
 Of course there are more things, but for now front-end is just this.
 
 # Heroku Guide
-To push the latest commit from develop into production, run `git push heroku develop` but remember, your changes will be visible on changenuity.com directly! Make sure everybody approves before you push!!
+To add the Heroku staging and production remote servers, run `git remote add staging https://git.heroku.com/changenuity-staging.git` and `git remote add heroku https://git.heroku.com/changenuity.git`.
+
+To push the latest commit from cool-branch into the staging server, run `git push staging cool-branch:develop`. To push the latest commit from develop into production, run `git push heroku develop` but remember, your changes will be visible on [changenuity.com](https://www.changenuity.com/) directly! Make sure everybody approves before you push!!
 
 Whenever pushing anything to Heroku that requires migrations, remember to run `heroku rake db:migrate`
 
@@ -56,4 +58,3 @@ To edit database entries directly, run `heroku run rails console`
 Rails console commands:
 
 - `ActiveRecord::Base.connection.data_sources`
-- ​
