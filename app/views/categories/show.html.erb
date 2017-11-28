@@ -1,0 +1,8 @@
+<% provide(:title, @category.name) %>
+<% content_for :css_slug do %>show<% end %>
+<% content_for :header do %><%= @category.name %><% end %>
+<%= render layout: "main" do %>
+  <section class="container categories-container">
+    <%= render @projects %>
+  </section>
+<% end %>

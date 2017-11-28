@@ -1,9 +1,6 @@
 <% provide(:title, "Contact") %>
-<main id="page-main">
-  <header id="page-main-header" class="jumbotron splash">
-    <div class="container">
-      <h1>Let's Talk!</h1>
-      <p>Blah blah blah subtitle bar thingy</p>
-    </div>
-  </header>
-</main>
+<% content_for :css_slug do %>contact<% end %>
+<% content_for :header do %>Let's Talk!<% end %>
+<%= render layout: "main" do %>
+  <p>E-mail hello@changenuity.com for hellos!</p>
+<% end %>

@@ -49,13 +49,13 @@ GEM
     arel (7.1.4)
     autoprefixer-rails (7.1.6)
       execjs
-    aws-sdk (2.10.88)
-      aws-sdk-resources (= 2.10.88)
-    aws-sdk-core (2.10.88)
+    aws-sdk (2.10.90)
+      aws-sdk-resources (= 2.10.90)
+    aws-sdk-core (2.10.90)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.10.88)
-      aws-sdk-core (= 2.10.88)
+    aws-sdk-resources (2.10.90)
+      aws-sdk-core (= 2.10.90)
     aws-sigv4 (1.0.2)
     bindex (0.5.0)
     bootstrap (4.0.0.beta2.1)
@@ -87,8 +87,6 @@ GEM
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
-    ffi (1.9.18-x64-mingw32)
-    ffi (1.9.18-x86-mingw32)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     hashie (3.5.6)
@@ -125,10 +123,6 @@ GEM
     multipart-post (2.0.0)
     nio4r (2.1.0)
     nokogiri (1.8.1)
-      mini_portile2 (~> 2.3.0)
-    nokogiri (1.8.1-x64-mingw32)
-      mini_portile2 (~> 2.3.0)
-    nokogiri (1.8.1-x86-mingw32)
       mini_portile2 (~> 2.3.0)
     oauth (0.5.3)
     oauth2 (1.4.0)
@@ -167,8 +161,6 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
     pg (0.21.0)
-    pg (0.21.0-x64-mingw32)
-    pg (0.21.0-x86-mingw32)
     popper_js (1.12.5)
     puma (3.11.0)
     rack (2.0.3)
@@ -240,13 +232,10 @@ GEM
     turbolinks-source (5.0.3)
     tzinfo (1.2.4)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2017.3)
-      tzinfo (>= 1.0.0)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
     warden (1.2.7)
       rack (>= 1.0)
-    wdm (0.1.1)
     web-console (3.5.1)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -258,8 +247,6 @@ GEM
 
 PLATFORMS
   ruby
-  x64-mingw32
-  x86-mingw32
 
 DEPENDENCIES
   acts-as-taggable-on (~> 4.0)

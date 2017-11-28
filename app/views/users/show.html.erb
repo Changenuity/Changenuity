@@ -1,18 +1,52 @@
 <% provide(:title, @user.name) %>
-<main id="page-main">
-  <header id="page-main-header" class="jumbotron splash">
+<div id="users-show">
     <div class="container">
-      <h1><%= @user.name %></h1>
-      <p class="project-location"><%= @user.email %></p>
-      <p><time><%= @user.created_at %></time></p>
+      <div class="row main-row">
+        <div class="control-panel col-3">
+          <div class="calling-card">
+            <%= image_tag @user.image.url(:thumb) %>
+            <p class="user-name info-line"><%= @user.name || @user.username %></p>
+            <p class="user-email info-line"><%= @user.email %></p>
+          </div>
+          <ul class="quick-access">
+            <li class="quick-access-item"><a href="#0">Profile</a> <%= link_to "<edit>", edit_user_registration_path %></li>
+            <li class="quick-access-item active"><a href="#0">Jobs</a></li>
+            <li class="quick-access-item"><a href="#0">Projects</a></li>
+            <li class="quick-access-item"><a href="#0">Teams</a></li>
+            <li class="quick-access-item"><a href="#0">Messages</a></li>
+          </ul>
+        </div>
+        <main class="content-panes col-9">
+          <div class="main-inner">
+            <div class="jobs-pane"> <!--TODO: fix html?-->
+              <div class="jobs-pane-header">
+                <h2>Profile</h2>
+              </div>
+              <%= @user.username %>
+              <%= @user.location %>
+              <%= @user.biography %>
+              <%= @user.experience %>
+              <%= @user.organization %>
+              <%= @user.passions %>
+              <%= @user.skills %>
+              <%= @user.work %>
+            </div>
+            <div class="jobs-pane">
+              <div class="jobs-pane-header">
+                <h2>My Jobs</h2>
+              </div>
+              <div class="projects-container">
+                <!-- <div class="box"></div>
+                  <div class="box"></div>
+                    <div class="box"></div>
+                      <div class="box"></div>
+                        <div class="box"></div>
+                          <div class="box"></div> -->
+                <%= render partial: "/projects/project", collection: @projects %>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
     </div>
-  </header>
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
-  </aside>
-</main>
+</div>

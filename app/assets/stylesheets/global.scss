@@ -2,8 +2,8 @@
    Global Variables
 ============================================ */
 
-$color-orange: #EC6433;
-$color-light-orange: #C14F26;
+$color-orange: #C14F26;
+$color-light-orange: #EC6333;
 $color-turquoise: #8AB7A3;
 $color-light-turquoise: #DDDDDD;
 $color-grey: #63C1C0;
@@ -15,13 +15,25 @@ $color-pastel-green: #7AA391;
 $color-tundora: #625F5E;
 $color-prussian-blue: #2196F3;
 $color-bad-glass: rgba(236, 238, 239, 0.9);
+$gradient-generic: linear-gradient(to bottom right, rgba(236, 232, 249, 0.9), rgba(239, 235, 234, 0.90));
+$gradient-tropics: linear-gradient(to bottom right, rgba(156, 39, 176, 0.5), rgba(139, 195, 74, 0.5));
 $bgDefault: white;
-$bgHighlight: #EC6433;
+$bgHighlight: #EC6333;
+$navbar-height: 4.3rem;
+
+$background-stripes: repeating-linear-gradient(135deg,
+                      #ECECEC 0,      #ECECEC 0.2rem,
+                      transparent 0,  transparent 0.5rem);
 
 
 $quick-transition-time: 0.2s;
 $medium-transition-time: 0.4s;
+$long-transition-time: 1s;
 $border-radius: 0.3rem;
+
+$header-container-padding: 9.5rem 0 0 0;
+$header-container-height: 19rem;
+
 
 /* ============================================
    Mixins
@@ -34,32 +46,46 @@ $border-radius: 0.3rem;
   box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
 }
 
+@mixin absolute-full-cover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
 // Creates a linear gradient overlay on top of the background.
 //
 // WARNING: The element will be given 'position: relative', make sure that this
 // does not break formatting
-// $text-color      -   The desired text color
-// $fallback-color  -   The base color of the background, used as a fallback if
+// $base-color      -   The base color of the background, used as a fallback if
 //                      a background image is provided
 // $background-url  -   OPTIONAL: The url of the background image, provide ""
 //                      if you don't have one
-@mixin gradient-background($color-to, $color-from, $text-color, $base-color, $background-url) {
+@mixin gradient-background($color-to, $color-from, $base-color, $background-url) {
   position: relative;
   background-position: center 60%;
   background-size: cover;
   background-repeat: no-repeat;
-  color: $text-color;
   background-color: $base-color;
-  background-image: url($background-url);
+  background-image: image-url($background-url);
   &:before {
-    /* Dark gradient */
     content: "";
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient($color-to, $color-from);
+    background: linear-gradient(to bottom, $color-to, $color-from);
+  }
+}
+
+@mixin immediate-children-bottom-margins($bottom-margin) {
+  > * {
+    margin-bottom: $bottom-margin;
+  }
+  > *:last-child {
+    margin-bottom: 0;
   }
 }
 
@@ -67,8 +93,14 @@ $border-radius: 0.3rem;
    General Styles
 ============================================ */
 
+body,
 html {
-  min-height: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+html {
+  height: 100%;
   font-size: 16px; // This is to ensure consistent sizing across different platforms
 }
 
@@ -76,17 +108,30 @@ body {
   min-height: 100%;
   width: 100%;
   position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between; // This is for a "sticky footer"
+  // By default, text font is set to Source Sans Pro
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+button, input, optgroup, select, textarea {
+  // Overrides a bootstrap rule that gives
+  // these elements the default font-family
+  // of sans-serif
+  font-family: "Source Sans Pro";
+}
+
+h1, h2, h3, h4, h5, h6 {
   font-family: "Lato", sans-serif;
 }
 
-.disabling-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+input, button {
+  border: none;
+}
+
+button {
+  cursor: pointer;
 }
 
 a {
@@ -99,6 +144,24 @@ a {
   &:hover {
     text-decoration: none;
   }
+}
+
+ul, li {
+  list-style: none;
+  padding: 0;
+  * > a {
+    color: inherit;
+  }
+}
+
+.disabling-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .list-inline {
@@ -120,21 +183,9 @@ a {
   -moz-transition: all $quick-transition-time;
   -o-transition: all $quick-transition-time;
   transition: all $quick-transition-time;
-  border: none;
-  border-radius: $border-radius;
 }
 
-.btn-danger {
-  // TODO: Please name the following colors
-  color: white;
-  background-color: #9E2727;
-}
 
-.btn-secondary {
-  // TODO: Please name the following colors
-  color: white;
-  color: #056B49;
-}
 
 .main-header {
   h1, h2, h3, h4, h5, h6 {
@@ -149,4 +200,66 @@ a {
     font-style: normal;
     font-weight: 700;
   }
+}
+
+.missing-img {
+  background-color: $color-grey;
+  background-image: image-url("pattern");
+  background-repeat: no-repeat;
+  background-position: center 53%;
+  background-size: 70%;
+  height: 15rem;
+  width: 15rem;
+  max-width: 100%;
+  max-height: 100%;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: white;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.snackbar-container {
+  position: fixed;
+  z-index: 200;
+  right: 10%;
+  bottom: 1rem;
+  text-align: right;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-end;
+}
+
+.snackbar {
+  position: relative;
+  max-width: 30rem;
+  text-align: left;
+  padding-right: 2rem;
+  &::before {
+    z-index: -100;
+    @include absolute-full-cover;
+    content:"";
+    background-image: image-url('close.svg');
+    background-repeat: no-repeat;
+    background-position: top 0.3rem right 0.3rem;
+    opacity: 0;
+    transition: opacity $quick-transition-time ease-out;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+  &:hover::before {
+    opacity: 0.5;
+  }
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}
+
+// Style Devise alert-notice the same way as Bootstrap alert-success
+.alert-notice {
+  @extend .alert-success;
 }

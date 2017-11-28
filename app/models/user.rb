@@ -1,6 +1,13 @@
 class User < ApplicationRecord
 
   has_many :authentications
+  has_many :proposals
+  has_many :projects
+
+  # Make user_path(@user) point to /users/username instead of /users/id
+  def to_param
+    username
+  end
 
   TEMP_EMAIL_PREFIX = 'changeme@changenuity'
   TEMP_EMAIL_REGEX = /\Achangeme@changenuity/
@@ -11,6 +18,19 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   validates_format_of :email, without: TEMP_EMAIL_REGEX, on: :update
+  validates :username, presence: true, uniqueness: true
+  validates :location,        length: { maximum: 127 }
+  validates :biography,       length: { maximum: 65535 }
+  validates :experience,      length: { maximum: 65535 }
+  validates :organization,    length: { maximum: 65535 }
+  validates :passions,        length: { maximum: 65535 }
+  validates :skills,          length: { maximum: 65535 }
+  validates :work,            length: { maximum: 65535 }
+  has_attached_file :image, styles: { large: '1000x1000>', medium: '300x300>', thumb: '100x100>' },
+                            s3_protocol: :https
+  validates_attachment_content_type :image,
+    content_type: ['image/jpeg', 'image/png'],
+    message: 'file type is not allowed (only jpeg/png images)'
 
   def User.find_for_omniauth(auth, signed_in_resource = nil)
     # Get the authentication and user if they exist
@@ -54,5 +74,10 @@ class User < ApplicationRecord
 
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
+  end
+
+  protected
+  def confirmation_required?
+    !Rails.env.development?
   end
 end

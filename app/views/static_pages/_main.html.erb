@@ -1,0 +1,14 @@
+<div id="static-pages-<%= yield :css_slug %>" class="static-pages">
+  <header id="static-pages-<%= yield :css_slug %>-header" class="static-pages-header">
+    <div class="container">
+      <h1>
+        <%= yield :header %>
+      </h1>
+    </div>
+  </header>
+  <main class="static-pages-main">
+    <section class="container">
+      <%= yield %>
+    </section>
+  </main>
+</div>

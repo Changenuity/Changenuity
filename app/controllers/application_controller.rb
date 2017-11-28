@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if:  :devise_controller?
+  before_action :set_cache_buster
+  before_action :redirect_not_found
 
   def ensure_signup_complete
     # Ensure we don't go into an infinite loop
@@ -13,9 +15,25 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def set_cache_buster
+    response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
+  end
+
+  def redirect_not_found
+    split = request.fullpath.split("/")
+    # the first nine tags in Changenuity are the categories
+    # only allow users to see these nine tags as categories
+    if split.length == 3 and split[1] == "categories" and split[2].to_i > 9
+      raise ActionController::RoutingError.new('Not Found')
+    end
+  end
+
   protected
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :username])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :username, 
+      :location, :biography, :experience, :organization, :passions, :skills, :work, :image])
   end
 end

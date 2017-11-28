@@ -1,9 +1,6 @@
 <% provide(:title, "About") %>
-<main id="page-main">
-  <header id="page-main-header" class="jumbotron splash">
-    <div class="container">
-      <h1>About</h1>
-      <p>Blah blah blah subtitle bar thingy</p>
-    </div>
-  </header>
-</main>
+<% content_for :css_slug do %>about<% end %>
+<% content_for :header do %>About<% end %>
+<%= render layout: "main" do %>
+  <p>About Changenuity...</p>
+<% end %>

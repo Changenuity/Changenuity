@@ -1,57 +1,71 @@
 <% provide(:title, "Edit Project") %>
-<main id="page-main" class="projects projects-new">
-  <header id="page-main-header" class="jumbotron splash">
-    <div class="container">
-      <h1>Edit Your Project!</h1>
-      <p>Your change is right around the corner.</p>
-    </div>
-  </header>
-  <section id="main-section" class="container opt-section">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <%= form_for(@project) do |f| %>
-          <%= render "shared/error_messages", object: @project %>
-          <p>
-            <%= f.label :name %>
-            <%= f.text_field :name, class: "form-control" %>
-          </p>
-          <p>
-            <%= f.label :date %>
-            <%= f.date_field :date, class: "form-control",
-                                    value: Time.now.strftime('%Y-%m-%d') %>
-          </p>
-          <p>
-            <%= f.label :location %>
-            <%= f.text_field :location, class: "form-control" %>
-          </p>
-          <p>
-            <%= f.label :comma_separated_tags %>
-            <%= f.text_field :tag_list %>
-          </p>
-          <p>
-            <%= f.label :description %>
-            <%= f.text_area :description, class: "form-control" %>
-          </p>
-          <p>
-            <%= f.label :parameters %>
-            <%= f.text_area :parameters, class: "form-control" %>
-          </p>
-          <p>
-            <%= f.label :references %>
-            <%= f.text_area :references, class: "form-control" %>
-          </p>
-          <p>
-            <%= f.label :image %>
-            <%= f.file_field :image, class: "form-control" %>
-          </p>
-            <%= f.submit "Save changes", class: "btn btn-primary" %>
+<% content_for :css_slug do %>edit<% end %>
+<% content_for :header do %>
+  <h1>Edit Your Project!</h1>
+  <p>Your change is right around the corner.</p>
+<% end %>
+<%= render layout: "main" do %>
+  <div class="col-md-8 col-md-offset-2">
+    <%= form_for @project, html: { multipart: true, class: "projects-form" } do |f| %>
+      <%= render "shared/error_messages", object: @project %>
+      <p>
+        <%= f.label :name, "Project Name" %>
+        <%= f.text_field :name, class: "form-control" %>
+      </p>
+      <p>
+        <%= f.label :date %>
+        <%= f.date_field :date, class: "form-control", value: Time.now.strftime('%Y-%m-%d') %>
+      </p>
+      <p>
+        <%= f.label :location %>
+        <%= f.text_field :location, class: "form-control" %>
+      </p>
+      <p>
+        <%= f.label :comma_separated_tags %>
+        <%= f.text_field :tag_list %>
+      </p>
+      <p>
+        <%= f.label :category %>
+        <%= f.select :category_list, options_for_select(@categories, @project.category_list.first) %>
+      </p>
+      <p>
+        <%= f.label :description %>
+        <%= f.text_area :description, class: "form-control" %>
+      </p>
+      <p>
+        <%= f.label :parameters %>
+        <%= f.text_area :parameters, class: "form-control" %>
+      </p>
+      <p>
+        <%= f.label :references %>
+        <%= f.text_area :references, class: "form-control" %>
+      </p>
+      <p>
+        <%= f.label :recruiting %>
+        <%= f.check_box :recruiting, class: "form-control", id: "recruiting-toggle" %>
+        <%= f.label :recruiting, for: "recruiting-toggle", class: "toggle-label" %>
+      </p>
+      <p>
+        <%= f.label :image %>
+        <%= f.file_field :image, class: "form-control" %>
+      </p>
+      <h4>What do you want to know from applicants?</h4>
+      <ul>
+        <% ["Reason", "Passions", "Skills", "Work", "Commitment", "Estimation", "Website", "LinkedIn", "Github"].each do |field| %>
+          <li>
+            <%= check_box_tag "project[form_fields][]", field, @project.form_fields.include?(field), id: "project-proposal-field-#{field}" %>
+            <%= field %>
+          </li>
         <% end %>
-        <ol>
-          <li>It may take up to 3 days for your project's profile to appear on our website.</li>
-          <li>Please note that we retain the option of not posting projects that are unaligned with our company's goals. We will contact you if we make such a decision.</li>
-          <li>By sending images to us, you give us permission to use them on our website to help advertise your project.</li>
-        </ol>
+      </ul>
+      <div class="actions">
+        <%= f.submit "Save changes", class: "action" %>
       </div>
-    </div>
-  </section>
-</main>
+    <% end %>
+    <ol>
+      <li>It may take up to 3 days for your project's profile to appear on our website.</li>
+      <li>Please note that we retain the option of not posting projects that are unaligned with our company's goals. We will contact you if we make such a decision.</li>
+      <li>By sending images to us, you give us permission to use them on our website to help advertise your project.</li>
+    </ol>
+  </div>
+<% end %>

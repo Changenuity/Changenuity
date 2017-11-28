@@ -1,51 +1,22 @@
-
 <div id="static-pages-home">
-  <header class="jumbotron">
-    <div class="container">
+  <header id="homepage-header" class="jumbotron">
+    <div class="container main-container">
       <div class="header-wrapper">
-        <h1>
-          Welcome to<br/><strong>Changenuity</strong>
-        </h1>
-        <div class="button-group">
-          <a href="#0" class="homepage-button"><i class="material-icons button-icon">explore</i><span>Take A Tour</span></a>
-          <a href="#0" class="homepage-button"><i class="material-icons button-icon">person_add</i><span>Sign Up</span></a>
-        </div>
+        <h1 class="main-header">Social freelancers for your social enterprise.</h1>
+        <p class="main-subheader">
+          Find flexible, affordable, and mission-driven talent for changing
+          the world.<br/>Wherever in the world you are.
+        </p>
+        <h2 class="form-header">Be the first to know when we launch.</h2>
+        <form class="ml-form">
+          <label class="sr-only" for="ml-address">Email Address</label>
+          <input class="input-text" placeholder="email" type="text" id="ml-address">
+          <button class="btn btn-outline-primary" type="submit">Sign Up</button>
+        </form>
       </div>
     </div>
     <div class="video-wrapper">
-      <%= video_tag('/videos/homepage-background-video.webm',id:'homepage-video',class:'background-video',size:'1280x720',autoplay:true,muted:true,loop:true) %>
+      <%= video_tag "/videos/homepage-background-video.webm", id: "homepage-video", class: "background-video", size: "1280x720", preload: "auto", autoplay: true, muted: true, loop: true %>
     </div>
   </header>
-
-  <main id="homepage-main" class="container">
-    <article class="splash-body">
-      <section>
-        <i class="material-icons navbar-handle open-nav">search</i>
-        <p>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-          ab illo inventore veritatis et quasi architecto beatae vitae dicta
-          sunt explicabo.
-        </p>
-      </section>
-      <section>
-        <i class="material-icons navbar-handle open-nav">forum</i>
-        <p>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-          ab illo inventore veritatis et quasi architecto beatae vitae dicta
-          sunt explicabo.
-        </p>
-      </section>
-      <section>
-        <i class="material-icons navbar-handle open-nav">people</i>
-        <p>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-          ab illo inventore veritatis et quasi architecto beatae vitae dicta
-          sunt explicabo.
-        </p>
-      </section>
-    </article>
-  </main>
 </div>

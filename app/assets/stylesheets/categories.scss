@@ -1,0 +1,41 @@
+.categories {
+  #categories-index-header, #categories-show-header {
+    background-image: image-url("headers/browse");
+  }
+
+  .categories-header {
+    background-position: center center;
+    background-size: cover;
+    .container {
+      padding: $header-container-padding;
+      height: $header-container-height;
+      h1 {
+        color: white;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 0.5rem;
+      }
+    }
+  }
+
+  .categories-main {
+    background-color: $color-light-grey;
+    .container {
+      padding: 4rem 8rem;
+      li {
+          list-style: decimal;
+      }
+    }
+    .categories-container {
+      padding: 2rem 0;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+      align-items: stretch;
+      .pcard {
+        flex: none;
+        margin-bottom: 0.8rem;
+      }
+    }
+  }
+}
