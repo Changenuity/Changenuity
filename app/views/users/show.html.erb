@@ -4,13 +4,12 @@
       <div class="row main-row">
         <div class="control-panel col-3">
           <div class="calling-card">
-            <%= image_tag @user.image.url(:thumb) %>
+            <%= image_tag @user.image.url(:thumb), class: "profile-pic" %>
             <p class="user-name info-line"><%= @user.name || @user.username %></p>
-            <p class="user-email info-line"><%= @user.email %></p>
           </div>
           <ul class="quick-access">
-            <li class="quick-access-item"><a href="#0">Profile</a> <%= link_to "<edit>", edit_user_registration_path %></li>
-            <li class="quick-access-item active"><a href="#0">Jobs</a></li>
+            <li class="quick-access-item active"><a href="#0">Profile</a></li>
+            <li class="quick-access-item"><a href="#0">Jobs</a></li>
             <li class="quick-access-item"><a href="#0">Projects</a></li>
             <li class="quick-access-item"><a href="#0">Teams</a></li>
             <li class="quick-access-item"><a href="#0">Messages</a></li>
@@ -18,30 +17,70 @@
         </div>
         <main class="content-panes col-9">
           <div class="main-inner">
-            <div class="jobs-pane"> <!--TODO: fix html?-->
-              <div class="jobs-pane-header">
-                <h2>Profile</h2>
+            <div class="profile-pane">
+              <h2 class="pane-header profile-pane-header">
+                Profile
+              </h2>
+              <div class="pane-section profile-pane-basic">
+                <%# Backend folks can make this section more dynamic %>
+                <div class="pane-section-header">
+                  <h3>Basic Info</h3>
+                  <%= link_to "Edit", edit_user_registration_path, class: "edit-button" %>
+                </div>
+                <p class="profile-pane-cell">
+                  <span>Email</span>
+                  <%= @user.email %>
+                </p>
+                <p class="profile-pane-cell">
+                  <span>Username</span>
+                  <%= @user.username %>
+                </p>
+                <p class="profile-pane-cell">
+                  <span>Name</span>
+                  <%= @user.name %>
+                </p>
+                <p class="profile-pane-cell">
+                  <span>Location</span>
+                  <%= @user.location %>
+                </p>
+                <p class="profile-pane-cell">
+                  <span>Short Bio</span>
+                  <%= @user.biography %>
+                </p>
               </div>
-              <%= @user.username %>
-              <%= @user.location %>
-              <%= @user.biography %>
-              <%= @user.experience %>
-              <%= @user.organization %>
-              <%= @user.passions %>
-              <%= @user.skills %>
-              <%= @user.work %>
+              <div class="pane-section profile-pane-experience">
+                <div class="pane-section-header">
+                  <h3>Skills &amp; Experiences</h3>
+                  <%= link_to "Edit", edit_user_registration_path, class: "edit-button" %>
+                </div>
+                <%# Backend folks can make this section more dynamic %>
+                <p class="profile-pane-cell">
+                  <span>Top 3 Skills</span>
+                  <%= @user.skills %>
+                </p>
+                <p class="profile-pane-cell">
+                  <span>Experience</span>
+                  <%= @user.experience %>
+                </p>
+                <p class="profile-pane-cell">
+                  <span>Work</span>
+                  <%= @user.work %>
+                </p>
+                <p class="profile-pane-cell">
+                  <span>Passion</span>
+                  <%= @user.passions %>
+                </p>
+                <p class="profile-pane-cell">
+                  <span>Organization</span>
+                  <%= @user.organization %>
+                </p>
+              </div>
             </div>
             <div class="jobs-pane">
-              <div class="jobs-pane-header">
-                <h2>My Jobs</h2>
-              </div>
+              <h2 class="pane-header jobs-pane-header">
+                My Jobs
+              </h2>
               <div class="projects-container">
-                <!-- <div class="box"></div>
-                  <div class="box"></div>
-                    <div class="box"></div>
-                      <div class="box"></div>
-                        <div class="box"></div>
-                          <div class="box"></div> -->
                 <%= render partial: "/projects/project", collection: @projects %>
               </div>
             </div>
