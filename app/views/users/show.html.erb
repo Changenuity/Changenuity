@@ -7,17 +7,17 @@
             <%= image_tag @user.image.url(:thumb), class: "profile-pic" %>
             <p class="user-name info-line"><%= @user.name || @user.username %></p>
           </div>
-          <ul class="quick-access">
-            <li class="quick-access-item active"><a href="#0">Profile</a></li>
-            <li class="quick-access-item"><a href="#0">Jobs</a></li>
-            <li class="quick-access-item"><a href="#0">Projects</a></li>
-            <li class="quick-access-item"><a href="#0">Teams</a></li>
-            <li class="quick-access-item"><a href="#0">Messages</a></li>
+          <ul class="nav nav-pill quick-nav">
+            <li><a class="nav-link active" data-toggle="pill" href="#profile">Profile</a></li>
+            <li><a class="nav-link" data-toggle="pill" href="#jobs">Jobs</a></li>
+            <li><a class="nav-link">Projects</a></li>
+            <li><a class="nav-link">Teams</a></li>
+            <li><a class="nav-link">Messages</a></li>
           </ul>
         </div>
         <main class="content-panes col-9">
-          <div class="main-inner">
-            <div class="profile-pane">
+          <div class="main-inner tab-content">
+            <div class="tab-pane fade show profile-pane active" id="profile">
               <h2 class="pane-header profile-pane-header">
                 Profile
               </h2>
@@ -76,7 +76,7 @@
                 </p>
               </div>
             </div>
-            <div class="jobs-pane">
+            <div class="tab-pane fade jobs-pane" id="jobs">
               <h2 class="pane-header jobs-pane-header">
                 My Jobs
               </h2>
