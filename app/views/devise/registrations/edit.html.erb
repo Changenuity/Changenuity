@@ -1,90 +1,104 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div id="users-edit">
+  <div class="container">
+    <h2 class="pane-header">
+      Edit <%= resource_name.to_s.humanize %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+    </h2>
 
-  <h2>Profile Details</h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
+      <div class="pane-section">
+        <div class="pane-section-header">
+          <h2>Basic Info</h2>
+        </div>
+        <div class="field profile-pane-cell">
+          <%= f.label :name %><br />
+          <%= f.text_field :name, autofocus: true %>
+        </div>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
+        <div class="field profile-pane-cell">
+          <%= f.label :username %><br />
+          <%= f.text_field :username %>
+        </div>
 
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </div>
+        <div class="field profile-pane-cell">
+          <%= f.label :email %><br />
+          <%= f.email_field :email %>
+        </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
-  </div>
+        <div class="field profile-pane-cell">
+          <%= f.label :location %><br />
+          <%= f.text_field :location %>
+        </div>
+        <div class="field profile-pane-cell">
+          <%= f.label :biography %><br />
+          <%= f.text_area :biography %>
+        </div>
+      </div>
+      <div class="pane-section">
+        <div class="pane-section-header">
+          <h2>Skills &amp; Experiences</h2>
+        </div>
+        <div class="field profile-pane-cell">
+          <%= f.label :experience %><br />
+          <%= f.text_area :experience %>
+        </div>
+        <div class="field profile-pane-cell">
+          <%= f.label :organization %><br />
+          <%= f.text_area :organization %>
+        </div>
+        <div class="field profile-pane-cell">
+          <%= f.label :passions %><br />
+          <%= f.text_area :passions %>
+        </div>
+        <div class="field profile-pane-cell">
+          <%= f.label :skills %><br />
+          <%= f.text_area :skills %>
+        </div>
+        <div class="field profile-pane-cell">
+          <%= f.label :work %><br />
+          <%= f.text_area :work %>
+        </div>
+      </div>
+      <div class="field">
+        <%= f.label :image %><br />
+        <%= f.file_field :image %>
+      </div>
 
-  <div class="field">
-    <%= f.label :location %><br />
-    <%= f.text_field :location %>
-  </div>
-  <div class="field">
-    <%= f.label :biography %><br />
-    <%= f.text_area :biography %>
-  </div>
-  <div class="field">
-    <%= f.label :experience %><br />
-    <%= f.text_area :experience %>
-  </div>
-  <div class="field">
-    <%= f.label :organization %><br />
-    <%= f.text_area :organization %>
-  </div>
-  <div class="field">
-    <%= f.label :passions %><br />
-    <%= f.text_area :passions %>
-  </div>
-  <div class="field">
-    <%= f.label :skills %><br />
-    <%= f.text_area :skills %>
-  </div>
-  <div class="field">
-    <%= f.label :work %><br />
-    <%= f.text_area :work %>
-  </div>
-  <div class="field">
-    <%= f.label :image %><br />
-    <%= f.file_field :image %>
-  </div>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+      <div class="field">
+        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+        <% if @minimum_password_length %>
+          <br />
+          <em><%= @minimum_password_length %> characters minimum</em>
+        <% end %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <div class="field">
+        <%= f.label :password_confirmation %> <i>(confirm new password)</i><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+        <%= f.password_field :current_password, autocomplete: "off" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Update" %>
+      </div>
     <% end %>
+
+    <h3>Cancel my account</h3>
+
+    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+    <%= link_to "Back", :back %><br/>
+    <%= link_to "View", user_path(@user.username) %><br/>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %> <i>(confirm new password)</i><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %><br/>
-<%= link_to "View", user_path(@user.username) %><br/>
-<%= link_to "Log out", destroy_user_session_path, method: :delete %>
+</div>
