@@ -2,7 +2,6 @@
   background-color: #F2F4F4;
   color: #2F3A4B;
   .pane-header, .pane-section {
-    padding: 2rem;
     margin: 0;
     margin-bottom: 1rem;
     box-shadow: 0px 0px 1rem -0.2rem rgba(0, 0, 0, 0.2);
@@ -10,6 +9,7 @@
     width: 100%;
   }
   .pane-header {
+    padding: 2rem;
     background-color: #FF845E;
     background-image: linear-gradient(to right, #FF845E, #F9A327);
     color: white;
@@ -18,9 +18,12 @@
   .pane-section {
     padding: 2rem 2rem 0.5rem;
     background-color: white;
+  }
+  .cell-row {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
+    margin: 0 -1rem;
   }
   .pane-section-header {
     display: flex;
@@ -46,6 +49,7 @@
     width: 50%;
     flex: 1 0 auto;
     margin-bottom: 1.5rem;
+    padding: 0 1rem;
     span , label {
       color: #00B593;
       display: inline-block;
@@ -145,4 +149,10 @@
 #users-edit {
   margin-top: $navbar-height;
   padding-top: 1rem;
+  input, textarea {
+    width: 100%;
+    padding: 0.6rem;
+    border: 0.05rem solid #4ac4a8;
+    border-radius: 0.5rem;
+  }
 }

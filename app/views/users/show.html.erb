@@ -10,9 +10,6 @@
           <ul class="nav nav-pill quick-nav">
             <li><a class="nav-link active" data-toggle="pill" href="#profile">Profile</a></li>
             <li><a class="nav-link" data-toggle="pill" href="#jobs">Jobs</a></li>
-            <li><a class="nav-link">Projects</a></li>
-            <li><a class="nav-link">Teams</a></li>
-            <li><a class="nav-link">Messages</a></li>
           </ul>
         </div>
         <main class="content-panes col-9">
@@ -27,26 +24,28 @@
                   <h3>Basic Info</h3>
                   <%= link_to "Edit", edit_user_registration_path, class: "edit-button" %>
                 </div>
-                <p class="profile-pane-cell">
-                  <span>Email</span>
-                  <%= @user.email %>
-                </p>
-                <p class="profile-pane-cell">
-                  <span>Username</span>
-                  <%= @user.username %>
-                </p>
-                <p class="profile-pane-cell">
-                  <span>Name</span>
-                  <%= @user.name %>
-                </p>
-                <p class="profile-pane-cell">
-                  <span>Location</span>
-                  <%= @user.location %>
-                </p>
-                <p class="profile-pane-cell">
-                  <span>Short Bio</span>
-                  <%= @user.biography %>
-                </p>
+                <div class="cell-row">
+                  <p class="profile-pane-cell">
+                    <span>Email</span>
+                    <%= @user.email %>
+                  </p>
+                  <p class="profile-pane-cell">
+                    <span>Username</span>
+                    <%= @user.username %>
+                  </p>
+                  <p class="profile-pane-cell">
+                    <span>Name</span>
+                    <%= @user.name %>
+                  </p>
+                  <p class="profile-pane-cell">
+                    <span>Location</span>
+                    <%= @user.location %>
+                  </p>
+                  <p class="profile-pane-cell">
+                    <span>Short Bio</span>
+                    <%= @user.biography %>
+                  </p>
+                </div>
               </div>
               <div class="pane-section profile-pane-experience">
                 <div class="pane-section-header">
@@ -54,26 +53,28 @@
                   <%= link_to "Edit", edit_user_registration_path, class: "edit-button" %>
                 </div>
                 <%# Backend folks can make this section more dynamic %>
-                <p class="profile-pane-cell">
-                  <span>Top 3 Skills</span>
-                  <%= @user.skills %>
-                </p>
-                <p class="profile-pane-cell">
-                  <span>Experience</span>
-                  <%= @user.experience %>
-                </p>
-                <p class="profile-pane-cell">
-                  <span>Work</span>
-                  <%= @user.work %>
-                </p>
-                <p class="profile-pane-cell">
-                  <span>Passion</span>
-                  <%= @user.passions %>
-                </p>
-                <p class="profile-pane-cell">
-                  <span>Organization</span>
-                  <%= @user.organization %>
-                </p>
+                <div class="cell-row">
+                  <p class="profile-pane-cell">
+                    <span>Top 3 Skills</span>
+                    <%= @user.skills %>
+                  </p>
+                  <p class="profile-pane-cell">
+                    <span>Experience</span>
+                    <%= @user.experience %>
+                  </p>
+                  <p class="profile-pane-cell">
+                    <span>Work</span>
+                    <%= @user.work %>
+                  </p>
+                  <p class="profile-pane-cell">
+                    <span>Passion</span>
+                    <%= @user.passions %>
+                  </p>
+                  <p class="profile-pane-cell">
+                    <span>Organization</span>
+                    <%= @user.organization %>
+                  </p>
+                </div>
               </div>
             </div>
             <div class="tab-pane fade jobs-pane" id="jobs">
