@@ -9,6 +9,8 @@
     width: 100%;
   }
   .pane-header {
+    display: flex;
+    justify-content: space-between;
     padding: 2rem;
     background-color: #FF845E;
     background-image: linear-gradient(to right, #FF845E, #F9A327);
@@ -33,13 +35,18 @@
     flex: none;
     margin-bottom: 1rem;
   }
-  .edit-button {
+  .button {
+    margin-left: 0.4rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
     color: white;
     width: 6rem;
     text-align: center;
     background-color: #00DFAB;
     background: linear-gradient(to right, #00DFAB, #00ECCA);
-    padding: 0.5rem 1.3rem;
+    padding: 0.5rem 0;
     border-radius: 0.7rem;
     &:hover {
       background: linear-gradient(to right, #04f1b9, #00ECCA);
