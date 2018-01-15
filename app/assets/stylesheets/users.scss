@@ -20,6 +20,9 @@
   .pane-section {
     padding: 2rem 2rem 0.5rem;
     background-color: white;
+    > *:last-child {
+      margin-bottom: 1.5rem;
+    }
   }
   .cell-row {
     display: flex;
@@ -36,7 +39,6 @@
     margin-bottom: 1rem;
   }
   .button {
-    margin-left: 0.4rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -50,6 +52,9 @@
     border-radius: 0.7rem;
     &:hover {
       background: linear-gradient(to right, #04f1b9, #00ECCA);
+    }
+    + .button {
+      margin-left: 0.4rem;
     }
   }
   .profile-pane-cell {
@@ -156,10 +161,18 @@
 #users-edit {
   margin-top: $navbar-height;
   padding-top: 1rem;
-  input, textarea {
+  .standard-input {
     width: 100%;
     padding: 0.6rem;
     border: 0.05rem solid #4ac4a8;
     border-radius: 0.5rem;
+  }
+  .trailing-actions {
+    padding: 2rem;
+    background-color: white;
+    border-radius: 1rem;
+    float: right;
+    margin-bottom: 1rem;
+    box-shadow: 0px 0px 1rem -0.2rem rgba(0, 0, 0, 0.2);
   }
 }
