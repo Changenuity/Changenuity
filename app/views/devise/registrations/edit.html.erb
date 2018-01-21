@@ -1,20 +1,20 @@
 <div id="users-edit">
-  <div class="container">
-    <div class="pane-header">
-      <h2>Edit <%= resource_name.to_s.humanize %></h2>
-      <div class="actions">
-        <%= link_to "Cancel", user_path(@user.username), class:"button" %>
-        <button type="button" class="button" data-toggle="modal" data-target="#exampleModal">
-          Update
-        </button>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <div class="container">
+      <div class="pane-header">
+        <h2>Edit <%= resource_name.to_s.humanize %></h2>
+        <div class="actions">
+          <%= link_to "Cancel", user_path(@user.username), class:"button" %>
+          <button type="button" class="button" data-toggle="modal" data-target="#exampleModal">
+            Update
+          </button>
+        </div>
       </div>
-    </div>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-    <% end %>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
       <%= devise_error_messages! %>
       <div class="pane-section">
         <div class="pane-section-header">
@@ -96,42 +96,41 @@
         <%= f.password_field :password_confirmation, autocomplete: "off", class: "standard-input" %>
       </div>
 
-      <div class="actions">
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Confirm your changes</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="field">
-                <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-                <%= f.password_field :current_password, autocomplete: "off", class: "standard-input" %>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <%= f.submit "Update", class: "btn btn-primary" %>
-            </div>
-          </div>
-        </div>
-        </div>
+      <div class="pane-section">
+        <h2 class="pane-section-header">Unhappy?</h2>
+        <%= button_to "Cancel My Account", registration_path(resource_name),
+          data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %>
       </div>
-    <% end %>
-    <div class="pane-section">
-      <h2 class="pane-section-header">Unhappy?</h2>
-      <%= button_to "Cancel My Account", registration_path(resource_name),
-        data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %>
+
+      <div class="trailing-actions">
+        <%= link_to "Cancel", user_path(@user.username), class:"button" %>
+        <button type="button" class="button" data-toggle="modal" data-target="#exampleModal">
+          Update
+        </button>
+      </div>
     </div>
 
-    <div class="trailing-actions">
-      <%= link_to "Cancel", user_path(@user.username), class:"button" %>
-      <button type="button" class="button" data-toggle="modal" data-target="#exampleModal">
-        Update
-      </button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Confirm your changes</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="field">
+              <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+              <%= f.password_field :current_password, autocomplete: "off", class: "standard-input" %>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <%= f.submit "Update", class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>

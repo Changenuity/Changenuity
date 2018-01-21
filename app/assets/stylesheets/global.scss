@@ -93,12 +93,6 @@ $header-container-height: 19rem;
    General Styles
 ============================================ */
 
-body,
-html {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
 html {
   height: 100%;
   font-size: 16px; // This is to ensure consistent sizing across different platforms
@@ -106,7 +100,6 @@ html {
 
 body {
   min-height: 100%;
-  width: 100%;
   position: relative;
   display: flex;
   flex-flow: column nowrap;
@@ -120,6 +113,11 @@ button, input, optgroup, select, textarea {
   // these elements the default font-family
   // of sans-serif
   font-family: "Source Sans Pro";
+}
+
+.standard-input {
+  padding: 0 0.6rem;
+  border-radius: 0.5rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
