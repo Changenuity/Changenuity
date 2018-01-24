@@ -8,10 +8,11 @@
           the world.<br/>Wherever in the world you are.
         </p>
         <h2 class="form-header">Be the first to know when we launch.</h2>
-        <form class="ml-form">
+        <form class="ml-form" id="ml-form">
           <label class="sr-only" for="ml-address">Email Address</label>
-          <input class="input-text" placeholder="email" type="text" id="ml-address">
-          <button class="btn btn-outline-primary" type="submit">Sign Up</button>
+          <input class="input-text" placeholder="email" type="text" id="ml-address" name="email">
+
+          <%= link_to "Sign Up", "", onclick: "signup()", class: "btn btn-outline-primary" %>
         </form>
       </div>
     </div>
@@ -20,3 +21,12 @@
     </div>
   </header>
 </div>
+<script>
+  document.getElementById("ml-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    signup();
+  });
+  function signup() {
+    window.location = "<%= new_registration_path(:user) %>" + "?email=" + document.getElementById("ml-address").value;
+  }
+</script>
