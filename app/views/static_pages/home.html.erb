@@ -2,17 +2,12 @@
   <header id="homepage-header" class="jumbotron">
     <div class="container main-container">
       <div class="header-wrapper">
-        <h1 class="main-header">Social freelancers for your social enterprise.</h1>
+        <h1 class="main-header">Work for the world.</h1>
         <p class="main-subheader">
-          Find flexible, affordable, and mission-driven talent for changing
-          the world.<br/>Wherever in the world you are.
+          Find remote jobs at companies making a positive impact on the world.
         </p>
-        <h2 class="form-header">Be the first to know when we launch.</h2>
-        <form class="ml-form">
-          <label class="sr-only" for="ml-address">Email Address</label>
-          <input class="input-text" placeholder="email" type="text" id="ml-address">
-          <button class="btn btn-outline-primary" type="submit">Sign Up</button>
-        </form>
+        <h2 class="form-header">Join now for early access.</h2>
+        <%= link_to "Sign Up", new_registration_path(:user), class: "btn btn-outline-primary" %>
       </div>
     </div>
     <div class="video-wrapper">

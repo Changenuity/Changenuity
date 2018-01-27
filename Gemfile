@@ -8,7 +8,7 @@ gem 'rails-assets-tether', '~> 1.1.1'
 gem 'bcrypt', '3.1.11', :require => 'bcrypt',
   git: 'https://github.com/codahale/bcrypt-ruby.git'
 # Use PostgreSQL as the database for Active Record
-gem 'pg'
+gem 'pg', '~> 0.18'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
