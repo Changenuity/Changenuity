@@ -25,14 +25,15 @@
     height: 1.4rem;
     width: 1.4rem;
     margin: 0.3rem;
-    fill: black;
   }
   .brand-text {
-    font-family: "Lato", sans-serif;
     font-size: 1.2rem;
     font-weight: 700;
     letter-spacing: 0.02rem;
-    color: black;
+    color: #2F3B4A;
+  }
+  &:hover {
+    box-shadow: inset 0px -5px #ff9700;
   }
 }
 
@@ -71,31 +72,15 @@
   }
   .buttons-wrapper {
     display: flex;
-    border-top: 0.1rem solid $color-grey;
   }
-  .button {
-    color: $color-blue-diane;
+  .btn {
     flex: 1 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: none;
     padding: 1rem;
-    transition: $quick-transition-time;
-    &:first-child {
-      border-right: 0.1rem solid $color-grey;
-    }
-    .button-icon {
-      margin-right: 0.5rem;
-    }
-  }
-  .button-primary:hover {
-    color: white;
-    background-color: $color-light-orange;
-  }
-  .button-secondary:hover {
-    color: white;
-    background-color: $color-turquoise;
+    border-radius: 0;
+    cursor: pointer;
   }
   .gravatar {
     border-radius: 100%;
@@ -192,12 +177,8 @@
   }
   #navbar-brand {
     padding: 0 1rem;
-    .logo {
-      fill: white;
-    }
     .brand-text {
       font-size: 1rem;
-      color: white;
     }
   }
   #navbar-primary, #navbar-secondary {
@@ -219,7 +200,7 @@
         left: 25%;
         height: 0;
         width: 0;
-        border-bottom: 0.15rem solid $color-orange;
+        border-bottom: 0.15rem solid #ff9700;
         transition-duration: $quick-transition-time;
       }
       &:hover::before {
@@ -234,6 +215,8 @@
     margin: 0;
     align-items: stretch;
     .secondary-navbar-button {
+      cursor: pointer;
+      border: none;
       height: 100%;
       font-size: 0.5rem;
       height: 100%;
@@ -244,7 +227,6 @@
       text-transform: uppercase;
       width: 5.4rem;
       color: $color-blue-diane;
-      border-left: 0.01rem solid $color-grey;
       border-right: 0.01rem solid $color-grey;
       background: none;
       .link-icon {
@@ -253,12 +235,11 @@
         margin-bottom: 0.3rem;
       }
       &:hover .link-icon {
-        cursor: pointer;
         color: $color-orange;
       }
-    }
-    .add-project {
-      border-right: none;
+      &:first-child {
+        border-left: 0.01rem solid $color-grey;
+      }
     }
   }
 
@@ -283,14 +264,8 @@
     }
   }
   #navbar-wrapper.active {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.99);
     @include light-shadow;
-    #navbar-brand {
-      background-color: $color-grey;
-      &:hover {
-        background-color: darken($color-grey, 15);
-      }
-    }
     #navbar-primary {
       .navbar-primary-link {
         // border-left: 0.01rem solid $color-grey;
