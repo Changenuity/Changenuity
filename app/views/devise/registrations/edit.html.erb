@@ -4,13 +4,12 @@
       <div class="pane-header">
         <h2>Edit <%= resource_name.to_s.humanize %></h2>
         <div class="actions">
-          <%= link_to "Cancel", user_path(@user.username), class:"button" %>
-          <button type="button" class="button" data-toggle="modal" data-target="#exampleModal">
+          <%= link_to "Cancel", user_path(@user.username), class:"btn btn-secondary" %>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             Update
           </button>
         </div>
       </div>
-
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
@@ -23,26 +22,26 @@
         <div class="cell-row">
           <div class="field profile-pane-cell">
             <%= f.label :name %><br />
-            <%= f.text_field :name, autofocus: true, class: "standard-input" %>
+            <%= f.text_field :name, autofocus: true, class: "form-control" %>
           </div>
 
           <div class="field profile-pane-cell">
             <%= f.label :username %><br />
-            <%= f.text_field :username, class: "standard-input" %>
+            <%= f.text_field :username, class: "form-control" %>
           </div>
 
           <div class="field profile-pane-cell">
             <%= f.label :email %><br />
-            <%= f.email_field :email, class: "standard-input" %>
+            <%= f.email_field :email, class: "form-control" %>
           </div>
 
           <div class="field profile-pane-cell">
             <%= f.label :location %><br />
-            <%= f.text_field :location, class: "standard-input" %>
+            <%= f.text_field :location, class: "form-control" %>
           </div>
           <div class="field profile-pane-cell">
             <%= f.label :biography %><br />
-            <%= f.text_area :biography, class: "standard-input" %>
+            <%= f.text_area :biography, class: "form-control" %>
           </div>
         </div>
       </div>
@@ -53,23 +52,23 @@
         <div class="cell-row">
           <div class="field profile-pane-cell">
             <%= f.label :experience %><br />
-            <%= f.text_area :experience, class: "standard-input" %>
+            <%= f.text_area :experience, class: "form-control" %>
           </div>
           <div class="field profile-pane-cell">
             <%= f.label :organization %><br />
-            <%= f.text_area :organization, class: "standard-input" %>
+            <%= f.text_area :organization, class: "form-control" %>
           </div>
           <div class="field profile-pane-cell">
             <%= f.label :passions %><br />
-            <%= f.text_area :passions, class: "standard-input" %>
+            <%= f.text_area :passions, class: "form-control" %>
           </div>
           <div class="field profile-pane-cell">
             <%= f.label :skills %><br />
-            <%= f.text_area :skills, class: "standard-input" %>
+            <%= f.text_area :skills, class: "form-control" %>
           </div>
           <div class="field profile-pane-cell">
             <%= f.label :work %><br />
-            <%= f.text_area :work, class: "standard-input" %>
+            <%= f.text_area :work, class: "form-control" %>
           </div>
         </div>
       </div>
@@ -78,7 +77,7 @@
           <h2>Profile Image</h2>
           <div class="field">
             <%= f.label :image, class: 'sr-only' %>
-            <%= f.file_field :image, class: "standard-input" %>
+            <%= f.file_field :image, class: "form-control" %>
           </div>
         </div>
       </div>
@@ -91,9 +90,9 @@
         </div>
         <%= f.label :password,
           "New Password#{ @minimum_password_length ? " (#{@minimum_password_length} characters minimum)" : "" }" %>
-        <%= f.password_field :password, autocomplete: "off", class: "standard-input" %>
+        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
         <%= f.label :password_confirmation, "Confirm New Password" %>
-        <%= f.password_field :password_confirmation, autocomplete: "off", class: "standard-input" %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
       </div>
 
       <div class="pane-section">
@@ -103,8 +102,8 @@
       </div>
 
       <div class="trailing-actions">
-        <%= link_to "Cancel", user_path(@user.username), class:"button" %>
-        <button type="button" class="button" data-toggle="modal" data-target="#exampleModal">
+        <%= link_to "Cancel", user_path(@user.username), class:"btn btn-secondary" %>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
           Update
         </button>
       </div>
@@ -122,7 +121,7 @@
           <div class="modal-body">
             <div class="field">
               <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-              <%= f.password_field :current_password, autocomplete: "off", class: "standard-input" %>
+              <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
             </div>
           </div>
           <div class="modal-footer">

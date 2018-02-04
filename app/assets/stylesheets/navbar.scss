@@ -56,20 +56,20 @@
     padding: 2rem 1.5rem;
     @include immediate-children-bottom-margins(0.65rem);
   }
-  input[type="text"], input[type="password"] {
-    padding: 0.7rem 2rem;
-    background: none;
-    color: $color-blue-stone;
-    border-radius: 4rem;
-    border: 0.1rem solid $color-orange;
-    width: 100%;
-    &::placeholder {
-      color: $color-pastel-green;
-    }
-    &:focus {
-      outline: none;
-    }
-  }
+  // input[type="text"], input[type="password"] {
+  //   padding: 0.7rem 2rem;
+  //   background: none;
+  //   color: $color-blue-stone;
+  //   border-radius: 4rem;
+  //   border: 0.1rem solid $color-orange;
+  //   width: 100%;
+  //   &::placeholder {
+  //     color: $color-pastel-green;
+  //   }
+  //   &:focus {
+  //     outline: none;
+  //   }
+  // }
   .buttons-wrapper {
     display: flex;
   }

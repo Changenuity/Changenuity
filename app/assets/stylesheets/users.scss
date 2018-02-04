@@ -38,25 +38,6 @@
     flex: none;
     margin-bottom: 1rem;
   }
-  .button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    color: white;
-    width: 6rem;
-    text-align: center;
-    background-color: #00DFAB;
-    background: linear-gradient(to right, #00DFAB, #00ECCA);
-    padding: 0.5rem 0;
-    border-radius: 0.7rem;
-    &:hover {
-      background: linear-gradient(to right, #04f1b9, #00ECCA);
-    }
-    + .button {
-      margin-left: 0.4rem;
-    }
-  }
   .profile-pane-cell {
     width: 50%;
     flex: 1 0 auto;
@@ -72,9 +53,6 @@
 
 #users-show {
   overflow: hidden;
-  a {
-    color: inherit;
-  }
   .main-row {
     height: 100vh;
     padding-top: $navbar-height;
