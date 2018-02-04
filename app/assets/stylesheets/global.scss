@@ -1,41 +1,4 @@
 /* ============================================
-   Global Variables
-============================================ */
-
-$color-orange: #C14F26;
-$color-light-orange: #EC6333;
-$color-turquoise: #8AB7A3;
-$color-light-turquoise: #DDDDDD;
-$color-grey: #63C1C0;
-$color-light-grey: #F4F4F4;
-$color-blue-stone: #01665D;
-$color-blue-diane: #1C5453;
-$color-edward: #9AA8A7;
-$color-pastel-green: #7AA391;
-$color-tundora: #625F5E;
-$color-prussian-blue: #2196F3;
-$color-bad-glass: rgba(236, 238, 239, 0.9);
-$gradient-generic: linear-gradient(to bottom right, rgba(236, 232, 249, 0.9), rgba(239, 235, 234, 0.90));
-$gradient-tropics: linear-gradient(to bottom right, rgba(156, 39, 176, 0.5), rgba(139, 195, 74, 0.5));
-$bgDefault: white;
-$bgHighlight: #EC6333;
-$navbar-height: 4.3rem;
-
-$background-stripes: repeating-linear-gradient(135deg,
-                      #ECECEC 0,      #ECECEC 0.2rem,
-                      transparent 0,  transparent 0.5rem);
-
-
-$quick-transition-time: 0.2s;
-$medium-transition-time: 0.4s;
-$long-transition-time: 1s;
-$border-radius: 0.3rem;
-
-$header-container-padding: 9.5rem 0 0 0;
-$header-container-height: 19rem;
-
-
-/* ============================================
    Mixins
 ============================================ */
 
@@ -86,6 +49,42 @@ $header-container-height: 19rem;
   }
   > *:last-child {
     margin-bottom: 0;
+  }
+}
+
+@mixin theme-background-border-colors($base-color) {
+  background-color: $base-color;
+  border-color: $base-color;
+  &:hover {
+    background-color: darken($base-color, 10);
+    border-color: darken($base-color, 15);
+  }
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active {
+    background-color: darken($base-color, 20);
+    border-color: darken($base-color, 20);
+  }
+}
+
+@mixin theme-background-border-colors-holo($base-color) {
+  background-color: rgba(white, 0);
+  border-color: $base-color;
+  color: $base-color;
+  &:hover {
+    color: white;
+    background-color: $base-color;
+    border-color: $base-color;
+  }
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active {
+    background-color: darken($base-color, 20);
+    border-color: darken($base-color, 20);
+  }
+}
+
+@mixin focus-box-shadow($base-color) {
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba($base-color, 0.5) !important;
   }
 }
 
@@ -175,7 +174,20 @@ ul, li {
   transition: all $quick-transition-time;
 }
 
+.btn-primary {
+  @include theme-background-border-colors($color-primary);
+  @include focus-box-shadow($color-primary);
+}
 
+.btn-outline-primary {
+  @include theme-background-border-colors-holo($color-primary);
+  @include focus-box-shadow($color-primary);
+}
+
+.btn-secondary {
+  @include theme-background-border-colors($color-secondary);
+  @include focus-box-shadow($color-secondary);
+}
 
 .main-header {
   h1, h2, h3, h4, h5, h6 {

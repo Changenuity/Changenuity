@@ -1,0 +1,39 @@
+/* ============================================
+   Global Variables
+============================================ */
+
+$color-orange: #C14F26;
+$color-light-orange: #EC6333;
+$color-turquoise: #8AB7A3;
+$color-light-turquoise: #DDDDDD;
+$color-grey: #63C1C0;
+$color-light-grey: #F4F4F4;
+$color-blue-stone: #01665D;
+$color-blue-diane: #1C5453;
+$color-edward: #9AA8A7;
+$color-pastel-green: #7AA391;
+$color-tundora: #625F5E;
+$color-prussian-blue: #2196F3;
+$color-bad-glass: rgba(236, 238, 239, 0.9);
+$gradient-generic: linear-gradient(to bottom right, rgba(236, 232, 249, 0.9), rgba(239, 235, 234, 0.90));
+$gradient-tropics: linear-gradient(to bottom right, rgba(156, 39, 176, 0.5), rgba(139, 195, 74, 0.5));
+$bgDefault: white;
+$bgHighlight: #EC6333;
+$navbar-height: 4.3rem;
+
+$color-primary: $color-orange;
+$color-secondary: #35DDAC;
+
+$background-stripes: repeating-linear-gradient(135deg,
+                      #ECECEC 0,      #ECECEC 0.2rem,
+                      transparent 0,  transparent 0.5rem);
+
+
+$quick-transition-time: 0.2s;
+$medium-transition-time: 0.4s;
+$long-transition-time: 1s;
+$border-radius: 0.3rem;
+
+$header-container-padding: 9.5rem 0 0 0;
+$header-container-height: 19rem;
+
