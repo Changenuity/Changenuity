@@ -1,17 +1,36 @@
-<div id="static-pages-home">
-  <header id="homepage-header" class="jumbotron">
-    <div class="container main-container">
-      <div class="header-wrapper">
-        <h1 class="main-header">Work for the world.</h1>
-        <p class="main-subheader">
-          Find remote jobs at companies making a positive impact on the world.
-        </p>
-        <h2 class="form-header">Join now for early access.</h2>
-        <%= link_to "Sign Up", new_registration_path(:user), class: "btn btn-outline-primary" %>
+<div id="static-pages-home" class="container">
+  <section class="splash-section">
+    <header class="main-header">
+      <h1>Work for the world.</h1>
+      <p>Find remote jobs at companies that are creating a positive impact.</p>
+      <div class="form-group">
+        <input class="form-control" placeholder="Email Address" />
+        <button type="button" class="btn btn-secondary sign-up-button">Sign Up</button>
+      </div>
+    </header>
+  </section>
+  <section class="workflow-section">
+    <header class="section-header">
+      <h2>Get started today.</h2>
+      <p>Build a profile and start working for social enteprrises that are changing the world.</p>
+    </header>
+    <div class="workflow-panel row">
+      <div class="workflow-step col-3">
+        <%= image_tag "home/workflow-1.svg", class: "svg workflow-icon" %>
+        Build your profile.
+      </div>
+      <div class="workflow-step col-3">
+        <%= image_tag "home/workflow-2.svg", class: "svg workflow-icon" %>
+        Find companies working on projects that are creatings sustainable change.
+      </div>
+      <div class="workflow-step col-3">
+        <%= image_tag "home/workflow-3.svg", class: "svg workflow-icon" %>
+        Submit bid for a project.
+      </div>
+      <div class="workflow-step col-3">
+        <%= image_tag "home/workflow-4.svg", class: "svg workflow-icon" %>
+        Work remotely with a team.
       </div>
     </div>
-    <div class="video-wrapper">
-      <%= video_tag "/videos/homepage-background-video.webm", id: "homepage-video", class: "background-video", size: "1280x720", preload: "auto", autoplay: true, muted: true, loop: true %>
-    </div>
-  </header>
+  </section>
 </div>
