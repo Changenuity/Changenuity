@@ -19,7 +19,10 @@ Rails.application.routes.draw do
   resources  :tags, only: [:index, :show]
   resources  :categories, only: [:index, :show]
   devise_for :users, path: '',
-    controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
+    controllers: {
+      confirmations: 'users/confirmations',
+      omniauth_callbacks: 'users/omniauth_callbacks'
+    }
   get '/users/:username', to: 'users#show'
   resources :users, :only => [:index, :show]
 end
