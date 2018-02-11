@@ -36,6 +36,8 @@ gem 'paperclip', '~> 5.0.0'
 gem 'aws-sdk', '~> 2.3'
 # Use Acts as Taggable On for tags
 gem 'acts-as-taggable-on', '~> 4.0'
+# Use Inline Svg to inline SVG logos
+gem 'inline_svg', '~> 1.3.1'
 # Use Devise for authentication, depends on OmniAuth and bcrypt
 gem 'devise'
 gem 'omniauth-oauth2', '~> 1.3.1'

@@ -256,6 +256,16 @@
         cursor: pointer;
         color: $color-orange;
       }
+      .slack-logo {
+        height: 3.1rem;
+        margin-top: -0.3rem;
+        margin-bottom: -0.2rem;
+        fill: $color-blue-diane;
+        transition-duration: $quick-transition-time;
+      }
+      &:hover .slack-logo {
+        fill: $color-orange;
+      }
     }
     .add-project {
       border-right: none;

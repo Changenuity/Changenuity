@@ -2,14 +2,18 @@
   <div class="container">
     <nav id="navbar">
       <%= link_to home_path, id: 'navbar-brand', class: 'check' do %>
-        <%= image_tag "delta_logo.svg", class: 'svg logo' %>
+        <%= inline_svg "delta_logo.svg", class: "svg logo" %>
         <span class="brand-text">Changenuity</span>
       <% end %>
+
+      <% if false %>
       <ul id="navbar-primary" class="links-list">
         <li class="navbar-primary-link"><%= link_to "Discover", browse_path %></li>
         <li class="navbar-primary-link"><%= link_to "Discuss", "https://join.slack.com/t/changenuity/shared_invite/enQtMzAyNDQ5ODM0MTQ5LTFjYWVlMWFjNjJhMzVhNDk4ZTQxNTI2Y2M5MmVlMDgxNjRlNGUyZWFjMjFhMWJhZTcwZGQ0YzNkODUwZDJiYzU" %></li>
         <li class="navbar-primary-link"><%= link_to "About", about_path %></li>
       </ul>
+      <% end %>
+
       <div id="navbar-secondary">
         <% if user_signed_in? %>
           <%= link_to post_path, class: "secondary-navbar-button add-project" do %>
@@ -75,7 +79,13 @@
             </div>
           <% end %>
         <% end %>
+
+        <%= link_to "https://join.slack.com/t/changenuity/shared_invite/enQtMzAyNDQ5ODM0MTQ5LTFjYWVlMWFjNjJhMzVhNDk4ZTQxNTI2Y2M5MmVlMDgxNjRlNGUyZWFjMjFhMWJhZTcwZGQ0YzNkODUwZDJiYzU", class: "secondary-navbar-button" do %>
+          <%= inline_svg "slack.svg", class: "slack-logo" %>
+          Slack
+        <% end %>
       </div><!-- navbar-secondary -->
+
       <% if false %>
         <ul id="navbar-secondary" class="links-list">
           <li class="navbar-secondary-link">
