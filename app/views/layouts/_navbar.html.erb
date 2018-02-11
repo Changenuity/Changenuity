@@ -64,7 +64,7 @@
               <%= link_to "Forgot your password?", new_password_path(:user) %>
             </div>
             <div class="buttons-wrapper">
-              <%= link_to new_registration_path(:user), class: "button button-primary" do %>
+              <%= link_to new_registration_path(:user), class: "button button-primary", id: "navbar-signup-button" do %>
                 <i class="material-icons button-icon">person_add</i>
                 <span>Sign Up</span>
               <% end %>
@@ -115,3 +115,11 @@
     </nav>
   </div>
 </div>
+<script>
+document.getElementById("navbar-signup-button").addEventListener("click",
+  function (e) {
+    e.preventDefault();
+    window.location = "<%= new_registration_path(:user) %>" + "?email="
+      + document.getElementById("navbar-user-email").value;
+  });
+</script>
