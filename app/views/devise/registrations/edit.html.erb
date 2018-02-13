@@ -25,6 +25,10 @@
     <%= f.text_field :location %>
   </div>
   <div class="field">
+    <%= f.label :commitment, "Commitment level (hours / week)" %><br />
+    <%= f.number_field :commitment %>
+  </div>
+  <div class="field">
     <%= f.label :biography %><br />
     <%= f.text_area :biography %>
   </div>
