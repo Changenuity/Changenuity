@@ -2,6 +2,18 @@
   font-family: "Roboto";
   color: #2F3B4A;
 
+  .information-section {
+    margin-bottom: 15rem;
+  }
+
+  .sign-up-widget {
+    display: flex;
+    min-width: 20rem;
+    .sign-up-button {
+      margin-left: 1rem;
+    }
+  }
+
   .main-header {
     display: flex;
     flex-flow: column nowrap;
@@ -11,10 +23,12 @@
     justify-content: center;
     padding-right: 40%;
 
-    background-image: image-url("home/office");
+    background-image: 
+      linear-gradient(to right, white 50%, rgba(0,0,0,0) 85%),
+      image-url("home/office");
     background-repeat: no-repeat;
-    background-size: auto 75%;
-    background-position: right 30%;
+    background-size: 100%, auto 75%;
+    background-position: left top, right 30%;
 
     h1 {
       font-family: inherit;
@@ -25,21 +39,17 @@
       font-size: 1.3rem;
       font-weight: 300;
     }
-    .form-group {
-      margin: 1rem 0 4rem;
-      display: flex;
+    .sign-up-widget {
       width: 60%;
-      min-width: 20rem;
-      .sign-up-button {
-        margin-left: 1rem;
-      }
+      margin: 1rem 0 4rem;
     }
   }
 
   .section-header {
+    margin-bottom: 7rem;
     h2 {
       font-family: inherit;
-      font-weight: 400;
+      font-weight: 500;
     }
     p {
       font-size: 1.3rem;
@@ -47,12 +57,63 @@
     }
   }
 
-  .workflow-section {
-    .workflow-panel {
-      max-width: 30rem;
-      margin: 0 auto;
+  .workflow-panel {
+    margin: 0 -2rem;
+    .workflow-step-container {
+      padding: 0 2rem;
+    }
+    .workflow-step {
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 300;
+    }
+    .workflow-icon {
+      max-width: 5rem;
+      display: block;
+      margin: 0 auto 2rem;
     }
   }
 
-
+  .sectors {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 5rem;
+    margin-bottom: 3rem;
+    
+    .sectors-header {
+      font-weight: 700;
+      width: 8rem;
+      background-image: image-url("home/bluebarvert");
+      background-repeat: no-repeat;
+      background-size: auto auto;
+      background-position: center right;
+    }
+    .sectors-item {
+      position: relative;
+      width: 6rem;
+      margin: 0 1rem;
+      text-align: center;
+      .opportunity-icon {
+        max-width: 3rem;
+      }
+      .opportunity-label {
+        position: absolute;
+        top: 5rem;
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+  .sign-up-section {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+    }
+  }
 }

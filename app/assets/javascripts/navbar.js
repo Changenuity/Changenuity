@@ -86,7 +86,7 @@ $(document).on('turbolinks:load', function(){
 
 
   var constRemote = mainNavbar.makeNewRemote();
-  constRemote.turnOn();
+  // constRemote.turnOn();
   var scrollRemote = mainNavbar.makeNewRemote();
   var hoverRemote = mainNavbar.makeNewRemote();
   var loginRemote = mainNavbar.makeNewRemote();

@@ -3,34 +3,137 @@
     <header class="main-header">
       <h1>Work for the world.</h1>
       <p>Find remote jobs at companies that are creating a positive impact.</p>
-      <div class="form-group">
+      <div class="form-group sign-up-widget">
         <input class="form-control" placeholder="Email Address" />
         <button type="button" class="btn btn-secondary sign-up-button">Sign Up</button>
       </div>
     </header>
   </section>
-  <section class="workflow-section">
+  <section class="information-section">
     <header class="section-header">
       <h2>Get started today.</h2>
-      <p>Build a profile and start working for social enteprrises that are changing the world.</p>
+      <p>Build a profile and start working for social enterprises that are changing the world.</p>
     </header>
     <div class="workflow-panel row">
-      <div class="workflow-step col-3">
-        <%= image_tag "home/workflow-1.svg", class: "svg workflow-icon" %>
-        Build your profile.
+      <div class="workflow-step-container col-3">
+        <div class="workflow-step">
+          <%= image_tag "home/workflow-1.svg", class: "svg workflow-icon" %>
+          Build your profile.
+        </div>
       </div>
-      <div class="workflow-step col-3">
-        <%= image_tag "home/workflow-2.svg", class: "svg workflow-icon" %>
-        Find companies working on projects that are creatings sustainable change.
+      <div class="workflow-step-container col-3">
+        <div class="workflow-step">
+          <%= image_tag "home/workflow-2.svg", class: "svg workflow-icon" %>
+          Find companies working for sustainable change.
+        </div>
       </div>
-      <div class="workflow-step col-3">
-        <%= image_tag "home/workflow-3.svg", class: "svg workflow-icon" %>
-        Submit bid for a project.
+      <div class="workflow-step-container col-3">
+        <div class="workflow-step">
+          <%= image_tag "home/workflow-3.svg", class: "svg workflow-icon" %>
+          Submit bid for a project.
+        </div>
       </div>
-      <div class="workflow-step col-3">
-        <%= image_tag "home/workflow-4.svg", class: "svg workflow-icon" %>
-        Work remotely with a team.
+      <div class="workflow-step-container col-3">
+        <div class="workflow-step">
+          <%= image_tag "home/workflow-4.svg", class: "svg workflow-icon" %>
+          Work remotely with a team.
+        </div>
       </div>
     </div>
   </section>
+  <section class="information-section">
+    <header class="section-header">
+      <h2>Use what you know. Do what you love.</h2>
+      <p>Find remote work in these sectors with the following skills.</p>
+    </header>
+    <div class="sectors">
+      <h3 class="sectors-header">Sectors</h3>
+      <div class="sectors-item">
+        <%= image_tag "home/sectors-1.svg", class: "svg opportunity-icon" %>
+        <p class="opportunity-label">Energy</p>
+      </div>
+      <div class="sectors-item">
+        <%= image_tag "home/sectors-2.svg", class: "svg opportunity-icon" %>
+        <p class="opportunity-label">Information Technology</p>
+      </div>
+      <div class="sectors-item">
+        <%= image_tag "home/sectors-3.svg", class: "svg opportunity-icon" %>
+        <p class="opportunity-label">Food &amp; Water</p>
+      </div>
+      <div class="sectors-item">
+        <%= image_tag "home/sectors-4.svg", class: "svg opportunity-icon" %>
+        <p class="opportunity-label">Housing</p>
+      </div>
+      <div class="sectors-item">
+        <%= image_tag "home/sectors-5.svg", class: "svg opportunity-icon" %>
+        <p class="opportunity-label">Finance</p>
+      </div>
+      <div class="sectors-item">
+        <%= image_tag "home/sectors-6.svg", class: "svg opportunity-icon" %>
+        <p class="opportunity-label">Health</p>
+      </div>
+    </div>
+    <div class="sectors">
+      <h3 class="sectors-header">Skills</h3>
+      <div class="sectors-item">
+        <%= image_tag "home/skills-1.svg", class: "svg opportunity-icon" %>
+        <p class="opportunity-label">Development</p>
+      </div>
+      <div class="sectors-item">
+        <%= image_tag "home/skills-2.svg", class: "svg opportunity-icon" %>
+        <p class="opportunity-label">Design</p>
+      </div>
+      <div class="sectors-item">
+        <%= image_tag "home/skills-3.svg", class: "svg opportunity-icon" %>
+        <p class="opportunity-label">Engineering</p>
+      </div>
+      <div class="sectors-item">
+        <%= image_tag "home/skills-4.svg", class: "svg opportunity-icon" %>
+        <p class="opportunity-label">Marketing</p>
+      </div>
+      <div class="sectors-item">
+        <%= image_tag "home/skills-5.svg", class: "svg opportunity-icon" %>
+        <p class="opportunity-label">Sales</p>
+      </div>
+      <div class="sectors-item">
+        <%= image_tag "home/skills-6.svg", class: "svg opportunity-icon" %>
+        <p class="opportunity-label">Consulting</p>
+      </div>
+    </div>
+  </section>
+  <section class="information-section">
+    <div class="sign-up-section">
+      <h2>Find your change.</h3>
+      <div class="form-group sign-up-widget">
+        <input class="form-control" placeholder="Email Address" />
+        <button type="button" class="btn btn-secondary sign-up-button">Sign Up</button>
+      </div>
+      <span>or <a href="#">Login</a></span>
+      <p>By signing up, you agree to our <a href="#">Terms and Conditions</a></p>
+    </div>
+  </section>
 </div>
+<footer id="page-footer">
+  <a class="back-to-top" href="#top"><i class="material-icons">keyboard_arrow_up</i></a>
+  <div class="container footer-container">
+    <div class="links-wrapper">
+      <ul class="links-list footer-links-list">
+        <li class="footer-link"><a href="https://www.facebook.com/changenuity/"><i class="fa fa-facebook-official link-icon" aria-hidden="true"></i>Facebook</a></li>
+        <li class="footer-link"><a href="https://medium.com/@changenuity"><i class="fa fa-medium link-icon" aria-hidden="true"></i>Blog</a></li>
+        <li class="footer-link"><a href="https://twitter.com/changenuity"><i class="fa fa-twitter link-icon" aria-hidden="true"></i>Twitter</a></li>
+      </ul>
+    </div>
+    <div class="links-wrapper">
+      <ul class="links-list footer-links-list">
+        <li class="footer-link"><%= link_to "Home", home_path %></li>
+        <li class="footer-link"><%= link_to "About", about_path %></li>
+        <li class="footer-link"><%= link_to "Terms", tos_path %></li>
+      </ul>
+    </div>
+    <p class="footer-brand">
+      <span class="footer-copyright">Copyright &copy; 2017 Changenuity.</span>
+      <%= image_tag "newLogo.svg", class: 'svg footer-logo' %>
+    </p>
+  </div>
+</footer>
+

@@ -56,20 +56,6 @@
     padding: 2rem 1.5rem;
     @include immediate-children-bottom-margins(0.65rem);
   }
-  // input[type="text"], input[type="password"] {
-  //   padding: 0.7rem 2rem;
-  //   background: none;
-  //   color: $color-blue-stone;
-  //   border-radius: 4rem;
-  //   border: 0.1rem solid $color-orange;
-  //   width: 100%;
-  //   &::placeholder {
-  //     color: $color-pastel-green;
-  //   }
-  //   &:focus {
-  //     outline: none;
-  //   }
-  // }
   .buttons-wrapper {
     display: flex;
   }
@@ -227,7 +213,6 @@
       text-transform: uppercase;
       width: 5.4rem;
       color: $color-blue-diane;
-      // border-right: 0.01rem solid $color-grey;
       background: none;
       .link-icon {
         font-size: 2.2rem;
@@ -236,9 +221,6 @@
       }
       &:hover .link-icon {
         color: $color-orange;
-      }
-      &:first-child {
-        // border-left: 0.01rem solid $color-grey;
       }
     }
   }
@@ -254,32 +236,12 @@
   }
   #navbar-secondary {
     transition-duration: $medium-transition-time;
-    display: none;
-    opacity: 0;
   }
   #navbar-primary {
     transition-duration: $medium-transition-time;
-    .navbar-primary-link a {
-      color: white;
-    }
   }
   #navbar-wrapper.active {
     background-color: rgba(255, 255, 255, 0.99);
-    // @include light-shadow;
-    #navbar-primary {
-      .navbar-primary-link {
-        // border-left: 0.01rem solid $color-grey;
-        &:first-child {
-          border-left: 0;
-        }
-        a {
-          color: $color-blue-diane;
-        }
-      }
-    }
-    #navbar-secondary {
-      display: flex;
-      opacity: 1;
-    }
+    @include light-shadow;
   }
 }
