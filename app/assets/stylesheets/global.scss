@@ -124,6 +124,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
+  color: $color-secondary;
   text-decoration: none;
   -webkit-transition: all $quick-transition-time;
   -ms-transition: all $quick-transition-time;
@@ -131,6 +132,7 @@ a {
   -o-transition: all $quick-transition-time;
   transition: all $quick-transition-time;
   &:hover {
+    color: darken($color-secondary, 20);
     text-decoration: none;
   }
 }
@@ -187,21 +189,6 @@ ul, li {
 .btn-secondary {
   @include theme-background-border-colors($color-secondary);
   @include focus-box-shadow($color-secondary);
-}
-
-.main-header {
-  h1, h2, h3, h4, h5, h6 {
-    letter-spacing: 0.11rem;
-    margin-bottom: 0.8rem;
-  }
-  p {
-    font-size: 1.3rem;
-    word-spacing: 0.2rem;
-  }
-  em {
-    font-style: normal;
-    font-weight: 700;
-  }
 }
 
 .missing-img {

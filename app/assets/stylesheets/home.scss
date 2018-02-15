@@ -60,7 +60,20 @@
   .workflow-panel {
     margin: 0 -2rem;
     .workflow-step-container {
+      position: relative;
       padding: 0 2rem;
+      &:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -1.5rem;
+        width: 3rem;
+        height: 5rem;
+        background-image: url("home/arrow");
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        background-position: center;
+      }
     }
     .workflow-step {
       text-align: center;

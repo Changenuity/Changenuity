@@ -58,14 +58,11 @@
   }
   .buttons-wrapper {
     display: flex;
+    justify-content: space-between;
   }
   .btn {
-    flex: 1 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    border-radius: 0;
+    width: 48%;
+    text-align: center;
     cursor: pointer;
   }
   .gravatar {
