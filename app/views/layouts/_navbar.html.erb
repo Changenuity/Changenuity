@@ -6,16 +6,13 @@
         <span class="brand-text">changenuity</span>
       <% end %>
 
-      <% if false %>
-      <ul id="navbar-primary" class="links-list">
-        <li class="navbar-primary-link"><%= link_to "Discover", browse_path %></li>
-        <li class="navbar-primary-link"><%= link_to "Discuss", "https://join.slack.com/t/changenuity/shared_invite/enQtMzAyNDQ5ODM0MTQ5LTFjYWVlMWFjNjJhMzVhNDk4ZTQxNTI2Y2M5MmVlMDgxNjRlNGUyZWFjMjFhMWJhZTcwZGQ0YzNkODUwZDJiYzU" %></li>
-        <li class="navbar-primary-link"><%= link_to "About", about_path %></li>
-      </ul>
-      <% end %>
-
       <div id="navbar-secondary">
+        <%= link_to "https://join.slack.com/t/changenuity/shared_invite/enQtMzAyNDQ5ODM0MTQ5LTFjYWVlMWFjNjJhMzVhNDk4ZTQxNTI2Y2M5MmVlMDgxNjRlNGUyZWFjMjFhMWJhZTcwZGQ0YzNkODUwZDJiYzU", class: "secondary-navbar-button" do %>
+          <%= image_tag "slack.svg", class: "svg slack-logo" %>
+          Community
+        <% end %>
         <% if user_signed_in? %>
+          <% #TODO - Improve the window after user has logged in %>
           <%= link_to post_path, class: "secondary-navbar-button" do %>
             <i class="link-icon material-icons">add</i>
             Add Project
@@ -73,22 +70,9 @@
             </div>
           <% end %>
         <% end %>
-
-        <%= link_to "https://join.slack.com/t/changenuity/shared_invite/enQtMzAyNDQ5ODM0MTQ5LTFjYWVlMWFjNjJhMzVhNDk4ZTQxNTI2Y2M5MmVlMDgxNjRlNGUyZWFjMjFhMWJhZTcwZGQ0YzNkODUwZDJiYzU", class: "secondary-navbar-button" do %>
-          <%= inline_svg "slack.svg", class: "slack-logo" %>
-          Slack
-        <% end %>
       </div><!-- navbar-secondary -->
       <i class="material-icons navbar-handle open-nav" data-component-id="navbar-primary">menu</i>
       <i class="material-icons navbar-handle open-nav" data-component-id="navbar-secondary">person_outline</i>
     </nav>
   </div>
 </div>
-<script>
-document.getElementById("navbar-signup-button").addEventListener("click",
-  function (e) {
-    e.preventDefault();
-    window.location = "<%= new_registration_path(:user) %>" + "?email="
-      + document.getElementById("navbar-user-email").value;
-  });
-</script>
