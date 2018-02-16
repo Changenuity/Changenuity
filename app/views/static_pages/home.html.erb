@@ -4,8 +4,8 @@
       <h1>Work for the world.</h1>
       <p>Find remote jobs at companies that are creating a positive impact.</p>
       <div class="form-group sign-up-widget">
-        <input class="form-control" placeholder="Email Address" />
-        <button type="button" class="btn btn-secondary sign-up-button">Sign Up</button>
+        <input class="form-control" placeholder="Email Address" id="landing-user-email1" />
+        <button type="button" class="btn btn-secondary sign-up-button" id="landing-signup-button1">Sign Up</button>
       </div>
     </header>
   </section>
@@ -105,8 +105,8 @@
     <div class="sign-up-section">
       <h2>Find your change.</h3>
       <div class="form-group sign-up-widget">
-        <input class="form-control" placeholder="Email Address" />
-        <button type="button" class="btn btn-secondary sign-up-button">Sign Up</button>
+        <input class="form-control" placeholder="Email Address" id="landing-user-email2" />
+        <button type="button" class="btn btn-secondary sign-up-button" id="landing-signup-button2">Sign Up</button>
       </div>
       <span>or <a href="#">Login</a></span>
       <p>By signing up, you agree to our <a href="#">Terms and Conditions</a></p>
@@ -137,3 +137,17 @@
   </div>
 </footer>
 
+<script>
+document.getElementById("landing-signup-button1").addEventListener("click",
+  function (e) {
+    e.preventDefault();
+    window.location = "<%= new_registration_path(:user) %>" + "?email="
+      + document.getElementById("landing-user-email1").value;
+  });
+document.getElementById("landing-signup-button2").addEventListener("click",
+  function (e) {
+    e.preventDefault();
+    window.location = "<%= new_registration_path(:user) %>" + "?email="
+      + document.getElementById("landing-user-email2").value;
+  });
+</script>
